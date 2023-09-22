@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+   <meta name="ContinuumDAO docs" content="">
+   <link rel = "icon" type = "image/png" href = "favicon.ico">
+  
+   <title>ContinuumDAO docs</title>
+
+   <!-- Themes (light + dark) -->
+   <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+   <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+
+   <!-- Custom Styles -->
+   <style>
+     :root {
+       /* --theme-hue: 325; */
+       --base-font-size: 16px;
+       --theme-color   : rgb(39, 152, 167);
+     }
+   </style>
+</head>
+<body>
+   <div id="app"></div>
+
+   <script>
+    window.$docsify = {
+      themeable: {
+          readyTransition: true // default
+      },
+      routerMode: 'history',
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md',
+      },
+      logo: '/_media/continuum_logo_120x120.png',
+      name: 'ContinuumDAO',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      coverpage: false,
+      loadNavbar: false,
+      repo: 'https://github.com/ContinuumDAO',
+    }
+   </script>
+
+
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+
+  <!-- Required -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+  <!-- PDFObject.js is a required dependency of this plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
+  <!-- This is the source code of the pdf embed plugin -->
+  <script src="path-to-file/docsify-pdf-embed.js"></script>
+  <!-- or use this if you are not hosting the file yourself -->
+  <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+
+  <!-- Recommended -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>
