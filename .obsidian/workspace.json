@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/ProposalHowToSubmit.md",
+                "file": "ContinuumDAO/Governance/ProposalHowToSubmit.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/ProposalHowToSubmit.md",
+                "file": "ContinuumDAO/Governance/ProposalHowToSubmit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/ProposalHowToSubmit.md",
+                "file": "ContinuumDAO/Governance/ProposalHowToSubmit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/ProposalHowToSubmit.md"
+                "file": "ContinuumDAO/Governance/ProposalHowToSubmit.md"
               }
             }
           }
@@ -146,9 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5e68a42adbc55dc3",
+  "active": "547b0bdde00747da",
   "lastOpenFiles": [
-    "ContinuumDAO/ProposalHowToSubmit.md",
+    "ContinuumDAO/Governance",
+    "ContinuumDAO/Governance/ProposalHowToSubmit.md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/Introduction.md",
     "ContinuumDAO/Constitution.md",
