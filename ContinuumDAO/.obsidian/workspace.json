@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "fa61a6cca7a55381",
+    "id": "c73da038545363fa",
     "type": "split",
     "children": [
       {
-        "id": "476de0560a0acf65",
+        "id": "8bb3e14674908387",
         "type": "tabs",
         "children": [
           {
-            "id": "5e68a42adbc55dc3",
+            "id": "03dde1db4f1b4628",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ContinuumDAO/Constitution.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "56f4b7f0a9071865",
+    "id": "f94e04d159877dd3",
     "type": "split",
     "children": [
       {
-        "id": "157132e6599b15c5",
+        "id": "75afeec4e79c0dbd",
         "type": "tabs",
         "children": [
           {
-            "id": "547b0bdde00747da",
+            "id": "b7b635a69be6a1b5",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +39,7 @@
             }
           },
           {
-            "id": "45313647af077a3d",
+            "id": "09c05dd364b25873",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +54,7 @@
             }
           },
           {
-            "id": "12fb6201f91680fc",
+            "id": "43c11f41953bd833",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -72,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "92ad996908d3c2ed",
+    "id": "3d008c0bb7216f3a",
     "type": "split",
     "children": [
       {
-        "id": "48b38a9db3ef89f0",
+        "id": "8aef40fe31785db0",
         "type": "tabs",
         "children": [
           {
-            "id": "5f4e2042bfa90b28",
+            "id": "5902d12881189bb2",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/Constitution.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +92,18 @@
             }
           },
           {
-            "id": "7d540d64526e26f2",
+            "id": "3cf1ba1e39ad2ecb",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/Constitution.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "50639fb432953d09",
+            "id": "52689dd37580143f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,13 +114,11 @@
             }
           },
           {
-            "id": "e40dece83ea684df",
+            "id": "539f1681630e947a",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "ContinuumDAO/Constitution.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,14 +138,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5e68a42adbc55dc3",
-  "lastOpenFiles": [
-    "ContinuumDAO/Governance/ProposalHowToSubmit.md",
-    "ContinuumDAO/Governance",
-    "ContinuumDAO/WhitePaper.md",
-    "ContinuumDAO/Introduction.md",
-    "ContinuumDAO/Constitution.md",
-    "ContinuumDAO/HowItWorks.md",
-    "README.md"
-  ]
+  "active": "03dde1db4f1b4628",
+  "lastOpenFiles": []
 }
