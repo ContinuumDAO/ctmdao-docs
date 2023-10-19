@@ -50,7 +50,7 @@ The Forum will be divided into five sections: Announcements, Ideas & Suggestions
 - **The Idea & Suggestions section** is a place for all DAO members to share their thoughts on ContinuumDAO and the cross-chain industry. It is a place where ideas can be formed into proposals.
 - **The Governance section** is where DAO members can propose subjects related to the Constitution, the Treasury or project operations that require serious action. All proposals must be posted here.
 - **The Code Development section** will be for DAO members with a development background to propose and discuss topics related to the code or bugs.
-- ************Guilds section************ will be where focused actions are organized on behalf of CTMDAO. These invitation only areas will be split into the four Guilds: Developers, Marketing, Business Development and Research. Each Guild leader will be appointed by the Committee.
+- **Guilds section** will be where focused actions are organized on behalf of CTMDAO. These invitation only areas will be split into the four Guilds: Developers, Marketing, Business Development and Research. Each Guild leader will be appointed by the Committee.
 
 ### The Governance Process
 
