@@ -1,12 +1,14 @@
-- [Who are we?](/README.md)
 
-  - [Our White Paper](/ContinuumDAO/WhitePaper.md)
+[Who are we?](/README.md)
 
-- Get Started
-  - [Introduction](/ContinuumDAO/Introduction.md)
+[Our White Paper](/ContinuumDAO/WhitePaper.md)
 
-- [How it Works](/ContinuumDAO/HowItWorks.md)
+* Get Started
 
-- Governance
-  - [Constitution](Constitution.md)
-  - [How To Write a Proposal](How To Write a Proposal.md)
+  * [Introduction](/ContinuumDAO/Introduction.md)
+  * [How it Works](/ContinuumDAO/HowItWorks.md)
+
+* Governance
+
+  * [Constitution](/ContinuumDAO/Governance/Constitution.md)
+  * [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md)
