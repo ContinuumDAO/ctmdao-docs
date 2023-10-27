@@ -8,5 +8,5 @@
 - [How it Works](/ContinuumDAO/HowItWorks.md)
 
 - Governance
-  - [Constitution](/ContinuumDAO/Constitution.md)
+  - [Constitution](Constitution.md)
   - [How To Write a Proposal](How To Write a Proposal.md)
