@@ -17,7 +17,7 @@ After the discussion period, which could take a few days or a week or two you ca
 
 There is no threshold to propose for the Temperature Check. Proposals will have a Temperature Check for 5 days. Once the proposal collects enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the authors can make changes to the proposal to incorporate the comments form the community, if they wish to. The proposal is now ready for the next stage, which is a Formal Vote.
 
-## Phase 3: Formal Vote (FV)
+### Phase 3: Formal Vote (FV)
 
 At this stage, the proposal author(s) should contact one of the Committee members. They will need to verify that the proposer’s wallet address has at least 1% of the vote power. This can be their own voting power, or can include voting power delegated to it via the Governance contract.
 Once the 1% vote power threshold has been passed, the Committee will check that the proposal has the correct format (see below), with no omissions and then it will be posted to either snapshot.org or tally.xyx (on-chain governance). The voting period will be 10 days
