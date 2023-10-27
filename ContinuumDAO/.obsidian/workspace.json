@@ -65,7 +65,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3d008c0bb7216f3a",
@@ -139,5 +140,11 @@
     }
   },
   "active": "03dde1db4f1b4628",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Governance/How to Write a Proposal.md",
+    "Governance/ProposalHowToSubmit.md",
+    "Governance/How to Submit a Proposal.md",
+    "Constitution.md",
+    "HowItWorks.md"
+  ]
 }

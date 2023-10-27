@@ -9,4 +9,4 @@
 
 - Governance
   - [Constitution](/ContinuumDAO/Constitution.md)
-  - [How to Submit a Proposal](ProposalHowToSubmit.md)
+  - [How to Write a Proposal](How%20to%20Write%20a%20Proposal.md)
