@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Governance/How To Write a Proposal.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Governance/How To Write a Proposal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Governance/How To Write a Proposal.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md"
+                "file": "ContinuumDAO/Governance/How To Write a Proposal.md"
               }
             }
           }
@@ -146,10 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "547b0bdde00747da",
+  "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_sidebar.md",
+    "ContinuumDAO/Governance/How To Write a Proposal.md",
     "ContinuumDAO/Constitution.md",
-    "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "ContinuumDAO/Governance",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/Introduction.md",
