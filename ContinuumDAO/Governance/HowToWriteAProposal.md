@@ -20,7 +20,7 @@ There is no threshold to propose for the Temperature Check. Proposals will have 
 ### Phase 3: Formal Vote (FV)
 
 At this stage, the proposal author(s) should contact one of the Committee members. They will need to verify that the proposer’s wallet address has at least 1% of the vote power. This can be their own voting power, or can include voting power delegated to it via the Governance contract.
-Once the 1% vote power threshold has been passed, the Committee will check that the proposal has the correct format (see below), with no omissions and then it will be posted to either [Snapshot](https://snapshot.org/#/continuumdao.eth) or [Tally](https://www.tally.xyz/explore) (on-chain governance). The proposal will be posted to the Governance section of the Forum, either to the Treasury section [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), or to the Constitution section [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution). The voting period will be 10 days.
+Once the 1% vote power threshold has been passed, the Committee will check that the proposal has the correct format (see below), with no omissions and then it will be posted to either [Snapshot](https://snapshot.org/#/continuumdao.eth) or [Tally](https://www.tally.xyz/explore) (on-chain governance). The proposal will be posted by a Committee member to the Governance section of the Forum, either to the Treasury section [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), or to the Constitution section [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution). The voting period will be 10 days.
 
 
 ## Proposal Format
