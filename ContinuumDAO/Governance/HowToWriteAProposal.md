@@ -13,7 +13,7 @@ The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel,
 
 ### Phase 2: Temperature Check (TC)
 
-After the discussion period, which could take a few days or a week or two you can post your draft proposal to the Proposals - Treasury, or Proposals - Constitution sections of the Governance section of the Forum. Label it NNNN - Temperature Check *Title of Proposal*, where NNNN is the next sequential proposal number.
+After the discussion period, which could take a few days or a week or two you can post your draft proposal to the [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), or [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution) sections of the Governance section of the Forum. Label it NNNN - Temperature Check *Title of Proposal*, where NNNN is the next sequential proposal number.
 
 There is no threshold to propose for the Temperature Check. Proposals will have a Temperature Check for 5 days. Once the proposal collects enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the authors can make changes to the proposal to incorporate the comments from the community, if they wish to. The proposal is now ready for the next stage, which is a Formal Vote.
 
