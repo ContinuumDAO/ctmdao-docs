@@ -9,13 +9,13 @@ We are delighted to welcome all veCTM holders to participate in shaping Continuu
 
 ### Phase 1: Discussion
 
-The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel, but please initiate discussion in the Forum. This could be in the Ideas & Suggestions section or in one of the Guilds in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal. 
+The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel, but please initiate discussion in the [Forum](https://forum.continuumdao.org/). This could be in the [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) section or in one of the Guilds in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal. 
 
 ### Phase 2: Temperature Check (TC)
 
 After the discussion period, which could take a few days or a week or two you can post your draft proposal to the Proposals - Treasury, or Proposals - Constitution sections of the Governance section of the Forum. Label it NNNN - Temperature Check *Title of Proposal*, where NNNN is the next sequential proposal number.
 
-There is no threshold to propose for the Temperature Check. Proposals will have a Temperature Check for 5 days. Once the proposal collects enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the authors can make changes to the proposal to incorporate the comments form the community, if they wish to. The proposal is now ready for the next stage, which is a Formal Vote.
+There is no threshold to propose for the Temperature Check. Proposals will have a Temperature Check for 5 days. Once the proposal collects enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the authors can make changes to the proposal to incorporate the comments from the community, if they wish to. The proposal is now ready for the next stage, which is a Formal Vote.
 
 ### Phase 3: Formal Vote (FV)
 
@@ -30,13 +30,19 @@ Follow the proposal template below and make sure that it has all of these elemen
 #### Proposal Template
 
 **Abstract** (summary of no more than 200 words)
+
 **Motivation** (what do your team hope to achieve?)
 Specification
+
 **Overview** (please include the background of who you and your team are)
+
 **Type of proposal** (choose from : Constitution or Request for funding)
+
 **Scope** (define the breakdown of the tasks in the project as a list)
 Success Criteria (for Treasury Proposals) - Deliverables and Milestones
+
 **Timeline** (you could use a Gantt Chart for a larger project)
+
 **Budget** (include amounts to be paid upon some Deliverables, or Milestones achieved)
 
 
@@ -53,6 +59,8 @@ Proposals should align with the DAO's Mission and Vision as detailed in the Cons
 
 **Community Involvement**
 Encourage community engagement by soliciting feedback and collaboration on your proposal before submission, which can lead to valuable insights and improvements.
+
+
 
 **Note** 
 The Committee has the right to initiate a vote if it’s needed, without going through phase 1 and phase 2.
