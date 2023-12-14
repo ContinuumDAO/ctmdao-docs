@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Router Working Mechanism.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Router Working Mechanism.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md",
+                "file": "ContinuumDAO/Router Working Mechanism.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/Governance/HowToWriteAProposal.md"
+                "file": "ContinuumDAO/Router Working Mechanism.md"
               }
             }
           }
@@ -148,13 +148,17 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/Router_Contract_Structure.png",
+    "_media/Router_Node_Structure.png",
+    "Router_Node_Structure.png.md",
+    "ContinuumDAO/Router Working Mechanism.md",
+    "ContinuumDAO/HowItWorks.md",
+    "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "README.md",
     "ContinuumDAO/Governance/Constitution.md",
     "_sidebar.md",
-    "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "ContinuumDAO/Governance",
     "ContinuumDAO/WhitePaper.md",
-    "ContinuumDAO/Introduction.md",
-    "ContinuumDAO/HowItWorks.md"
+    "ContinuumDAO/Introduction.md"
   ]
 }
