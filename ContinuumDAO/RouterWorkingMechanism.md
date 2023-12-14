@@ -16,7 +16,7 @@ It is enhancing the current node services for high availability, scalability, an
 
 ###  Contracts
 
-![](/_media/Router_Contract_Structure.png)
+<img src="Router_Contract_Structure.png"  alt=""/>
 
 
 The contract structure is shown in the above diagram.
