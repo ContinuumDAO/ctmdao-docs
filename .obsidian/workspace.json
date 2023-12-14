@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "_sidebar.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "_sidebar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "_sidebar.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md"
+                "file": "_sidebar.md"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "ContinuumDAO/HowItWorks.md",
     "ContinuumDAO/RouterWorkingMechanism.md",
+    "ContinuumDAO/HowItWorks.md",
     "_media/Router_Contract_Structure.png",
     "_media/Router_Node_Structure.png",
     "Router_Node_Structure.png.md",
