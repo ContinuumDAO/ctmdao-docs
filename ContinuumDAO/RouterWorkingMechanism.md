@@ -3,7 +3,7 @@
 
 ###  Nodes Structure
 
-![](Router_Node_Structure.png)
+![](_media/Router_Node_Structure.png)
 
 The relationship between C3Caller-Relayer and MPC can be seen in the above diagram. The C3Caller-Relayer node includes all the functionalities of the message cross-chain. It is highly available and scalable, with stateless nodes that do not communicate with each other. When performance is insufficient, it can be horizontally scaled. Currently, the plan is to deploy two or three nodes to form a cluster, relying on a MySQL database and Redis cache.
 
@@ -16,7 +16,7 @@ It is enhancing the current node services for high availability, scalability, an
 
 ###  Contracts
 
-![](Router_Contract_Structure.png)
+![](_media/Router_Contract_Structure.png)
 
 
 The contract structure is shown in the above diagram.
