@@ -15,7 +15,7 @@
               "state": {
                 "file": "ContinuumDAO/RouterWorkingMechanism.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -148,11 +148,11 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/Router_Node_Structure.png",
     "_sidebar.md",
     "ContinuumDAO/RouterWorkingMechanism.md",
     "ContinuumDAO/HowItWorks.md",
     "_media/Router_Contract_Structure.png",
-    "_media/Router_Node_Structure.png",
     "Router_Node_Structure.png.md",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "README.md",
