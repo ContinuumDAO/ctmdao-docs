@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "ContinuumDAO/WhitePaper.md",
                 "mode": "source",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "ContinuumDAO/WhitePaper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md",
+                "file": "ContinuumDAO/WhitePaper.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/RouterWorkingMechanism.md"
+                "file": "ContinuumDAO/WhitePaper.md"
               }
             }
           }
@@ -148,9 +148,10 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/White_Paper_ContinuumDAO.pdf",
+    "ContinuumDAO/RouterWorkingMechanism.md",
     "_media/Router_Node_Structure.png",
     "_sidebar.md",
-    "ContinuumDAO/RouterWorkingMechanism.md",
     "ContinuumDAO/HowItWorks.md",
     "_media/Router_Contract_Structure.png",
     "Router_Node_Structure.png.md",
