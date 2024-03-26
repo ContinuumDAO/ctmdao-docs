@@ -6,7 +6,7 @@ C3Caller enables sending cross-chain messages through a user's dApp by writing s
 
 Once a dApp is registered and its contracts are successfully deployed, it automatically interfaces with the C3Caller Proxy Contract. This setup allows for the seamless transmission of messages from the source to the destination chain, facilitating interoperable blockchain applications.
 
-<img src="/_media/C3CallerWorkingMechanism.png"  alt=""/>
+<img src="/_media/C3CallerSchematic.png"  alt=""/>
 
 ### How it Works
 

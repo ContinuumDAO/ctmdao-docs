@@ -11,11 +11,9 @@
             "id": "5e68a42adbc55dc3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
-                "mode": "source",
-                "source": true
+                "file": "_media/C3CallerSchematic.png"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
+                "file": "_media/C3CallerSchematic.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
+                "file": "_media/C3CallerSchematic.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md"
+                "file": "_media/C3CallerSchematic.png"
               }
             }
           }
@@ -148,20 +146,26 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "ContinuumDAO/C3Caller/C3CallerDemo.md",
+    "_media/lu4834716po3y.tmp",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
+    "_media/C3CallerSchematic.png",
+    "_media/C3CallerFundAccount.png",
+    "_media/C3CallerDappRegister.png",
+    "_media/C3CallerContractStructure.png",
+    "_media/C3CallerAddContracts.png",
+    "_media/lu4834716po11.tmp",
+    "_media/lu4834716po0a.tmp",
+    "_media/C3CallerWorkingMechanism.png",
+    "_media/lu4834716pnyt.tmp",
+    "_media/lu4834716pny2.tmp",
+    "_media/lu4834716pnxb.tmp",
+    "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
     "ContinuumDAO/C3Caller/Overview.md",
     "_sidebar.md",
-    "_media/C3CallerContractStructure.png",
-    "_media/C3CallerWorkingMechanism.png",
     "ContinuumDAO/HowItWorks.md",
-    "_media/C3CallerFundAccount.png",
-    "_media/C3CallerAddContracts.png",
-    "_media/C3CallerDappRegister.png",
     "ContinuumDAO/RouterWorkingMechanism.md",
     "ContinuumDAO/WhitePaper.md",
-    "_media/C3CallerSchematic.png",
     "ContinuumDAO/C3Caller",
     "ContinuumDAO/Untitled",
     "Untitled",
