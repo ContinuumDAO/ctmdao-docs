@@ -148,10 +148,10 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "ContinuumDAO/C3Caller/QuickStart.md",
-    "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
+    "ContinuumDAO/C3Caller/QuickStart.md",
+    "ContinuumDAO/C3Caller/Overview.md",
     "_sidebar.md",
     "_media/C3CallerContractStructure.png",
     "_media/C3CallerWorkingMechanism.png",

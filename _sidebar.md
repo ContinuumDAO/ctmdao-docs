@@ -18,6 +18,6 @@
 
   * [Overview](/ContinuumDAO/C3Caller/Overview.md)
   * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
-  * [C3Caller Protocol](C3CallerProtocol.md)
+  * [C3Caller Protocol](/C3CallerProtocol.md)
   * [C3Caller Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
 
