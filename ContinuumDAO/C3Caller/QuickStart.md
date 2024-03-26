@@ -18,7 +18,7 @@
 
 To use C3Caller, your contract should extend ‘C3CallerDapp’ as a parent contract. Use ‘c3call’ to send messages to another chain.
 
-Implement ‘_c3Fallback’ to receive callData if the transaction execution fails. The code is open-source now and can be viewed at: [https://github.com/ContinuumDAO/router-contract](https://github.com/ContinuumDAO/router-contract).
+Implement ‘\_c3Fallback’ to receive calldata if the transaction execution fails. The code is open-source now and can be viewed at: [https://github.com/ContinuumDAO/router-contract](https://github.com/ContinuumDAO/router-contract).
 
 ### Testnet Endpoint
 

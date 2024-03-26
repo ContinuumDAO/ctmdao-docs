@@ -11,9 +11,11 @@
             "id": "5e68a42adbc55dc3",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "_media/C3CallerSchematic.png"
+                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_media/C3CallerSchematic.png",
+                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_media/C3CallerSchematic.png",
+                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_media/C3CallerSchematic.png"
+                "file": "ContinuumDAO/C3Caller/C3CallerProtocol.md"
               }
             }
           }
@@ -146,9 +148,12 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "_media/lu4834716po3y.tmp",
+    "ContinuumDAO/C3Caller/C3CallerDemo.md",
+    "ContinuumDAO/C3Caller/QuickStart.md",
+    "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
     "_media/C3CallerSchematic.png",
+    "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
     "_media/C3CallerDappRegister.png",
     "_media/C3CallerContractStructure.png",
@@ -159,9 +164,6 @@
     "_media/lu4834716pnyt.tmp",
     "_media/lu4834716pny2.tmp",
     "_media/lu4834716pnxb.tmp",
-    "ContinuumDAO/C3Caller/C3CallerDemo.md",
-    "ContinuumDAO/C3Caller/QuickStart.md",
-    "ContinuumDAO/C3Caller/Overview.md",
     "_sidebar.md",
     "ContinuumDAO/HowItWorks.md",
     "ContinuumDAO/RouterWorkingMechanism.md",
@@ -176,7 +178,6 @@
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "README.md",
     "ContinuumDAO/Governance/Constitution.md",
-    "ContinuumDAO/Governance",
     "ContinuumDAO/Introduction.md"
   ]
 }

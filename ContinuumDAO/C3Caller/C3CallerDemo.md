@@ -120,7 +120,7 @@ function crossIn(
 
 ### Fallback Mechanism
 
-The dapp contract needs to implement  \_c3Fallback in C3CallerDapp, which will pass the selector and callData when c3call is called at beginning. The dApp should handle the callData depending on selector. The transaction will revert if \_c3Fallback returns false.
+The dapp contract needs to implement  \_c3Fallback in C3CallerDapp, which will pass the selector and calldata when c3call is called at beginning. The dApp should handle the callData depending on selector. The transaction will revert if \_c3Fallback returns false.
 
 ```
 function _c3Fallback(
