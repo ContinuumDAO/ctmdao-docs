@@ -105,7 +105,7 @@ using Strings for *;
 
 ### Receive the Message
 
-It is not necessary to modify anything on the receive function. The calldata is already built in the source chain and verified by the MPC nodes. In the demo, it is `crossIn`, just mint token to the user address with the passed amount and return True if execute is successful. The transaction will revert if the function  returns false, or if revert is called with a string  that is passed to the fallback argument reason\_.
+It is not necessary to modify anything on the receive function. The calldata is already built in the source chain and verified by the MPC nodes. In the demo, it is `crossIn`, just mint token to the user address with the passed amount and return 'true' if execute is successful. The transaction will revert if the function  returns 'false', or if revert is called with a string  that is passed to the fallback argument reason\_.
 
 ```
 function crossIn(
