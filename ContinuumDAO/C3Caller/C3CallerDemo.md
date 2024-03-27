@@ -105,7 +105,7 @@ using Strings for *;
 
 ### Receive the Message
 
-It is not necessary to modify anything on the receive function. The calldata is already built in the source chain and verified by the MPC nodes. In the demo, it is `crossIn`, just mint token to the user address with the passed amount and return True if execute is successful.
+It is not necessary to modify anything on the receive function. The calldata is already built in the source chain and verified by the MPC nodes. In the demo, it is `crossIn`, just mint token to the user address with the passed amount and return True if execute is successful. The transaction will revert if the function  returns false, or if revert is called with a string  that is passed to the fallback argument reason\_.
 
 ```
 function crossIn(
@@ -120,7 +120,7 @@ function crossIn(
 
 ### Fallback Mechanism
 
-The dapp contract needs to implement  \_c3Fallback in C3CallerDapp, which will pass the selector and calldata when c3call is called at beginning. The dApp should handle the calldata depending on selector. The transaction will revert if \_c3Fallback returns false, or if revert is called with the string reason\_.
+The dapp contract needs to implement  \_c3Fallback in C3CallerDapp, which will pass the selector and calldata when c3call is called at beginning. The dApp should handle the calldata depending on selector. 
 
 ```
 function _c3Fallback(
