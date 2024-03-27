@@ -135,7 +135,7 @@ function _c3Fallback(
     require(to != address(0), "empty to");
     require(amount > 0, "empty amount");
     if (selector == FuncCrossIn) {
-        _mint(to, amount);
+        _mint(to, amount);  // returns the amount to the user
         return true;
     } else {
         return false;
