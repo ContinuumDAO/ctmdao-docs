@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerDemo.md",
+                "file": "ContinuumDAO/C3Caller/QuickStart.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerDemo.md",
+                "file": "ContinuumDAO/C3Caller/QuickStart.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerDemo.md",
+                "file": "ContinuumDAO/C3Caller/QuickStart.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerDemo.md"
+                "file": "ContinuumDAO/C3Caller/QuickStart.md"
               }
             }
           }
@@ -148,10 +148,10 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/RouterWorkingMechanism.md",
     "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
-    "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",

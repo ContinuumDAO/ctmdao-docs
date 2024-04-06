@@ -8,11 +8,11 @@
 
 2. Configure which chain and contract you implement C3CallerDapp on. The Relayer will check if the target is correct and on the list.
 
-<img src="/_media/C3CallerAddContracts.png"  alt=""/>
+<img src="/_media/C3CallerAddContracts.jpg"  alt=""/>
 
 3. Deposit some fees (it's free on the testnet now). C3Caller allows dApps to choose the token type to pay the gas and service fees, like CTM (CTM's native token), USDT, USDC, DAI. Withdrawals are available anytime.
 
-<img src="/_media/C3CallerFundAccount.png"  alt=""/>
+<img src="/_media/C3CallerFundAccount.jpg"  alt=""/>
 
 ### Contract Implementation
 
