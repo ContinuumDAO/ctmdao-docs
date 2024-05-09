@@ -2,7 +2,7 @@
 ## Node Running Instructions
 
 1. **Download** 
-Your machine needs to have Docker installed, please refer to the link. Ensure that port 808 is open, with port 8080 serving as the node's external API port. Download the program source files from GitHub at [distributed-auth](https://github.com/ContinuumDAO/distributed-auth)
+Your machine needs to have Docker installed, please refer to the link. Ensure that port 8080 is open, with port 8080 serving as the node's external API port. Download the program source files from GitHub at [distributed-auth](https://github.com/ContinuumDAO/distributed-auth)
 
 2.  **Configuration** 
 Modify the following information in the distributed-auth/console/configs.json configuration file, other configuration information can remain default:
