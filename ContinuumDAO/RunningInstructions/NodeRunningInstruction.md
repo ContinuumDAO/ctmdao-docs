@@ -41,7 +41,7 @@ curl -X 'GET' 'http://YOUR_SERVER_EXTERNAL_IP:8080/getNodeKey'
 
 Assuming you and your friends currently have nodes A, B, and C running, and you wish to collaborate to create a 2/3 distributed threshold key, i.e., any two of the nodes A, B, and C agree to sign, you can obtain a correct distributed signature. Follow these steps to test:
 
-** (a) Networking**
+**(a) Networking**
 
 First, nodes A, B, and C need to form a distributed threshold network. Any node can initiate a networking request, and if other nodes agree, networking can be successful. We assume here that node A initiates.
 
