@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPC/MainFeatures.md",
-                "mode": "preview",
+                "file": "ContinuumDAO/MPC/StrongerSecurity.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/MPC/MainFeatures.md",
+                "file": "ContinuumDAO/MPC/StrongerSecurity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/MPC/MainFeatures.md",
+                "file": "ContinuumDAO/MPC/StrongerSecurity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/MPC/MainFeatures.md"
+                "file": "ContinuumDAO/MPC/StrongerSecurity.md"
               }
             }
           }
@@ -161,15 +161,15 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
-    "ContinuumDAO/MPC/CoreSteps.md",
     "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "ContinuumDAO/MPC/MainFeatures.md",
+    "ContinuumDAO/MPC/CoreSteps.md",
     "().md",
     "ContinuumDAO/MPC/ForDevelopers.md",
     "ContinuumDAO/MPC/TypicalUseCases.md",
     "ContinuumDAO/MPC/MPCvsMultiSig.md",
     "ContinuumDAO/MPC/MPCvsZK.md",
     "ContinuumDAO/MPC/MPCvsOthers.md",
-    "ContinuumDAO/MPC/MainFeatures.md",
     "ContinuumDAO/MPC/WhatIsMPC.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
     "_sidebar.md",
