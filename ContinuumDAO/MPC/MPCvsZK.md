@@ -1,0 +1,14 @@
+
+## MPC vs ZK
+
+Zero-Knowledge Proof (ZK) has emerged as a significant innovation in cryptography over the last two years. Zero-knowledge proof is an advanced area of study that requires deep knowledge of mathematics and cryptography, making it challenging to grasp. Essentially, it allows someone to prove they have specific information without revealing the information itself. For instance, a person can confirm the truth of a claim to another party who, in turn, learns only that the claim is true without knowing any underlying details.
+
+In the realm of cryptography, zero-knowledge proofs are prized for ensuring anonymity, safeguarding privacy, and enabling concise verification processes. For example, they can confirm the validity of a transaction without exposing its details or the identities of those involved. Additionally, they allow for the swift verification of complex calculations, streamlining what would otherwise be lengthy and cumbersome processes.
+
+Zero-knowledge proofs are increasingly being tested in blockchain technologies, notably in zkEVM (rollup) implementations, privacy-focused blockchains, cross-chain messaging, and oracles. These applications are enhancing the visibility of zero-knowledge proofs. However, it's important to recognize that while zero-knowledge proofs offer many benefits, they are not a one-size-fits-all solution and may not be suitable for every scenario.
+
+For instance, in Bitcoin Layer2 solutions that use zero-knowledge, the proofs cannot be verified directly due to Bitcoin's limited computational capabilities. Typically, these systems depend on what are called optimistic validators. While this approach incorporates the security features of zero-knowledge proofs, the overall security is only as robust as the weakest link in these validators. Similarly, some blockchains that do not support complex computations cannot verify zero-knowledge proofs, leading to compatibility issues.
+
+Despite the advantages of zero-knowledge proofs in terms of privacy and efficient verification, there are practical limitations related to their efficiency. For example, validating a specific type of digital signature can take about three minutes on a high-performance computer, which demands significant computational power and may restrict the broader application of zero-knowledge technologies.
+
+On the flip side, Multi-Party Computation (MPC) starts from blockchain signature algorithms and implements solutions that can work with over 95% of blockchain systems without needing high compute requirements. A standard personal computer can join an MPC network, and due to minimal data latency, the computations can be completed quickly, often within seconds. This makes MPC a more accessible and potentially more versatile technology in many blockchain applications.

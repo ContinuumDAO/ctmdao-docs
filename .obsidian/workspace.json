@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/C3Caller/QuickStart.md",
+                "file": "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
-                "source": false
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "c4c50ad8d5546d62",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ContinuumDAO/MPC/MainFeatures.md",
+                "mode": "preview",
+                "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/C3Caller/QuickStart.md",
+                "file": "ContinuumDAO/MPC/MainFeatures.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/C3Caller/QuickStart.md",
+                "file": "ContinuumDAO/MPC/MainFeatures.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/C3Caller/QuickStart.md"
+                "file": "ContinuumDAO/MPC/MainFeatures.md"
               }
             }
           }
@@ -146,13 +159,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5e68a42adbc55dc3",
+  "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "ContinuumDAO/MPC/CoreSteps.md",
+    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "().md",
+    "ContinuumDAO/MPC/ForDevelopers.md",
+    "ContinuumDAO/MPC/TypicalUseCases.md",
+    "ContinuumDAO/MPC/MPCvsMultiSig.md",
+    "ContinuumDAO/MPC/MPCvsZK.md",
+    "ContinuumDAO/MPC/MPCvsOthers.md",
+    "ContinuumDAO/MPC/MainFeatures.md",
+    "ContinuumDAO/MPC/WhatIsMPC.md",
+    "ContinuumDAO/C3Caller/QuickStart.md",
+    "_sidebar.md",
+    "ContinuumDAO/RunningInstructions",
+    "ContinuumDAO/MPC/StrongerSecurity.md",
+    "ContinuumDAO/MPC",
+    "ContinuumDAO/WhatIsMPC.md",
+    "ContinuumDAO/C3Caller/WhatIsMPC.md",
+    "ContinuumDAO/HowItWorks.md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/RouterWorkingMechanism.md",
-    "ContinuumDAO/C3Caller/Overview.md",
-    "ContinuumDAO/C3Caller/C3CallerProtocol.md",
-    "ContinuumDAO/C3Caller/QuickStart.md",
+    "ContinuumDAO/C3Caller/NodeRunningInstruction.md",
+    "ContinuumDAO/C3Caller/ForDevelopers.md",
+    "ContinuumDAO/C3Caller/TypicalUseCases.md",
+    "ContinuumDAO/C3Caller/StrongerSecurity.md",
+    "ContinuumDAO/C3Caller/MPCvsMultiSig.md",
+    "ContinuumDAO/C3Caller/MPCvsZK.md",
+    "ContinuumDAO/C3Caller/MPCvsOthers.md",
+    "ContinuumDAO/C3Caller/MainFeatures.md",
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
@@ -165,19 +201,9 @@
     "_media/lu4834716pnyt.tmp",
     "_media/lu4834716pny2.tmp",
     "_media/lu4834716pnxb.tmp",
-    "_sidebar.md",
-    "ContinuumDAO/HowItWorks.md",
-    "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/C3Caller",
     "ContinuumDAO/Untitled",
-    "Untitled",
-    "_media/White_Paper_ContinuumDAO.pdf",
     "_media/Router_Node_Structure.png",
-    "_media/Router_Contract_Structure.png",
-    "Router_Node_Structure.png.md",
-    "ContinuumDAO/Governance/HowToWriteAProposal.md",
-    "README.md",
-    "ContinuumDAO/Governance/Constitution.md",
-    "ContinuumDAO/Introduction.md"
+    "_media/Router_Contract_Structure.png"
   ]
 }

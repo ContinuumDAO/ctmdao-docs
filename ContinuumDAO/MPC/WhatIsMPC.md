@@ -1,0 +1,11 @@
+## What is MPC?
+
+MPC is an innovative cryptographic technology that utilizes distributed computing and cryptographic algorithms to securely perform collaborative calculations without the need for any trusted third party. Participants carry out parts of a task distributively by following established cryptographic protocols. By combining these partial outputs, a complete and verifiable correct computation result is obtained. It is important to note that during the process, each participant does not reveal their personal private data nor can they access the input data of other participants. This provides an effective solution for distributed computing and privacy data protection, significantly enhancing the system's decentralization, privacy, and robustness.
+
+In the blockchain context, digital signatures are used for asset verification and behavior authentication. Thus, in this area, MPC primarily refers to threshold signatures. A threshold signature is a digital signature scheme that allows multiple signers to jointly sign a document or transaction, but the signature only becomes legal and recognized if it is collaboratively produced by a number of signers that meets a predefined threshold.
+
+The threshold signature scheme can be simply understood as the private key being split into several pieces (in reality, the private key is not actually split; the pieces are distributively generated, and the complete private key is never fully present), controlled by multiple nodes. Only when a predetermined threshold number of nodes reach a consensus can these nodes jointly generate a valid signature.
+
+Different blockchains employ various signature algorithms based on their specific needs. For instance, Bitcoin and Ethereum primarily use the ECDSA algorithm paired with the secp256k1 elliptic curve, while Ethereum's Proof of Stake consensus layer utilizes the BLS algorithm. Additionally, other blockchains may opt for the EdDSA or Schnorr signature algorithms. With Multi-Party Computation (MPC) it isits possible to incorporate these algorithms into a framework, enabling distributed versions of each. These include distributed ECDSA, distributed EdDSA, distributed BLS, and distributed Schnorr signatures.
+
+
