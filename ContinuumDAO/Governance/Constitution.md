@@ -29,7 +29,7 @@ There will be three governance roles: Committee, Contributor, and Citizen.
 | --- |
 | Selqui |
 | Apex |
-| JB |
+| Claire |
 | Apxymous |
 | John CTM |
 | Jerry |
@@ -117,7 +117,7 @@ The Treasury is fully under the control of the voting process and the Committee 
 | Selqui | 0x167518826cba5c2180acc60E4753ee3e811a08e7 |
 | Apex | 0x8A3D31028C8C83C407408193FF031e2DFD79E224 |
 | John | 0x14C189354702b7f2aC7b19e61522A41632226BD8 |
-| JB | 0x85e07b95213bc1c4d5a606c977d2116f8bcce811 |
+| Claire | 0x05fe51463de6E4778b1BC911fcae0BEc9546106d |
 | Apxymous | 0xA9108260723e5633137150d0950D0FF3f9a9222a |
 | Chookz | 0xd41B402D7FA1c00284AFf06c6771E6C179826F12 |
 | Jerry | 0x80255a4a00CdDb1070DF85Be2407787199C43892
@@ -157,14 +157,14 @@ Over time the use of multi-sig wallets will be progressively replaced by direct 
     The goals of this Code of Conduct are to set the overall tone for our community and to provide a guide and a process by which we interact and hold each other accountable.
     This isn't an exhaustive list of things you can and can't do. We want to cultivate a community environment that is healthy, open-minded, collaborative, and creative.
     
-    **Expected Behaviors:**
+    **Expected Behaviours:**
     
     - Accepting constructive criticism gracefully.
     - Giving constructive feedback gracefully: Be direct, caring, and empathetic, express your thoughts on how well ideas relate to the common goal or aligned objective rather than putting them down.
     - Acting in the community’s best interest.
     - Being respectful of different viewpoints and experiences.
     - Participating in an authentic and active way. Contributing to the health and longevity of this community.
-    - Using welcoming and inclusive language. Acknowledging preferred gender pronouns. Refraining from demeaning, discriminatory, or harassing behavior and speech.
+    - Using welcoming and inclusive language. Acknowledging preferred gender pronouns. Refraining from demeaning, discriminatory, or harassing behaviour and speech.
     
     **Unacceptable Behaviours:**
     
