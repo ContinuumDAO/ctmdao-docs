@@ -27,7 +27,7 @@
               "state": {
                 "file": "ContinuumDAO/Governance/Constitution.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -161,6 +161,8 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "ContinuumDAO/Governance/HowToWriteAProposal.md",
+    "ContinuumDAO/Governance/Constitution.md",
     "_sidebar.md",
     "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
     "ContinuumDAO/MPC/StrongerSecurity.md",
@@ -187,8 +189,6 @@
     "ContinuumDAO/C3Caller/StrongerSecurity.md",
     "ContinuumDAO/C3Caller/MPCvsMultiSig.md",
     "ContinuumDAO/C3Caller/MPCvsZK.md",
-    "ContinuumDAO/C3Caller/MPCvsOthers.md",
-    "ContinuumDAO/C3Caller/MainFeatures.md",
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",

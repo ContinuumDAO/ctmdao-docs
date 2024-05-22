@@ -146,19 +146,20 @@ Over time the use of multi-sig wallets will be progressively replaced by direct 
     ContinuumDAO’s purpose is to provide a trustless and fully decentralized MPC infrastructure to connect the world.
     We welcome more web3 builders and partners to join our community, become contributors, and promote the prosperity and large-scale adoption of web3 trust layer.
     
-    **Our Commitment to the Code**
+- **Our Commitment to the Code**
     
     ContinuumDAO is committed to fostering a safe and collaborative environment regardless of gender identity and expression, sexual orientation, disability, physical appearance, race, ethnicity, religion, nationality, age, education, socio-economic status, or level of experience.
     This Commitment is written and shared in the spirit of creating a reliable standard for all members, contributors, partners, and communities associated with the ContinuumDAO.
     We invite all those who participate in the ContinuumDAO to help create safe and positive experiences for everyone.
     
-    **Goals of the Code**
+- **Goals of the Code**
     
     The goals of this Code of Conduct are to set the overall tone for our community and to provide a guide and a process by which we interact and hold each other accountable.
     This isn't an exhaustive list of things you can and can't do. We want to cultivate a community environment that is healthy, open-minded, collaborative, and creative.
     
-    **Expected Behaviours:**
+- **Expected Behaviours:**
     
+ 
     - Accepting constructive criticism gracefully.
     - Giving constructive feedback gracefully: Be direct, caring, and empathetic, express your thoughts on how well ideas relate to the common goal or aligned objective rather than putting them down.
     - Acting in the community’s best interest.
@@ -166,7 +167,7 @@ Over time the use of multi-sig wallets will be progressively replaced by direct 
     - Participating in an authentic and active way. Contributing to the health and longevity of this community.
     - Using welcoming and inclusive language. Acknowledging preferred gender pronouns. Refraining from demeaning, discriminatory, or harassing behaviour and speech.
     
-    **Unacceptable Behaviours:**
+- **Unacceptable Behaviours:**
     
     - Sustained disruption of community events and including public talks and presentations.
     - Organizing or participating in raids or other activities that intentionally disrupt community operations.
