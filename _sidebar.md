@@ -14,13 +14,6 @@
   * [Constitution](/ContinuumDAO/Governance/Constitution.md)
   * [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md)
 
-* C3Caller
-
-  * [Overview](/ContinuumDAO/C3Caller/Overview.md)
-  * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
-  * [C3Caller Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
-  * [C3Caller Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
-
 * MPC (Multi Party Computation)
 
   * [What is MPC?](/ContinuumDAO/MPC/WhatIsMPC.md)
@@ -37,3 +30,9 @@
 
   * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
 
+* C3Caller
+
+  * [Overview](/ContinuumDAO/C3Caller/Overview.md)
+  * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
+  * [C3Caller Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
+  * [C3Caller Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
