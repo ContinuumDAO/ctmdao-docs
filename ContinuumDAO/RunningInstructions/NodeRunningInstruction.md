@@ -54,17 +54,17 @@ services:
     networks:
       - local-network
     app:
-    image: continuumdao/distributed-auth:v1.2
-    environment:
-      - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
-    ports:
-      - \"8080:8080\"
-    depends_on:
-      - mongodb
-    volumes:
-      - ../distributed-auth-data/appdata:/app/logs
-    networks:
-      - local-network
+	   image: continuumdao/distributed-auth:v1.2
+	   environment:
+	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+	   ports:
+	     - \"8080:8080\"
+	   depends_on:
+	     - mongodb
+	   volumes:
+	     - ../distributed-auth-data/appdata:/app/logs
+	   networks:
+	     - local-network
 networks:
   local-network:
     driver: bridge
