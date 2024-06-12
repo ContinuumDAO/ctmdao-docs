@@ -1,7 +1,7 @@
 
 ## Node Running Instructions Using Docker
 
-For most people, this is the sensible way to run a node. No need to do a source installation.
+For most people, this is the sensible way to run a node. No need to do a source installation as described [here](#node-running-instructions-from-source).
 
 1. **Preparation**
    
