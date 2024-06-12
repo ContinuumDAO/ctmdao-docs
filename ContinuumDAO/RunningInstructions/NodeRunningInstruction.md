@@ -4,12 +4,15 @@
 For most people, this is the sensible way to run a node. No need to do a source installation.
 
 1. **Preparation**
-   minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to public docker file: docker-compose_server.yml which you will install.
+   
+   Minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to public docker file: docker-compose_server.yml which you will install.
     
 2. **Install Docker and Docker Compose**
+   
    Follow steps in https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository https://docs.docker.com/compose/install/linux/#install-using-the-repository
 
 3. **Create User continuum**
+   
    As user root, create another user continuum as follows, hitting Enter to all questions 
    
 ```console
@@ -32,6 +35,7 @@ to the end of the file and then hit CTRL-X to save it.
 ```
 
 4.  **Download the Docker Installation File**
+	
 	<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> 
 	
 	OR do the following command to create it :
@@ -68,15 +72,18 @@ networks:
 
 
 5. **Modify the Configuration** 
+   
    In the file docker-compose_server.yml, using a text editor (nano, vim), modify key "NodeMgtKey" as your wallet address, in step Register the Node, you'll use it to sign messages. Check :  The updated file should be in the folder "distributed-auth"
     
 6. **Run the Node **
+
 ```console
 cd ~/distributed-auth
 docker-compose -f docker-compose_server.yml up -d --build
 ```
    
 7. **Check the Node Status**
+
 ```console
 sudo docker ps -a
 ```
@@ -84,9 +91,11 @@ you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/ver
 
     
 8. **Register the Node**
+   
    Register in the [Continuum MPC dashboard](https://c3mpcnetwork-frontend.pages.dev/)
     
 9. **Test the Node**
+   
    Follow from Step 5 in [Networking Signature Test](#networking-signature-test)
 
 ## Node Running Instructions From Source
@@ -94,9 +103,11 @@ you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/ver
 These are the installation instructions if you want to install from source code. Most people will install using Docker (see above).
 
 1. **Download** 
+
 Your machine needs to have Docker installed, please refer to the link. Ensure that port 8080 is open, with port 8080 serving as the node's external API port. Download the program source files from GitHub at [distributed-auth](https://github.com/ContinuumDAO/distributed-auth)
 
 2.  **Configuration** 
+
 Modify the following information in the distributed-auth/console/configs.json configuration file, other configuration information can remain default:
 - NodeMgtKey: This attribute is used to set the EVM management wallet, which will be used for node management interface authentication and node registration to the Dashboard. It is recommended to change it to your veCTM EVM wallet address.
 
@@ -107,6 +118,7 @@ Modify the following information in the distributed-auth/console/configs.json co
 - DisableDocs: If true, swagger API documentation will not be provided. For testing, it can be set to false to enable documentation; in production environments, it is strongly recommended to disable it.
 
 3. **Run Node** 
+
 Enter the root directory of distributed-auth and run the following command:
 
 ```console
@@ -118,6 +130,7 @@ This command will create a MongoDB instance on your machine, compile, install, a
 <span style="color:red">Please avoid deleting this directory</span>
 
 4. **Check Node Operation** 
+
 If the installation and operation are normal, you can access the node's swagger API documentation through the external IP link of your node:
 
 http://YOUR_SERVER_EXTERNAL_IP:8080/swagger/index.html
