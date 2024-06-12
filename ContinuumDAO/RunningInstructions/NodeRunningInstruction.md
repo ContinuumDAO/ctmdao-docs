@@ -38,7 +38,7 @@ to the end of the file and then hit CTRL-X to save it.
 4.  **Download the Docker Installation File**
 
 EITHER
-<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> to the distributed-auth folder.
+<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> and then copy to the distributed-auth folder on the node using scp.
 	
 OR do the following command to create it :
 ```console
