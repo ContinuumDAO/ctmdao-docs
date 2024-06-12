@@ -35,7 +35,8 @@ to the end of the file and then hit CTRL-X to save it.
 ```
 
 4.  **Download the Docker Installation File**
-	
+
+EITHER
 <a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> 
 	
 OR do the following command to create it :
