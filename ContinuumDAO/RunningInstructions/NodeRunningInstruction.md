@@ -32,7 +32,7 @@ to the end of the file and then hit CTRL-X to save it.
 ```
 
 4.  **Download the Docker Installation File**
-	<a href="/_media/docker-compose_server.yml download">Click to Download </a> 
+	<a href="/_media/docker-compose_server.yml">Click to Download </a> 
 	
 	OR do the following command to create it :
 ```console
