@@ -99,7 +99,7 @@ you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/ver
     
 9. **Test the Node**
    
-   Follow from Step 5 in [Networking Signature Test](#networking-signature-test)
+   Follow the [Networking Signature Test](#networking-signature-test) below
 
 ## Node Running Instructions From Source
 
@@ -145,7 +145,7 @@ Or on your server console, you can obtain the node ID, known as NodeKey, with th
 curl -X 'GET' 'http://YOUR_SERVER_EXTERNAL_IP:8080/getNodeKey'
 ```
 
-5. **Networking Signature Test**
+## Networking Signature Test
 
 Assuming you and your friends currently have nodes A, B, and C running, and you wish to collaborate to create a 2/3 distributed threshold key, i.e., any two of the nodes A, B, and C agree to sign, you can obtain a correct distributed signature. Follow these steps to test:
 
