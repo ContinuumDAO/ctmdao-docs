@@ -46,13 +46,13 @@ cd ~/distributed-auth
 echo "version: '3.7'
 services:
     mongodb:
-    image: mongo:6.0
-    ports:
-      - \"27017:27017\"
-    volumes:
-      - ../distributed-auth-data/mongodata:/data/db
-    networks:
-      - local-network
+       image: mongo:6.0
+       ports:
+         - \"27017:27017\"
+       volumes:
+         - ../distributed-auth-data/mongodata:/data/db
+       networks:
+         - local-network
     app:
 	   image: continuumdao/distributed-auth:v1.2
 	   environment:
