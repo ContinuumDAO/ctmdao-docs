@@ -13,7 +13,7 @@ For most people, this is the sensible way to run a node. No need to do a source 
 
 3. **Create User continuum**
    
-   As user root, create another user continuum as follows, hitting Enter to all questions 
+   As user root, create another user continuum as follows, answering all questions 
    
 ```console
 adduser continuum
