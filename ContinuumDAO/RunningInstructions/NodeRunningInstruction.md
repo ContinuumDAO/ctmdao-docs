@@ -30,6 +30,7 @@ to the end of the file and then hit CTRL-X to save it.
 
 ```console
    su continuum
+   cd
    mkdir distributed-auth
    cd distributed-auth
 ```
