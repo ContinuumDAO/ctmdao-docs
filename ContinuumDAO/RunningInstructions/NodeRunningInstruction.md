@@ -1,5 +1,97 @@
 
-## Node Running Instructions
+## Node Running Instructions Using Docker
+
+For most people, this is the sensible way to run a node. No need to do a source installation.
+
+1. **Preparation**
+   minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to public docker file: docker-compose_server.yml which you will install.
+    
+2. **Install Docker and Docker Compose**
+   Follow steps in https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository https://docs.docker.com/compose/install/linux/#install-using-the-repository
+
+3. **Create User continuum**
+   As user root, create another user continuum as follows, hitting Enter to all questions 
+   
+```console
+adduser continuum
+```
+
+Give the new user continuum sudo (root) privileges
+	
+```console
+	visudo
+```
+Add the line 
+continuum ALL=(ALL) NOPASSWD:ALL
+to the end of the file and then hit CTRL-X to save it.
+
+```console
+   su continuum
+   mkdir distributed-auth
+   cd distributed-auth
+```
+
+4.  **Download the Docker Installation File**
+	<a href="/_media/docker-compose_server.yml download">Click to Download </a> 
+	
+	OR do the following command to create it :
+```console
+cd ~/distributed-auth
+echo "version: '3.7'
+services:
+    mongodb:
+    image: mongo:6.0
+    ports:
+      - \"27017:27017\"
+    volumes:
+      - ../distributed-auth-data/mongodata:/data/db
+    networks:
+      - local-network
+    app:
+    image: continuumdao/distributed-auth:v1.2
+    environment:
+      - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+    ports:
+      - \"8080:8080\"
+    depends_on:
+      - mongodb
+    volumes:
+      - ../distributed-auth-data/appdata:/app/logs
+    networks:
+      - local-network
+networks:
+  local-network:
+    driver: bridge
+    attachable: true
+" > docker-compose_server.yml
+```
+
+
+5. **Modify the Configuration** 
+   In the file docker-compose_server.yml, using a text editor (nano, vim), modify key "NodeMgtKey" as your wallet address, in step Register the Node, you'll use it to sign messages. Check :  The updated file should be in the folder "distributed-auth"
+    
+6. **Run the Node **
+```console
+cd ~/distributed-auth
+docker-compose -f docker-compose_server.yml up -d --build
+```
+   
+7. **Check the Node Status**
+```console
+sudo docker ps -a
+```
+you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/version // you'll see node version
+
+    
+8. **Register the Node**
+   Register in the [Continuum MPC dashboard](https://c3mpcnetwork-frontend.pages.dev/)
+    
+9. **Test the Node**
+   Follow from Step 5 in [Networking Signature Test](#networking-signature-test)
+
+## Node Running Instructions From Source
+
+These are the installation instructions if you want to install from source code. Most people will install using Docker (see above).
 
 1. **Download** 
 Your machine needs to have Docker installed, please refer to the link. Ensure that port 8080 is open, with port 8080 serving as the node's external API port. Download the program source files from GitHub at [distributed-auth](https://github.com/ContinuumDAO/distributed-auth)

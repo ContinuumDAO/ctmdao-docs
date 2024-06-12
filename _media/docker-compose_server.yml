@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - ../distributed-auth-data/mongodata:/data/db
+    networks:
+      - local-network
+  app:
+    image: continuumdao/distributed-auth:v1.2
+    environment:
+      - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    volumes:
+      - ../distributed-auth-data/appdata:/app/logs
+    networks:
+      - local-network
+networks:
+  local-network:
+    driver: bridge
+    attachable: true
