@@ -81,7 +81,7 @@ networks:
 
 ```console
 cd ~/distributed-auth
-docker-compose -f docker-compose_server.yml up -d --build
+docker compose -f docker-compose_server.yml up -d --build
 ```
    
 7. **Check the Node Status**
