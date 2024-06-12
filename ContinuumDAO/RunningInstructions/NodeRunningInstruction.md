@@ -94,6 +94,8 @@ you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/ver
 8. **Register the Node**
    
    Register in the [Continuum MPC dashboard](https://c3mpcnetwork-frontend.pages.dev/)
+   
+   Connect your wallet with the same address you used for  "NodeMgtKey" above, click Node Register.
     
 9. **Test the Node**
    
