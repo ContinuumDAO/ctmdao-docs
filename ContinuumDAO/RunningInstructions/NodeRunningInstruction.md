@@ -5,7 +5,7 @@ For most people, this is the sensible way to run a node. No need to do a source 
 
 1. **Preparation**
    
-   Minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to public docker file: docker-compose_server.yml which you will install.
+   Minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to the public docker file which you will install in the steps below.
     
 2. **Install Docker and Docker Compose**
    
