@@ -5,32 +5,15 @@ For most people, this is the sensible way to run a node. No need to do a source 
 
 1. **Preparation**
    
-   Minimal VM: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk enable port 8080 open to the public docker file which you will install in the steps below.
+   Minimal VM Hardware: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk, withport 8080 open to the public.
     
 2. **Install Docker and Docker Compose**
    
-   Follow steps in https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository https://docs.docker.com/compose/install/linux/#install-using-the-repository
+   Follow steps in (1) https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository (2) https://docs.docker.com/compose/install/linux/#install-using-the-repository
 
-3. **Create User continuum**
-   
-   As user root, create another user continuum as follows, answering all questions 
+3. **Create Node Working Folder**
    
 ```console
-adduser continuum
-```
-
-Give the new user continuum sudo (root) privileges
-	
-```console
-	visudo
-```
-Add the line 
-continuum ALL=(ALL) NOPASSWD:ALL
-to the end of the file and then hit CTRL-X to save it.
-
-```console
-   su continuum
-   cd
    mkdir distributed-auth
    cd distributed-auth
 ```
@@ -54,7 +37,7 @@ services:
        networks:
          - local-network
     app:
-	   image: continuumdao/distributed-auth:v1.2
+	   image: continuumdao/distributed-auth:v1.6
 	   environment:
 	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
 	   ports:
@@ -75,7 +58,9 @@ networks:
 
 5. **Modify the Configuration** 
    
-   In the file docker-compose_server.yml, using a text editor (nano, vim), modify key "NodeMgtKey" as your wallet address, in step Register the Node, you'll use it to sign messages. Check :  The updated file should be in the folder "distributed-auth"
+   In the file docker-compose_server.yml, using a text editor (nano, vim), modify key "NodeMgtKey" as your wallet address, in step Register the Node, you'll use it to sign messages. 
+   
+   Check: The updated file should be in the folder "distributed-auth"
     
 6. **Run the Node **
 
@@ -89,7 +74,12 @@ sudo docker compose -f docker-compose_server.yml up -d --build
 ```console
 sudo docker ps -a
 ```
-you'll see container distributed-auth and mongod curl http://YOUR_VM_IP:8080/version // you'll see node version
+you'll see container distributed-auth and mongod 
+
+```console
+curl http://YOUR_VM_IP:8080/version
+```
+you'll see node version
 
     
 8. **Register the Node**
