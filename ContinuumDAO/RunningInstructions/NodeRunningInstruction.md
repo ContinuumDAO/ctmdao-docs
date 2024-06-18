@@ -5,7 +5,7 @@ For most people, this is the sensible way to run a node. No need to do a source 
 
 1. **Preparation**
    
-   Minimal VM Hardware: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk, withport 8080 open to the public.
+   Minimal VM Hardware: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk, with port 8080 open to the public.
     
 2. **Install Docker and Docker Compose**
    
