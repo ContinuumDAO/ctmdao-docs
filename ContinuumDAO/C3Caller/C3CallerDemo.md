@@ -1,4 +1,4 @@
-## Demo
+## Simple Demo without Remix
 
 The demo demonstrates for a cross-chain supported Fungible Token contract, illustrating how the C3Caller protocol facilitates interoperable blockchain transactions.
 
