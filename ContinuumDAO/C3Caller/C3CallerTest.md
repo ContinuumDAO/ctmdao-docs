@@ -108,6 +108,7 @@ contract CToken is ERC20, C3CallerDapp {
 <img src="/_media/C3CallerTest-5.png"  alt=""/>
 
 8. Deploy Contract
+
 Input your token name and the dAppID that you registered before
 
 <img src="/_media/C3CallerTest-6.png"  alt=""/>
@@ -120,12 +121,12 @@ C3Caller Proxy: 0xeC1f296fC2Dd0FFf803c30DBD315b5457aFaA8B3
 
 <img src="/_media/C3CallerTest-9.png"  alt=""/>
 
-Steps on BNB chain
+Steps on BNB chain:
 
 - Add BNB test chain
     - click plug icon
     - search for the BNB test network in the Chainlist add to the Metamask
-    - when The custom () shows 97 it is working
+    - when The custom () shows 97, it is working.
 
 <img src="/_media/C3CallerTest-10png"  alt=""/>
 
