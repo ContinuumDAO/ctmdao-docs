@@ -35,5 +35,5 @@
   * [Overview](/ContinuumDAO/C3Caller/Overview.md)
   * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
   * [C3Caller Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
-  * [C3Caller Test Deployment using Remix](/ContinuumDAO/C3Caller/C3CallerTest.md)
+  * [C3Caller Deployment with Remix](/ContinuumDAO/C3Caller/C3CallerTest.md)
   * [C3Caller Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
