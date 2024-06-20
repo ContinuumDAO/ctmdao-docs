@@ -1,4 +1,4 @@
-## C3Caller Test with Remix
+## C3Caller with Remix
 
 These following steps are just an example, we encourage you to develop your own ideas and create a personalized dApp.
 
