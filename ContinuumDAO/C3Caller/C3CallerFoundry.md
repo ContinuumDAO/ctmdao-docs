@@ -71,7 +71,7 @@ PRIVATE_KEY=0xabc123...
 ```
 
 > Note
-> Make sure your account has testnet ETH on Arbitrum Sepolia.
+> Make sure your account has ETH on Arbitrum Sepolia, and BNB on BSC Testnet.
 
 Source `.env`:
 
@@ -225,25 +225,22 @@ Before running the transaction, we will read the total supplies of the token on 
 
 ```bash
 cast call <ARB_CTOKEN> "totalSupply()(uint256)" --rpc-url arbSepolia
-```
-```
-# 100000000000000000000 [1e20]
+
+# output -> 100000000000000000000 [1e20]
 ```
 
 ```bash
 cast call <BSC_CTOKEN> "totalSupply()(uint256)" --rpc-url bscTestnet
-```
-```
-# 100000000000000000000 [1e20]
+
+# output -> 100000000000000000000 [1e20]
 ```
 
 Paste the resulting total supplies into a unit conversion:
 
 ```bash
 cast to-unit 100000000000000000000 ether
-```
-```
-# 100
+
+# output -> 100
 ```
 
 We can see that the total supply of CToken on both Arbitrum Sepolia and BSC Testnet are 100 CTN.
@@ -266,34 +263,30 @@ We can right away observe the change to the total supply of CToken on Arbitrum S
 
 ```bash
 cast call <ARB_CToken> "totalSupply()(uint256)" --rpc-url arbSepolia
-```
-```
-# 75000000000000000000 [7.5e19]
+
+# output -> 75000000000000000000 [7.5e19]
 ```
 
 After a few minutes we will observe the change to the total supply of CToken on BSC Testnet:
 
 ```bash
 cast call <BSC_CToken> "totalSupply()(uint256)" --rpc-url bscTestnet
-```
-```
-# 125000000000000000000 [1.25e20]
+
+# output -> 125000000000000000000 [1.25e20]
 ```
 
 Paste the resulting total supplies into a unit conversion:
 
 ```bash
 cast to-unit 75000000000000000000 ether
-```
-```
-# 25
+
+# output -> 25
 ```
 
 ```bash
 cast to-unit 125000000000000000000 ether
-```
-```
-# 125
+
+# output -> 125
 ```
 
 The cross-chain transaction has executed successfully.
