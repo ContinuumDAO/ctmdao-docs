@@ -197,7 +197,7 @@ Deploy the dApp to Arbitrum Sepolia, using the dApp ID you were provided with af
 forge create --rpc-url arbSepolia --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $ARB_SEPOLIA_C3_ENDPOINT <DAPP_ID> 18
 ```
 
-Copy the address of the contract that was deployed and go back to the dApp registry. We will refer to it as `<ARB_CTOKEN>`.
+Copy the address (the address listed after "Deployed to: ") of the contract that was deployed and go back to the dApp registry. We will refer to it as `<ARB_CTOKEN>`.
 
 ### Add Contract to dApp
 
@@ -215,7 +215,7 @@ Deploy the dApp to BSC Testnet, using the same dApp ID from before:
 forge create --rpc-url bscTestnet --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $BSC_TESTNET_C3_ENDPOINT <DAPP_ID> 18
 ```
 
-Make a note of the deployed contract address, we will refer to it as `<BSC_CTOKEN>`.
+Make a note of the deployed contract address (the address listed after "Deployed to: "), we will refer to it as `<BSC_CTOKEN>`.
 
 Since this contract is the recipient of the cross-chain message, no further action is required.
 
@@ -225,27 +225,24 @@ Before running the transaction, we will read the total supplies of the token on 
 
 ```bash
 cast call <ARB_CTOKEN> "totalSupply()(uint256)" --rpc-url arbSepolia
-
+```
+```
 # 100000000000000000000 [1e20]
 ```
 
 ```bash
 cast call <BSC_CTOKEN> "totalSupply()(uint256)" --rpc-url bscTestnet
-
+```
+```
 # 100000000000000000000 [1e20]
 ```
 
 Paste the resulting total supplies into a unit conversion:
 
 ```bash
-cast to-unit <TOTAL_SUPPLY_ARB> ether
-
-# 100
+cast to-unit 100000000000000000000 ether
 ```
-
-```bash
-cast to-unit <TOTAL_SUPPLY_BSC> ether
-
+```
 # 100
 ```
 
@@ -269,7 +266,8 @@ We can right away observe the change to the total supply of CToken on Arbitrum S
 
 ```bash
 cast call <ARB_CToken> "totalSupply()(uint256)" --rpc-url arbSepolia
-
+```
+```
 # 75000000000000000000 [7.5e19]
 ```
 
@@ -277,21 +275,24 @@ After a few minutes we will observe the change to the total supply of CToken on 
 
 ```bash
 cast call <BSC_CToken> "totalSupply()(uint256)" --rpc-url bscTestnet
-
+```
+```
 # 125000000000000000000 [1.25e20]
 ```
 
 Paste the resulting total supplies into a unit conversion:
 
 ```bash
-cast to-unit <TOTAL_SUPPLY_ARB> ether
-
-# 75
+cast to-unit 75000000000000000000 ether
+```
+```
+# 25
 ```
 
 ```bash
-cast to-unit <TOTAL_SUPPLY_BSC> ether
-
+cast to-unit 125000000000000000000 ether
+```
+```
 # 125
 ```
 
