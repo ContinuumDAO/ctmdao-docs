@@ -20,9 +20,9 @@ These following steps are just an example, we encourage you to develop your own 
 
 <img src="/_media/C3CallerTest-4.png"  alt=""/>
 
-```javascript
+```solidity
 // SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
