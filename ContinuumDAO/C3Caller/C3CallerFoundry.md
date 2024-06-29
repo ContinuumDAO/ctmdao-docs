@@ -197,7 +197,7 @@ Deploy the dApp to Arbitrum Sepolia, using the dApp ID you were provided with af
 forge create --rpc-url arbSepolia --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $ARB_SEPOLIA_C3_ENDPOINT <DAPP_ID> 18
 ```
 
-Copy the address of the contract that was deployed and go back to the dApp registry. We will refer to it as <ARB_CTOKEN>.
+Copy the address of the contract that was deployed and go back to the dApp registry. We will refer to it as `<ARB_CTOKEN>`.
 
 ### Add Contract to dApp
 
@@ -215,7 +215,7 @@ Deploy the dApp to BSC Testnet, using the same dApp ID from before:
 forge create --rpc-url bscTestnet --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $BSC_TESTNET_C3_ENDPOINT <DAPP_ID> 18
 ```
 
-Make a note of the deployed contract address, we will refer to it as <BSC_CTOKEN>.
+Make a note of the deployed contract address, we will refer to it as `<BSC_CTOKEN>`.
 
 Since this contract is the recipient of the cross-chain message, no further action is required.
 

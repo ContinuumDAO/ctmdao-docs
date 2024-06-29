@@ -161,7 +161,7 @@ output: {
 ```
 
 ```console
-curl -X 'GET' 'http://NODE_A_EXTERNAL_IP:8080/getNodeKey'
+curl -X 'GET' 'http://NODE_B_EXTERNAL_IP:8080/getNodeKey'
 ```
 
 Output:
