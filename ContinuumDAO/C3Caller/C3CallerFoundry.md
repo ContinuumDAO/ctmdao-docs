@@ -280,7 +280,7 @@ Paste the resulting total supplies into a unit conversion:
 ```bash
 cast to-unit 75000000000000000000 ether
 
-# output -> 25
+# output -> 75
 ```
 
 ```bash
