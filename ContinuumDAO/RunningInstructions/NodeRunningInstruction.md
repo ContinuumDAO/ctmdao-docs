@@ -5,41 +5,48 @@ For most people, this is the sensible way to run a node. No need to do a source 
 
 1. **Preparation**
    
-   Minimal VM Hardware: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk, with port 8080 open to the public.
+   Minimal VM Hardware: 4 CPU Cores, 8 GB Memory, 40 GB Hard Disk, with port 8080 open to the public. 
+   
+   And close all other ports for VM security.
     
 2. **Install Docker and Docker Compose**
    
    Follow steps in (1) https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository (2) https://docs.docker.com/compose/install/linux/#install-using-the-repository
 
 3. **Create Node Working Folder**
+
+    <span style="color:red">Please avoid deleting this directory.</span>
    
 ```console
    mkdir distributed-auth
    cd distributed-auth
 ```
 
-4.  **Download the Docker Installation File**
+4. **Download the Docker Installation File**
 
 EITHER
 <a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> and then copy to the distributed-auth folder on the node using scp.
 	
-OR do the following command to create it :
+<span style="color:red">OR</span> do the following command to create it :
 ```console
-cd ~/distributed-auth
 echo "version: '3.7'
 services:
     mongodb:
        image: mongo:6.0
+       restart: always
        ports:
-         - \"27017:27017\"
+         - \"127.0.0.1:27017:27017\"
        volumes:
          - ../distributed-auth-data/mongodata:/data/db
        networks:
          - local-network
     app:
-	   image: continuumdao/distributed-auth:v1.6
+	   image: continuumdao/distributed-auth:v1.8
+     restart: always
 	   environment:
 	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+       - GOLOG_FILE=logs/DistributedAuthCore.log
+       - GOLOG_OUTPUT=file
 	   ports:
 	     - \"8080:8080\"
 	   depends_on:
@@ -65,7 +72,6 @@ networks:
 6. **Run the Node **
 
 ```console
-cd ~/distributed-auth
 sudo docker compose -f docker-compose_server.yml up -d --build
 ```
    
@@ -74,12 +80,12 @@ sudo docker compose -f docker-compose_server.yml up -d --build
 ```console
 sudo docker ps -a
 ```
-you'll see container distributed-auth and mongod 
+you'll see container distributed-auth and mongod.
 
 ```console
 curl http://YOUR_VM_IP:8080/version
 ```
-you'll see node version
+you'll see node version.
 
     
 8. **Register the Node**
@@ -91,6 +97,84 @@ you'll see node version
 9. **Test the Node**
    
    Follow the [Networking Signature Test](#networking-signature-test) below
+
+## Node Upgrading Instructions Using Docker
+
+1. **Enter the Node Working Folder**
+
+    This folder is created in above 'Node Running Instructions Using Docker'.
+
+    <span style="color:red">Please avoid deleting this directory.</span>
+
+```console
+   cd distributed-auth
+```
+
+2. **Download the Latest Docker Installation File**
+
+EITHER
+<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> and then copy to the distributed-auth folder on the node using scp.
+	
+<span style="color:red">OR</span> do the following command to create it :
+```console
+echo "version: '3.7'
+services:
+    mongodb:
+       image: mongo:6.0
+       restart: always
+       ports:
+         - \"127.0.0.1:27017:27017\"
+       volumes:
+         - ../distributed-auth-data/mongodata:/data/db
+       networks:
+         - local-network
+    app:
+	   image: continuumdao/distributed-auth:v1.8
+     restart: always
+	   environment:
+	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+       - GOLOG_FILE=logs/DistributedAuthCore.log
+       - GOLOG_OUTPUT=file
+	   ports:
+	     - \"8080:8080\"
+	   depends_on:
+	     - mongodb
+	   volumes:
+	     - ../distributed-auth-data/appdata:/app/logs
+	   networks:
+	     - local-network
+networks:
+  local-network:
+    driver: bridge
+    attachable: true
+" > docker-compose_server.yml
+```
+
+
+3. **Modify the Configuration** 
+   
+   In the file docker-compose_server.yml, using a text editor (nano, vim), modify key "NodeMgtKey" as your wallet address, in step Register the Node, you'll use it to sign messages. 
+   
+   Check: The updated file should be in the folder "distributed-auth"
+
+4. **Run the Node** 
+
+```console
+sudo docker compose -f docker-compose_server.yml up -d --build
+```
+   
+5. **Check the Node Status**
+
+```console
+sudo docker ps -a
+```
+you'll see container distributed-auth and mongod 
+
+```console
+curl http://YOUR_VM_IP:8080/version
+```
+you'll see node version
+
 
 ## Node Running Instructions From Source
 
@@ -137,6 +221,8 @@ curl -X 'GET' 'http://YOUR_SERVER_EXTERNAL_IP:8080/getNodeKey'
 ```
 
 ## Networking Signature Test
+
+**Noted:** For detailed node API information, please refer to http://YOUR_NODE_DOMAIN:8080/swagger/index.html 
 
 Assuming you and your friends currently have nodes A, B, and C running, and you wish to collaborate to create a 2/3 distributed threshold key, i.e., any two of the nodes A, B, and C agree to sign, you can obtain a correct distributed signature. Follow these steps to test:
 
