@@ -42,11 +42,11 @@ services:
          - local-network
     app:
 	   image: continuumdao/distributed-auth:v1.8
-     restart: always
+       restart: always
 	   environment:
 	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
-       - GOLOG_FILE=logs/DistributedAuthCore.log
-       - GOLOG_OUTPUT=file
+         - GOLOG_FILE=logs/DistributedAuthCore.log
+         - GOLOG_OUTPUT=file
 	   ports:
 	     - \"8080:8080\"
 	   depends_on:
