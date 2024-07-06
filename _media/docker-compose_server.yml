@@ -2,16 +2,20 @@ version: '3.7'
 services:
   mongodb:
     image: mongo:6.0
+    restart: always
     ports:
-      - "27017:27017"
+      - "127.0.0.1:27017:27017"
     volumes:
       - ../distributed-auth-data/mongodata:/data/db
     networks:
       - local-network
   app:
-    image: continuumdao/distributed-auth:v1.6
+    image: continuumdao/distributed-auth:v1.8
+    restart: always
     environment:
       - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12
+      - GOLOG_FILE=logs/DistributedAuthCore.log
+      - GOLOG_OUTPUT=file
     ports:
       - "8080:8080"
     depends_on:
