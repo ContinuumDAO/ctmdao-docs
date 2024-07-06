@@ -25,8 +25,13 @@ For most people, this is the sensible way to run a node. No need to do a source 
 4. **Download the Docker Installation File**
 
 EITHER
-<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> and then copy to the distributed-auth folder on the node using scp.
-	
+<a href="/_media/docker-compose_server.yml">Right-Click and Save-As to Download </a> and then copy to the distributed-auth folder on the node using scp, or 'copy link address' as follows:
+
+```console
+wget <link address>
+```
+
+
 <span style="color:red">OR</span> do the following command to create it :
 ```console
 echo "version: '3.7'
