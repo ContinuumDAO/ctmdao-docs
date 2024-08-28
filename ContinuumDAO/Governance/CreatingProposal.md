@@ -90,7 +90,7 @@ Notice that the first argument in the `encodeWithSignature` method is the name o
 
 #### Specify the description
 
-Add a descriptive title to your proposal. It should follow the format "Proposal #\X: ...". This will allow voters to know what they are actually voting for.
+Add a descriptive title to your proposal. It should follow the format "Proposal #X: ...". This will allow voters to know what they are actually voting for.
 
 ```solidity
 string memory description = "Proposal #1: Transfer 1 CTM from treasury to proposer"
