@@ -132,7 +132,7 @@ In our example proposal, there is only one transaction, so copy the content unde
 
 ## Share the Proposal
 
-In order for other voters to be made aware of the proposal, you must create a proposal topic on the [forum](https://forum.continuumdao.org). Log in with your account and create a new post under either [Treasury](https://forum.continuumdao.org/category/7/proposals-treasury) or [Constitution](https://forum.continuumdao.org/category/6/proposals-constitution), depending on the nature of your proposal.
+In order for other voters to be made aware of the proposal, you must create a proposal topic on the [forum](https://forum.continuumdao.org). Log in with your account and create a new post under either [Treasury](https://forum.continuumdao.org/category/7/proposals-treasury) or [Constitution](https://forum.continuumdao.org/category/6/proposals-constitution), depending on the nature of your proposal. Make sure to follow the [Proposal Guide](https://docs.continuumdao.org/ContinuumDAO/Governance/HowToWriteAProposal).
 
 Include the title of your proposal, as well as (NB) **the output of the proposal creation command**.
 
