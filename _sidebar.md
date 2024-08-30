@@ -13,6 +13,7 @@
 
   * [Constitution](/ContinuumDAO/Governance/Constitution.md)
   * [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md)
+  * [Advanced on-chain Proposals](/ContinuumDAO/Governance/AdvancedProposals.md)
   * [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md)
 
 * MPC (Multi Party Computation)
