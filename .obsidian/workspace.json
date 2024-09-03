@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Governance/AdvancedProposals.md",
+                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
                 "mode": "source",
                 "source": true
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/Governance/AdvancedProposals.md",
+                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/Governance/AdvancedProposals.md",
+                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/Governance/AdvancedProposals.md"
+                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md"
               }
             }
           }
@@ -161,19 +161,19 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/C3CallerTest.md",
+    "ContinuumDAO/C3Caller/Overview.md",
+    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "ContinuumDAO/Governance/AdvancedProposals.md",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "ContinuumDAO/Governance/CreatingProposal.md",
-    "ContinuumDAO/Governance/AdvancedProposals.md",
     "ContinuumDAO/Governance/Constitution.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "().md",
     "ContinuumDAO/C3Caller/C3CallerFoundry.md",
-    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "_sidebar.md",
-    "ContinuumDAO/C3Caller/C3CallerTest.md",
-    "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
     "_media/docker-compose_server.yml",

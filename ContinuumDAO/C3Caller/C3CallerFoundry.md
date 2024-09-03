@@ -175,7 +175,7 @@ contract CToken is ERC20, C3CallerDapp {
         }
     }
 
-    function isVaildSender(address /*txSender*/) external pure returns (bool){
+    function isValidSender(address /*txSender*/) external pure returns (bool){
         return true;
     }
 }
