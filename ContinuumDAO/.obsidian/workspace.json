@@ -4,22 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8bb3e14674908387",
+        "id": "412d6c89be29d920",
         "type": "tabs",
         "children": [
           {
-            "id": "03dde1db4f1b4628",
+            "id": "eacb7f11ccc63463",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -300,
-                  "y": -160,
-                  "zoom": 0
-                }
-              }
+                "file": "Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduction"
             }
           }
         ]
@@ -42,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -57,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -65,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -96,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Untitled"
             }
           },
           {
@@ -108,7 +115,9 @@
                 "file": "Untitled.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Untitled"
             }
           },
           {
@@ -119,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -129,7 +140,9 @@
               "type": "outline",
               "state": {
                 "file": "Untitled.canvas"
-              }
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Untitled"
             }
           }
         ]
@@ -149,10 +162,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "03dde1db4f1b4628",
+  "active": "eacb7f11ccc63463",
   "lastOpenFiles": [
-    "Continuum 3525X.canvas",
+    "C3Caller/C3CallerDemo.md",
     "Untitled.canvas",
+    "Continuum 3525X.canvas",
     "Governance/HowToWriteAProposal.md",
     "Governance/How To Write A Proposal.md",
     "Governance/Constitution.md",
