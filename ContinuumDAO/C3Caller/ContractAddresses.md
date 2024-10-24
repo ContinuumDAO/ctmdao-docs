@@ -32,6 +32,7 @@
 | Bitlayer Testnet | https://testnet-rpc.bitlayer.org | 200810 | 0xb71b4ace4fb974458ba68501fdf9647df4ffc1ca |
 | Avalanche Fuji Testnet | https://api.avax-test.network/ext/bc/C/rpc | 43113 |  |
 | Greenfield Testnet | https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org | 5600 |  |
-| Sei Testnet | https://evm-rpc-testnet.sei-apis.com/ | 1328 | 0x433f3275a787be38703917fF2919CeFEAd9327cD |
+| Sei Atlantic | https://evm-rpc-testnet.sei-apis.com/ | 1328 | 0x433f3275a787be38703917fF2919CeFEAd9327cD |
 | BSC Testnet | https://data-seed-prebsc-1-s1.binance.org:8545/ | 97 | 0x088A7e395981B2d5230c4f0d6273594c1ff40179 |
 | OpBNB Testnet | https://opbnb-testnet-rpc.bnbchain.org | 5611 | 0x1f462e92005DC96D754C02d38c3D39Acbd01B9ca |
+| TON Testnet |  | 6075160378940412756 |  |
