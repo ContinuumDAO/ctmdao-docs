@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "412d6c89be29d920",
+        "id": "c21df94b6de96715",
         "type": "tabs",
         "children": [
           {
-            "id": "eacb7f11ccc63463",
+            "id": "a15a1a5dc3b38e3d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C3Caller/ContractAddresses.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "ContractAddresses"
+              "title": "New tab"
             }
           }
         ]
@@ -163,10 +159,10 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "eacb7f11ccc63463",
+  "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
-    "Introduction.md",
     "C3Caller/ContractAddresses.md",
+    "Introduction.md",
     "C3Caller/C3CallerDemo.md",
     "Untitled.canvas",
     "Continuum 3525X.canvas",
