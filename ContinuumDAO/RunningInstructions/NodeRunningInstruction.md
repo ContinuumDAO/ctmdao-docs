@@ -46,7 +46,7 @@ services:
        networks:
          - local-network
     app:
-	   image: continuumdao/distributed-auth:v1.8
+	   image: continuumdao/distributed-auth:v1.10.stable
        restart: always
 	   environment:
 	     - NodeMgtKey=0xABCDEF1234567890ABCDEF1234567890ABCDEF12

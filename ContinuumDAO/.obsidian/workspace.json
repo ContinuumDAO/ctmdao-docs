@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C3Caller/ContractAddresses.md",
+                "file": "RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "ContractAddresses"
+              "title": "NodeRunningInstruction"
             }
           }
         ]
