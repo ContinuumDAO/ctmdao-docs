@@ -205,7 +205,7 @@ Modify the following information in the distributed-auth/console/configs.json co
 Enter the root directory of distributed-auth and run the following command:
 
 ```console
-sudo docker-compose up -d --build
+sudo docker compose up -d --build
 ```
 
 This command will create a MongoDB instance on your machine, compile, install, and run the distributed-auth program. It will also create a folder named distributed-auth-backend-data in the same directory as the source files, which will save the MongoDB database directory and the program logs. 
