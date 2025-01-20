@@ -542,7 +542,7 @@ output: {
 
 Already running nodes can join the Dashboard, offering MPC computing services to other projects. After passing a certain stability of online time and service efficiency test, they can earn network CTM rewards. The registration process is as follows:
 
-Log in to your wallet at the website https://c3mpcnetwork-frontend.pages.dev/, noting that this wallet is the one configured in the node configuration files during the node running steps.
+Log in to your wallet at the website https://dashboard.continuumdao.org/, noting that this wallet is the one configured in the node configuration files during the node running steps.
 
 Afterwards, select 'Node Register', fill in the relevant information, and click to register.
 
