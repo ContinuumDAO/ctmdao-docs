@@ -11,14 +11,10 @@
             "id": "a15a1a5dc3b38e3d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "RunningInstructions/NodeRunningInstruction.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "NodeRunningInstruction"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -165,6 +161,7 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
+    "RunningInstructions/NodeRunningInstruction.md",
     "C3Caller/ContractAddresses.md",
     "Introduction.md",
     "C3Caller/C3CallerDemo.md",
