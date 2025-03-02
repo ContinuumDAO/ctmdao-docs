@@ -1,6 +1,6 @@
 ## Introduction
 
-![[Pasted image 20250302121326.png]]
+<img src="/_media/AssetX_overview.png"  alt=""/>
 
 AssetX is ContinuumDAO's RWA tokenization Factory.
 
