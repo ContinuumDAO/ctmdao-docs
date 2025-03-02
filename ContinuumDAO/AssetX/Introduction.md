@@ -36,16 +36,18 @@ AssetX has these features :-
     IMAGE,
     VIDEO
 
-Every RWA can choose to use Storage and if it does, it must have details about the Issuer in the ISUER category. A security must have details about the License and the regulator in LICENSE. For equity formation, the Issuer can upload full details (multiple hundreds of pages) about the risks and potential rewards of the asset in a special PROSPECTUS property. They can also specify who may invest in the RWA (using the WHOCANINVEST property) and whether the issuance is via a whitelist, or KYC/KYB, Accredited Investor status, with or without geo-blocking, all using PolygonID zkProofs. In place of the due diligence usually carried out by banks, the Issuer may commission due diligence from any entity (e.g. a well known management consultant company) and attach details of this to the RWA using the DUEDILIGENCE property. The same applies to any LEGAL or FINANCIAL statements concerning the RWA. For Asset Backed Securities, the Issuer is encouraged to fully describe how the asset is held in custody using the PROVENANCE category. They may also upload images and video, as well as other metadata in the IMAGE and VIDEO categories. 
+Every RWA can choose to use Storage and if it does, it must have details about the Issuer in the ISSUER category. A security must have details about the License and the regulator in the LICENSE property. For equity formation, the Issuer can upload full details (multiple hundreds of pages) about the risks and potential rewards of the asset in a special PROSPECTUS property. They can also specify who may invest in the RWA (using the WHOCANINVEST property) and whether the issuance is via a whitelist, or KYC/KYB, for public or Accredited Investor status, with or without geo-blocking, all using PolygonID zkProofs. In place of the due diligence usually carried out by banks, the Issuer may commission due diligence from any entity (e.g. a well known management consultant company) and attach details of this to the RWA using the DUEDILIGENCE property. The same applies to any LEGAL or FINANCIAL statements concerning the RWA. For Asset Backed Securities, the Issuer is encouraged to fully describe how the asset is held in custody using the PROVENANCE category. They may also upload images and video, as well as other metadata in the IMAGE and VIDEO categories. 
 
 The Issuer is also encouraged to describe how a holder of RWA tokens can redeem the underlying assets and the costs of doing so. This can be detailed in the REDEMPTION property.
 
-Finally the RWA can achieve a RATING in much the same way that traditional investments can, via some new web3 specific ratings agencies.
+The Issuer can provide important updates and news concerning the RWA in the NOTICE property.
+
+Finally the RWA can achieve a RATING in much the same way that traditional investments can, via some of the new web3 specific ratings agencies.
 
 Everything can be attached to the RWA and links to the Storage data is held on all chains that the RWA is deployed to.
 
 
-(7) The Issuer can distribute Dividends to holders of the RWA on all chains. This would typically be in conjunction with a statement attached to the RWA as a DIVIDEND property.
+(7) The Issuer can distribute Dividends to holders of the RWA on all chains. This would typically be in conjunction with a periodic statement attached to the RWA as a DIVIDEND property.
 
 (8) The Issuer can optionally choose to control the RWA via a whitelist of wallets that they control, or they can opt for the whitelist to be managed via a KYC process using PolygonID and zkProofs to ensure that holders can only come from certain countries, be over 18, or have 'accredited investor' status according to the US SEC definition. These whitelists are identical on all chains that the RWA is deployed to.
 
