@@ -1,6 +1,6 @@
 AssetX is ContinuumDAO's RWA tokenization Factory.
 
-It is the first trustless platform to enable Capital Formation for securities. AssetX enables an Issuer to take control of the process in a self directed way, but with a toolkit that allows them to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX will be suitable for use in lending protocols, allowing capital release for Issuers and in RWA marketplaces.
+It is the first trustless platform to enable Capital Formation for securities across any blockchain with 'no-code'. AssetX enables an Issuer to take control of the process in a self directed way, but with a toolkit that allows them to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX will be suitable for use in lending protocols, allowing capital release for Issuers and in RWA marketplaces.
 
 AssetX has these features :-
 
