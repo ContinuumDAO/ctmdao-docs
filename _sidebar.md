@@ -16,6 +16,10 @@
   * [Advanced on-chain Proposals](/ContinuumDAO/Governance/AdvancedProposals.md)
   * [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md)
 
+* AssetX RWA Tokenization Factory
+
+  * [Introduction](/ContinuumDAO/AssetX/Introduction.md)
+
 * MPC (Multi Party Computation)
 
   * [What is MPC?](/ContinuumDAO/MPC/WhatIsMPC.md)
