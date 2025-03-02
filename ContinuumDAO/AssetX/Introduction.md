@@ -1,6 +1,6 @@
 ## Introduction
 
-<img src="/_media/AssetX_overview.png"  alt=""/>
+<img src="/_media/AssetxOverview.png"  alt=""/>
 
 AssetX is ContinuumDAO's RWA tokenization Factory.
 
