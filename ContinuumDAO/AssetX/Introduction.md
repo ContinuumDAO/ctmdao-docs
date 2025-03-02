@@ -53,7 +53,7 @@ Everything can be attached to the RWA and links to the Storage data is held on a
 
 (8) The Issuer can optionally choose to control the RWA via a whitelist of wallets that they control, or they can opt for the whitelist to be managed via a KYC process using PolygonID and zkProofs to ensure that holders can only come from certain countries, be over 18, or have 'accredited investor' status according to the US SEC definition. These whitelists are identical on all chains that the RWA is deployed to.
 
-(9) All RWAs that have been minted can be examined through our RWA Explorer. In this way, potential investors can search for assets in their jurisdiction, of filtered types of asset, or by accredited status. They can see the dividends paid and the APR. They can also examine the properties attached to the RWA to help them decide if the asset is investment worthy. The RWA Explorer will shortly become available at https://explorer.AssetX.org
+(9) All RWAs that have been minted can be examined through our RWA Explorer. In this way, potential investors can search for assets in their jurisdiction, of filtered types of asset, or by accredited status. They can see the dividends paid and the APR. They can also examine the properties attached to the RWA to help them decide if the asset is investment worthy. They can see how to contact the Issuer, either via DM or via social channels. The RWA Explorer will shortly become available at https://explorer.AssetX.org
 
 
 ### Multichain Deployments
