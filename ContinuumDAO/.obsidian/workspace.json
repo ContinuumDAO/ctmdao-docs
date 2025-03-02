@@ -11,10 +11,14 @@
             "id": "a15a1a5dc3b38e3d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "AssetX/Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduction"
             }
           }
         ]
@@ -36,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -162,10 +167,10 @@
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
     "RunningInstructions/NodeRunningInstruction.md",
+    "Untitled.canvas",
     "C3Caller/ContractAddresses.md",
     "Introduction.md",
     "C3Caller/C3CallerDemo.md",
-    "Untitled.canvas",
     "Continuum 3525X.canvas",
     "Governance/HowToWriteAProposal.md",
     "Governance/How To Write A Proposal.md",
