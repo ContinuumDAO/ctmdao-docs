@@ -4,17 +4,17 @@
 
 AssetX is ContinuumDAO's RWA tokenization Factory. We have created a system that will allow businesses, big or small, whether established or not, anywhere in the world, even in countries without established stock exchanges, to raise finance for their enterprises, or release capital from illiquid assets.
 
-It is the first trustless platform to enable Capital Formation for securities across any blockchain with 'no-code'. AssetX enables an Issuer to take control of the process in a self directed way, but with a toolkit that allows them to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX will be suitable for use in lending protocols, allowing capital release for Issuers and in RWA marketplaces. The full power of DeFi becomes available to traditional businesses.
+It is the first trustless platform to enable capital formation for securities across any blockchain with 'no-code'. AssetX enables an Issuer to take control of the process in a self directed way. They can choose exactly what components form the Toolkit they need to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX can easily be integrated into lending protocols, allowing capital release for Issuers and also into RWA marketplaces. The full power of DeFi becomes available to both traditional businesses and to investors wishing to gain solid returns.
 
 AssetX has these features :-
 
-(1) The entire process for creating an Asset Backed Security in fully on-chain, using a suite of contracts specifically developed for securities, both Asset Backed Securities and equity.
+(1) The entire process for creating an Asset Backed Security is fully on-chain, using a suite of contracts specifically developed for securities - both Asset Backed Securities and equity.
 
 (2) Real World Assets (RWAs) can be created on one, or multiple blockchains and the number of chains can be subsequently extended. Asset classes in each RWA are fully interoperable across these chains. This interoperability is achieved using the security of ContinuumDAO's institutional grade MPC network. It is possible to trade an RWA on any one chain without requiring cross-chain calls, or further dependence on AssetX.
 
-(3) The RWA can be defined by anybody and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
+(3) An RWA can be defined by anybody and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
 
-(4) The RWA can have multiple asset classes defined, each with their own descriptions and units for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of perhaps illiquid underlying assets, such as works of art etc.
+(4) The RWA can have multiple asset classes defined, each with their own descriptions and units for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
 
 (5) The RWA Issuer has full control and they can mint value in each asset class on any chain and then transfer value to holders on any chain. The Issuer can also 'Lock' the RWA, so that no further minting or chain additions can be made. Holders of the RWA can also freely trade the value in each asset class of their RWA, so long as the recipients conform to the whitelist or KYC/KYB status to allow this.
 
