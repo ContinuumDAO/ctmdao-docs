@@ -14,7 +14,7 @@ AssetX has these features :-
 
 (3) An RWA can be defined by anybody and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
 
-(4) The RWA can have multiple asset classes defined, each with their own descriptions and units for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
+(4) The RWA can have multiple asset classes defined, each with their own descriptions and units of account for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
 
 (5) The RWA Issuer has full control and they can mint value in each asset class on any chain and then transfer value to holders on any chain. The Issuer can also 'Lock' the RWA, so that no further minting or chain additions can be made. Holders of the RWA can also freely trade the value in each asset class of their RWA, so long as the recipients conform to the whitelist or KYC/KYB status to allow this.
 
