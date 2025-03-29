@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AssetX/Introduction.md",
+                "file": "AssetX/GettingStarted.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduction"
+              "title": "GettingStarted"
             }
           }
         ]
@@ -166,8 +166,10 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
-    "C3Caller/QuickStart.md",
+    "C3Caller/ContractAddresses.md",
+    "AssetX/GettingStarted.md",
     "AssetX/Introduction.md",
+    "C3Caller/QuickStart.md",
     "RouterWorkingMechanism.md",
     "HowItWorks.md",
     "RunningInstructions/NodeRunningInstruction.md",
@@ -175,7 +177,6 @@
     "C3Caller/C3CallerProtocol.md",
     "Pasted image 20250302121326.png",
     "Untitled.canvas",
-    "C3Caller/ContractAddresses.md",
     "Introduction.md",
     "Continuum 3525X.canvas",
     "Governance/HowToWriteAProposal.md",
