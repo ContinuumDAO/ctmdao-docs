@@ -7,6 +7,13 @@ You can deploy or manage RWAs on testnet on multiple chains in a permissionless 
 PLEASE NOTE that some of the testnets that are used by AssetX are UNSTABLE and that problems can occur using AssetX with them that are not the fault of the platform. Common problems are (1) RPC gateways that stop working, (b) dramatic gas price changes that are hard to track, (c) transactions being stuck 'pending' forever, or even (d) discontinued/upgraded testnets that we have not learned about yet. On mainnet, we will only connect blockchains that are very stable, though this does not guarantee their flawless functionality!
 
 
+### Connect your Wallet
+
+AssetX supports a large number of wallets, including MetaMask, Phantom, TrustWallet, WalletConnect etc.
+
+<img src="/_media/Wallets_in_AssetX.png"  alt=""/>
+
+
 ### Popular Faucets for Gas
 
 To use AssetX, you will need a wallet containing gas tokens for the chains that you want to interact with. You only need gas on the source chain that you are connected to, since the MPC network pays the gas on the destination chain. Here are some popular faucets to get gas tokens

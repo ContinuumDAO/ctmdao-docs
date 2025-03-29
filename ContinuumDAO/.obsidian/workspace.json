@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AssetX/DeployingRWA.md",
+                "file": "AssetX/GettingStarted.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "DeployingRWA"
+              "title": "GettingStarted"
             }
           }
         ]
@@ -166,14 +166,14 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
+    "RouterWorkingMechanism.md",
+    "RunningInstructions/NodeRunningInstruction.md",
     "AssetX/GettingStarted.md",
     "AssetX/DeployingRWA.md",
     "C3Caller/ContractAddresses.md",
     "AssetX/Introduction.md",
     "C3Caller/QuickStart.md",
-    "RouterWorkingMechanism.md",
     "HowItWorks.md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "C3Caller/C3CallerDemo.md",
     "C3Caller/C3CallerProtocol.md",
     "Pasted image 20250302121326.png",
