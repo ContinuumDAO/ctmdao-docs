@@ -22,6 +22,7 @@
   * [Getting Started](/ContinuumDAO/AssetX/GettingStarted.md)
   * [Deploying an RWA](/ContinuumDAO/AssetX/DeployingRWA.md)
   * [Adding Asset Classes](/ContinuumDAO/AssetX/AssetClasses.md)
+  * [Minting Value](/ContinuumDAO/AssetX/MintingValue.md)
 
 * MPC (Multi Party Computation)
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AssetX/AssetClasses.md",
+                "file": "AssetX/MintingValue.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "AssetClasses"
+              "title": "MintingValue"
             }
           }
         ]
@@ -167,6 +167,7 @@
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
     "AssetX/DeployingRWA.md",
+    "AssetX/MintingValue.md",
     "AssetX/AssetClasses.md",
     "AssetX/Introduction.md",
     "AssetX/GettingStarted.md",
