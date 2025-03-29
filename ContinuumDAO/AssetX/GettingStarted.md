@@ -21,7 +21,7 @@ You are now connected to the "source" chain from which you will deploy your RWA 
 
 You can add extra wallet addresses by clicking Disconnect and then Connect again and "See your accounts ... Edit" (for MetaMask here). After this you can switch accounts easily by clicking the wallet address and switching the address from the selection.
 
-<img src="/_media/WalletsListEdit.png"  alt=""/>
+<img src="/_media/WalletListEditing.png"  alt=""/>
 
 
 
