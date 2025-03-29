@@ -53,7 +53,6 @@ Afterwards you will see the new chains added in the "Mint" and the "RWA Token Ad
 <img src="/_media/CreateRWA-6.png"  alt=""/>
 
 
-### Adding Asset Classes (slots)
 
 
 
