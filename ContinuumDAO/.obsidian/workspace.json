@@ -15,7 +15,7 @@
               "state": {
                 "file": "AssetX/DeployingRWA.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "DeployingRWA"
