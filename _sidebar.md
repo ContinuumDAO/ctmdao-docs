@@ -19,6 +19,7 @@
 * AssetX RWA Tokenization Factory
 
   * [Introduction](/ContinuumDAO/AssetX/Introduction.md)
+  * [Getting Started](/ContinuumDAO/AssetX/GettingStarted.md)
 
 * MPC (Multi Party Computation)
 
