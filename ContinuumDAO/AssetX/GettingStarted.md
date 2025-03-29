@@ -11,7 +11,8 @@ PLEASE NOTE that some of the testnets that are used by AssetX are UNSTABLE and t
 
 AssetX supports a large number of wallets, including MetaMask, Phantom, TrustWallet, WalletConnect etc.
 
-<img src="/_media/Wallets_in_AssetX.png"  alt=""/>
+<img src="/_media/WalletsAssetX.png"  alt=""/>
+
 
 
 ### Popular Faucets for Gas
