@@ -4,7 +4,7 @@ Each RWA can have any number of Asset Classes (or slots). Their meaning is compl
 
 Here in our example, we choose to define different classes of equity
 
-You click on the component of the RWA on the chain that you wish to add the Asset Class from. If you are not currently connected to this chain, you will be prompted to "Switch chain". You then describe the Asset Class (256 character limit), which is given the next slot number and you assign "Units" to it (can be blank).
+You click on the component of the RWA on the chain that you wish to add the Asset Class from. If you are not currently connected to this chain, you will be prompted to "Switch chain". You then describe the Asset Class (256 character limit), which is given the next slot number and you assign "Units" to it (can be blank). Here we define Ordinary Shares with units simply "shares"
 
 <img src="/_media/ModifyRWA-1.png"  alt=""/>
 
@@ -12,3 +12,8 @@ You then click "Create Slot"
 
 The slot will appear within seconds on the currently connected chain, but will take a few minutes (up to 20 minutes) to appear on the other chains in the RWA as the cross-chain signatures are completed by the MPC node network. Please wait patiently until you see the Asset Class appear on the other chains
 
+<img src="/_media/ModifyRWA-2.png"  alt=""/>
+
+and then we can create another Asset Class (slot 1) for "Vested Equity", which also has units of "share", but not interchangeable with the Ordinary shares :-
+
+<img src="/_media/ModifyRWA-3.png"  alt=""/>
