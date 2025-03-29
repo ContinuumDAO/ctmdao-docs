@@ -19,3 +19,10 @@ The decimals refers to how many decimal places you are reserving when describing
 You can now select which chains you want to deploy the RWA to by clicking on the boxes next to the chains. The current chain is automatically selected
 
 <img src="/_media/CreateRWAChains.png"  alt=""/>
+
+Now click "Deploy", approve the payment to the contract, and click OK to pay the fee and initiate the deployment.
+
+You will see the RWA created within seconds on the locally connected chain, which will appear in the "Mint" section of AssetX, as well as in the "RWA TokenAdmin" section below it. The deployment on the other chains will take a few minutes (up to 20 minutes on some chains) as the MPC node network securely signs the cross chain transactions and waits for sufficient confirmations. Please wait patiently. Eventually the remote chains will also show up. If you click on the RWA in the Mint section you will see something like this :-
+
+
+<img src="/_media/CreateRWA-3.png"  alt=""/>
