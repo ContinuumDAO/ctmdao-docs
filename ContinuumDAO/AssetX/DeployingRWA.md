@@ -35,5 +35,25 @@ The RWA has a unique ID, which is the same on all chains that it is deployed to.
 
 <img src="/_media/CreateRWA-4.png"  alt=""/>
 
-You can re-assign the Token Admin to another address here, or you can "Lock" it, though there is no point in doing this until you added some Asset Classes have minted some value to these.
+You can re-assign the Token Admin to another address here, or you can "Lock" it, though there is no point in doing this until you have added some Asset Classes have minted some value to these.
+
+
+### Adding New Chains
+
+You can add new chains to an existing RWA by clicking on the pencil icon in the "Mint" section. You will see the "Name" of the RWA appear, which cannot be modified. You can then click on the new chains that you wish to add (the existing chains will be permanently selected) :-
+
+<img src="/_media/CreateRWA-5.png"  alt=""/>
+
+Then click "Deploy" and wait patiently for the MPC network to do the cross chain signatures.
+
+NOTE that you can only extend the deployment of an RWA if you are connected to a chain that it was already deployed to. The ID and other information is picked up and used for deployment to the new chains.
+
+Afterwards you will see the new chains added in the "Mint" and the "RWA Token Admin" sections :-
+
+<img src="/_media/CreateRWA-6.png"  alt=""/>
+
+
+### Adding Asset Classes (slots)
+
+
 
