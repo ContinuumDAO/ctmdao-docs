@@ -13,6 +13,17 @@ AssetX supports a large number of wallets, including MetaMask, Phantom, TrustWal
 
 <img src="/_media/WalletsAssetX.png"  alt=""/>
 
+Once your wallet is connected, you can click the dropdown in the top right to see the list of chains that you can connect to in this dApp. Go ahead and select one 
+
+<img src="/_media/WalletsChainList.png"  alt=""/>
+
+You are now connected to the "source" chain from which you will deploy your RWA to other "destination" chains
+
+You can add extra wallet addresses by clicking Disconnect and then Connect again and "See your accounts ... Edit" (for MetaMask here). After this you can switch accounts easily by clicking the wallet address and switching the address from the selection.
+
+<img src="/_media/WalletsListEdit.png"  alt=""/>
+
+
 
 
 ### Popular Faucets for Gas
