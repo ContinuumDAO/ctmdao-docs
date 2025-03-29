@@ -26,3 +26,14 @@ You will see the RWA created within seconds on the locally connected chain, whic
 
 
 <img src="/_media/CreateRWA-3.png"  alt=""/>
+
+This indicates that a series of interlinked contracts have been deployed on each chain. 
+
+Your wallet is now the Issuer of this RWA and it is now the "Token Admin"
+
+The RWA has a unique ID, which is the same on all chains that it is deployed to. You can see this in the "RWA Token Admin" section :-
+
+<img src="/_media/CreateRWA-4.png"  alt=""/>
+
+You can re-assign the Token Admin to another address here, or you can "Lock" it, though there is no point in doing this until you added some Asset Classes have minted some value to these.
+
