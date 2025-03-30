@@ -16,7 +16,7 @@ AssetX has these features :-
 
 (4) The RWA can have multiple asset classes defined, each with their own descriptions and units of account for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
 
-(5) The RWA on each chain is independent of the other chains, in that "value" in each Asset Class can be transferred to other wallets without needing access to the MPC network. They are not 'wrapped' tokens.
+(5) The RWA on each chain is independent of the other chains, in that "value" in each Asset Class can be transferred to other wallets without needing access to the MPC network. They are not 'wrapped' tokens. There is no 'master' chain.
 
 (6) The RWA Issuer has full control and they can mint value in each asset class on any chain and then transfer value to holders on any chain. The Issuer can also 'Lock' the RWA, so that no further minting or chain additions can be made. Holders of the RWA can also freely trade the value in each asset class of their RWA, so long as the recipients conform to the whitelist or KYC/KYB status to allow this.
 
