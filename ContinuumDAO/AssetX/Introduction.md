@@ -10,9 +10,9 @@ AssetX has these features :-
 
 (1) The entire process for creating an Asset Backed Security is fully on-chain, using a suite of contracts specifically developed for securities - both Asset Backed Securities and equity.
 
-(2) Real World Assets (RWAs) can be created on one, or multiple blockchains and the number of chains can be subsequently extended. Asset classes in each RWA are fully interoperable across these chains. This interoperability is achieved using the security of ContinuumDAO's institutional grade MPC network. It is possible to trade an RWA on any one chain without requiring cross-chain calls, or further dependence on AssetX.
+(2) Real World Assets (RWAs) can be created on one, or multiple blockchains and the number of chains can be subsequently extended. Asset classes in each RWA are fully interoperable across these chains. This interoperability is achieved using the security of ContinuumDAO's institutional grade MPC network. It is possible to trade an RWA on any one chain without requiring cross-chain calls, or further dependence on cross-chain communication.
 
-(3) An RWA can be defined by anybody (trustlessly) and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
+(3) An RWA can be defined by anybody (permissionlessly) and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code. There is no need to register with us.
 
 (4) The RWA can have multiple asset classes defined, each with their own descriptions and units of account for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
 
