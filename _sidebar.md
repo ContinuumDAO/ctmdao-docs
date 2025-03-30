@@ -24,6 +24,7 @@
   * [Adding Asset Classes](/ContinuumDAO/AssetX/AssetClasses.md)
   * [Minting Value](/ContinuumDAO/AssetX/MintingValue.md)
   * [Transferring Value](/ContinuumDAO/AssetX/TransferringValue.md)
+  * [Greenfield Storage](/ContinuumDAO/AssetX/GreenfieldStorage.md)
 
 * MPC (Multi Party Computation)
 
