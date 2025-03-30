@@ -2,7 +2,7 @@
 
 It is assumed that you are now in AssetX (https://factory.AssetX.org), that you have connected a wallet, that you have connected to the chain you wish to deploy an RWA from and that you have gas in your wallet. If not, please see Getting Started.
 
-Choose if you want store RWA data on BNB Greenfield ("GFLD"), or "IPFS" (coming soon), or "NONE". You cannot change these options later.
+Choose if you want to store RWA data on BNB Greenfield ("GFLD"), or "IPFS" (coming soon), or "NONE". You cannot change these options later.
 
 Click on "Create Token"
 

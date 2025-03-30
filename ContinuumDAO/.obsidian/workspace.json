@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AssetX/Introduction.md",
+                "file": "AssetX/DeployingRWA.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Introduction"
+              "title": "DeployingRWA"
             }
           }
         ]
@@ -166,9 +166,9 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
+    "AssetX/Introduction.md",
     "AssetX/GreenfieldStorage.md",
     "AssetX/GettingStarted.md",
-    "AssetX/Introduction.md",
     "AssetX/DeployingRWA.md",
     "AssetX/TransferringValue.md",
     "AssetX/MintingValue.md",
