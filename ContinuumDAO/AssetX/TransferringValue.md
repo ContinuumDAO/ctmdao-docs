@@ -8,7 +8,7 @@ Here we will transfer some of Ordinary Equity tokens from Arbitrum to Avalanche.
 
 <img src="/_media/TransferRWA-1.png"  alt=""/>
 
-resulting in this
+resulting in these tokens on Avalanche
 
 <img src="/_media/TransferRWA-2.png"  alt=""/>
 
