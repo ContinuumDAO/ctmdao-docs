@@ -59,7 +59,7 @@ To use AssetX, you will need a wallet containing gas tokens for the chains that 
 | 5ire Testnet           | https://testnet.5irescan.io/faucet                      |
 | U2U Nebulas            | https://testnet.u2uscan.xyz/                            |
 
-We would greatly appreciate your help to maintain enough gas on the destination chain to pay for the cross-chain services, so if you have spare testnet gas tokens, please do send them to the MPC address on each chain :-
+For our testnet, we would greatly appreciate your help to maintain enough gas on the destination chain to pay for the cross-chain services, so if you have spare testnet gas tokens, please do send them to the MPC address on each chain :-
 
 0xEef3d3678E1E739C6522EEC209Bede0197791339
 
