@@ -12,13 +12,15 @@ AssetX has these features :-
 
 (2) Real World Assets (RWAs) can be created on one, or multiple blockchains and the number of chains can be subsequently extended. Asset classes in each RWA are fully interoperable across these chains. This interoperability is achieved using the security of ContinuumDAO's institutional grade MPC network. It is possible to trade an RWA on any one chain without requiring cross-chain calls, or further dependence on AssetX.
 
-(3) An RWA can be defined by anybody and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
+(3) An RWA can be defined by anybody (trustlessly) and does not require any coding. This can be achieved using our website https://factory.AssetX.org or alternatively the contract calls can be embedded in other code.
 
 (4) The RWA can have multiple asset classes defined, each with their own descriptions and units of account for each class. In this way, an asset can be broken down into different types such as property types, loan terms, equity classes, land areas etc. etc. The RWA is suitable for fractional ownership of large, or perhaps illiquid underlying assets, such as works of art etc.
 
-(5) The RWA Issuer has full control and they can mint value in each asset class on any chain and then transfer value to holders on any chain. The Issuer can also 'Lock' the RWA, so that no further minting or chain additions can be made. Holders of the RWA can also freely trade the value in each asset class of their RWA, so long as the recipients conform to the whitelist or KYC/KYB status to allow this.
+(5) The RWA on each chain is independent of the other chains, in that "value" in each Asset Class can be transferred to other wallets without needing access to the MPC network. They are not 'wrapped' tokens.
 
-(6) The RWA can be fully described using decentralized storage on BNB Greenfield. The properties that are stored are linked to the RWA through on-chain checksums. The list of properties is immutable, so a prospective holder can see the entire history of the creation and development of this RWA. The property types are classified as follows 
+(6) The RWA Issuer has full control and they can mint value in each asset class on any chain and then transfer value to holders on any chain. The Issuer can also 'Lock' the RWA, so that no further minting or chain additions can be made. Holders of the RWA can also freely trade the value in each asset class of their RWA, so long as the recipients conform to the whitelist or KYC/KYB status to allow this.
+
+(7) The RWA can be fully described using decentralized storage on BNB Greenfield. The properties that are stored are linked to the RWA through on-chain checksums. The list of properties is immutable, so a prospective holder can see the entire history of the creation and development of this RWA. The property types are classified as follows 
 
 	ISSUER,
     PROVENANCE,
@@ -49,11 +51,11 @@ Finally the RWA can achieve a RATING in much the same way that traditional inves
 Everything can be attached to the RWA and links to the Storage data is held on all chains that the RWA is deployed to.
 
 
-(7) The Issuer can distribute Dividends to holders of the RWA on all chains. This would typically be in conjunction with a periodic statement attached to the RWA as a DIVIDEND property.
+(8) The Issuer can distribute Dividends to holders of the RWA on all chains. This would typically be in conjunction with a periodic statement attached to the RWA as a DIVIDEND property.
 
-(8) The Issuer can optionally choose to control the RWA via a whitelist of wallets that they control, or they can opt for the whitelist to be managed via a KYC process using PolygonID and zkProofs to ensure that holders can only come from certain countries, be over 18, or have 'accredited investor' status according to the US SEC definition. These whitelists are identical on all chains that the RWA is deployed to.
+(9) The Issuer can optionally choose to control the RWA via a whitelist of wallets that they control, or they can opt for the whitelist to be managed via a KYC process using PolygonID and zkProofs to ensure that holders can only come from certain countries, be over 18, or have 'accredited investor' status according to the US SEC definition. These whitelists are identical on all chains that the RWA is deployed to.
 
-(9) All RWAs that have been minted can be examined through our RWA Explorer. In this way, potential investors can search for assets in their jurisdiction, of filtered types of asset, or by accredited status. They can see the dividends paid and the APR. They can also examine the properties attached to the RWA to help them decide if the asset is investment worthy. They can see how to contact the Issuer, either via DM or via social channels. The RWA Explorer will shortly become available at https://explorer.AssetX.org
+(10) All RWAs that have been minted can be examined through our RWA Explorer. In this way, potential investors can search for assets in their jurisdiction, of filtered types of asset, or by accredited status. They can see the dividends paid and the APR. They can also examine the properties attached to the RWA to help them decide if the asset is investment worthy. They can see how to contact the Issuer, either via DM or via social channels. The RWA Explorer will shortly become available at https://explorer.AssetX.org
 
 
 ### Multichain Deployments
