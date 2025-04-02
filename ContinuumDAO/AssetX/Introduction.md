@@ -4,11 +4,11 @@
 
 AssetX is ContinuumDAO's RWA tokenization Factory. We have created a system that will allow businesses, big or small, whether established or not, anywhere in the world, even in countries without established stock exchanges, to raise finance for their enterprises, or release capital from illiquid assets.
 
-It is the first trustless platform to enable capital formation for securities across any blockchain with 'no-code'. AssetX enables an Issuer to take control of the process in a self directed way. They can choose exactly what components form the Toolkit they need to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX can easily be integrated into lending protocols, allowing capital release for Issuers and also into RWA marketplaces. The full power of DeFi becomes available to both traditional businesses and to investors wishing to gain solid returns.
+It is the first permissionless platform to enable capital formation for securities across any blockchain with 'no-code'. AssetX enables an Issuer to take control of the process in a self directed way. They can choose exactly what components from the Toolkit they need to satisfy the requirements of a regulator. Substantial cost savings can be made by avoiding the underwriting process associated with typical capital formation. The RWAs created by AssetX can easily be integrated into lending protocols, allowing capital release for Issuers and also into RWA marketplaces. The full power of DeFi becomes available to both traditional businesses and to investors wishing to gain solid returns.
 
 AssetX has these features :-
 
-(1) The entire process for creating an Asset Backed Security is fully on-chain, using a suite of contracts specifically developed for securities - both Asset Backed Securities and equity.
+(1) The entire process for creating an Asset Backed, or equity based security is fully on-chain, using a suite of contracts specifically developed for securities.
 
 (2) Real World Assets (RWAs) can be created on one, or multiple blockchains and the number of chains can be subsequently extended. Asset classes in each RWA are fully interoperable across these chains. This interoperability is achieved using the security of ContinuumDAO's institutional grade MPC network. It is possible to trade an RWA on any one chain without requiring cross-chain calls, or further dependence on cross-chain communication.
 
