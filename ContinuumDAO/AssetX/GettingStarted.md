@@ -11,7 +11,7 @@ PLEASE NOTE that some of the testnets that are used by AssetX are UNSTABLE and t
 
 You can connect your wallet from within AssetX, and you switch chains using the Connect Wallet button top right, or by clicking the wallet address and changing chains
 
-<img src="/_media/Wallet_WAGMI.png"  alt=""/>
+<img src="/_media/WalletWAGMI.png"  alt=""/>
 
 You can see the balance of the primary Fee token (here tUSDT) that you will need to have on the source chain only to perform most actions in AssetX. You will also need gas on the source chain only. The gas on the destination chains for cross-chain functions is paid for by the MPC network.
 
