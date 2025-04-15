@@ -51,7 +51,7 @@ To use AssetX, you will need a wallet containing gas tokens for the chains that 
 | Scroll Sepolia         | https://scroll.faucetme.pro/                            |
 | Linea Sepolia          | https://docs.metamask.io/developer-tools/faucet/        |
 | Vanguard testnet       | https://faucet.vanarchain.com/                          |
-| Blast Sepolia          | https://faucet.quicknode.com/blast                      |
+| Blast Sepolia          | https://faucet.quicknode.com/blast or see https://docs.blast.io/building/bridges/testnet                   |
 | Lumia Testnet          | https://faucets.alchemy.com/faucets/lumia-testnet       |
 | Conflux Espace Testnet | https://efaucet.confluxnetwork.org/                     |
 | Manta Pacific          | https://pacific-info.sepolia-testnet.manta.network/     |
