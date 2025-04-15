@@ -9,20 +9,11 @@ PLEASE NOTE that some of the testnets that are used by AssetX are UNSTABLE and t
 
 ### Connect your Wallet
 
-AssetX supports a large number of wallets, including MetaMask, Phantom, TrustWallet, WalletConnect etc.
+You can connect your wallet from within AssetX, and you switch chains using the Connect Wallet button top right, or by clicking the wallet address and changing chains
 
-<img src="/_media/WalletsAssetX.png"  alt=""/>
+<img src="/_media/Wallet_WAGMI.png"  alt=""/>
 
-Once your wallet is connected, you can click the dropdown in the top right to see the list of chains that you can connect to in this dApp. Go ahead and select one 
-
-<img src="/_media/WalletChainList.png"  alt=""/>
-
-You are now connected to the "source" chain from which you will deploy your RWA to other "destination" chains
-
-You can add extra wallet addresses by clicking Disconnect and then Connect again and "See your accounts ... Edit" (for MetaMask here). After this you can switch accounts easily by clicking the wallet address and switching the address from the selection.
-
-<img src="/_media/WalletListEditing.png"  alt=""/>
-
+You can see the balance of the primary Fee token (here tUSDT) that you will need to have on the source chain only to perform most actions in AssetX. You will also need gas on the source chain only. The gas on the destination chains for cross-chain functions is paid for by the MPC network.
 
 
 
