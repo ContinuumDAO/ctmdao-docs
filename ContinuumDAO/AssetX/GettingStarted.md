@@ -34,12 +34,12 @@ To use AssetX, you will need a wallet containing gas tokens for the chains that 
 | ---------------------- | ------------------------------------------------------- |
 | Sepolia                | https://docs.metamask.io/developer-tools/faucet/        |
 | BSC Testnet            | https://www.bnbchain.org/en/testnet-faucet              |
-| BNB Greenfield Testnet | Use bridge https://opbnb-testnet-bridge.bnbchain.org/   |
+| BNB Greenfield Testnet | Use bridge https://greenfield.bnbchain.org/en/bridge?type=transfer-in   |
 | Arbitrum Sepolia       | https://faucets.alchemy.com/faucets/arbitrum-sepolia    |
 | Polygon Amoy           | Polygon Discord faucet                                  |
 | Avalanche Fuji         | https://core.app/tools/testnet-faucet/?subnet=c&token=c |
 | Optimism Sepolia       | https://faucets.alchemy.com/faucets/optimism-sepolia    |
-| opBNB Testnet          | Use bridge https://greenfield.bnbchain.org/en/bridge?type=transfer-in  |
+| opBNB Testnet          | Use bridge https://opbnb-testnet-bridge.bnbchain.org/   |
 | BASE Sepolia           | https://faucets.alchemy.com/faucets/base-sepolia        |
 | Bitlayer Testnet       | https://www.bitlayer.org/faucet  |
 | CORE Testnet           | https://scan.test.btcs.network/faucet  |
