@@ -6,8 +6,6 @@
 * Get Started
 
   * [Introduction](/ContinuumDAO/Introduction.md)
-  * [How it Works](/ContinuumDAO/HowItWorks.md)
-  * [Router Working Mechanism](ContinuumDAO/RouterWorkingMechanism.md)
 
 * Governance
 
