@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WhitePaper.md",
+                "file": "ContinuumDAO/AssetX/GettingStarted.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "WhitePaper"
+              "title": "GettingStarted"
             }
           }
         ]
@@ -166,8 +166,8 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
-    "Untitled.canvas",
     "WhitePaper.md",
+    "Untitled.canvas",
     "Introduction.md",
     "AssetX/GettingStarted.md",
     "AssetX/Introduction.md",
