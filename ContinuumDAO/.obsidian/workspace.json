@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Introduction.md",
+                "file": "WhitePaper.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Introduction"
+              "title": "WhitePaper"
             }
           }
         ]
@@ -166,6 +166,9 @@
   },
   "active": "a15a1a5dc3b38e3d",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "WhitePaper.md",
+    "Introduction.md",
     "AssetX/GettingStarted.md",
     "AssetX/Introduction.md",
     "AssetX/DeployingRWA.md",
@@ -184,8 +187,6 @@
     "HowItWorks.md",
     "C3Caller/C3CallerProtocol.md",
     "Pasted image 20250302121326.png",
-    "Untitled.canvas",
-    "Introduction.md",
     "Continuum 3525X.canvas",
     "Governance/HowToWriteAProposal.md",
     "Governance/How To Write A Proposal.md",
@@ -194,7 +195,6 @@
     "How To Write a Proposal.md",
     "Governance/How to Write a Proposal.md",
     "Governance/ProposalHowToSubmit.md",
-    "Governance/How to Submit a Proposal.md",
-    "Constitution.md"
+    "Governance/How to Submit a Proposal.md"
   ]
 }
