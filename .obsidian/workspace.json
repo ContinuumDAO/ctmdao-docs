@@ -16,7 +16,9 @@
                 "file": "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
                 "source": true
-              }
+              },
+              "icon": "lucide-file",
+              "title": "NodeRunningInstruction"
             }
           },
           {
@@ -25,10 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
+                "file": "ContinuumDAO/AssetX/GettingStarted.md",
                 "mode": "source",
                 "source": true
-              }
+              },
+              "icon": "lucide-file",
+              "title": "GettingStarted"
             }
           }
         ],
@@ -51,8 +55,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -67,7 +74,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -75,7 +84,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -98,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
+                "file": "ContinuumDAO/AssetX/GettingStarted.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +117,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for GettingStarted"
             }
           },
           {
@@ -115,10 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md",
+                "file": "ContinuumDAO/AssetX/GettingStarted.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from GettingStarted"
             }
           },
           {
@@ -128,8 +143,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -138,8 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ContinuumDAO/C3Caller/C3CallerFoundry.md"
-              }
+                "file": "ContinuumDAO/AssetX/GettingStarted.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of GettingStarted"
             }
           }
         ]
@@ -161,6 +185,8 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/C3CallerFoundry.md",
+    "ContinuumDAO/ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/C3Caller/C3CallerTest.md",
     "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
@@ -171,7 +197,6 @@
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "().md",
-    "ContinuumDAO/C3Caller/C3CallerFoundry.md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "_sidebar.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
@@ -191,7 +216,6 @@
     "ContinuumDAO/WhatIsMPC.md",
     "ContinuumDAO/C3Caller/WhatIsMPC.md",
     "ContinuumDAO/HowItWorks.md",
-    "ContinuumDAO/RouterWorkingMechanism.md",
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
