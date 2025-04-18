@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Introduction.md",
+                "file": "_sidebar.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Introduction"
+              "title": "_sidebar"
             }
           }
         ],
@@ -185,6 +185,8 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/Overview.md",
+    "ContinuumDAO/Introduction.md",
     "README.md",
     "_sidebar.md",
     "().md",
@@ -193,7 +195,6 @@
     "ContinuumDAO/C3Caller/C3CallerFoundry.md",
     "ContinuumDAO/ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/C3Caller/C3CallerTest.md",
-    "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
     "ContinuumDAO/Governance/AdvancedProposals.md",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
@@ -213,7 +214,6 @@
     "ContinuumDAO/MPC/MPCvsMultiSig.md",
     "ContinuumDAO/MPC/MPCvsZK.md",
     "ContinuumDAO/MPC/MPCvsOthers.md",
-    "ContinuumDAO/MPC/WhatIsMPC.md",
     "ContinuumDAO/RunningInstructions",
     "ContinuumDAO/MPC",
     "_media/C3CallerSchematic.png",
