@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/WhitePaper.md",
+                "file": "ContinuumDAO/Introduction.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "WhitePaper"
+              "title": "Introduction"
             }
           }
         ],
@@ -185,6 +185,10 @@
   },
   "active": "c4c50ad8d5546d62",
   "lastOpenFiles": [
+    "README.md",
+    "_sidebar.md",
+    "().md",
+    "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/C3Caller/C3CallerFoundry.md",
     "ContinuumDAO/ContinuumDAO/AssetX/GettingStarted.md",
@@ -197,9 +201,7 @@
     "ContinuumDAO/Governance/Constitution.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
-    "().md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
-    "_sidebar.md",
     "ContinuumDAO/C3Caller/QuickStart.md",
     "ContinuumDAO/C3Caller/C3CallerProtocol.md",
     "_media/docker-compose_server.yml",
@@ -214,8 +216,6 @@
     "ContinuumDAO/MPC/WhatIsMPC.md",
     "ContinuumDAO/RunningInstructions",
     "ContinuumDAO/MPC",
-    "ContinuumDAO/WhatIsMPC.md",
-    "ContinuumDAO/C3Caller/WhatIsMPC.md",
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
