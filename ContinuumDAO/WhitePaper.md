@@ -191,7 +191,7 @@ Before TGE, the DAO will have a vote to decide which Core Contributors deserve t
 
 ### Allocation
 
-<img src="/_media/ContinuumCtmDistribution.png"  alt=""/>
+<img src="/_media/ctm-distribution.png"  alt=""/>
 
 - **DAO Treasury - 45%**
     - The spending of the Treasury will be determined solely through on-chain voting using veCTM. The DAO, through voting, can allocate tokens for new projects, payment for services, or whatever they wish to, so long as it complies with the Mission and Vision statement in our Constitution.

@@ -15,7 +15,7 @@
               "state": {
                 "file": "WhitePaper.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "WhitePaper"
@@ -167,8 +167,9 @@
   },
   "active": "a43b0b6ecf803549",
   "lastOpenFiles": [
-    "AssetX/Introduction.md",
+    "AssetX/TransferringValue.md",
     "WhitePaper.md",
+    "AssetX/Introduction.md",
     "AssetX/AssetClasses.md",
     "ContinuumDAO/AssetX/GettingStarted.md",
     "Untitled.canvas",
@@ -176,7 +177,6 @@
     "AssetX/GettingStarted.md",
     "AssetX/DeployingRWA.md",
     "AssetX/GreenfieldStorage.md",
-    "AssetX/TransferringValue.md",
     "AssetX/MintingValue.md",
     "RunningInstructions/NodeRunningInstruction.md",
     "C3Caller/C3CallerDemo.md",
