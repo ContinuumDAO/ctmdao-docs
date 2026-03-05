@@ -4,8 +4,6 @@
 
 A trustless Secure Multi Party Computation node network called the Continuum and run worldwide by a DAO.
 
-We provide 'chainless' solutions for Real World Assets.
-
 
 
 <!--
