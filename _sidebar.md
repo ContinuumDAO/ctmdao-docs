@@ -14,16 +14,6 @@
   * [Advanced on-chain Proposals](/ContinuumDAO/Governance/AdvancedProposals.md)
   * [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md)
 
-* AssetX RWA Tokenization Factory
-
-  * [Introduction](/ContinuumDAO/AssetX/Introduction.md)
-  * [Getting Started](/ContinuumDAO/AssetX/GettingStarted.md)
-  * [Deploying an RWA](/ContinuumDAO/AssetX/DeployingRWA.md)
-  * [Adding Asset Classes](/ContinuumDAO/AssetX/AssetClasses.md)
-  * [Minting Value](/ContinuumDAO/AssetX/MintingValue.md)
-  * [Transferring Value](/ContinuumDAO/AssetX/TransferringValue.md)
-  * [Greenfield Storage](/ContinuumDAO/AssetX/GreenfieldStorage.md)
-
 * MPC (Multi Party Computation)
 
   * [What is MPC?](/ContinuumDAO/MPC/WhatIsMPC.md)

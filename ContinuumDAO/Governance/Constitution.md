@@ -1,5 +1,5 @@
 
-Created time: October 9, 2023 15:00 UTC
+Created time: 5th March 2026
 
 # **ContinuumDAO Introduction**
 
@@ -21,19 +21,16 @@ Our vision is to connect the world by building the public goods of web3. We aim 
 
 There will be three governance roles: Committee, Contributor, and Citizen.
 
-- The Committee will commit to uphold the ContinuumDAO Constitution. They will be the custodians of the important security information of CTMDAO. They will be responsible for submitting proposals that have passed a Temperature Check to a Formal Vote snapshot in a timely manner.
-    - For the beginning of the CTMDAO, some previously active community members have been selected who have a good track record of contributing to the DAO. Their term will be for 6 months, starting from October 1st 2023. Thereafter Committees will be elected every 12 months. An election of a new Committee will take place and be completed before every 1st April, the expiration of the term of the old Committee. If a vote for a new Committee does not reach the quorum or required majority, then the old Committee will stay in place and a new election will be implemented as soon as practical.
+- The Committee will commit to uphold the ContinuumDAO Constitution. They will be the custodians of the important security information of CTMDAO. They will be responsible for submitting proposals that have passed a Temperature Check to a Formal Vote  in a timely manner.
+    - For the beginning of the CTMDAO, some previously active community members have been selected who have a good track record of contributing to the DAO. Their term will be for one year. Thereafter Committees will be elected every 12 months. An election of a new Committee will take place and be completed before every 1st March, the expiration of the term of the old Committee. If a vote for a new Committee does not reach the quorum or required majority, then the old Committee will stay in place and a new election will be implemented as soon as practical.
     - **Committee List：**
 
 | Name | 
 | --- |
 | Selqui |
-| Apex |
-| Claire |
-| Apxymous |
+| Hal |
 | John CTM |
-| Jerry |
-| Chookz |
+
 
 - Contributors will include node runners, Guild members, and the core-contributors group.
     - The Contributors will be responsible for all operational tasks of the Continuum as well as future ecosystem projects that may need help. There will be four Guilds to assist CTMDAO, namely Research, Marketing, Business Development, and Developers.
@@ -63,7 +60,7 @@ There is no threshold to propose for the temperature check. Proposals will have 
 
 **Formal Vote:**
 
-The formal voting period for the snapshot will be 10 days. The governance for Emergency proposals will be shortened to 4 days. Only a Committee member can initiate an Emergency proposal. A Formal Vote needs to be submitted by a wallet address with at least 1% of the vote power before posting on the Snapshot. This can be accomplished via delegation if necessary.
+The formal voting period for the snapshot will be 10 days. This period can be shorter if the vote reaches a Super Quorum, with a threshold set by the DAO, after which the proposal will be available for anyone to Execute. Only a Committee member can initiate an Emergency proposal. A Formal Vote needs to be submitted by a wallet address with the higher of at least 1% of the vote power, or 1000 veCTM Voting Power, before posting on the Snapshot. This can be accomplished via delegation if necessary. There will be a Proposal Guardian wallet address set as one of the first actions of the DAO, which may terminate a proposal if it is judged to contravene the law. This is in line with the requirements of RAKDAO, where our DAO will be incorporated and the Proposal Guardian will be the person who is a legal representative of ContinuumDAO in RAKDAO.
 
 A proposal submitted by a Committee member does not require a Temperature Check, but after having been posted to the Forum Proposal section, may be submitted directly for the Formal Vote snapshot.
 
@@ -87,57 +84,60 @@ Any proposal that is a re-submission should reference the previous proposal and 
 
 Proposals should further the Vision and Mission of ContinuumDAO. If proposals do not clearly do this, then voters should seriously consider rejecting them. Every veCTM holder will be able to vote, with no threshold to vote, except holders of non-voting veCTM tokens. The quorum for the voting must meet 20% of the total voting power. 
 
-There will be three categories of proposal. 
+There will be five categories of proposal.
 
-- The first is to change this Constitution. Any proposal that has an effect on it will be considered a constitutional vote. A proposal that will update core smart contracts, such as veCTM or SMPC related code will also be considered as a Constitutional proposal.
-    - To amend the Constitution, a higher threshold of 67% is required.
-    - Any Constitutional proposal that changes this document must include the new version of the Constitution. If it passes, then a hash of the document will be generated and it, together with the document itself and the code to check the hash will be made available on the ContinuumDAO github at [https://github.com/ContinuumDAO](https://github.com/ContinuumDAO).
-- The second is for a proposal to spend from the Treasury, to elect a new Committee upon expiry of their term, to replace a Committee member, or concerning any other matter.
-    - A voting result of over 50% of votes cast will pass the Treasury/Committee proposal.
-    - A Committee election vote which alters the Committee will update this Constitution’s Committee and Multi-signers list without the need for a Constitutional vote.
-- The third is for an Emergency proposal.
-    - A voting result of over 50% of votes cast will pass the Emergency proposal.
+(1) The first is a simple Decision, which does not necessarily have an on-chain action. Examples are the decision to join RAKDAO, or to replace a Committee member. Other examples could be to add or remove a blockchain from C3Caller.
+
+(2) The second is for an Election. This is a multi choice voting pattern. An example is for the Committee elections.
+
+(3) The third is a Treasury decision, which has the on-chain action of transferring funds to a wallet on either Linea or another chain. An example would be to fund on-going activity by the Core contributors, including salaries.
+
+(4) The fourth is a Constitution vote, to amend this Constitution. Any proposal that has an effect on it will be considered a constitutional vote. Any Constitutional proposal that changes this document must include the new version of the Constitution. If it passes, then a hash of the document will be generated and it, together with the document itself and the code to check the hash will be made available on the ContinuumDAO github at [https://github.com/ContinuumDAO](https://github.com/ContinuumDAO).
+
+(5) The final category is Admin. This can include any proposal to modify smart contracts as onlyGov, re-deploy contracts, perform proxy upgrades on our core smart contracts.
+
+
 
 ### Security/Emergency Procedure
 
-An Emergency Procedure to halt the Continuum network can be performed by the Committee. A Committee member should try to contact other members, so that at least 4 members agree on a course of action, which must be discussed and documented in the Forum under the private Governance Committee section (not Telegram). If this is not possible due to an urgent situation, then it is acceptable for a Committee member to go ahead and halt the MPC network, either partially or totally, after which they must contact other Committee members as soon as possible and then document the reasons for their actions in the Forum Announcements section. **The ability of the Committee to halt the Continuum network is a temporary measure**, which will be lifted once the network is more mature. After this, it will only be possible to halt the network using on-chain governance controlled through voting.
+An Emergency Procedure to halt the Continuum network can be performed by the Committee. A Committee member should try to contact other members, so that at least 4 members agree on a course of action, which must be discussed and documented in the Forum under the private Governance Committee section (not Telegram). If this is not possible due to an urgent situation, then it is acceptable for a Committee member to go ahead and halt or modify the MPC network, either partially or totally, after which they must contact other Committee members as soon as possible and then document the reasons for their actions in the Forum Announcements section. **The ability of the Committee to halt the Continuum network is a temporary measure**, which will be lifted once the network is more mature. After this, it will only be possible to halt the network using on-chain governance controlled through voting.
 
 No other Emergency procedure may be carried out by the Committee without a vote. 
 
-The Committee may squash the outcome of any vote, declaring it null and void if it obviously does not further the Vision and Mission of ContinuumDAO as laid out in this Constitution. To do so, at least 5 members of the Committee have to take this extraordinary action and then document the reasons for their action in the Forum Announcements section, including stating which members decided to oppose the vote outcome. Following this documentation procedure, if the proposal is re-submitted unaltered and if it once again passes, then the Committee may not squash the vote outcome for a second time.
+The Committee may squash the outcome of any vote, declaring it null and void if it obviously does not further the Vision and Mission of ContinuumDAO as laid out in this Constitution. To do so, at least 3 members of the Committee have to take this extraordinary action and then document the reasons for their action in the Forum Announcements section, including stating which members decided to oppose the vote outcome. Following this documentation procedure, if the proposal is re-submitted unaltered and if it once again passes, then the Committee may not squash the vote outcome for a second time.
 
 ### Treasury
 
-The Treasury is fully under the control of the voting process and the Committee may only spend Treasury assets as directed by DAO voting. The Treasury is protected by the seven CTMDAO Committee in the table below. 
+The Treasury is fully under the control of the voting process and the Committee may only spend Treasury assets as directed by DAO voting. The Treasury is protected by the three CTMDAO Committee in the table below. 
 
 **Multi-signers list:**
 
 | Name | Address |
 | --- | --- |
 | Selqui | 0x167518826cba5c2180acc60E4753ee3e811a08e7 |
-| Apex | 0x8A3D31028C8C83C407408193FF031e2DFD79E224 |
 | John | 0x14C189354702b7f2aC7b19e61522A41632226BD8 |
-| Claire | 0x05fe51463de6E4778b1BC911fcae0BEc9546106d |
-| Apxymous | 0xA9108260723e5633137150d0950D0FF3f9a9222a |
-| Chookz | 0xd41B402D7FA1c00284AFf06c6771E6C179826F12 |
-| Jerry | 0x80255a4a00CdDb1070DF85Be2407787199C43892
- |
+| Hal |  |
+
 
 **Safe-Wallets**
 
-Treasury wallets are multi-sig Safe-wallets. The threshold of the Treasury is **4 out of 7** signers.
+The Treasury wallet used to be a multi-sig Safe-wallet. The threshold of the Treasury was **4 out of 7** signers.
 
-The No. 1 Safe-wallet address is *arb1:0x47B33679b7FF853300a5Cc19c59d85fcEBAaa278*
+The No 1 Safe-wallet address is *arb1:0x47B33679b7FF853300a5Cc19c59d85fcEBAaa278*
 
-Other Treasury Safe-wallets may be created in the future to assist in CTMDAO management and funds may be transferred between them, but they will follow the same rules as the No. 1 wallet and their addresses will be added to the Constitution as soon as it is convenient to do so. 
+The DAO has now moved to fully on-chain Governance and the new Treasury and DAO Governance addresses are as follows:
 
-Over time the use of multi-sig wallets will be progressively replaced by direct on-chain governance and new Treasury wallets will be created, whose spending will only be controlled by veCTM governance contracts. These wallet addresses will also appear in the Constitution as soon as it is convenient to do so.
+- Treasury (C3Governor) on Ethereum 0x58B610a359c870E0fc941139821a51F5aa23f14E
+- Governor DAO on Linea 0x4800F9f1dC1b6daCA841B71E0531F547D374168E
+
+Other Treasury wallets (including Multi-Party Agent wallets) may be created in the future to assist in CTMDAO management and funds may be transferred between them, but they will follow the same rules as the No. 1 wallet and their addresses will be added to the Constitution as soon as it is convenient to do so. 
+
 
 ### ContinuumDAO ethics
 
 - **Security Access**
     
-    This concerns access to social media accounts, admin access to the CTMDAO github, admin access to all areas of the Forum, other key CTMDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will either be via a multi-sig wallet under the control of the Committee, with the same requirements of 4 out of 7 signers as for Treasury spending, or by governance functions in veCTM. The relevant keys and passwords will be held in a Key Vault file, which will be updated as necessary.
+    This concerns access to social media accounts, admin access to the CTMDAO github, admin access to all areas of the Forum, other key CTMDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will by governance functions in in the DAO Governor contract. The relevant keys and passwords will be held in a Key Vault file, which will be updated as necessary.
     
     There will be different levels of access to information for different roles. The Committee will have full access to the Key Vault to ensure the security of the CTMDAO. The Committee undertakes to keep this information secret. When anyone from the Committee leaves, the keys and passwords will be changed. The spread of the Key Vault to all Committee members will ensure decentralisation. Contributors will have limited access to specific projects and accounts depending on their need. Citizens will have public access.
     

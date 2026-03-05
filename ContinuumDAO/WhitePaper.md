@@ -1,6 +1,6 @@
 # ContinuumDAO White Paper
 
-10th August 2025
+5th March 2026
 
 # Welcome to Continuum
 
@@ -10,21 +10,21 @@ An open public cross-chain network secured by Multi-Party-Computation and run as
 
 ContinuumDAO is a community that is collectively building a future in which all blockchains are linked, to enable the integration of decentralized blockchain ledgers for all dApps. We realise that the entirety of finance and other ‘trust’ based networks will transition to web3 in the next few years and that the biggest opportunity for blockchain is to provide DeFi like services for actual businesses, whether that is to raise capital, or allow investment in assets or provide services that it would be impossible to do so using traditional tools. A future open to everyone, not just in the financial centers of the world. To do this though, it is necessary for all blockchains to be able to communicate with each other securely. This is urgent, since it seems likely that the number of chains will only increase. That is the mission of ContinuumDAO.
 
-As the backbone of ContinuumDAO, we have the first public institutional grade Multi-Party-Computation (MPC) node network called the Continuum. This, together with our system of on-chain and cross-chain governance and our commitment to open source code and permissionless architecture, forms a strong and durable framework, creating an open protocol that everyone can help run, and anyone can contribute towards, that is owned by the community. An unstoppable system, just like the internet on which it runs. 
+As the backbone of ContinuumDAO, we have the first public institutional grade Multi-Party-Computation (MPC) node network called the Continuum. Our initial products, leveraging our MPC network are our cross-chain messaging service, our Multi-Party Agent wallet and our system of on-chain and cross-chain governance. We are committed to a permissionless and decentralized architecture, which will create a strong and durable framework, with an open protocol that everyone can help run, and anyone can contribute towards, that is owned by the community. An unstoppable system, just like the internet on which it runs. 
 
 ## Why Does Having Open Public Infrastructure Matter?
 
-A better question is why would anyone who wishes to create a multi-chain dApp rely on an infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at anytime? ContinuumDAO has sophisticated governance controlled smart contracts that do not rely on a ‘team’ to administer or update them. The MPC nodes that collectively sign cross-chain transactions can be run by anyone and when we have implemented our road map, a dApp will be able to choose whatever MPC node group it wishes to use. The number of MPC groups is unlimited and so the capacity of the cross-chain network can grow as demand increases, effectively in an unlimited way.
+A better question is why would anyone who wishes to create a multi-chain dApp rely on an infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at anytime? ContinuumDAO has sophisticated governance controlled smart contracts that do not rely on a ‘team’ to administer or update them. The MPC nodes that collectively sign cross-chain transactions can be run by anyone and  a dApp can choose whatever MPC node group it wishes to use, or have its own community run its own MPC node groups. The number of MPC groups is unlimited and so the capacity of the cross-chain network, which can grow as demand increases, effectively in an unlimited way.
 
 ## Why is the ContinuumDAO Mission Important?
 
-The existing landscape of web3 is confusing for new and even existing users. Continuum will solve one of the biggest pain points - how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system.
+The existing landscape of web3 is confusing for new and even existing users. Continuum will solve one of the biggest pain points - how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system. Separately, our Multi-Party Agent wallet allows human-in-the-loop AI agent directed trading or governance control, where one or more nodes in a self-contained group of nodes is an AI agent and other nodes are humans. Together they can build up a knowledge base (context) for collectively signing transactions using Threshold Signatures and MPC.
 
 ### Limitations of Blockchains
 
 Perhaps 4% of the world’s population, but only 10% of smaller businesses may have had some (often limited) interaction with blockchains, Whereas some 81% of the world's top 100 public companies are actively using blockchain for applications like supply chain management, payments, and data security, it is usually in a very limited way.  Even these use cases are often spread across a proliferating number of blockchains, with limited ability to communicate between them securely.
 
-Individual chains are restricted in their transaction rate due to block limits, increased gas costs and traffic. Those that are more scaleable often lack decentralization (the ‘Blockchain Trilema’). The number of chains is exploding, with L2’s on Ethereum, Bitcoin and other major chains. It is easier than ever to create a new blockchain. Given that an expanding number of blockchains is inevitable, the issue is still how to provide secure messaging between these chains.
+Individual chains are restricted in their transaction rate due to block limits, increased gas costs and traffic. Those that are more scaleable often lack decentralization (the ‘Blockchain Trilema’). The number of chains is exploding, with L2’s on Ethereum, Bitcoin and other major chains. It is easier than ever to create a new blockchain. Given that an expanding number of blockchains is inevitable, the issue is still how to provide secure messaging between these chains. Our Multi-Party Agent wallet can operate freely on any blockchain that has a smart contract architecture.
 
 ### Lack of  Open Cross-Chain Fabrics
 
@@ -66,35 +66,33 @@ Systems that use zkProofs and relayers of those proofs do not have protocol leve
 
 ## The Current Situation
 
-ContinuumDAO was formed in August 2023 by a small community. At this time a simple *non-transferable* ERC20 token called CTMDAOVOTE was airdropped to the community to allow voting. The DAO created its Constitution, that can be read [here](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution). The DAO also created its [Mission and Vision](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution?id=mission-amp-vision). The formation of and discussion on proposals happens in our  [Forum](https://forum.continuumdao.org/)  and voting on proposals happens on Snapshot [here](https://snapshot.org/#/continuumdao.eth). 
+ContinuumDAO was formed in August 2023 by a small community. At this time a simple *non-transferable* ERC20 token called CTMDAOVOTE was airdropped to the community to allow voting. The DAO created its Constitution, that can be read [here](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution). The DAO also created its [Mission and Vision](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution?id=mission-amp-vision). The formation of and discussion on proposals happens in our  [Forum](https://forum.continuumdao.org/)  and voting on proposals happens on Snapshot [here](https://snapshot.org/#/continuumdao.eth).  We have now launched our Treasury on Ethereum mainnet and our DAO on Linea mainnet. Users have converted their CTMDAOVOTE tokens to veCTM, our voting escrow token.
 
-We are currently in testnet with its MPC signing code, our cross-chain messaging system, C3Caller and our voting-escrow contract veCTM. Much of our code is currently being audited by QuillAudit. Once we have passed the audit, we will launch mainnet and distribute our token CTM to stakeholders and core contributors to the DAO.
+We are currently transitioning to mainnet, following the successful completion of our audit with QuillAudit. This includes our cross-chain messaging system, C3Caller and our voting-escrow contract veCTM. We are also deploying our Relayer and Scanner cross-chain fabric and our Multi-Party Agent wallet that will allow anyone to create an MPC wallet that can also earn rewards for provision of an MPC signer to the cross-chain messaging system C3Caller. 
 
-Over the last year, the DAO has also been working on some projects that will use Continuum. This includes Theia, a cross-chain router for ERC20 tokens, AssetX (currently being audited), which is a Real World Asset Tokenization factory and Lawracle, an protocol that will link law firms to web3 ventures, to provide on-chain proofs of important facts, such as ownership of property,  provenance of assets and the veracity of statements made by protocols. Theia is owned by ContinuumDAO and both AssetX and Lawracle will give 50% of their tokens to the ContinuumDAO Treasury. This will be the model for the future of the DAO, to increase Continuum’s usage and build up the Treasury’s reserves.
+Over the last year, the DAO has also been working on some projects that will use Continuum. This includes AssetX (which has successfully completed its audit with QuillAudit), which is a Real World Asset Tokenization factory and Lawracle, an protocol that will link law firms to web3 ventures, to provide on-chain proofs of important facts, such as ownership of property,  provenance of assets and the veracity of statements made by protocols. Both AssetX and Lawracle will give 49% of their tokens to the ContinuumDAO Treasury. This will be the model for the future of the DAO, to increase Continuum’s usage and build up the Treasury’s reserves.
 
 ### ContinuumDAO Roadmap
 
-(1) Formation of a company in RAKDAO to provide legal certainty for ContinuumDAO. Estimated incorporation date is in Q3 2025
+(1) Formation of a company in RAKDAO to provide legal certainty for ContinuumDAO. Estimated incorporation date is in Q2 2026
 
-(2) Audited code for ContinuumDAO’s voting-escrow token, veCTM, the cross-chain messaging system, C3Caller and AssetX. Estimated delivery Q3 2025
+(2) Roll out of the Multi-Party Agent wallet and testing with the community. Integration testing of Open Claw and other AI agents integrated into it. Estimated delivery in Q2 2026
 
-(3) Decentralization of the MPC architecture to allow many MPC Groups and to permit dApps to select which ones they wish to use. Estimated delivery in Q4 2025
+(3) Establishment of community run MPC signing groups attached to the Relayer. Estimated delivery Q2 2026.
 
-(4) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q3 2025 
+(3) Testing of new Relayer and Scanner functionality for the C3Caller backend. This adds extra security layers and permits full control of the backend infrastructure using smart contracts and Governance voting. Estimated delivery in Q2 2026
 
-(5) Our intention is to launch Continuum on mainnet in Q4 2025, after our public testnet and audit. We have not yet decided on which network we will launch though.
-
-(6) TGE Q4 2025. Distribution of veCTM to contributors and airdrop recipients.
+(4) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q2 2026
 
 (7) Establishment of a DEX trading pool for our token CTM. Possibly we will also launch on one or more CEX platforms.
 
 (8) Extension of the Continuum MPC network to non-EVM chains such as Solana, Soroban, NEAR. This work will continue throughout 2026
 
-(9) Pre-signing of MPC signatures to speed up the network. Though not essential, this is a performance goal that will be carefully implemented in Q1 2026
+(9) Pre-signing of MPC signatures to speed up the network. Though not essential, this is a performance goal that will be carefully implemented in Q3 2026
 
-(10) Audit of MPC code and open-sourcing of it. Estimated time Q3 2026
+(10) Audit of Scanner, Relayer and MPC code. Estimated time Q3 2026
 
-(11) Lawracle. This multichain protocol for Legal services related to RWAs will be built by ContinuumDAO. We intend to launch it on mainnet by the end of Q1 2026.
+(11) Lawracle. This multichain protocol for Legal services related to RWAs will be built by ContinuumDAO. We intend to launch it on mainnet by the end of Q2 2026.
 
 (12) Business development will be a focus from just before mainnet and thereafter. We will work with any protocol that wishes to build using Continuum. We will actively help build these dApps if it make sense for us and the protocol team to do so. Such decisions will always be subject to DAO voting.
 
@@ -151,9 +149,9 @@ The ContinuumDAO may utilise tokens and the welfare system to boost the performa
 
 ### Vested Token Model
 
-ContinuumDAO has implemented its token model on testnet (Arbitrum Sepolia for now)
+ContinuumDAO has implemented its token model on Linea mainnet.
 
-Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on [github](https://github.com/ContinuumDAO/vectm)). The staking is live at [https://staking.continuumdao.org](https://staking.continuumdao.org) . There will be a buy pressure for CTM, since it is used as a payment token by dApps for cross-chain services. This will counteract any sell pressure from node-runners who are paid in CTM and DEX liquidity providers selling tokens. This increased volume should benefit LP providers and attract DEXes and CEXes to list CTM.
+Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on [github](https://github.com/ContinuumDAO/vectm)). There will be a buy pressure for CTM, since it is used as a payment token by dApps for cross-chain services. This will counteract any sell pressure from node-runners who are paid in CTM and DEX liquidity providers selling tokens. This increased volume should benefit LP providers and attract DEXes and CEXes to list CTM.
 
 The veCTM token is used for governance. It allows on-chain governance using OpenZeppelin’s Governor contract, with extensions added by ContinuumDAO to allow multiple choice, multiple selection and weighted voting. Using our cross-chain messaging system, C3Caller, the governance becomes cross-chain, as well as on-chain. This is the system that ContinuumDAO will use to maintain its smart contracts on every chain.
 
@@ -167,27 +165,25 @@ The vested NFT token (veCTM) can be split into two NFT’s, so holders can sell 
 
 ## The MPC Network
 
-ContinuumDAO’s MPC network is live and running and can be viewed at [https://dashboard.continuumdao.org](https://dashboard.continuumdao.org)  
+ContinuumDAO’s MPC network and its control panel is currently being built. Through the control panel, anyone will be able to see exactly which nodes are signing cross-chain messages and what their status is. MPC nodes will be able to claim their rewards for running these nodes. 
 
-ContinuumDAO is the first **public** MPC network, which means that anyone can run an MPC node and potentially contribute to supporting cross-chain messaging, or indeed other future MPC applications, such as MPC wallets. The MPC system we use and why MPC is a superior system for collective signing is described [here](https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC?id=what-is-mpc) . There is no limit to the number of nodes that can contribute to the network, or the amount of web3 traffic that could be accommodated. Individual nodes can be added to an MPC Group permissionlessly. The number of nodes in the group can be decided based on the degree of security required vs the speed of signing. Typically 3-7 nodes would be used. A Threshold number of these nodes are required to sign and this threshold can also be decided permissionlessly. The end result is an MPC node group which has a Public Key. The address derived from this key can be used by a messaging system (in our case C3Caller), or an MPC wallet, or for diverse other applications.
+ContinuumDAO is the first **public** MPC network, which means that anyone can run an MPC node, use the new Multi_Party Agent wallet and potentially contribute to supporting cross-chain messaging, or indeed other future MPC applications. The MPC system we use and why MPC is a superior system for collective signing is described [here](https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC?id=what-is-mpc) . There is no limit to the number of nodes that can contribute to the network, or the amount of web3 traffic that could be accommodated. Individual nodes can be added to an MPC Group permissionlessly. The number of nodes in the group can be decided based on the degree of security required vs the speed of signing. Typically 3-7 nodes would be used. A Threshold number of these nodes are required to sign and this threshold can also be decided permissionlessly. The end result is an MPC node group which has a Public Key. The address derived from this key can be used by a messaging system (in our case C3Caller), or an MPC wallet, or for diverse other applications.
 
 ### Public MPC Nodes
 
 The instructions for running a node are in our [documentation](https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction) . After someone has created a node, they can attach a veCTM to it. As part of the attachment process, they can optionally identify themselves, with this information being stored in our node smart contract and publicly visible. 
 
-Staking on MPC nodes is live on testnet and can be managed at [https://staking.continuumdao.org](https://staking.continuumdao.org) . The attachment of veCTM is a further security measure beyond the inherent security of MPC, since whereas they can attach the veCTM themselves, only a DAO vote can detach their veCTM and whilst it is attached, the veCTM cannot be liquidated or transferred to another address. A ‘bad actor’ running an MPC node will have their veCTM permanently locked. Anyone contributing to the MPC network will receive rewards from the DAO in CTM. The reward system that we have implemented (accessible from the staking panel) allows the DAO to score individual nodes out of 10 depending on how well they are performing (up time, speed). The reward is multiplied by the score. In this way we incentivize high quality nodes. The staking system is live on testnet.
+Staking on MPC nodes will be live soon after we launch the Relayer and Scanner. The attachment of veCTM is a further security measure beyond the inherent security of MPC, since whereas they can attach the veCTM themselves, only a DAO vote can detach their veCTM and whilst it is attached, the veCTM cannot be liquidated or transferred to another address. A ‘bad actor’ running an MPC node will have their veCTM permanently locked. Anyone contributing to the MPC network will receive rewards from the DAO in CTM. The reward system that we have implemented (accessible from the staking panel) allows the DAO to score individual nodes out of 10 depending on how well they are performing (up time, speed). The reward is multiplied by the score. In this way we incentivize high quality nodes. The staking system is live on testnet.
 
 Anyone can create an MPC node group, but this does not mean that it is automatically used for signing. As an example, ContinuumDAO’s cross-chain messaging system C3Caller can choose which MPC groups to use and the public address of the MPC Group has to be added by a governance vote. Naturally the DAO will choose MPC groups which have the highest veCTM stake and also where the nodes have provided maximum information about who is running them, including potentially KYC. It makes sense though that a decentralized application would have a few MPC groups between which they could switch, so that a problem with any one of them would not compromise the entire dApp. It is entirely up to a dApp to decide which MPC groups they want to use. They could for instance use MPC groups formed from their own community.
 
 ### C3Caller Cross-chain Message Passing
 
-C3Caller (see the code on [github](https://github.com/ContinuumDAO/c3caller)) is the system added to each blockchain that can interface with the MPC network to allow a dApp on one chain to sign a contract function on another chain. Full details describing it and about how to use it are provided in our [docs](https://docs.continuumdao.org/ContinuumDAO/C3Caller/Overview) . Any dApp can permissionlessly register the addresses of their main entry contracts on each chain using the web interface at [https://c3caller.ContinuumDAO.org](https://c3caller.ContinuumDAO.org) . The admin can top up their account with CTM or a USD stable coin to pay for the cross-chain messaging. The cost of the messaging is determined by the payload size and the rate per byte set by the DAO for usage.
+C3Caller (see the code on [github](https://github.com/ContinuumDAO/c3caller)) is the system added to each blockchain that can interface with the MPC network to allow a dApp on one chain to sign a contract function on another chain. Full details describing it and about how to use it are provided in our [docs](https://docs.continuumdao.org/ContinuumDAO/C3Caller/Overview) . Any dApp can permissionlessly register the addresses of their main entry contracts on each chain using the web interface . The front end for this is currently being built. The admin can top up their account with CTM or a USD stable coin to pay for the cross-chain messaging. The cost of the messaging is determined by the payload size and the rate per byte set by the DAO for usage.
 
 ## Tokenomics
 
-Until our TGE, all governance and control of the CTMDAO Treasury is achieved through voting at [https://snapshot.org/#/continuumdao.eth](https://snapshot.org/#/continuumdao.eth) using a simple ERC20 token called CTMDAOVOTE on Polygon :- [https://polygonscan.com/address/0x1FAaf080a77C421e833CdfCbDeaAa273f0eE23b5](https://polygonscan.com/address/0x1FAaf080a77C421e833CdfCbDeaAa273f0eE23b5)
-
-Before TGE, the DAO will have a vote to decide which Core Contributors deserve their token allocations, since some left early or did not perform adequately. Other Core Contributors exceeded their targets and so deserve an increase in their allocation. At TGE, but subject to this vote, CTMDAOVOTE tokens will be converted 1:1 for veCTM, with the CTM locked for 4 years. The fixed Total Supply of CTM will be 100 million. At any rate, the total allocation to Core Contributors will not exceed 15% of the Total Supply (see below).
+CTM is a multi-chain token, that can only be minted on Ethereum by Governance voting. It has a maximum Total Supply of 100 million, but not all of it is minted yet. The initial Circulating Supply is expected to be under 21 million, once early contributors have claimed their veCTM. Surplus unclaimed tokens will be returned to the Treasury. The total allocation to Core Contributors will not exceed 15% of the Total Supply (see below). 
 
 ### Allocation
 
@@ -205,7 +201,7 @@ Before TGE, the DAO will have a vote to decide which Core Contributors deserve t
     - 13% allocated for early core contributors. Core contributors will share this allocation as a veCTM token, with full voting rights at TGE.
     - 2% allocated for future core contributors
 - **Airdrop - 10%**
-    - 10% allocated for Airdrop for the early community who supported ContinuumDAO in its formation in 2023. The airdrop will be as a veCTM token, locked for 4 years and with full voting rights. These community members already hold CTMDAOVOTE tokens.
+    - 10% allocated for Airdrop for the early community who supported ContinuumDAO in its formation in 2023. The airdrop will be as a veCTM token, locked for 4 years and with full voting rights. These community members are currently claiming their veCTM, now that the DAO is live on Linea.
 - **Investors - 15%**
     - 15% allocated for VCs: The terms of any allocation to VCs will be determined by DAO voting, including a locking period.
 
@@ -222,9 +218,9 @@ There will be a grant program for new projects using Continuum. This could be ei
 
 The DAO will assist new projects that wish to use Continuum. This will be in the form of coding support, joint marketing, and technical support as required. These functions will be undertaken and organised by the DAO Guilds.
 
-AssetX is the first such project to receive support from ContinuumDAO, marking ContinuumDAO’s entry into RWA tokenization. ContinuumDAO will be given 50% of the AssetX Security tokens, once these Security tokens are minted (subject to gaining a Security License) and the Continuum MPC is fully decentralized and audited.
+AssetX is the first such project to receive support from ContinuumDAO, marking ContinuumDAO’s entry into RWA tokenization. ContinuumDAO will be given 49% of the AssetX Security tokens, once these Security tokens are minted (subject to gaining a Security License) and the Continuum MPC is fully decentralized and audited.
 
-Lawracle is another project being jointly developed by ContinuumDAO. It is another service for RWA’s, to create legal certainty around asset tokenization. Lawracle will provide on-chain proofs from law firms that asset tokens are really being backed by real assets and other statements made by web3 protocols are truthful. ContinuumDAO will be allocated 50% of Lawracle’s token supply in return for technical services being provided by DAO members to build it.
+Lawracle is another project being jointly developed by ContinuumDAO. It is another service for RWA’s, to create legal certainty around asset tokenization. Lawracle will provide on-chain proofs from law firms that asset tokens are really being backed by real assets and other statements made by web3 protocols are truthful. ContinuumDAO will be allocated 49% of Lawracle’s token supply in return for technical services being provided by DAO members to build it.
 
 This will be the model for the future. Any new protocol is free to use Continuum, without the involvement of the DAO, but some projects may wish to work directly with ContinuumDAO, leveraging its talent pool and grants. If the community decides to, through voting, then ContinuumDAO will form partnerships with some of these projects and take a stake of the new protocol for its Treasury. ContinuumDAO will pro-actively work to build usage of its cross-chain infrastructure and use the revenue from this to improve and extend the MPC network, to maintain a security reserve and to increase its reach.
 

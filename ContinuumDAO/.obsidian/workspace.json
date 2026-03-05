@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "22c9fd4338b52795",
+        "id": "21b97514b70ee980",
         "type": "tabs",
         "children": [
           {
-            "id": "a43b0b6ecf803549",
+            "id": "c8370e231bf93c9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "WhitePaper.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
               "title": "WhitePaper"
@@ -165,10 +165,13 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "a43b0b6ecf803549",
+  "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
-    "AssetX/TransferringValue.md",
+    "C3Caller/ContractAddresses.md",
     "WhitePaper.md",
+    "Untitled.base",
+    "Governance/Constitution.md",
+    "AssetX/TransferringValue.md",
     "AssetX/Introduction.md",
     "AssetX/AssetClasses.md",
     "ContinuumDAO/AssetX/GettingStarted.md",
@@ -183,7 +186,6 @@
     "ContinuumDAO/AssetX",
     "ContinuumDAO",
     "RouterWorkingMechanism.md",
-    "C3Caller/ContractAddresses.md",
     "C3Caller/QuickStart.md",
     "HowItWorks.md",
     "C3Caller/C3CallerProtocol.md",
@@ -191,7 +193,6 @@
     "Continuum 3525X.canvas",
     "Governance/HowToWriteAProposal.md",
     "Governance/How To Write A Proposal.md",
-    "Governance/Constitution.md",
     "Governance/How To Write a Proposal.md",
     "How To Write a Proposal.md",
     "Governance/How to Write a Proposal.md",
