@@ -11,16 +11,12 @@ We are delighted to welcome all veCTM holders to participate in shaping Continuu
 
 The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel or a Guild, but please initiate discussion in the [Forum](https://forum.continuumdao.org/). This should be in the [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) section in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal. 
 
-### Phase 2: Temperature Check (TC)
+### Phase 2: Submission of the Proposal to On-Chain Governance
 
-After the discussion period, which could take a few days or a week or two you can post your draft proposal and indicate that the Temperature Check has started.
+After the discussion period, which could take a few days or a week or two you can proceed to the Formal Vote. 
 
-There is no threshold to propose for the Temperature Check. Proposals will have a Temperature Check for 5 days. Once the proposal collects enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the authors can make changes to the proposal to incorporate the comments from the community, if they wish to. The proposal is now ready for the next stage, which is a Formal Vote.
-
-### Phase 3: Formal Vote (FV)
-
-At this stage, the proposal author(s) should contact one of the Committee members. They will need to verify that the proposer’s wallet address has at least 1% of the vote power. This can be their own voting power, or can include voting power delegated to it via the Governance contract.
-Once the 1% vote power threshold has been passed, the Committee will check that the proposal has the correct format (see below), with no omissions and then it will be posted to either [Snapshot](https://snapshot.org/#/continuumdao.eth) or [Tally](https://www.tally.xyz/explore) (on-chain governance). The proposal will be posted by a Committee member to the Governance section of the Forum, either to the Treasury section [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), or to the Constitution section [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution). The voting period will be 10 days.
+The proposer will need to verify that their wallet address has at least 1% of the Vote Power, or 1000 veCTM Vote Power, whichever is higher. This can be their own voting power, or can include voting power delegated to it via the veCTM contract.
+The proposer can initiate their proposal here in [Create Proposal](https://app.continuumdao.org/governance/create-proposal). The proposal will be posted by a Committee member to the Governance section of the Forum, either to the Treasury section [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), or to the Constitution section [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution). The Temperature Check period will last 5 days and then the proposal goes Live and the voting period will be 10 days.
 
 
 ## Proposal Format
@@ -60,7 +56,3 @@ Proposals should align with the DAO's Mission and Vision as detailed in the Cons
 **Community Involvement**
 Encourage community engagement by soliciting feedback and collaboration on your proposal before submission, which can lead to valuable insights and improvements.
 
-
-
-**Note** 
-The Committee has the right to initiate a vote if it’s needed, without going through phase 1 and phase 2.

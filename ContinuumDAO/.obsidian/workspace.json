@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WhitePaper.md",
+                "file": "Governance/HowToWriteAProposal.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "WhitePaper"
+              "title": "HowToWriteAProposal"
             }
           }
         ]
@@ -167,8 +167,10 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
-    "C3Caller/ContractAddresses.md",
+    "Governance/AdvancedProposals.md",
+    "Governance/HowToWriteAProposal.md",
     "WhitePaper.md",
+    "C3Caller/ContractAddresses.md",
     "Untitled.base",
     "Governance/Constitution.md",
     "AssetX/TransferringValue.md",
@@ -191,7 +193,6 @@
     "C3Caller/C3CallerProtocol.md",
     "Pasted image 20250302121326.png",
     "Continuum 3525X.canvas",
-    "Governance/HowToWriteAProposal.md",
     "Governance/How To Write A Proposal.md",
     "Governance/How To Write a Proposal.md",
     "How To Write a Proposal.md",
