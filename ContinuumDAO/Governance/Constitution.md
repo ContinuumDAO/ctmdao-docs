@@ -116,7 +116,7 @@ The Treasury is fully under the control of the voting process and the Committee 
 | --- | --- |
 | Selqui | 0x167518826cba5c2180acc60E4753ee3e811a08e7 |
 | John | 0x14C189354702b7f2aC7b19e61522A41632226BD8 |
-| Hal |  |
+| Hal | 0x482cdCbdd72ef307997153Ee7eb627B7a2348d34 |
 
 
 **Safe-Wallets**
