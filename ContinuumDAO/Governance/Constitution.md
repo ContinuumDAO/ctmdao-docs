@@ -56,13 +56,12 @@ There are only two steps of the governance process: **Temperature Check & Formal
 
 **Temperature Check:**
 
-There is no threshold to propose for the temperature check. Proposals will have a temperature check for 5 days. Once they collect enough feedback (more than twice as many veCTM holders commented positively for the proposal as did negatively and at least 10 veCTM holders commented) from the community, the proposals can move on to the next stage, which is a Formal Vote. 
+A proposal needs to be submitted by a wallet address with the higher of at least 1% of the vote power, or 1000 veCTM Voting Power.  This can be accomplished via delegation if necessary. Proposals will have a temperature check for 5 days before voting commences. During these 5 days, the objective is to collect feedback and discuss the proposal in detail in the Forum before the proposal moves on to the next stage, which is the Formal Vote. 
 
 **Formal Vote:**
 
-The formal voting period for the snapshot will be 10 days. This period can be shorter if the vote reaches a Super Quorum, with a threshold set by the DAO, after which the proposal will be available for anyone to Execute. Only a Committee member can initiate an Emergency proposal. A Formal Vote needs to be submitted by a wallet address with the higher of at least 1% of the vote power, or 1000 veCTM Voting Power, before posting on the Snapshot. This can be accomplished via delegation if necessary. There will be a Proposal Guardian wallet address set as one of the first actions of the DAO, which may terminate a proposal if it is judged to contravene the law. This is in line with the requirements of RAKDAO, where our DAO will be incorporated and the Proposal Guardian will be the person who is a legal representative of ContinuumDAO in RAKDAO.
+The formal voting period starts automatically after the Temperature Check period ends. Voting lasts for 10 days. This period can be shorter if the vote reaches a Super Quorum of votes cast in favour of the proposal, with this threshold set by the DAO, after which the proposal will be available for anyone to Execute.  If a large vote is left until close to the end of the Formal Vote, then the Governor contract is programmed to add an extra 2 days to the voting period. There will be a Proposal Guardian wallet address set as one of the first actions of the DAO, which may terminate a proposal if it is judged to contravene the law. This is in line with the requirements of RAKDAO, where our DAO will be incorporated. The Proposal Guardian wallet will be controlled by a person who is a legal representative of ContinuumDAO in RAKDAO.
 
-A proposal submitted by a Committee member does not require a Temperature Check, but after having been posted to the Forum Proposal section, may be submitted directly for the Formal Vote snapshot.
 
 ### **The Temperature Check/Proposal Template:**
 
@@ -70,19 +69,19 @@ A proposal submitted by a Committee member does not require a Temperature Check,
 - ***Motivation***
 - ***Specification***
     - *Overview*
-    - Type of proposal (Constitutional, Treasury/Committee, or Emergency)
+    - Type of proposal (Decision/ Election/ Treasury/ Constitution/ Admin)
     - *Scope*
     - *Success Criteria (for Treasury proposals)*
     - *Timeline/Budget (for Treasury proposals)*
     - *References (for Treasury proposals)*
 
-A Citizen who wishes to make a proposal should develop it in the Forum Ideas and Suggestions section, before proceeding to posting in the Proposals section for a Temperature Check and if it passes this, they can then contact a Committee member or core-contributor to make the proposal go live with a Formal Vote.
+A Citizen who wishes to make a proposal should develop it in the Forum Ideas and Suggestions section, before actually submitting the proposal to the Governor contract. At this point a Committee member can move discussion to the Proposals section for a Temperature Check and  Formal Vote.
 
 Any proposal that is a re-submission should reference the previous proposal and explain what has changed from that version. If there is no material change from the previous version, then the proposal should not be submitted.
 
 ### ContinuumDAO Proposals and Voting
 
-Proposals should further the Vision and Mission of ContinuumDAO. If proposals do not clearly do this, then voters should seriously consider rejecting them. Every veCTM holder will be able to vote, with no threshold to vote, except holders of non-voting veCTM tokens. The quorum for the voting must meet 20% of the total voting power. 
+Proposals should further the Vision and Mission of ContinuumDAO. If proposals do not clearly do this, then voters should seriously consider rejecting them. The same applies to proposals that did not follow the guidelines laid out here. Every veCTM holder will be able to vote, with no threshold to vote, except holders of non-voting veCTM tokens. The quorum for the voting must meet 20% of the total voting power. 
 
 There will be five categories of proposal.
 
@@ -100,7 +99,7 @@ There will be five categories of proposal.
 
 ### Security/Emergency Procedure
 
-An Emergency Procedure to halt the Continuum network can be performed by the Committee. A Committee member should try to contact other members, so that at least 4 members agree on a course of action, which must be discussed and documented in the Forum under the private Governance Committee section (not Telegram). If this is not possible due to an urgent situation, then it is acceptable for a Committee member to go ahead and halt or modify the MPC network, either partially or totally, after which they must contact other Committee members as soon as possible and then document the reasons for their actions in the Forum Announcements section. **The ability of the Committee to halt the Continuum network is a temporary measure**, which will be lifted once the network is more mature. After this, it will only be possible to halt the network using on-chain governance controlled through voting.
+An Emergency Procedure to halt the Continuum network can be performed by the Committee. A Committee member should try to contact other members, so that at least 3 members agree on a course of action, which must be discussed and documented in the Forum under the private Governance Committee section (not Telegram). If this is not possible due to an urgent situation, then it is acceptable for a Committee member to go ahead and halt or modify the MPC network, either partially or totally, after which they must contact other Committee members as soon as possible and then document the reasons for their actions in the Forum Announcements section. **The ability of the Committee to halt the Continuum network is a temporary measure**, which will be lifted once the network is more mature. After this, it will only be possible to halt the network using on-chain governance controlled through voting.
 
 No other Emergency procedure may be carried out by the Committee without a vote. 
 
@@ -108,22 +107,21 @@ The Committee may squash the outcome of any vote, declaring it null and void if 
 
 ### Treasury
 
-The Treasury is fully under the control of the voting process and the Committee may only spend Treasury assets as directed by DAO voting. The Treasury is protected by the three CTMDAO Committee in the table below. 
+The Treasury is the C3Governor contract on Ethereum. It is fully under the control of the voting process. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are protected by the three CTMDAO Committee in the table below. 
 
-**Multi-signers list:**
 
-| Name | Address |
-| --- | --- |
-| Selqui | 0x167518826cba5c2180acc60E4753ee3e811a08e7 |
-| John | 0x14C189354702b7f2aC7b19e61522A41632226BD8 |
-| Hal | 0x482cdCbdd72ef307997153Ee7eb627B7a2348d34 |
+| Name | 
+| --- |
+| Selqui |
+| John |
+| Hal |
 
 
 **Safe-Wallets**
 
-The Treasury wallet used to be a multi-sig Safe-wallet. The threshold of the Treasury was **4 out of 7** signers.
+Prior to the arrival of the Governor voting system, the Treasury wallet used to be a multi-sig Safe-wallet. The threshold of this Treasury was **4 out of 7** signers.
 
-The No 1 Safe-wallet address is *arb1:0x47B33679b7FF853300a5Cc19c59d85fcEBAaa278*
+The No 1 Safe-wallet address was *arb1:0x47B33679b7FF853300a5Cc19c59d85fcEBAaa278*
 
 The DAO has now moved to fully on-chain Governance and the new Treasury and DAO Governance addresses are as follows:
 

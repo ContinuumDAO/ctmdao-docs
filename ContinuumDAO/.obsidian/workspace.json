@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Governance/HowToWriteAProposal.md",
+                "file": "Governance/Constitution.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "HowToWriteAProposal"
+              "title": "Constitution"
             }
           }
         ]
@@ -167,8 +167,8 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
-    "Governance/AdvancedProposals.md",
     "Governance/HowToWriteAProposal.md",
+    "Governance/AdvancedProposals.md",
     "WhitePaper.md",
     "C3Caller/ContractAddresses.md",
     "Untitled.base",
