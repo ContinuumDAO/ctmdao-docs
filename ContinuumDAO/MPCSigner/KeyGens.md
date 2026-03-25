@@ -64,5 +64,5 @@ and then the KeyGen will appear on each node in the Group
 
 <img src="/_media/KeyGen_existing_signing.png"  alt=""/>
 
-You can see when the record is expanded that it shows the management signature on this node (Ed25519 in this case), that it is of type secp256k1 and multi-agree, with threshold 1 (2 nodes must agree) and you see its public key and its Ethereum address.
+You can see when the record is expanded that it shows the management signature on this node (MetaMask EIP-191 in this case), that it is of type secp256k1 and multi-agree, with threshold 1 (2 nodes must agree) and you see its public key and its Ethereum address.
 
