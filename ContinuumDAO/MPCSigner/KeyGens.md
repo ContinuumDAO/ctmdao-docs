@@ -60,3 +60,9 @@ On one of the other nodes, they will see a Join button. If they click it, they c
 
 <img src="/_media/KeyGen_join_select_sig.png"  alt=""/>
 
+and then the KeyGen will appear on each node in the Group
+
+<img src="/_media/KeyGen_existing.png"  alt=""/>
+
+You can see when the record is expanded that it shows the management signature on this node (Ed25519 in this case), that it is of type secp256k1 and multi-agree and you see its public key and its Ethereum address.
+
