@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MPCSigner/ConfiguredNodes.md",
+                "file": "MPCSigner/Groups.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "ConfiguredNodes"
+              "title": "Groups"
             }
           }
         ]
@@ -167,9 +167,9 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
-    "C3Caller/C3CallerProtocol.md",
     "MPCSigner/ConfiguredNodes.md",
     "MPCSigner/Groups.md",
+    "C3Caller/C3CallerProtocol.md",
     "MPCSigner/JoinNetwork.md",
     "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner/KeyGens.md",
