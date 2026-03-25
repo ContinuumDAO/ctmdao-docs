@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MPCSigner/Groups.md",
+                "file": "MPCSigner/KeyGens.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Groups"
+              "title": "KeyGens"
             }
           }
         ]
@@ -167,12 +167,12 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
-    "MPCSigner/ConfiguredNodes.md",
     "MPCSigner/Groups.md",
-    "C3Caller/C3CallerProtocol.md",
-    "MPCSigner/JoinNetwork.md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner/KeyGens.md",
+    "MPCSigner/JoinNetwork.md",
+    "MPCSigner/ConfiguredNodes.md",
+    "C3Caller/C3CallerProtocol.md",
+    "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner",
     "Governance/Constitution.md",
     "Governance/HowToWriteAProposal.md",
