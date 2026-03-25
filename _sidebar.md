@@ -29,14 +29,34 @@
 
   * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
 
+* Creating an MPC Signer
+
+  * [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+  * [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+  * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+  * [Joining the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
+
 * C3Caller
 
   * [Overview](/ContinuumDAO/C3Caller/Overview.md)
   * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
-  * [C3Caller Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
-  * [C3Caller Deployment with Remix](/ContinuumDAO/C3Caller/C3CallerTest.md)
-  - [C3Caller Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md)
-  * [C3Caller Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
-  * [C3Caller Contracts](/ContinuumDAO/C3Caller/ContractAddresses.md)
+  * [Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
+  * [Deployment with Remix](/ContinuumDAO/C3Caller/C3CallerTest.md)
+  - [Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md)
+  * [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
+  * [Contracts](/ContinuumDAO/C3Caller/Contracts.md)
+
+
+
+
+
+
+
+
+
+
+
+
+Contracts](/ContinuumDAO/C3Caller/ContractAddresses.md)
 
 

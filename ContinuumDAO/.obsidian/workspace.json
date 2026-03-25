@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Governance/Constitution.md",
+                "file": "MPCSigner/ConfiguredNodes.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Constitution"
+              "title": "ConfiguredNodes"
             }
           }
         ]
@@ -167,12 +167,19 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
+    "C3Caller/C3CallerProtocol.md",
+    "MPCSigner/ConfiguredNodes.md",
+    "MPCSigner/Groups.md",
+    "MPCSigner/JoinNetwork.md",
+    "RunningInstructions/NodeRunningInstruction.md",
+    "MPCSigner/KeyGens.md",
+    "MPCSigner",
+    "Governance/Constitution.md",
     "Governance/HowToWriteAProposal.md",
     "Governance/AdvancedProposals.md",
     "WhitePaper.md",
     "C3Caller/ContractAddresses.md",
     "Untitled.base",
-    "Governance/Constitution.md",
     "AssetX/TransferringValue.md",
     "AssetX/Introduction.md",
     "AssetX/AssetClasses.md",
@@ -183,21 +190,15 @@
     "AssetX/DeployingRWA.md",
     "AssetX/GreenfieldStorage.md",
     "AssetX/MintingValue.md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "C3Caller/C3CallerDemo.md",
     "ContinuumDAO/AssetX",
     "ContinuumDAO",
     "RouterWorkingMechanism.md",
     "C3Caller/QuickStart.md",
     "HowItWorks.md",
-    "C3Caller/C3CallerProtocol.md",
     "Pasted image 20250302121326.png",
     "Continuum 3525X.canvas",
     "Governance/How To Write A Proposal.md",
-    "Governance/How To Write a Proposal.md",
-    "How To Write a Proposal.md",
-    "Governance/How to Write a Proposal.md",
-    "Governance/ProposalHowToSubmit.md",
-    "Governance/How to Submit a Proposal.md"
+    "Governance/How To Write a Proposal.md"
   ]
 }
