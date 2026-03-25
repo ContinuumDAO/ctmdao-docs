@@ -55,5 +55,8 @@ On one of the other nodes, they will see a Join button. If they click it, they c
 
 <img src="/_media/KeyGen_pending_client.png"  alt=""/>
 
+</br>
+</br>
+
 <img src="/_media/KeyGen_join_select_sig.png"  alt=""/>
 
