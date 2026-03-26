@@ -138,15 +138,25 @@ Status: active
 To                         Action      From
 --                         ------      ----
 22/tcp                     ALLOW       Anywhere                   # ssh
+
 8443/tcp                   ALLOW       Anywhere                   # mpc-auth BrowserHTTPS
+
 18080/tcp                  ALLOW       Anywhere                   # mpc-auth PublicDiscovery
+
 18081/tcp                  ALLOW       82.208.20.136              # mpc-auth ScannerRelayer scoped
+
 8080/tcp                   ALLOW       Anywhere                   # mpc-auth ManagementAPI
+
 8883/tcp                   ALLOW       Anywhere                   # mpc-auth MQTT TLS broker
+
 22/tcp (v6)                ALLOW       Anywhere (v6)              # ssh
+
 8443/tcp (v6)              ALLOW       Anywhere (v6)              # mpc-auth BrowserHTTPS
+
 18080/tcp (v6)             ALLOW       Anywhere (v6)              # mpc-auth PublicDiscovery
+
 8080/tcp (v6)              ALLOW       Anywhere (v6)              # mpc-auth ManagementAPI
+
 8883/tcp (v6)              ALLOW       Anywhere (v6)              # mpc-auth MQTT TLS broker
 
 This says -
