@@ -37,6 +37,10 @@
   * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
   * [Joining the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
 
+* Using an MPA wallet
+
+  * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+
 * C3Caller
 
   * [Overview](/ContinuumDAO/C3Caller/Overview.md)
