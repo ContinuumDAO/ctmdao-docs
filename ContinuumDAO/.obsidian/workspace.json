@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MPCSigner/CreateMPCSigner.md",
+                "file": "RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "CreateMPCSigner"
+              "title": "NodeRunningInstruction"
             }
           }
         ]
@@ -168,6 +168,7 @@
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
     "MPCSigner/Groups.md",
+    "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/ConfiguredNodes.md",
     "MPCSigner/JoinNetwork.md",
@@ -181,7 +182,6 @@
     "ContinuumDAO",
     "C3Caller/ContractAddresses.md",
     "C3Caller/C3CallerProtocol.md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner",
     "Governance/Constitution.md",
     "Governance/HowToWriteAProposal.md",
