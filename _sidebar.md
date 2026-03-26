@@ -29,8 +29,9 @@
 
   * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
 
-[Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
+* Creating an MPC Signer
 
+  * [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
   * [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
   * [Groups](/ContinuumDAO/MPCSigner/Groups.md)
   * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
