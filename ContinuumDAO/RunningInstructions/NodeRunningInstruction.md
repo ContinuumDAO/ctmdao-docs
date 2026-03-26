@@ -1,13 +1,13 @@
 
 ## Node Running Instructions
 
-The source of truth for setting up an MPC node is in out github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md), This covers installation of different OS type and how to resolve any issues that may arise.
+The source of truth for setting up an MPC node is in out github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md), This covers installation of different OS types and how to resolve any issues that may arise.
 
 ### Type of Machine
 
 If you are only setting up a Multi-Party Agent wallet, then you can use a home machine with Linux (e.g. Ubuntu/Debian/Mint). You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient).
 
-If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewrds for doing so, then you will need a machine that has at least the above specification but must be a VPS to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
+If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewards for doing so, then you will need a machine that has at least the above specification but must be a VPS or hosted to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
 
 
 ### Quick Start
@@ -20,6 +20,12 @@ We briefly cover a Quick Start for an Ubuntu/Debian VPS here.
 sudo adduser mpcnode
 sudo usermod -aG sudo mpcnode
 ```
+
+or you can use the command visudo and add the line 
+
+mpcnode ALL=(ALL:ALL) NOPASSWD: ALL
+
+at the end of the file.
 
 (2)  Log in as user mpcnode (e.g. ssh mpcnode@<your-vps-ip> or: su - mpcnode)
 
@@ -43,6 +49,8 @@ sudo apt install -y \
   jq \
   && sudo systemctl enable --now docker
 ```
+
+You may get a warning if you already have docker installed, but it should be fine.
 
 (4) Pull the software from the ContinuumDAO github
 
@@ -78,7 +86,7 @@ sudo systemctl enable docker  # Enable auto-start on boot
 sudo usermod -aG docker mpcnode
 ```
 
-Log out with exit and ssh back into the user mpcnode
+Log out with exit (or CTRL-D) and ssh back into the user mpcnode
 
 Make sure that you get no error with the command docker ps
 
@@ -94,8 +102,8 @@ This script will:
 
 -Validate your configuration
 -Add your NodeMgtKey and/or your PublicMgtKey
--Add the IPv4 addresses of each node in your group.
--Add the Relayer IP address, so that your wallet can help secure cross-chain transactions, if you wish to.
+-Add the IPv4 addresses of each node in your group, **including yours** as the final entry.
+-Add the Relayer IP address (or accept the IP address default), so that your wallet can help secure cross-chain transactions, if you wish to.
 -Generate a TLS certificates for the MQTT broker (on relay node)
 -Create certificate directories (on client nodes)
 -Provide instructions for certificate sharing
