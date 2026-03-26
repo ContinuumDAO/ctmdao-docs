@@ -11,19 +11,19 @@ We can go through each of the inputs here -
 
 (1) MsgCheck
 
-The user selects either "multi-agree", or "tx-check". The "multi-agree" option allows the nodes in the Group of the keyGen to choose whether to sign a transaction (Accept), or not (Reject). This is suitable for MPA wallet users, where the nodes can be run by humans or AI agents. The other option is "tx-check", where once a signature request has been received by one of the nodes, the others automatically Accept and the signature generation should then proceed without the explicit manual agreement step. This is useful for C3Caller signatures, where a Group is asked for a signature using a KeyGen and where the security is due to the fact that multiple unrelated nodes collectively sign and they can only do so together, without knowledge of the Private Key.
+The user selects either "multi-agree", or "tx-check". The "multi-agree" option allows the nodes in the Group of the keyGen to choose whether to sign a transaction (Accept), or not (Reject). This is suitable for MPA wallet users, where the nodes can be run by humans or AI agents. The other option is "tx-check", where once a signature request has been received by one of the nodes, the others automatically Accept and the signature generation should then proceed without the explicit manual agreement step that multi-agree has. This is useful for C3Caller signatures, where a Group is asked for a signature using a KeyGen and where the security is due to the fact that multiple unrelated nodes collectively sign and they can only do so together, without knowledge of the Private Key.
 
 (2) Multi-sign client auth
 
-This is how sign requests by THIS node are handled. When a node generates a Sign Request, or when a node is asked to Accept or Reject a Sign Request, they provide a management signature to confirm their choice. This can either be an EIP-191 signature (e.g. MetaMask), or an Ed25519 signature using a keypair. The MetaMask type signature is often preferred by humans, but the Ed25519 signature is more suitable for automated traffic (e.g. AI agents).
+This is how  THIS node requires authorization to post information to, either from a web browser user , or an AI agent . When a node generates, for instance, a Sign Request, or when a node is asked to Accept or Reject a Sign Request, they provide a management signature to confirm their choice. This can either be an EIP-191 signature (e.g. MetaMask), or an Ed25519 signature using a keypair. The MetaMask type signature is often preferred by humans, but the Ed25519 signature is more suitable for automated traffic (e.g. AI agents).
 
-Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*, but other nodes can choose their own signature type, so that for instance, two nodes in a KeyGen can have MetaMask for a human and Ed25519 for an AI agent.
+Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*, but other nodes can choose their own signature type, so that for instance, two nodes in a KeyGen can have MetaMask for a human from one node and Ed25519 for an AI agent from the other.
 
-(3) The Client Key is automatically selected based on the auth chosen. For EIP-191 (MetaMask) it is the Ethereum address of your node's NodeMgtKey in the configs.yaml file on the node. For Ed25519, it can either be the *bootstrap* 128 hex public key in PublicMgtKey in configs.yaml, or one of the other public keys added by the user later (for security), which are stored in the node's database.
+(3) The Client Key is automatically selected based on the auth chosen. For EIP-191 (MetaMask) it is the Ethereum address of your node's NodeMgtKey in the configs.yaml file on the node. For Ed25519, it can either be the *bootstrap* 128 hex public key in PublicMgtKey in configs.yaml, or one of the other public keys added by the user later (for security), which are stored in the node's database. See the Node Running Instructions for how to create an ed25519 key pair.
 
 (4) GroupID
 
-Each KeyGen applies to a single Group that has previously been created, This defines which nodes can partake in the Sign Requests.
+Each KeyGen applies to a single Group that has previously been created, This defines which nodes can partake in the Sign Requests. All nodes in the Group must be in a healthy state before the KeyGen can start. A check is run to make sure this is the case.
 
 (5) Threshold
 
