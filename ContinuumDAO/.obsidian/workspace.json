@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MPCSigner/KeyGens.md",
+                "file": "MPCSigner/CreateMPCSigner.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "KeyGens"
+              "title": "CreateMPCSigner"
             }
           }
         ]
@@ -168,9 +168,18 @@
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
     "MPCSigner/Groups.md",
-    "MPCSigner/KeyGens.md",
     "MPCSigner/JoinNetwork.md",
+    "MPCSigner/KeyGens.md",
+    "Introduction.md",
+    "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/ConfiguredNodes.md",
+    "MPCSignerConfiguredNodes.md",
+    "ContinuumDAO/MPCSigner/JoinNetwork.md",
+    "ContinuumDAO/MPCSignerConfiguredNodes.md",
+    "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
+    "ContinuumDAO/MPCSigner",
+    "ContinuumDAO",
+    "C3Caller/ContractAddresses.md",
     "C3Caller/C3CallerProtocol.md",
     "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner",
@@ -178,27 +187,19 @@
     "Governance/HowToWriteAProposal.md",
     "Governance/AdvancedProposals.md",
     "WhitePaper.md",
-    "C3Caller/ContractAddresses.md",
     "Untitled.base",
     "AssetX/TransferringValue.md",
     "AssetX/Introduction.md",
     "AssetX/AssetClasses.md",
     "ContinuumDAO/AssetX/GettingStarted.md",
     "Untitled.canvas",
-    "Introduction.md",
     "AssetX/GettingStarted.md",
     "AssetX/DeployingRWA.md",
     "AssetX/GreenfieldStorage.md",
     "AssetX/MintingValue.md",
     "C3Caller/C3CallerDemo.md",
     "ContinuumDAO/AssetX",
-    "ContinuumDAO",
-    "RouterWorkingMechanism.md",
-    "C3Caller/QuickStart.md",
-    "HowItWorks.md",
     "Pasted image 20250302121326.png",
-    "Continuum 3525X.canvas",
-    "Governance/How To Write A Proposal.md",
-    "Governance/How To Write a Proposal.md"
+    "Continuum 3525X.canvas"
   ]
 }
