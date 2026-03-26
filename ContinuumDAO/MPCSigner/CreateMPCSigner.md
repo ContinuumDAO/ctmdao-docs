@@ -1,11 +1,11 @@
 
 ## Creating an MPC Signer
 
-[Nodes that are in your Config](/MPCSigner/ConfiguredNodes.md)
+[Nodes that are in your Config](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 
-[How to Create a Group](/MPCSigner/Groups.md)
+[How to Create a Group](/ContinuumDAO/MPCSigner/Groups.md)
 
-[How to Create a KeyGen](/MPCSigner/KeyGens.md)
+[How to Create a KeyGen](/ContinuumDAO/MPCSigner/KeyGens.md)
 
-[How to Join the Network](/MPCSigner/JoinNetwork.md)
+[How to Join the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
 

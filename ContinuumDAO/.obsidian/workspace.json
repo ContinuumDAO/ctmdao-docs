@@ -15,7 +15,7 @@
               "state": {
                 "file": "MPCSigner/CreateMPCSigner.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "CreateMPCSigner"
@@ -168,11 +168,11 @@
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
     "MPCSigner/Groups.md",
+    "MPCSigner/CreateMPCSigner.md",
+    "MPCSigner/ConfiguredNodes.md",
     "MPCSigner/JoinNetwork.md",
     "MPCSigner/KeyGens.md",
     "Introduction.md",
-    "MPCSigner/CreateMPCSigner.md",
-    "MPCSigner/ConfiguredNodes.md",
     "MPCSignerConfiguredNodes.md",
     "ContinuumDAO/MPCSigner/JoinNetwork.md",
     "ContinuumDAO/MPCSignerConfiguredNodes.md",
