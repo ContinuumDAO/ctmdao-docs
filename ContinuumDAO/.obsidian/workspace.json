@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MPCSigner/JoinNetwork.md",
+                "file": "RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "JoinNetwork"
+              "title": "NodeRunningInstruction"
             }
           }
         ]
@@ -167,10 +167,10 @@
   },
   "active": "c8370e231bf93c9c",
   "lastOpenFiles": [
+    "MPCSigner/JoinNetwork.md",
     "MPAWallet/Overview.md",
     "MPAWallet",
     "MPCSigner/CreateMPCSigner.md",
-    "MPCSigner/JoinNetwork.md",
     "MPCSigner/Groups.md",
     "MPCSigner/KeyGens.md",
     "RunningInstructions/NodeRunningInstruction.md",

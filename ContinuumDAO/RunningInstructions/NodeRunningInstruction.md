@@ -94,7 +94,7 @@ Make sure that you get no error with the command docker ps
 
 
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
-- Decide what IPv4 addresses will be included in the Node Addresses in your config. You may need to coordinate with other people to fetch these. You can see your own IP address using the command hostname -i You will be asked to enter each IPv4 address in process_config.sh and you and the other nodes in your group must add the same IPs IN THE SAME ORDER on each node. this is IMPORTANT. The FIRST node IP address is the RELAY node for your group. The other nodes can be added afterwards manually if required.
+- Decide what IPv4 addresses will be included in the Node Addresses in your config. You may need to coordinate with other people to fetch these. You can see your own IP address using the command hostname -i You will be asked to enter each IPv4 address in process_config.sh and you and the other nodes in your group must add the same IPs on each node. The FIRST node IP address is the RELAY node for your group. The other nodes can be added afterwards by re-running ./process_config.sh if required, where you can use the node IP editor to ad or remove IP addresses.
 
 (9) Run process_config.sh
 
