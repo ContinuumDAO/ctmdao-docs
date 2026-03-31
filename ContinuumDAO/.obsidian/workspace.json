@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "21b97514b70ee980",
+        "id": "0006e9e996632f6f",
         "type": "tabs",
         "children": [
           {
-            "id": "c8370e231bf93c9c",
+            "id": "0570543a2aed0c47",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RunningInstructions/NodeRunningInstruction.md",
+                "file": "OpenClaw/FoundryInstructionSkill.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "NodeRunningInstruction"
+              "title": "FoundryInstructionSkill"
             }
           }
         ]
@@ -165,15 +165,18 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "c8370e231bf93c9c",
+  "active": "0570543a2aed0c47",
   "lastOpenFiles": [
-    "MPCSigner/JoinNetwork.md",
+    "().md",
+    "OpenClaw/FoundryInstructionSkill.md",
+    "RunningInstructions/NodeRunningInstruction.md",
     "MPAWallet/Overview.md",
+    "OpenClaw",
+    "MPCSigner/JoinNetwork.md",
     "MPAWallet",
     "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/Groups.md",
     "MPCSigner/KeyGens.md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "MPCSigner/ConfiguredNodes.md",
     "Introduction.md",
     "MPCSignerConfiguredNodes.md",
@@ -197,8 +200,6 @@
     "Untitled.canvas",
     "AssetX/GettingStarted.md",
     "AssetX/DeployingRWA.md",
-    "AssetX/GreenfieldStorage.md",
-    "AssetX/MintingValue.md",
     "ContinuumDAO/AssetX",
     "Pasted image 20250302121326.png",
     "Continuum 3525X.canvas"
