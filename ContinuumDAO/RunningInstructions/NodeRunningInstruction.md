@@ -101,13 +101,21 @@ Make sure that you get no error with the command docker ps
 This script will:
 
 -Validate your configuration
+
 -Add your NodeMgtKey and/or your PublicMgtKey
+
 -Add the IPv4 addresses of each node in your group, **including yours** as the final entry.
+
 -Add the Relayer IP address (or accept the IP address default), so that your wallet can help secure cross-chain transactions, if you wish to.
+
 -Generate a TLS certificates for the MQTT broker (on relay node)
+
 -Create certificate directories (on client nodes)
+
 -Provide instructions for certificate sharing
+
 -Configure your node for https TLS 1.3 encryption, so that all data to the MPA app https://mpa.continuumdao.org  is encrypted EXCEPT your IP address and Node Key, which will both be public.
+
 - Configure a firewall for your node and start it. There is no un-encrypted public access to your node, even from other nodes in your Configured Nodes list.
 
 ```
