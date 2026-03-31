@@ -46,6 +46,7 @@
   * [Overview](/ContinuumDAO/OpenClaw/Overview.md)
   * [AI Agent Key Signing](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_ED25519_SETUP.md)
   * [Foundry Instructions Skills](/ContinuumDAO/OpenClaw/FoundryInstructionSkill.md)
+  * [Signing MPC Transactions](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AI_AGENT_FORGE_SIGNREQUEST.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md)
 
 
