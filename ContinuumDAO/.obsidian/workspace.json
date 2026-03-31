@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenClaw/FoundryInstructionSkill.md",
+                "file": "OpenClaw/Overview.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "FoundryInstructionSkill"
+              "title": "Overview"
             }
           }
         ]
@@ -167,17 +167,18 @@
   },
   "active": "0570543a2aed0c47",
   "lastOpenFiles": [
-    "().md",
+    "MPCSigner/CreateMPCSigner.md",
+    "MPCSigner/ConfiguredNodes.md",
+    "OpenClaw/Overview.md",
     "OpenClaw/FoundryInstructionSkill.md",
+    "().md",
     "RunningInstructions/NodeRunningInstruction.md",
     "MPAWallet/Overview.md",
     "OpenClaw",
     "MPCSigner/JoinNetwork.md",
     "MPAWallet",
-    "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/Groups.md",
     "MPCSigner/KeyGens.md",
-    "MPCSigner/ConfiguredNodes.md",
     "Introduction.md",
     "MPCSignerConfiguredNodes.md",
     "ContinuumDAO/MPCSigner/JoinNetwork.md",
@@ -199,7 +200,6 @@
     "ContinuumDAO/AssetX/GettingStarted.md",
     "Untitled.canvas",
     "AssetX/GettingStarted.md",
-    "AssetX/DeployingRWA.md",
     "ContinuumDAO/AssetX",
     "Pasted image 20250302121326.png",
     "Continuum 3525X.canvas"

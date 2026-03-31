@@ -43,6 +43,7 @@
 
 * MPA wallet with AI Agents
 
+  * [Overview](/ContinuumDAO/OpenClaw/Overview.md)
   * [AI Agent Key Signing](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_ED25519_SETUP.md)
   * [Foundry Instructions Skills](/ContinuumDAO/OpenClaw/FoundryInstructionSkill.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md)
