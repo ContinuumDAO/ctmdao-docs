@@ -42,11 +42,32 @@ The AI agent can examine the actual transactions that might have resulted from s
 curl http://127.0.0.1:8080/listSignResults
 ```
 
-This shows CONCLUDED sign requests in the data returned, including signature data and "transactionhash" data that can be used to looks at the transaction in a block explorer (if the AI agent has this Skill). The AI agent should have the ability to look at block chain data via a block explorer. With the transaction hash and using the saved "explorer" field in the return from the API endpoint /getChainDetails it should be able to examine the transaction in detail, including mem pool status,  gas used etc.
+This shows CONCLUDED sign requests in the data returned, including signature data and "transactionhash" data that can be used to looks at the transaction in a block explorer (if the AI agent has this Skill). The AI agent should have the ability to look at block chain data via a block explorer. With the transaction hash and using the saved "explorer" field in the return from the API endpoint /getChainDetails it should be able to examine the transaction in detail, including mempool status,  gas used etc.
 
 
 ### Message Context of the KeyGen
 
 The nodes in a KeyGen also store a rich message stream that is valuable context. These are messages sent between nodes, including to the AI agent. If the nodes use the message system included in MPA wallet, then these are saved in the node's databases and NEVER LOST. It means that the user can switch AI agents, or AI LLMs without losing any context.
 
-USERS SHOULD TALK TO THE AI AGENT USING the /
+USERS SHOULD TALK TO THE AI AGENT USING the system [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_KEYGEN_MESSAGING.md)
+
+**AI agents should use this text messaging system as much as possible in deciding scenarios and strategies, so that this valuable context is saved for the nodes**
+
+
+### Blockchain Context
+
+The AI agent can retrieve  details about a chain in the local node's database using the API endpoints
+
+```
+curl http://127.0.0.1:8080/getChainDetails
+```
+
+with the optional query param chain_id
+
+They can also save new details using the API endpoint /postChainDetails or remove the record for a chain using /removeChainDetails. Full details in the API docs [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md#local-chain-config-1)
+
+
+### Known Address Context
+
+Similarly an AI Agent can retrieve known address information saved on its node, either for personal addresses, or contract addresses using teh API methods described [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md#known-addresses-local-node-only-1)
+
