@@ -48,7 +48,7 @@
   * [Foundry Instructions Skills](/ContinuumDAO/OpenClaw/FoundryInstructionSkill.md)
   * [Signing MPC Transactions](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AI_AGENT_FORGE_SIGNREQUEST.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md)
-
+  * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_KEYGEN_MESSAGING.md)
 
 
 * C3Caller
