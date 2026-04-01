@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenClaw/Overview.md",
+                "file": "RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Overview"
+              "title": "NodeRunningInstruction"
             }
           }
         ]
@@ -167,9 +167,9 @@
   },
   "active": "0570543a2aed0c47",
   "lastOpenFiles": [
+    "OpenClaw/Overview.md",
     "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/ConfiguredNodes.md",
-    "OpenClaw/Overview.md",
     "OpenClaw/FoundryInstructionSkill.md",
     "().md",
     "RunningInstructions/NodeRunningInstruction.md",

@@ -122,7 +122,12 @@ This script will:
 ./process_config.sh
 ```
 
-(10) Check everything is OK.
+(10) Load the Docker images
+
+```
+sudo docker-compose up -d
+```
+Check everything is OK.
 
 ```
 sudo docker ps
