@@ -60,7 +60,7 @@ On one of the other nodes, they will see a Join button. If they click it, they c
 
 <img src="/_media/KeyGen_join_select_signature.png"  alt=""/>
 
-and then the KeyGen will appear on each node in the Group
+Once EVERY node in the Group has Joined, the KeyGen will disappear from the Pending table and **after a few minutes**  of patiently waiting, the KeyGen will appear in the Existing keys table in each node in the Group
 
 <img src="/_media/KeyGen_existing_signing.png"  alt=""/>
 

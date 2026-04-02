@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RunningInstructions/NodeRunningInstruction.md",
+                "file": "MPCSigner/KeyGens.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "NodeRunningInstruction"
+              "title": "KeyGens"
             }
           }
         ]
@@ -167,12 +167,12 @@
   },
   "active": "0570543a2aed0c47",
   "lastOpenFiles": [
+    "RunningInstructions/NodeRunningInstruction.md",
     "OpenClaw/Overview.md",
     "MPCSigner/CreateMPCSigner.md",
     "MPCSigner/ConfiguredNodes.md",
     "OpenClaw/FoundryInstructionSkill.md",
     "().md",
-    "RunningInstructions/NodeRunningInstruction.md",
     "MPAWallet/Overview.md",
     "OpenClaw",
     "MPCSigner/JoinNetwork.md",
