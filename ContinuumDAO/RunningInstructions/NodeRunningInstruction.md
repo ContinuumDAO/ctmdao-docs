@@ -100,6 +100,11 @@ Make sure that you get no error with the command sudo docker ps and if you do, y
 
 (8) Collect the needed node information
 
+- Make a note of the IP address of your node. You can get this by running
+
+```
+hostname -i
+```
 
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
 - Decide what IPv4 addresses will be included in the Node Addresses in your config. You may need to coordinate with other people to fetch these. You can see your own IP address using the command hostname -i You will be asked to enter each IPv4 address in process_config.sh and you and the other nodes in your group must add the same IPs on each node that you want to create a Group with. The FIRST node IP address is the RELAY node for your group. **The first node IP address must be the same on all nodes**. The other nodes can be added afterwards by re-running ./process_config.sh if required, where you can use the node IP editor to add or remove IP addresses. Note that you can add extra nodes to your own list of Configured Nodes, if you want to create a private group, e.g. for an AI agent.
@@ -110,9 +115,9 @@ This script will:
 
 -Validate your configuration
 
--Add your NodeMgtKey and/or your PublicMgtKey
+-Add the IPv4 addresses of each node in your group, **including yours** as the final entry. You can add and remove IP addresses using the in-built editor.
 
--Add the IPv4 addresses of each node in your group, **including yours** as the final entry.
+-Add your NodeMgtKey and/or your PublicMgtKey
 
 -Add the Relayer IP address (or accept the IP address default), so that your wallet can help secure cross-chain transactions, if you wish to.
 
