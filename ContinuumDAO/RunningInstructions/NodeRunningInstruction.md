@@ -130,6 +130,10 @@ This script will:
 ./process_config.sh
 ```
 
+If you messed up (e.g. wrong Ethereum address, wrong IP addresses etc.) you can CTRL-C and you can simply rm configs.yaml and try again. The script will copy a vanilla config file for you to use.
+
+You can safely re-run ./process_config.sh again (e.g. to add a new IP address, or to validate your existing config) and your old changes will not be lost.
+
 (10) Load the Docker images
 
 ```
