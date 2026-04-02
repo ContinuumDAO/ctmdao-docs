@@ -243,3 +243,6 @@ You can also give the Private key to your AI Agent to sign POST requests by copy
 This will verify that your key is correct. This is your **bootstrap key** and you should not delete it (or the Private key). You can create new ed25519 keypairs in the Info page of https://mpa.continuumdao.org at any time (good security practice), but do keep the original bootstrap key. New ed25519 public keys are stored in your database, so no further changes to configs.yaml are required.
 
 If you have an ed25519 keypair, you do not need an EIP-191 wallet (e.g. MetaMask) to attach your node to mpa.continuumdao.org (just enter your IP address, without connecting your wallet). If you have both EIP-191 and ed25519 keys, then *if MetaMask is connected* this will be used in preference to ed25519 signing.
+
+
+If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://map.continuumdao.org
