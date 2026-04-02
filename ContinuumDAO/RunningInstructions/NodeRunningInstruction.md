@@ -55,6 +55,7 @@ You may get a warning if you already have docker installed, but it should be fin
 (4) Pull the software from the ContinuumDAO github
 
 ```
+su mpcnode
 cd ~
 git clone https://github.com/ContinuumDAO/mpc-config.git
 cd mpc-config
