@@ -201,11 +201,15 @@ To                         Action      From
 
 This says -
 
-(1) You can ssh into your node via port 22
-(2) Your browser can communicate directly with your node via encrypted port 8443. Note that the app mpa.continuumdao.org itself cannot communicate with your node, since thais can only be achieved from your browser to your node using a time limited JWT (a bearer token).
-(3) The general public can find your node via port 18080, which is a Public Discovery port. This is necessary so that you can initiate attachment of your node to your browser session.
-(4) You, or an AI Agent (like Open Claw) can communicate to the node's API over port 8080 from localhost ONLY. There is no access to the API through the en-encrypted port 8080, or any other port, unless you bypass this in your configs.yaml and compose-docker.yml
-(5) The nodes can communicate with each other using MQTT via the encrypted port 8883
+(a) You can ssh into your node via port 22
+
+(b) Your browser can communicate directly with your node via encrypted port 8443. Note that the app mpa.continuumdao.org itself cannot communicate with your node, since thais can only be achieved from your browser to your node using a time limited JWT (a bearer token).
+
+(c) The general public can find your node via port 18080, which is a Public Discovery port. This is necessary so that you can initiate attachment of your node to your browser session.
+
+(d) You, or an AI Agent (like Open Claw) can communicate to the node's API over port 8080 from localhost ONLY. There is no access to the API through the en-encrypted port 8080, or any other port, unless you bypass this in your configs.yaml and compose-docker.yml
+
+(e) The nodes can communicate with each other using MQTT via the encrypted port 8883
 
 
 You can check for errors or warnings on your node either using sudo docker logs command, or using the log utility in the Info page of https://mpa.continuumdao.org once you have connected to it.
