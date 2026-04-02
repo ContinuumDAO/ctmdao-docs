@@ -21,11 +21,11 @@ sudo adduser mpcnode
 sudo usermod -aG sudo mpcnode
 ```
 
-or you can use the command visudo and add the line 
+It is useful to avoid having to enter a password for the sudo command. To avoid this, you can use the command visudo and add the line 
 
 mpcnode ALL=(ALL:ALL) NOPASSWD: ALL
 
-at the end of the file.
+at the end of the file. No need for the usermod command if you do this.
 
 (2)  Log in as user mpcnode (e.g. ssh mpcnode@<your-vps-ip> or: su - mpcnode)
 
