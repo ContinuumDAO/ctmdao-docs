@@ -94,7 +94,7 @@ Make sure that you get no error with the command docker ps
 
 
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
-- Decide what IPv4 addresses will be included in the Node Addresses in your config. You may need to coordinate with other people to fetch these. You can see your own IP address using the command hostname -i You will be asked to enter each IPv4 address in process_config.sh and you and the other nodes in your group must add the same IPs on each node that you want to create a Group with. The FIRST node IP address is the RELAY node for your group. The other nodes can be added afterwards by re-running ./process_config.sh if required, where you can use the node IP editor to ad or remove IP addresses. Note that you can add extra nodes to your own list of Configured Nodes, if you want to create a private group, e.g. for an AI agent.
+- Decide what IPv4 addresses will be included in the Node Addresses in your config. You may need to coordinate with other people to fetch these. You can see your own IP address using the command hostname -i You will be asked to enter each IPv4 address in process_config.sh and you and the other nodes in your group must add the same IPs on each node that you want to create a Group with. The FIRST node IP address is the RELAY node for your group. **The first node IP address must be the same on all nodes**. The other nodes can be added afterwards by re-running ./process_config.sh if required, where you can use the node IP editor to add or remove IP addresses. Note that you can add extra nodes to your own list of Configured Nodes, if you want to create a private group, e.g. for an AI agent.
 
 (9) Run process_config.sh
 
@@ -213,10 +213,10 @@ You can generate a key -
 ssh-keygen -t ed25519 -C "some unique text of your own"
 ```
 
-Copy the Public Key into the PublicMgtKey field in your configs.yaml file by running ./process_config.sh again.
+Copy the Public Key into the PublicMgtKey field in your configs.yaml file by running ./process_config.sh again. You will then need to stop and restart your Docker instances for the changes to take effect.
 
 You can also give the Private key to your AI Agent to sign POST requests by copying this into the ~/.ssh/ folder of the AI Agent's home folder.
 
-This will verify that your key is correct. This is your **bootstrap key** and you should not delete it (or the Private key). You can create new ed25519 keypairs in the Info page of https://mpa.continuumdao.org at any time, but do keep the original bootstrap key.
+This will verify that your key is correct. This is your **bootstrap key** and you should not delete it (or the Private key). You can create new ed25519 keypairs in the Info page of https://mpa.continuumdao.org at any time (good security practice), but do keep the original bootstrap key. New ed25519 public keys are stored in your database, so no further changes to configs.yaml are required.
 
-If you have an ed25519 keypair, you do not need an EIP-191 wallet (e.g. MetaMask) to attach your node to mpa.continuumdao.org (just enter your IP address, without connecting your wallet).
+If you have an ed25519 keypair, you do not need an EIP-191 wallet (e.g. MetaMask) to attach your node to mpa.continuumdao.org (just enter your IP address, without connecting your wallet). If you have both EIP-191 and ed25519 keys, then *if MetaMask is connected* this will be used in preference to ed25519 signing.
