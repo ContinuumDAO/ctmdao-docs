@@ -87,9 +87,16 @@ sudo systemctl enable docker  # Enable auto-start on boot
 sudo usermod -aG docker mpcnode
 ```
 
-Log out with exit (or CTRL-D) and ssh back into the user mpcnode
+Log out with exit (or CTRL-D) and either from root, su mpcnode or ssh back into the user mpcnode.
 
-Make sure that you get no error with the command docker ps
+You should now be in the folder /home/mpcnode/mpc-config and if you are not 
+
+```
+ cd ~mpcnode/mpc-config
+ pwd
+```
+
+Make sure that you get no error with the command sudo docker ps and if you do, you will need to fix this before moving on.
 
 (8) Collect the needed node information
 
