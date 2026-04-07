@@ -49,7 +49,7 @@ This shows CONCLUDED sign requests in the data returned, including signature dat
 
 The nodes in a KeyGen also store a rich message stream that is valuable context. These are messages sent between nodes, including to the AI agent. If the nodes use the message system included in MPA wallet, then these are saved in the node's databases and NEVER LOST. It means that the user can switch AI agents, or AI LLMs without losing any context.
 
-USERS SHOULD TALK TO THE AI AGENT USING the system [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_KEYGEN_MESSAGING.md)
+USERS SHOULD TALK TO THE AI AGENT USING the system [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)
 
 **AI agents should use this text messaging system as much as possible in deciding scenarios and strategies, so that this valuable context is saved for the nodes**
 
@@ -64,10 +64,10 @@ curl http://127.0.0.1:8080/getChainDetails
 
 with the optional query param chain_id
 
-They can also save new details using the API endpoint /postChainDetails or remove the record for a chain using /removeChainDetails. Full details in the API docs [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md#local-chain-config-1)
+They can also save new details using the API endpoint /postChainDetails or remove the record for a chain using /removeChainDetails. Full details in the API docs [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#local-chain-config-1)
 
 
 ### Known Address Context
 
-Similarly an AI Agent can retrieve known address information saved on its node, either for personal addresses, or contract addresses using teh API methods described [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md#known-addresses-local-node-only-1)
+Similarly an AI Agent can retrieve known address information saved on its node, either for personal addresses, or contract addresses using teh API methods described [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#known-addresses-local-node-only-1)
 

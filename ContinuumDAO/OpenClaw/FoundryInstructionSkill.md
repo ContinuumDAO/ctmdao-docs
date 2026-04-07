@@ -214,5 +214,4 @@ cast nonce 0x822Ac86AfFe94e063C363134aa31B0F4a368E71e --rpc-url https://linea-rp
 
 And then you can set the first nonce value in the generated multiSignRequest to have this current nonce by using --first-nonce 1 (or whatever the current nonce value is). You should always check what the current nonce value is and use this --first-nonce argument when using the Python script.
 
-See the more detailed description of the Python script, its dependencies and its usage  [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AI_AGENT_FORGE_SIGNREQUEST.md)
-
+See the more detailed description of the Python script, its dependencies and its usage  [here](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/AI_AGENT_FORGE_SIGNREQUEST.md)
