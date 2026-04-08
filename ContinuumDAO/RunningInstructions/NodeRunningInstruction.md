@@ -236,7 +236,7 @@ You can generate a key -
 ssh-keygen -t ed25519 -C "some unique text of your own"
 ```
 
-Copy the Public Key into the PublicMgtKey field in your configs.yaml file by running ./process_config.sh again. You will then need to stop and restart your Docker instances for the changes to take effect.
+Copy the Public Key into the PublicMgtKey field in your configs.yaml file by running ./process_config.sh again. You can add the openSSH pubkey (e.g. ssh-ed25519 AAAA… comment), or you can convert this to a 64 hex pubkey using the util tools/openssh_ed25519_to_hex.py and add that. You will then need to stop and restart your Docker instances for the changes to take effect.
 
 You can also give the Private key to your AI Agent to sign POST requests by copying this into the ~/.ssh/ folder of the AI Agent's home folder.
 
@@ -245,4 +245,4 @@ This will verify that your key is correct. This is your **bootstrap key** and yo
 If you have an ed25519 keypair, you do not need an EIP-191 wallet (e.g. MetaMask) to attach your node to mpa.continuumdao.org (just enter your IP address, without connecting your wallet). If you have both EIP-191 and ed25519 keys, then *if MetaMask is connected* this will be used in preference to ed25519 signing.
 
 
-If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://map.continuumdao.org
+If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://mpa.continuumdao.org
