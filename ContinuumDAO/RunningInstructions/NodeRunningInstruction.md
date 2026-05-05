@@ -121,7 +121,7 @@ Or get the IPv4 address from the VPS supplier.
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
 ```
-sudo ./scripts/provision-node.sh -k 0x12345abcdef87654321987654775  # Replace with yours
+sudo ./scripts/provision-node.sh --install-systemd -k 0x40characterEthAddress  # replace
 ```
 
 Skip to step 10
