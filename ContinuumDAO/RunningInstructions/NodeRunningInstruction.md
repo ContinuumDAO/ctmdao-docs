@@ -277,7 +277,7 @@ If you want to run your own frontend on your node itself, you can easily do so. 
 
 This pulls the frontend code and starts the web server on your node. You can then attach to it. If your node is running on your laptop/PC, in your browser go to localhost:3333 and select 'Plain HTTP' and there is no need to run the ssh tunnel command.
 
-If your want to connect to your web server over the internet, the also choose 'Plain HTTP', enter the IPv4 address of your node in the box 'Your node’s public address '  and copy and run the command presented to you to run in your terminal.
+If you want to connect to your web server over the internet, then also choose 'Plain HTTP', enter the IPv4 address of your node in the box 'Your node’s public address '  and copy and run the command presented to you to run in your terminal.
 
 Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), you should go to the Node page and 'Node Peer IP Editing'  to set up the IP address of the other nodes and then go to 'Inter Node Communication' to set up secure messaging between the nodes. 
 
