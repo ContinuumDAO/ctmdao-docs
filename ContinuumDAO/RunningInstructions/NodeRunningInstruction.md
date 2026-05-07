@@ -61,19 +61,20 @@ sudo apt install -y \
 
 You may get a warning if you already have docker installed, but it should be fine.
 
-**Docker Compose V2 (Ubuntu / Debian only)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. Use this script to update to V2:
-  
-```bash
-cd  ~/mpc-config
-sudo ./scripts/docker-V2_debian_ubuntu.sh
-```
 
 (4) Pull the software from the ContinuumDAO github
 
 ```bash
 su  - mpcnode
 git clone https://github.com/ContinuumDAO/mpc-config.git
-cd mpc-config
+cd mpc-config  # Should see the installed files and folders here
+```
+
+**Docker Compose V2 (Ubuntu / Debian only)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. Use this script to update to V2:
+  
+```bash
+cd  ~/mpc-config
+sudo ./scripts/docker-V2_debian_ubuntu.sh -v
 ```
 
 (5) Make sure that you don't have other Docker containers running that might conflict
@@ -104,13 +105,6 @@ sudo usermod -aG docker mpcnode
 
 Log out with exit (or CTRL-D) and either from root, su - mpcnode or ssh back into the user mpcnode.
 
-You should now be in the folder /home/mpcnode/mpc-config and if you are not 
-
-```bash
-su - mpcnode
- cd ~mpcnode/mpc-config
- pwd
-```
 
 Make sure that you get no error with the command sudo docker ps and if you do, you will need to fix this before moving on.
 
@@ -119,10 +113,10 @@ Make sure that you get no error with the command sudo docker ps and if you do, y
 - Make a note of the IPv4 address of your node. You can get this by running
 
 ```bash
-hostname -i
+hostname -i  # may only show the localhost 127.0.0.1
 ```
 
-Or get the IPv4 address from the VPS supplier.
+You can also use the command ip address or get the IPv4 address from the VPS supplier.
 
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
