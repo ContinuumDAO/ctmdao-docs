@@ -16,7 +16,7 @@ We briefly cover a Quick Start for an Ubuntu/Debian VPS here.
 
 (1) As root or sudo  user, create another user called mpcnode and give it sudo access
 
-```
+```bash
 sudo adduser mpcnode
 sudo usermod -aG sudo mpcnode
 ```
@@ -24,7 +24,7 @@ sudo usermod -aG sudo mpcnode
 
 It is useful to avoid having to enter a password for the sudo command. To avoid this, on each node, edit sudoers file:
 
-```
+```bash
 sudo visudo
 # Add this line at the end of the file (replace 'mpcnode' with your username):
 mpcnode ALL=(ALL:ALL) NOPASSWD: ALL
@@ -40,7 +40,7 @@ mpcnode ALL=(ALL:ALL) ALL
 
 (3) Install all software
 
-```
+```bash
 sudo apt update && \
 sudo apt install -y \
   ca-certificates \
@@ -61,9 +61,16 @@ sudo apt install -y \
 
 You may get a warning if you already have docker installed, but it should be fine.
 
+**Docker Compose V2 (Ubuntu / Debian only)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. Use this script to update to V2:
+  
+```bash
+cd  ~/mpc-config
+sudo ./scripts/docker-V2_debian_ubuntu.sh
+```
+
 (4) Pull the software from the ContinuumDAO github
 
-```
+```bash
 su  - mpcnode
 git clone https://github.com/ContinuumDAO/mpc-config.git
 cd mpc-config
@@ -79,19 +86,19 @@ This installation assumes that you have nothing else running that might cause is
 
 (6) Start the Docker service if necessary
 
-```
+```bash
 sudo systemctl status docker  (Check for 'running' and enter a q to quit)
 ```
 If Docker is not running, start it:
 
-```
+```bash
 sudo systemctl start docker
 sudo systemctl enable docker  # Enable auto-start on boot
 ```
 
 (7) Add the user mpcnode to the docker group and restart
 
-```
+```bash
 sudo usermod -aG docker mpcnode
 ```
 
@@ -99,7 +106,7 @@ Log out with exit (or CTRL-D) and either from root, su - mpcnode or ssh back int
 
 You should now be in the folder /home/mpcnode/mpc-config and if you are not 
 
-```
+```bash
 su - mpcnode
  cd ~mpcnode/mpc-config
  pwd
@@ -111,7 +118,7 @@ Make sure that you get no error with the command sudo docker ps and if you do, y
 
 - Make a note of the IPv4 address of your node. You can get this by running
 
-```
+```bash
 hostname -i
 ```
 
@@ -120,7 +127,7 @@ Or get the IPv4 address from the VPS supplier.
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
-```
+```bash
 sudo ./scripts/provision-node.sh --install-systemd -k 0x40characterEthAddress  # replace
 ```
 
@@ -150,7 +157,7 @@ This script will:
 
 - Configure a firewall for your node and start it. There is no un-encrypted public access to your node, even from other nodes in your Configured Nodes list.
 
-```
+```bash
 sudo ./process_config.sh --enable-loopback-http --install-mpc-auth-systemd
 ```
 
@@ -160,14 +167,14 @@ You can safely re-run ./process_config.sh again (e.g. to add a new IP address, o
 
 (10) Load the Docker images
 
-```
+```bash
 sudo docker-compose up -d  
 ```
 NB If you have docker-compose-plugin installed then the command is docker compose and not docker-compose. If you get an error such as ERROR: Version in "./docker-compose.yml" is unsupported, then see the [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md#compose-file-version-unsupported-version-38)
 
 Check everything is OK.
 
-```
+```bash
 sudo docker ps
 ```
 This should show 3 containers if your node is a Relay node (the first IP in the Configured Nodes list ) - 
@@ -186,7 +193,7 @@ The other nodes (not the first IP address) are Client nodes. They only have 2 do
 
 Check your firewall. -
 
-```
+```bash
 sudo ufw status
 ```
 
@@ -238,7 +245,7 @@ You can check for errors or warnings on your node either using sudo docker logs 
 
 Restart the nodes -
 
-```
+```bash
 sudo docker-compose down
 sudo docker-compose up -d
 ```
@@ -252,7 +259,7 @@ You will need to ensure that your browser will trust your self-signed SSL certif
 
 You can generate a key -
 
-```
+```bash
 ssh-keygen -t ed25519 -C "some unique text of your own"
 ```
 
@@ -271,7 +278,7 @@ If you skipped the steps to add the webTLS cert, choose the option 'SSH tunnel' 
 
 If you want to run your own frontend on your node itself, you can easily do so. Read the README.md file in local-node-app/README.md and set the required environmental variables. Then start it:
 
-```
+```bash
 ./local-node-app/install-or-update-node-app.sh
 ```
 
