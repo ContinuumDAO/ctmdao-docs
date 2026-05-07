@@ -168,7 +168,7 @@ You can safely re-run ./process_config.sh again (e.g. to add a new IP address, o
 (10) Load the Docker images
 
 ```bash
-sudo docker-compose up -d  
+sudo docker compose up -d  
 ```
 NB If you have docker-compose-plugin installed then the command is docker compose and not docker-compose. If you get an error such as ERROR: Version in "./docker-compose.yml" is unsupported, then see the [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md#compose-file-version-unsupported-version-38)
 
@@ -246,8 +246,8 @@ You can check for errors or warnings on your node either using sudo docker logs 
 Restart the nodes -
 
 ```bash
-sudo docker-compose down
-sudo docker-compose up -d
+sudo docker compose down
+sudo docker compose up -d
 ```
 
 (12) Optional (recommend that this be done from https://mpa.continuumdao.org):  Otherwise copy the browser Public cert ./webTLS/config/certs/browser.crt to any PC that you will want to access your node from using the app https://mpa.continuumdao.org
