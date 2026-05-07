@@ -151,7 +151,7 @@ This script will:
 - Configure a firewall for your node and start it. There is no un-encrypted public access to your node, even from other nodes in your Configured Nodes list.
 
 ```
-./process_config.sh 
+./process_config.sh --enable-loopback-http --install-mpc-auth-systemd
 ```
 
 If you messed up (e.g. wrong Ethereum address, wrong IP addresses etc.) you can CTRL-C and you can simply rm configs.yaml and try again. The script will copy a vanilla config file for you to use.
