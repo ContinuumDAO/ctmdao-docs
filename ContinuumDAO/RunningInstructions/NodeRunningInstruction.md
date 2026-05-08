@@ -164,7 +164,7 @@ You can safely re-run ./process_config.sh again (e.g. to add a new IP address, o
 ```bash
 sudo docker compose up -d  
 ```
-NB If you have docker-compose-plugin installed then the command is docker compose and not docker-compose. If you get an error such as ERROR: Version in "./docker-compose.yml" is unsupported, then see the [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md#compose-file-version-unsupported-version-38)
+NB If you only have the command docker-compose, you should upgrade to docker V2 (docker-V2_debian_ubuntu.sh script).
 
 Check everything is OK.
 
