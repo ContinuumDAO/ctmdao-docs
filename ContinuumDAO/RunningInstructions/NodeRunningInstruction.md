@@ -56,6 +56,7 @@ sudo apt install -y \
   python3-pip \
   python3-ruamel.yaml \
   python3-cryptography \
+  mongodb-database-tools \
   jq \
   && sudo systemctl enable --now docker
 ```
