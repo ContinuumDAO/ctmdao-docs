@@ -123,10 +123,11 @@ You can also use the command ip address or get the IPv4 address from the VPS sup
 - Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
+New node, new database
 ```bash
 sudo ./scripts/provision-node.sh --install-systemd -k <0x40characterEthAddress>  # replace
 ```
-
+**OR** New node, old database
 **If you are creating a new node, but wish to restore a previous database**  you need to now add the original Bootstrap PublicMgtKey ed25519 key:
 
 ```bash
