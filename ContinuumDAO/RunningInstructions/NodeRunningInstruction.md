@@ -127,7 +127,7 @@ You can also use the command ip address or get the IPv4 address from the VPS sup
 sudo ./scripts/provision-node.sh --install-systemd -k <0x40characterEthAddress>  # replace
 ```
 
-** If you are creating a new node, but wish to restore a previous database** you need to now add the original Bootstrap PublicMgtKey ed25519 key:
+**If you are creating a new node, but wish to restore a previous database**  you need to now add the original Bootstrap PublicMgtKey ed25519 key:
 
 ```bash
 sudo ./scripts/provision-node.sh --install-systemd --public-mgt-key <64-hex-public-key> -k <0x 40characterEthAddress>
