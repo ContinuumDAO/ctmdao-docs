@@ -124,8 +124,15 @@ You can also use the command ip address or get the IPv4 address from the VPS sup
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
 ```bash
-sudo ./scripts/provision-node.sh --install-systemd -k 0x40characterEthAddress  # replace
+sudo ./scripts/provision-node.sh --install-systemd -k <0x40characterEthAddress>  # replace
 ```
+
+** If you are creating a new node, but wish to restore a previous database** you need to now add the original Bootstrap PublicMgtKey ed25519 key:
+
+```bash
+sudo ./scripts/provision-node.sh --install-systemd --public-mgt-key <64-hex-public-key> -k <0x 40characterEthAddress>
+```
+You can then send your Bootstrap private key and your backup database to your node from the ContinuumDAO node app.
 
 Skip to step 10
 
