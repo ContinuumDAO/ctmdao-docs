@@ -120,7 +120,7 @@ hostname -i  # may only show the localhost 127.0.0.1
 
 You can also use the command ip address or get the IPv4 address from the VPS supplier.
 
-- Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and/or which ed25519 key (in configs.yaml PublicMgtKey). One or both of these will be required by process_config.sh (the next step)
+- Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and which ed25519 key (in configs.yaml PublicMgtKey). Both of these will be required by process_config.sh (the next step)
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
 New node, new database
@@ -133,7 +133,7 @@ sudo ./scripts/provision-node.sh --install-systemd -k <0x40characterEthAddress> 
 ```bash
 sudo ./scripts/provision-node.sh --install-systemd --public-mgt-key <64-hex-public-key> -k <0x 40characterEthAddress>
 ```
-You can then send your Bootstrap private key and your backup database to your node from the ContinuumDAO node app.
+You can then send your Bootstrap private key and your backup database to your node from the ContinuumDAO node web app.
 
 Skip to step 10
 
@@ -181,9 +181,13 @@ Check everything is OK.
 ```bash
 sudo docker ps
 ```
-This should show 3 containers if your node is a Relay node (the first IP in the Configured Nodes list ) - 
+This should show these containers if your node is a Relay node (the first IP in the Configured Nodes list ) - 
 
-continuumdao/mpc-auth:vX.Y        0.0.0.0:8443->8443/tcp, 127.0.0.1:8080->8080/tcp, 0.0.0.0:18080-18081->18080-18081/tcp
+continuumdao/mpc-auth:latest        0.0.0.0:8443->8443/tcp, 127.0.0.1:8080->8080/tcp, 0.0.0.0:18080-18081->18080-18081/tcp
+
+continuumdao/continuum-mcp-server:latest    127.0.0.1:8446->8446/tcp
+
+continuumdao/continuumdao-node-app:latest   0.0.0.0:3333->3000/tcp
 
 eclipse-mosquitto:2.0        0.0.0.0:8883->8883/tcp, 1883/tcp, 0.0.0.0:9001->9001/tcp
 
@@ -191,9 +195,18 @@ mongo:6.0             127.0.0.1:27017->27017/tcp
 
 Ensure that the containers stay up and do not restart periodically (indicating a fault)
 
-The first container is the ContinuumDAO MPC code. The second (eclipse) is the node inter-communication software used for nodes to talk to each other (encrypted). The last one (mongo) is a database that holds all data for your node. There is shared information (e.g. Group data, KeyGen data) and there is private data (e.g. local config information for your MPA wallet setup). **If you delete this container, then you will lose the information to connect to other nodes and you will corrupt the MPC Signer. All existing Group and KeyGen data will be lost**
+The first container is the ContinuumDAO MPC code. 
 
-The other nodes (not the first IP address) are Client nodes. They only have 2 docker containers and don't have the eclipse container.
+The next one, mcp, is the docker containing the DeFi code used by an AI agent (if configured).
+
+The next one, continuumdao-node-app, is a self contained web app, so that a user can run the node without requiring a hosted app (mpa.continuumdao.org) via an SSH tunnel, or run it locally on their own machine. 
+
+The next (eclipse) is the node inter-communication software used for nodes to talk to each other (encrypted). If your node IP is not the first IP address (i.e. the Relay node) in nodeAddresses in configs.yaml, this will not appear. A Relay node can be added via the web all and when that is done, the eclipse docker will appear on restart.
+
+The next one, mongo, is a database that holds all data for your node. There is shared information (e.g. Group data, KeyGen data) and there is private data (e.g. local config information for your MPA wallet setup). **If you delete this container, then you will lose the information to connect to other nodes and you will corrupt the MPC Signer. All existing Group and KeyGen data will be lost**
+
+
+
 
 Check your firewall. -
 
@@ -237,12 +250,14 @@ This says -
 
 (c) The general public can find your node via port 18080, which is a Public Discovery port. This is necessary so that you can initiate attachment of your node to your browser session.
 
-(d) You, or an AI Agent (like Open Claw) can communicate to the node's API over port 8080 from localhost ONLY. There is no access to the API through the en-encrypted port 8080, or any other port, unless you bypass this in your configs.yaml and compose-docker.yml
+(d) You, or an AI Agent can communicate to the node's API over port 8080 from localhost ONLY. There is no access to the API through the en-encrypted port 8080, or any other port, unless you bypass this in your configs.yaml and compose-docker.yml
 
 (e) The nodes can communicate with each other using MQTT via the encrypted port 8883
 
 
 You can check for errors or warnings on your node either using sudo docker logs command, or using the log utility in the Info page of https://mpa.continuumdao.org once you have connected to it.
+
+**No further actions are required, since further configuration can be done via https://mpa.continuumdao.org**
 
 
 (11) Optional (recommend that this be done from https://mpa.continuumdao.org): Otherwise share the MQTT Public Certificate from the Relay node (first IP address IP address in the Configured Nodes) with the other nodes. The Public cert is  ./mosquitto/config/certs/ca.crt and it should be copied to the ./mosquitto/config/certs/ folder on the other nodes **being careful to keep this information secret** It is good practice to delete the key pair on the Relay node and share with the other nodes regularly.
@@ -259,23 +274,6 @@ sudo docker compose up -d
 You will need to ensure that your browser will trust your self-signed SSL certificate and to do that, you will need the public cert used for JWT based encrypted traffic.
 
 
-(13) Optional (recommend that this be done from https://mpa.continuumdao.org, if you wish to do it): Otherwise you can set up an ed25519 management key on your node. This will allow POST requests to be made to your node by an AI Agent (or you on your PC).
-
-You can generate a key -
-
-```bash
-ssh-keygen -t ed25519 -C "some unique text of your own"
-```
-
-Copy the Public Key into the PublicMgtKey field in your configs.yaml file by running ./process_config.sh again. You can add the openSSH pubkey (e.g. ssh-ed25519 AAAA… comment), or you can convert this to a 64 hex pubkey using the util tools/openssh_ed25519_to_hex.py and add that. You will then need to stop and restart your Docker instances for the changes to take effect.
-
-You can also give the Private key to your AI Agent to sign POST requests by copying this into the ~/.ssh/ folder of the AI Agent's home folder.
-
-This will verify that your key is correct. This is your **bootstrap key** and you should not delete it (or the Private key). You can create new ed25519 keypairs in the Info page of https://mpa.continuumdao.org at any time (good security practice), but do keep the original bootstrap key. New ed25519 public keys are stored in your database, so no further changes to configs.yaml are required.
-
-If you have an ed25519 keypair, you do not need an EIP-191 wallet (e.g. MetaMask) to attach your node to mpa.continuumdao.org (just enter your IP address, without connecting your wallet). If you have both EIP-191 and ed25519 keys, then *if MetaMask is connected* this will be used in preference to ed25519 signing.
-
-
 If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://mpa.continuumdao.org using ContinuumDAO's public frontend.
 
 If you skipped the steps to add the webTLS cert, choose the option 'SSH tunnel' and follow instructions. 
@@ -286,9 +284,9 @@ If you want to run your own frontend on your node itself, you can easily do so. 
 ./local-node-app/install-or-update-node-app.sh
 ```
 
-This pulls the frontend code and starts the web server on your node. You can then attach to it. If your node is running on your laptop/PC, in your browser go to localhost:3333 and select 'Plain HTTP' and there is no need to run the ssh tunnel command.
+This pulls the frontend code and starts the web server on your node. You can then attach to it. If your node is running on your laptop/PC, in your browser go to localhost:3333 and select 'Node hosted app' and there is no need to run the ssh tunnel command.
 
-If you want to connect to your web server over the internet, then also choose 'Plain HTTP', enter the IPv4 address of your node in the box 'Your node’s public address '  and copy and run the command presented to you to run in your terminal.
+If you want to connect to your web server over the internet, then also choose 'Node hosted app', enter the IPv4 address of your node in the box 'Your node’s public address '  and copy and run the ssh command presented to you to run in your terminal.
 
 Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), you should go to the Node page and 'Node Peer IP Editing'  to set up the IP address of the other nodes and then go to 'Inter Node Communication' to set up secure messaging between the nodes. 
 

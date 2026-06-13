@@ -15,7 +15,7 @@
               "state": {
                 "file": "RunningInstructions/NodeRunningInstruction.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "NodeRunningInstruction"
