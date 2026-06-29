@@ -1,7 +1,9 @@
+For almost all users, the way to install a node is to click the '+' button  [here](https://mpa.continuumdao.org/node-map) and you will not need anything from this page. Using this installer, you can create a node on a laptop or PC, or on a remote VPS. You can install this software on Linux/Windows11/MacOS
+
 
 ## Node Running Instructions
 
-The source of truth for setting up an MPC node is in out github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md), This covers installation of different OS types and how to resolve any issues that may arise.
+A lot more details about setting up an MPC node is in out github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md), This covers installation of different OS types and how to resolve any issues that may arise.
 
 ### Type of Machine
 
