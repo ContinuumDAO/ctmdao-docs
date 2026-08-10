@@ -14,7 +14,7 @@ Harness overview: [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overvi
 ### Setup (high level)
 
 1. In **AI Agent → Webhooks**, add the **`telegram_updates`** template from the repository catalog (sign with your management key when prompted).
-2. In **Variables**, set **`TELEGRAM_BOT_TOKEN`**, the webhook secret (`WEBHOOK_SECRET_*`), and **`NGROK_AUTHTOKEN`** for the tunnel.
+2. In **Variables**, set **`TELEGRAM_BOT_TOKEN`**, the webhook secret (`WEBHOOK_SECRET_*`), and **`NGROK_AUTHTOKEN`** for the tunnel. If you use a **paid** ngrok plan (for interactive Mini App charts), also set **`NGROK_PAID_PLAN=true`** so the node uses the paid setup.
 3. Enable ngrok for Telegram from the Webhooks panel when your install supports it (Docker Desktop / systemd sidecar), or follow the operator guide linked below.
 4. Register the public **HTTPS** webhook URL with Telegram (the node app’s **Register with Telegram** action when available).
 5. Message your bot (for example “list pending sign requests”) to confirm basic chat works.
@@ -33,9 +33,10 @@ Operator detail (Docker networking, `setWebhook`, troubleshooting): [Telegram we
 
 For interactive charts in Telegram:
 
-1. Upgrade to a [paid ngrok plan](https://dashboard.ngrok.com/billing) and reserve a domain (not `*.ngrok-free.dev`).
-2. In @BotFather → your bot → **Bot Settings**, set the **Mini App domain** to that host.
-3. Optionally set **`TELEGRAM_WEBAPP_BASE_URL`** in Variables if auto-detection fails.
+1. Upgrade to a [paid ngrok plan](https://dashboard.ngrok.com/billing) (prefer a reserved domain, not only `*.ngrok-free.dev`).
+2. In **AI Agent → Variables**, set **`NGROK_PAID_PLAN=true`** so the node uses the paid setup (paid plans remove ngrok’s browser warning even on free-style hostnames).
+3. In @BotFather → your bot → **Bot Settings**, set the **Mini App domain** to your tunnel hostname.
+4. Optionally set **`TELEGRAM_WEBAPP_BASE_URL`** in Variables if auto-detection fails.
 
 Otherwise, view interactive charts in the node app Agent chat.
 

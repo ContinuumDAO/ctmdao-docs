@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPAWallet/Install.md",
+                "file": "ContinuumDAO/MPAWallet/AIHarness/Configure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Install"
+              "title": "Configure"
             }
           }
         ]
@@ -173,8 +173,9 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "_sidebar.md",
+    "ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
     "ContinuumDAO/MPAWallet/Install.md",
+    "_sidebar.md",
     "ContinuumDAO/MPAWallet/AIHarness/Configure.md",
     "ContinuumDAO/MPAWallet/TradeIdeas.md",
     "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
@@ -186,7 +187,6 @@
     "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
     "ContinuumDAO/OpenClaw/FoundryInstructionSkill.md",
     "ContinuumDAO/MPAWallet/DefaultEd25519Signer.md",
-    "ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
     "ContinuumDAO/MPAWallet/AIHarness/Overview.md",
     "ContinuumDAO/MPAWallet/AIHarness",
     "ContinuumDAO/C3Caller/Overview.md",

@@ -57,7 +57,7 @@ If your router’s WAN address differs from the public IP shown by ip.me, you ma
 
 1. Install **Docker Desktop for Windows** yourself ([download](https://www.docker.com/products/docker-desktop/)), with the **WSL2** backend, and start it.
 2. In Docker Desktop → **Extensions**, search for **Continuum Node** / **`continuumdao/continuum-node-installer`** and install the extension (or follow the node-map **`+`** prompts to the same extension).
-3. Open the extension, enter your management key and **public** IPv4, then **Install** (this provisions the Continuum containers — it does not install Docker Desktop).
+3. Open the extension, enter your management key, if this is re-creating a previously existing node and **public** IPv4, then **Install** (this provisions the Continuum containers — it does not install Docker Desktop).
 
 Full walkthrough: [Install on Windows (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md).
 
