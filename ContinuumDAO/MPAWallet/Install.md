@@ -35,6 +35,11 @@ Advanced / manual install (legacy shell steps): [Running an MPC Node](/Continuum
 
 Enter your **public** WAN IPv4 in the installer (for example from [https://ip.me](https://ip.me)) — **not** a private LAN address such as `192.168.x.x`. Other nodes must reach you over the internet.
 
+**Prerequisites (you install these yourself):**
+
+1. **Docker Desktop** — Continuum’s PC installer does **not** install Docker Desktop. Download and install it from [Docker Desktop](https://www.docker.com/products/docker-desktop/), start it, and leave it running. On Windows, use the **WSL2** backend.
+2. **Continuum Node Docker extension** — In Docker Desktop, open **Extensions**, enable Extensions if needed, then **search the Marketplace** for **Continuum Node** (image **`continuumdao/continuum-node-installer`**) and install it. The node-map **`+`** flow also directs you to this extension once Docker Desktop is ready.
+
 **Port forwarding:** on a home network, forward inbound TCP to the PC that runs Docker:
 
 | Port | Purpose |
@@ -48,23 +53,23 @@ If your router’s WAN address differs from the public IP shown by ip.me, you ma
 
 #### Windows
 
-1. Install **Docker Desktop** with **WSL2**.
-2. Enable **Extensions** and install the **Continuum Node** extension (from the node-map installer or Docker Marketplace).
-3. Enter your management key and **public** IPv4, then **Install**.
+1. Install **Docker Desktop for Windows** yourself ([download](https://www.docker.com/products/docker-desktop/)), with the **WSL2** backend, and start it.
+2. In Docker Desktop → **Extensions**, search for **Continuum Node** / **`continuumdao/continuum-node-installer`** and install the extension (or follow the node-map **`+`** prompts to the same extension).
+3. Open the extension, enter your management key and **public** IPv4, then **Install** (this provisions the Continuum containers — it does not install Docker Desktop).
 
 Full walkthrough: [Install on Windows (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md).
 
 #### macOS
 
-1. Install and start **Docker Desktop for Mac**.
-2. Enable Extensions and install the **Continuum Node** extension.
-3. Enter your management key and **public** IPv4, then **Install**.
+1. Install and start **Docker Desktop for Mac** yourself ([download](https://www.docker.com/products/docker-desktop/)).
+2. In Docker Desktop → **Extensions**, search for **Continuum Node** / **`continuumdao/continuum-node-installer`** and install the extension.
+3. Open the extension, enter your management key and **public** IPv4, then **Install**.
 
 Full walkthrough: [Install on macOS (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md).
 
 #### Linux PC
 
-Prefer the same node-map **`+`** / Docker Desktop path the installer offers. If the installer routes you to a workstation-style Linux install, follow the prompts and the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). When peers are on the internet, use a public IP and the same **18080** / **8883** forwarding as other home PCs.
+Install **Docker Desktop for Linux** yourself if you use the Desktop extension path, then search Extensions for **Continuum Node** / **`continuumdao/continuum-node-installer`**. Prefer the same node-map **`+`** flow the installer offers. If it routes you to a workstation-style script instead, follow the prompts and the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). When peers are on the internet, use a public IP and the same **18080** / **8883** forwarding as other home PCs.
 
 ---
 
