@@ -25,7 +25,7 @@
   * [Typical Use Cases](/ContinuumDAO/MPC/TypicalUseCases.md)
   * [For Developers](/ContinuumDAO/MPC/ForDevelopers.md)
 
-* Running an MPC Node
+* Running an MPC Node (advanced / manual)
 
   * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
 
@@ -40,16 +40,25 @@
 * Using an MPA wallet
 
   * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+  * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+  * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
+  * [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
+  * [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
+  * [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
+  * [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
 
-* MPA wallet with AI Agents
+* AI harness
 
-  * [Overview](/ContinuumDAO/OpenClaw/Overview.md)
-  * [AI Agent Key Signing](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_ED25519_SETUP.md)
-  * [Foundry Instructions Skills](/ContinuumDAO/OpenClaw/FoundryInstructionSkill.md)
-  * [Signing MPC Transactions](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AI_AGENT_FORGE_SIGNREQUEST.md)
-  * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_IMPLEMENTATION.md)
-  * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/API_KEYGEN_MESSAGING.md)
+  * [Overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+  * [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+  * [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 
+* Further reading (operators / APIs)
+
+  * [Signing MPC Transactions (Foundry)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/AI_AGENT_FORGE_SIGNREQUEST.md)
+  * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)
+  * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)
+  * [Ed25519 management keys (technical)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)
 
 * C3Caller
 
@@ -57,21 +66,7 @@
   * [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
   * [Protocol](/ContinuumDAO/C3Caller/C3CallerProtocol.md)
   * [Deployment with Remix](/ContinuumDAO/C3Caller/C3CallerTest.md)
-  - [Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md)
+  * [Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md)
   * [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
   * [Contracts](/ContinuumDAO/C3Caller/Contracts.md)
-
-
-
-
-
-
-
-
-
-
-
-
-Contracts](/ContinuumDAO/C3Caller/ContractAddresses.md)
-
-
+  * [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md)

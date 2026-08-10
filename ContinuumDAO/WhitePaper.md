@@ -76,7 +76,7 @@ Over the last year, the DAO has also been working on some projects that will use
 
 (1) Formation of a company in RAKDAO to provide legal certainty for ContinuumDAO. Estimated incorporation date is in Q2 2026
 
-(2) Roll out of the Multi-Party Agent wallet and testing with the community. Integration testing of Open Claw and other AI agents integrated into it. Estimated delivery in Q2 2026
+(2) Roll out of the Multi-Party Agent wallet and testing with the community. Integration testing of the built-in AI agent harness and other AI agents integrated into it. Estimated delivery in Q2 2026
 
 (3) Establishment of community run MPC signing groups attached to the Relayer. Estimated delivery Q2 2026.
 

@@ -68,3 +68,5 @@ You can see when the record is expanded that it shows the management signature o
 
 You can now use your KeyGen for either use in the Multi-Sign page (for "multi-agree" KeyGens), or you use it to sign C3Caller Relayer traffic (for "tx-check" KeyGens).
 
+You can use this KeyGen from the node app alone. Optionally — and recommended for most users on this AI-first wallet — [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
+

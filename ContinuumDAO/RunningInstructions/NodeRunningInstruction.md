@@ -1,9 +1,8 @@
-For almost all users, the way to install a node is to click the '+' button  [here](https://mpa.continuumdao.org/node-map) and you will not need anything from this page. Using this installer, you can create a node on a laptop or PC, or on a remote VPS. You can install this software on Linux/Windows11/MacOS
-
+For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPAWallet/Install.md)** (node-map **`+`** button at [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map)). You can create a node on a laptop or PC, or on a remote VPS (Linux / Windows 11 / macOS). This page is the **advanced / manual** path.
 
 ## Node Running Instructions
 
-A lot more details about setting up an MPC node is in out github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md), This covers installation of different OS types and how to resolve any issues that may arise.
+A lot more details about setting up an MPC node is in our github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). This covers installation of different OS types and how to resolve any issues that may arise.
 
 ### Type of Machine
 
@@ -278,7 +277,7 @@ You will need to ensure that your browser will trust your self-signed SSL certif
 
 If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://mpa.continuumdao.org using ContinuumDAO's public frontend.
 
-If you skipped the steps to add the webTLS cert, choose the option 'SSH tunnel' and follow instructions. 
+If you skipped the steps to add the webTLS cert, choose the option **SSH tunnel** and follow the instructions. Many operators prefer the SSH tunnel: it encrypts the path with SSH, needs no ContinuumDAO service and no public CA certificate, and is often simpler than trusting a self-signed Browser HTTPS cert. 
 
 If you want to run your own frontend on your node itself, you can easily do so. Read the README.md file in local-node-app/README.md and set the required environmental variables. Then start it:
 
@@ -292,5 +291,5 @@ If you want to connect to your web server over the internet, then also choose 'N
 
 Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), you should go to the Node page and 'Node Peer IP Editing'  to set up the IP address of the other nodes and then go to 'Inter Node Communication' to set up secure messaging between the nodes. 
 
-If you want to setup secure TLS connections from your web browser rather than using the SSH tunnel (which is fine by the way on its own), you can fetch your web TLS cert in 'Fetch Self-Signed Web Cert' and them follow the instructions to add this cert to your browser's certificate store. After refreshing the browser, you can now enter the MPA wallet using the 'Browser HTTPS' route.
+If you prefer direct TLS from the browser instead of an SSH tunnel, fetch your web TLS cert with **Fetch Self-Signed Web Cert** and follow the instructions to add it to your browser's certificate store. After refreshing the browser, attach using the **Browser HTTPS** route. The SSH tunnel alone is a complete, supported option and does not require ContinuumDAO assistance.
 

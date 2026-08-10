@@ -1,7 +1,7 @@
 
 ## Configured Nodes
 
-Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in the [MPA wallet](https://mps.continuumdao.org)
+Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in the [MPA wallet](https://mpa.continuumdao.org)
 
 <img src="/_media/Configured_node_keys.png"  alt=""/>
 

@@ -1,0 +1,122 @@
+## Install a node
+
+For almost all users, install a node from the Continuum node map — you do not need manual shell provisioning.
+
+### Start here
+
+1. Open [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map).
+2. Click the **`+`** button.
+3. Walk through the installer options: where the node should run (remote VPS or your own PC), management keys, and the **public** IPv4 address peers will use to reach you.
+4. When the installer finishes, **attach** the node (see [Attach your node](#attach-your-node) below) and continue with [Post install steps](#post-install-steps).
+
+Product overview: [An Overview of the Multi-party Agent Wallet](/ContinuumDAO/MPAWallet/Overview.md).
+
+Advanced / manual install (legacy shell steps): [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md). Deeper platform notes live in the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md).
+
+### Choose where the node runs
+
+| Host | Best when | Notes |
+|------|-----------|--------|
+| **Remote VPS** | You want an always-on node with a stable public IP | Cloud firewall / security groups must allow peer ports |
+| **Your own PC** | You prefer running Docker Desktop at home or on a laptop | You must use your **public** WAN IP and forward ports on your router |
+
+---
+
+### Remote VPS
+
+1. Use the node-map **`+`** flow and choose the remote / VPS option the installer presents.
+2. Typical prerequisites: an Ubuntu or Debian VPS, SSH access, and the **public IPv4** the installer asks for.
+3. Ensure the cloud firewall (or host firewall) allows discovery and peer traffic — see the [one-shot VPS install](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh) and [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md) for exact port / `ufw` detail.
+4. When containers are up, [attach your node](#attach-your-node).
+
+---
+
+### Your own PC
+
+Enter your **public** WAN IPv4 in the installer (for example from [https://ip.me](https://ip.me)) — **not** a private LAN address such as `192.168.x.x`. Other nodes must reach you over the internet.
+
+**Port forwarding:** on a home network, forward inbound TCP to the PC that runs Docker:
+
+| Port | Purpose |
+|------|---------|
+| **18080** | Public discovery |
+| **8883** | MQTT TLS (relay / peer messaging) |
+
+Step-by-step router setup (DHCP reservation, NAT rules, verify from cellular): [Home router port forwarding](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/PORT_FORWARDING_HOME_NETWORK.md).
+
+If your router’s WAN address differs from the public IP shown by ip.me, you may be behind **CGNAT** — home hosting may not work without ISP help or a tunnel (same guide).
+
+#### Windows
+
+1. Install **Docker Desktop** with **WSL2**.
+2. Enable **Extensions** and install the **Continuum Node** extension (from the node-map installer or Docker Marketplace).
+3. Enter your management key and **public** IPv4, then **Install**.
+
+Full walkthrough: [Install on Windows (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md).
+
+#### macOS
+
+1. Install and start **Docker Desktop for Mac**.
+2. Enable Extensions and install the **Continuum Node** extension.
+3. Enter your management key and **public** IPv4, then **Install**.
+
+Full walkthrough: [Install on macOS (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md).
+
+#### Linux PC
+
+Prefer the same node-map **`+`** / Docker Desktop path the installer offers. If the installer routes you to a workstation-style Linux install, follow the prompts and the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). When peers are on the internet, use a public IP and the same **18080** / **8883** forwarding as other home PCs.
+
+---
+
+### After install (all paths)
+
+1. [Attach your node](#attach-your-node) and confirm you can open the Node page.
+2. Back up bootstrap Ed25519 material if the install created it — see [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and the technical [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md).
+3. Continue with **Post install steps** below.
+
+### Attach your node
+
+Your browser talks to **your** node. ContinuumDAO does not need to relay that control path. Choose one:
+
+| Method | When to use | What you do |
+|--------|-------------|-------------|
+| **SSH tunnel** | Remote VPS (often the most popular) — no ContinuumDAO support required | Create an SSH tunnel from your PC to the node, then attach in the app over localhost. Encryption is SSH. |
+| **Browser HTTPS (self-signed cert)** | You want direct TLS to the node without a public CA | Import the node’s self-signed web cert (e.g. **Fetch Self-Signed Web Cert**), then attach with **Browser HTTPS** and short-lived token access. |
+| **Local / node-hosted app** | Node on the same PC | Open the local node app (e.g. `localhost:3333`) and select the node-hosted app path — no tunnel needed. |
+
+You may use [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted frontend; either way, attach traffic goes to your node via the method above. More detail: [Overview](/ContinuumDAO/MPAWallet/Overview.md) and [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) (SSH tunnel vs Browser HTTPS steps).
+
+---
+
+## Post install steps
+
+A single node is not enough to create a shared KeyGen address. You need peers, a Group, and then a KeyGen. Detailed UI for each step lives under [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md) — this section is the bridge from “I have one node” to those pages.
+
+### One node is not enough for a KeyGen address
+
+A lone node cannot create a KeyGen / shared wallet address by itself. The minimum useful setup is **two nodes** (for example a **2-of-2** MPC threshold signature: both must participate to sign).
+
+Common reasons to add a second (or more) node — all use the same peer setup:
+
+- **Human-in-the-loop vs AI** — a second node you control so an AI-operated node cannot complete a signature alone
+- **No full on-chain private key** — MPC shares replace a single recoverable private key
+- **Shared control** — a DAO, investment committee, or other multi-party wallet
+
+### Tell your node about its peers (Configured Nodes)
+
+After a fresh install, the peer / relay list is typically a **placeholder** — not a working multi-node mesh yet.
+
+1. Open **Node → Node Peer IP Editing**.
+2. Set a real **Relay** IP (the first / relay slot). Every node that will collaborate must use the **same** relay as the first entry.
+3. Add the **other node addresses** that may join Groups and KeyGens with this node.
+4. Complete **Inter Node Communication** (MQTT / messaging) as the UI guides.
+
+Each peer needs a running node with a matching understanding of who the relay is. Details: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
+
+### Then create a Group and a KeyGen
+
+1. Confirm Configured Nodes are healthy → [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+2. Create or join a Group → [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+3. Create a KeyGen (shared address) → [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+
+You can keep using the wallet from the node app alone. The MPA wallet is **AI-first**, so most users will also want the optional [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) steps after the KeyGen exists.
