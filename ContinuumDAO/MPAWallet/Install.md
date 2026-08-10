@@ -2,6 +2,8 @@
 
 For almost all users, install a node from the Continuum node map — you do not need manual shell provisioning.
 
+<img src="/_media/ContinuumMPAWalletNodeMap.png"  alt=""/>
+
 ### Start here
 
 1. Open [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map).

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+                "file": "ContinuumDAO/MPAWallet/Install.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "NodeRunningInstruction"
+              "title": "Install"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -160,6 +162,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -168,37 +171,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "547b0bdde00747da",
+  "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/MPAWallet/AIHarness/Configure.md",
+    "ContinuumDAO/MPAWallet/TradeIdeas.md",
+    "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
+    "ContinuumDAO/MPAWallet/AICharting.md",
+    "ContinuumDAO/MPAWallet/Overview.md",
+    "ContinuumDAO/MPAWallet/DeFiProtocolSupport.md",
+    "ContinuumDAO/MPAWallet/Install.md",
+    "_sidebar.md",
+    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "ContinuumDAO/MPCSigner/CreateMPCSigner.md",
+    "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
+    "ContinuumDAO/OpenClaw/FoundryInstructionSkill.md",
+    "ContinuumDAO/MPAWallet/DefaultEd25519Signer.md",
+    "ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
+    "ContinuumDAO/MPAWallet/AIHarness/Overview.md",
+    "ContinuumDAO/MPAWallet/AIHarness",
     "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/Introduction.md",
     "README.md",
-    "_sidebar.md",
     "().md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/C3Caller/C3CallerFoundry.md",
     "ContinuumDAO/ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/C3Caller/C3CallerTest.md",
-    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
     "ContinuumDAO/Governance/AdvancedProposals.md",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
-    "ContinuumDAO/Governance/CreatingProposal.md",
-    "ContinuumDAO/Governance/Constitution.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
-    "ContinuumDAO/C3Caller/C3CallerDemo.md",
-    "ContinuumDAO/C3Caller/QuickStart.md",
-    "ContinuumDAO/C3Caller/C3CallerProtocol.md",
     "_media/docker-compose_server.yml",
-    "ContinuumDAO/MPC/StrongerSecurity.md",
-    "ContinuumDAO/MPC/MainFeatures.md",
-    "ContinuumDAO/MPC/CoreSteps.md",
-    "ContinuumDAO/MPC/ForDevelopers.md",
-    "ContinuumDAO/MPC/TypicalUseCases.md",
-    "ContinuumDAO/MPC/MPCvsMultiSig.md",
-    "ContinuumDAO/MPC/MPCvsZK.md",
-    "ContinuumDAO/MPC/MPCvsOthers.md",
     "ContinuumDAO/RunningInstructions",
     "ContinuumDAO/MPC",
     "_media/C3CallerSchematic.png",
@@ -213,7 +217,6 @@
     "_media/lu4834716pnyt.tmp",
     "_media/lu4834716pny2.tmp",
     "_media/lu4834716pnxb.tmp",
-    "ContinuumDAO/C3Caller",
     "_media/Router_Node_Structure.png",
     "_media/Router_Contract_Structure.png"
   ]
