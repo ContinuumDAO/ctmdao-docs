@@ -1,6 +1,6 @@
 ## Install a node
 
-For almost all users, install a node from the Continuum node map — you do not need manual shell provisioning.
+For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell provisioning.
 
 <img src="/_media/ContinuumMPAWalletNodeMap.png"  alt=""/>
 
@@ -13,7 +13,7 @@ For almost all users, install a node from the Continuum node map — you do not 
 
 Product overview: [An Overview of the Multi-party Agent Wallet](/ContinuumDAO/MPAWallet/Overview.md).
 
-Advanced / manual install (legacy shell steps): [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md). Deeper platform notes live in the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md).
+Advanced / manual install, suitable for use by AI agents : [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md). Deeper platform notes live in the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md).
 
 ### Choose where the node runs
 

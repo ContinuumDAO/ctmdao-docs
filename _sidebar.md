@@ -25,7 +25,7 @@
   * [Typical Use Cases](/ContinuumDAO/MPC/TypicalUseCases.md)
   * [For Developers](/ContinuumDAO/MPC/ForDevelopers.md)
 
-* Running an MPC Node (advanced / manual)
+* Running an MPC Node (advanced / manual/ AI provisioning)
 
   * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
 
