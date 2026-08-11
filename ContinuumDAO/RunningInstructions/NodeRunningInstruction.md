@@ -1,5 +1,11 @@
 For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPAWallet/Install.md)** (node-map **`+`** button at [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map)). You can create a node on a laptop or PC, or on a remote VPS (Linux / Windows 11 / macOS). This page is the **advanced / manual** path.
 
+**AI agents creating a greenfield Ubuntu/Debian VPS node:** do **not** start here. Use the **one-shot** script and guide first:
+
+- [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
+- Script: [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh)
+- Repo: [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
+
 ## Node Running Instructions
 
 A lot more details about setting up an MPC node is in our github [here](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). This covers installation of different OS types and how to resolve any issues that may arise.
@@ -295,10 +301,11 @@ If you prefer direct TLS from the browser instead of an SSH tunnel, fetch your w
 
 ### Related
 
-- [Install a node](/ContinuumDAO/MPAWallet/Install.md) — preferred node-map installer
+- [Install a node](/ContinuumDAO/MPAWallet/Install.md) — preferred node-map installer (humans) + AI one-shot links
+- [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent VPS one-shot
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 - [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md)
-- mpc-config [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md)
+- mpc-config [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md) · [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 

@@ -1,3 +1,13 @@
+<!--
+agent:
+  task: create-mpc-node
+  audience: [human, ai-agent]
+  oneshot_script: https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh
+  oneshot_doc: https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md
+  agents_md: https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md
+  keywords: [one-shot, install node, create node, provision VPS, mpc-config]
+-->
+
 ## Install a node
 
 For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell provisioning.
@@ -13,7 +23,26 @@ For almost all interactive (human) users, install a node from the Continuum node
 
 Product overview: [An Overview of the Multi-party Agent Wallet](/ContinuumDAO/MPAWallet/Overview.md).
 
-Advanced / manual install, suitable for use by AI agents : [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md). Deeper platform notes live in the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md).
+### For AI agents — one-shot VPS script
+
+**To create a node programmatically on Ubuntu/Debian, use the one-shot installer** (not the long manual page):
+
+| | |
+|--|--|
+| **Script** | [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh) |
+| **Agent guide** | [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
+| **Repo entry** | [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md) |
+
+```bash
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh" \
+  | bash -s -- \
+      --node-mgt-key "0xYour40HexCharacters..." \
+      --ip "YOUR_VPS_PUBLIC_IP"
+```
+
+Run as **root** on the VPS (or via `ssh root@… 'curl … | bash -s -- …'`). Full options: script `--help`. Deeper notes: [mpc-config README — One-shot VPS install](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md#one-shot-vps-install).
+
+Advanced / manual shell steps (interactive operators): [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
 
 ### Choose where the node runs
 
@@ -138,4 +167,5 @@ You can keep using the wallet from the node app alone. The MPA wallet is **AI-fi
 - [Groups](/ContinuumDAO/MPCSigner/Groups.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent one-shot VPS install
 - [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — advanced / manual path
