@@ -81,5 +81,5 @@ You can now use your KeyGen for either use in the Multi-Sign page (for "multi-ag
 
 You can use this KeyGen from the node app alone. Optionally — and recommended for most users on this AI-first wallet — [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 
-If the Group later wants to leave MPC for this key and hold a normal private key (for example to import into MetaMask), use [Eject conversion to standard wallet](/ContinuumDAO/MPAWallet/EjectConversion.md).
+If the Group later wants to leave MPC for this key and hold a normal private key (for example to import into MetaMask), use [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
 

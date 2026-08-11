@@ -38,7 +38,7 @@ You can operate entirely from the **node app** UI (Groups, KeyGens, multi-sign) 
 
 Direct DeFi / web3 protocol integrations (node app and agent MCP): [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md). Interactive candlesticks, analysis, and trade ideas: [AI charting](/ContinuumDAO/MPAWallet/AICharting.md), [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md), and [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md).
 
-A Group can also **eject** a multi-agree KeyGen — threshold agreement reconstructs a normal private key for import into MetaMask or another browser wallet: [Eject conversion to standard wallet](/ContinuumDAO/MPAWallet/EjectConversion.md).
+A Group can also **eject** a multi-agree KeyGen — threshold agreement reconstructs a normal private key for import into MetaMask or another browser wallet: [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
 
 All communications between the AI agent and people is stored on the nodes, so that this context is owned by the MPA wallet group and can be accessed by all future agents. It won't be forgotten; you own the data and it is encrypted. The data includes both transaction data, scripts and text messages between all nodes.
 
