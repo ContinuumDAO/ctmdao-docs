@@ -32,5 +32,7 @@ DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-d
 ### Related
 
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md) — analysis menu on OHLCV candles
+- [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
+- [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

@@ -47,8 +47,10 @@ Otherwise, view interactive charts in the node app Agent chat.
 
 ### Related
 
+- [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
-- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
-- [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
+- Operator guide: [Telegram webhook via ngrok](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/TELEGRAM_WEBHOOK_NGROK.md)

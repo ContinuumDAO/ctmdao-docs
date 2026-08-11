@@ -129,3 +129,13 @@ Each peer needs a running node with a matching understanding of who the relay is
 3. Create a KeyGen (shared address) → [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
 
 You can keep using the wallet from the node app alone. The MPA wallet is **AI-first**, so most users will also want the optional [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) steps after the KeyGen exists.
+
+### Related
+
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+- [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
+- [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+- [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+- [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — advanced / manual path

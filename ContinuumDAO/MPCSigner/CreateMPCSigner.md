@@ -15,3 +15,10 @@ UI steps common to both paths:
 [How to Create a KeyGen](/ContinuumDAO/MPCSigner/KeyGens.md)
 
 [How to Join the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md) (cross-chain role only)
+
+### Related
+
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+- [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+- [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)

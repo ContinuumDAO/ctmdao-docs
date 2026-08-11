@@ -33,6 +33,9 @@ Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP s
 
 ### Related
 
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)

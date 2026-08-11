@@ -108,4 +108,6 @@ Again: compromising this recovery bundle is serious for **your node’s privacy 
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — TSS roles and spare nodes
+- [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+- [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
 - Technical: [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)

@@ -83,3 +83,12 @@ You can use this KeyGen from the node app alone. Optionally — and recommended 
 
 If the Group later wants to leave MPC for this key and hold a normal private key (for example to import into MetaMask), use [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
 
+### Related
+
+- [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+- [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md) — 2/2 vs cross-chain roles
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
+- [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) — tx-check KeyGens for C3Caller
+

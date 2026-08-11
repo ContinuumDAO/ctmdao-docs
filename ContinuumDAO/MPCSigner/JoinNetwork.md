@@ -21,3 +21,11 @@ And each node must complete the Node Registration form in the Info page of the M
 Once these two KeyGens are created, then someone in the Group should click the Add signer button in the Keys page and select both of the KeyGens and then create a JSON file using the displayed output. 
 
 This file can then be used to make a DAO Proposal for the MPC Signer Group to be added to the Continuum. This proposal can be made by anyone, but it might be simplest if this JSON file is passed to a Committee member to actually generate the proposal from the JSON data. If it passes, then the proposal Execute automatically causes the MPC Signer to be added to the Continuum and the Relayer will pick it up.
+
+### Related
+
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md) — MPA wallet vs cross-chain roles
+- [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) — tx-check vs multi-agree
+- [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+- [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
+- [C3Caller Overview](/ContinuumDAO/C3Caller/Overview.md)

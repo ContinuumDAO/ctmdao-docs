@@ -293,3 +293,12 @@ Once you are in MPA wallet, if you ran the automated provision-node.sh above in 
 
 If you prefer direct TLS from the browser instead of an SSH tunnel, fetch your web TLS cert with **Fetch Self-Signed Web Cert** and follow the instructions to add it to your browser's certificate store. After refreshing the browser, attach using the **Browser HTTPS** route. The SSH tunnel alone is a complete, supported option and does not require ContinuumDAO assistance.
 
+### Related
+
+- [Install a node](/ContinuumDAO/MPAWallet/Install.md) — preferred node-map installer
+- [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+- [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+- [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md)
+- mpc-config [README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md)
+

@@ -49,6 +49,8 @@ If you remove an added key that was preferred, pick another preferred key before
 
 ### Related
 
+- [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
+- Technical: [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)

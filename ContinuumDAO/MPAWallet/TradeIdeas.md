@@ -39,3 +39,5 @@ That lets the wallet watch markets periodically without you sitting in chat, whi
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md) — 2/2 human-in-the-loop Accept
+- [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)

@@ -48,3 +48,12 @@ The MPA wallet can be fully configured and controlled via a Restful API and a bu
 2. **Browser HTTPS with a self-signed cert** — talk to the node over TLS using the node’s own certificate and short-lived token (JWT) access, without registering a certificate with a public Certification Authority. You trust the cert in your browser (for example via **Fetch Self-Signed Web Cert** in the app).
 
 MPA wallet is completely decentralized. Each node can run its own node-app container, so you can use a ContinuumDAO-hosted UI such as [mpa.continuumdao.org](https://mpa.continuumdao.org) if you wish, or the node-hosted app on your machine. Either way, management traffic goes to your node (via SSH tunnel or Browser HTTPS), not through a ContinuumDAO custody service. Even if ContinuumDAO ceases to exist, the MPA wallet will continue to function (with no further updates of course).
+
+### Related
+
+- [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+- [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+- [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
+- [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) — optional cross-chain signer role

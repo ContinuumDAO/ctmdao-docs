@@ -56,4 +56,12 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 - **Cron** — scheduled agent turns (**AI Agent → Cron**).
 - **Other webhooks** — GitHub, Stripe, and similar (**AI Agent → Webhooks**).
 
-Operator-level detail: [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md).
+### Related
+
+- [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+- [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
+- [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
+- [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+- [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
+- [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+- Operator detail: [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)

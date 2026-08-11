@@ -33,3 +33,4 @@ Default plot overlays when you first open a chart (before a specific analysis) u
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md) — OHLCV sources and interactive charts
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) — venues that can also execute after analysis
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+- [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
