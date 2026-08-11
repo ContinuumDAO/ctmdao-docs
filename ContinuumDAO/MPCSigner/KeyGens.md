@@ -5,8 +5,8 @@ A key (or KeyGen) contains the information that each node needs to take part in 
 
 **Two roles for KeyGens** (same node software — see [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md)):
 
-1. **MPA wallet custody (multi-agree)** — everyday asset control. The simplest setup is a **2-node Group with threshold 1** (everyday language: **2/2** — both must Accept). Typical pattern: one AI-assisted node + one human circuit-breaker node you control. Larger Groups add loss-of-party resilience or committee control.
-2. **Cross-chain Continuum (tx-check)** — optional. Groups that secure C3Caller messaging typically use **five or more independent** operators and **3/5 TSS**; eligibility starts at three nodes with threshold ≥ 2 — see [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md).
+1. **MPA wallet custody (multi-agree)** — everyday asset control. The simplest setup is a **2-node Group with threshold 2** (everyday language: **2/2** — both must Accept). Typical pattern: one AI-assisted node + one human circuit-breaker node you control. Larger Groups add loss-of-party resilience or committee control.
+2. **Cross-chain Continuum (tx-check)** — optional. Groups that secure C3Caller messaging typically use **five or more independent** operators and **3/5 TSS**; eligibility starts at three nodes with threshold ≥ 3 — see [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md).
 
 Here is the dialogue to request a new KeyGen in the Keys page of the [MPA wallet](https://mpa.continuumdao.org)
 
@@ -32,15 +32,15 @@ Each KeyGen applies to a single Group that has previously been created, This def
 
 (5) Threshold
 
-This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold + 1` Accepts** (not “always three nodes”):
+This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold` Accepts** (not “always three nodes”):
 
-| UI **Threshold** | Accepts needed (`threshold + 1`) | Everyday name | Typical use |
-|------------------|----------------------------------|---------------|-------------|
-| **1** | **2** | **2/2** (with a 2-node Group) | Personal AI + human circuit breaker |
-| **2** | **3** | **3/5** (with a 5-node Group), or 3/3, 3/4, … | Cross-chain Continuum Groups; larger committees |
-| higher | threshold + 1 | e.g. 4/7 | Stronger shared custody |
+| UI **Threshold** | Accepts needed | Everyday name | Typical use |
+|------------------|----------------|---------------|-------------|
+| **2** | **2** | **2/2** (with a 2-node Group) | Personal AI + human circuit breaker |
+| **3** | **3** | **3/5** (with a 5-node Group), or 3/3, 3/4, … | Cross-chain Continuum Groups; larger committees |
+| higher | same as threshold | e.g. 4/7 | Stronger shared custody |
 
-So long as **threshold + 1** nodes have agreed to a Sign Request, that signature may be generated. For **multi-agree**, the signature must be generated only by the node that created the Sign Request. For **tx-check**, the signature is performed by the first node in the Configured Nodes and passed back to the C3Caller Relayer for execution.
+So long as **threshold** nodes have agreed to a Sign Request, that signature may be generated. For **multi-agree**, the signature must be generated only by the node that created the Sign Request. For **tx-check**, the signature is performed by the first node in the Configured Nodes and passed back to the C3Caller Relayer for execution.
 
 (6) Key type
 
