@@ -58,7 +58,7 @@
 * Further reading (operators / APIs)
 
   * [Create a node (one-shot, AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
-  * [Signing MPC Transactions (Foundry)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/AI_AGENT_FORGE_SIGNREQUEST.md)
+  * [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)
   * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)
   * [Ed25519 management keys (technical)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)
