@@ -32,7 +32,7 @@ Each KeyGen applies to a single Group that has previously been created, This def
 
 (5) Threshold
 
-This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold` Accepts** (not “always three nodes”):
+This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold` Accepts** :
 
 | UI **Threshold** | Accepts needed | Everyday name | Typical use |
 |------------------|----------------|---------------|-------------|

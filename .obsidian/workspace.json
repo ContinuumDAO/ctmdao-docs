@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPAWallet/Overview.md",
+                "file": "ContinuumDAO/MPCSigner/KeyGens.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Overview"
+              "title": "KeyGens"
             }
           }
         ]
@@ -173,13 +173,13 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/MPCSigner/KeyGens.md",
     "ContinuumDAO/MPCSigner/Groups.md",
     "ContinuumDAO/MPAWallet/Install.md",
     "ContinuumDAO/MPAWallet/AICharting.md",
     "ContinuumDAO/MPAWallet/EjectConversion.md",
     "ContinuumDAO/MPAWallet/BackupAndRestoration.md",
-    "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/MPAWallet/DeFiProtocolSupport.md",
     "_media/EjectKeyGen.png",
