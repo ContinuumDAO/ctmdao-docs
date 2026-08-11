@@ -71,16 +71,44 @@ Enter your **public** WAN IPv4 in the installer (for example from [https://ip.me
 1. **Docker Desktop** — Continuum’s PC installer does **not** install Docker Desktop. Download and install it from [Docker Desktop](https://www.docker.com/products/docker-desktop/), start it, and leave it running. On Windows, use the **WSL2** backend.
 2. **Continuum Node Docker extension** — In Docker Desktop, open **Extensions**, enable Extensions if needed, then **search the Marketplace** for **Continuum Node** (image **`continuumdao/continuum-node-installer`**) and install it. The node-map **`+`** flow also directs you to this extension once Docker Desktop is ready.
 
-**Port forwarding:** on a home network, forward inbound TCP to the PC that runs Docker:
+#### Home router setup (port forwarding)
 
-| Port | Purpose |
-|------|---------|
-| **18080** | Public discovery |
-| **8883** | MQTT TLS (relay / peer messaging) |
+Your PC sits behind a home router. Other Continuum nodes on the internet only see your **public** IP (what [ip.me](https://ip.me) shows). The router must send the Continuum ports through to **your PC**. That takes two simple settings in the router’s admin pages.
 
-Step-by-step router setup (DHCP reservation, NAT rules, verify from cellular): [Home router port forwarding](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/PORT_FORWARDING_HOME_NETWORK.md).
+**1. Open the router settings**
 
-If your router’s WAN address differs from the public IP shown by ip.me, you may be behind **CGNAT** — home hosting may not work without ISP help or a tunnel (same guide).
+- In a browser on your home network, go to the router admin address. Common ones are **`http://192.168.0.1`** or **`http://192.168.1.1`** (check the sticker on the router, or your ISP’s app).
+- Sign in with the router password (often on the same sticker if you never changed it).
+
+**2. Give your PC a fixed address on the home network (tie IP ↔ MAC)**
+
+Routers usually hand out temporary “home” addresses (like `192.168.0.42`). If that changes after a reboot, port forwarding breaks.
+
+- Find your PC’s **MAC address** (hardware ID for Wi‑Fi or Ethernet — the connection you actually use). On Windows: Settings → Network, or PowerShell `getmac /v /fo list`.
+- In the router, open **DHCP**, **LAN**, **Address reservation**, or **DHCP binding** (names vary by brand).
+- Create a reservation that **ties a chosen home-network IP to your PC’s MAC address** (for example always give this PC `192.168.0.50`). Save/apply.
+
+That fixed home address is **not** the public IP from ip.me — it is only how the router finds your PC inside the house. Write it down; you need it in the next step.
+
+**3. Forward ports in NAT / port forwarding**
+
+- In the router, open **Port forwarding**, **NAT**, **Virtual server**, or similar.
+- Add rules that send traffic from the internet to your PC’s **reserved** home IP:
+
+| What to forward | Port (TCP) | Send to |
+|-----------------|------------|---------|
+| Discovery (so other nodes can find you) | **18080** | Your PC’s reserved home IP |
+| Messaging (if this PC is the **relay**) | **8883** | Your PC’s reserved home IP |
+
+Use the same port number outside and inside (18080→18080, 8883→8883). Save/apply; some routers want a reboot.
+
+If your PC is only a **client** (not the relay), **18080** is still required.
+
+**4. Check it worked**
+
+From a phone on **mobile data** (not home Wi‑Fi), or another network, the discovery port should answer on your public IP. More detail and troubleshooting: [Home router port forwarding](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/PORT_FORWARDING_HOME_NETWORK.md).
+
+If the IP on the router’s “internet / WAN” page is different from what ip.me shows, you may be behind **CGNAT** — home hosting may not work without ISP help or a tunnel (same guide).
 
 #### Windows
 
