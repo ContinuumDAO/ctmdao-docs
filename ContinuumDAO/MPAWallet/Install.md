@@ -101,13 +101,15 @@ A single node is not enough to create a shared KeyGen address. You need peers, a
 
 ### One node is not enough for a KeyGen address
 
-A lone node cannot create a KeyGen / shared wallet address by itself. The minimum useful setup is **two nodes** (for example a **2-of-2** MPC threshold signature: both must participate to sign).
+A lone node cannot create a KeyGen / shared wallet address by itself. The **simplest** useful MPA wallet is **two nodes with 2/2 TSS** (both must agree to sign) — typical when you want to control an AI agent yourself: one node proposes via the agent, the other is your human-in-the-loop circuit breaker. You do **not** need three nodes for a personal wallet.
 
-Common reasons to add a second (or more) node — all use the same peer setup:
+Why add a second (or more) node — same peer setup, different roles:
 
-- **Human-in-the-loop vs AI** — a second node you control so an AI-operated node cannot complete a signature alone
+- **Human-in-the-loop vs AI (2/2)** — second node you control so an AI-operated node cannot complete a signature alone
+- **Loss safeguard** — extra shares / higher Group size so one lost party or offline node does not strand assets (choose threshold accordingly)
 - **No full on-chain private key** — MPC shares replace a single recoverable private key
-- **Shared control** — a DAO, investment committee, or other multi-party wallet
+- **Shared custody** — DAO, investment committee, or multi-party wallet (larger Groups, higher thresholds)
+- **Optional later — cross-chain Continuum** — larger Groups (ideally **5+ independent** operators, **3/5 TSS**) with **tx-check** KeyGens; see [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) and the twofold purpose in [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 
 ### Tell your node about its peers (Configured Nodes)
 

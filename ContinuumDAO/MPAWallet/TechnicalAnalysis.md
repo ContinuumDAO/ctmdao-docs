@@ -2,7 +2,7 @@
 
 Once you have candlestick OHLCV on a chart (see [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)), the AI agent can run **chart analysis** from a fixed menu — in Agent chat or Telegram (tap an analysis option, or ask for “analysis #N”).
 
-Results can include structured commentary, **PRIMARY trade ideas** for clear setups, and **overlays** you can apply on the interactive chart (trend lines, Fibs, bands, patterns, and so on). How ideas become multi-sign trades (including cron): [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md). Analysis does not replace your Group’s MPC threshold: any on-chain trade still needs multi-sign agreement.
+Results can include structured commentary, **PRIMARY trade ideas** for clear setups, and **overlays** you can apply on the interactive chart (trend lines, Fibs, bands, patterns, and so on). How ideas become multi-sign trades (including cron): [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md). Analysis does not replace your Group’s MPC threshold: any on-chain trade still needs multi-sign agreement (for example your second node’s Accept in a **2/2** human-in-the-loop wallet).
 
 ### Analysis options
 

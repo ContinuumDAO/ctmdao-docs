@@ -57,5 +57,6 @@ Inbound HTTP hooks wake the same agent. Telegram is the usual phone path — see
 
 - **Management actions** (calling the node API) use the node’s [default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
 - **On-chain control** still uses **MPC**. The node never holds the full wallet private key — only threshold shares.
+- **Human-in-the-loop circuit breaker** — in the usual personal setup, pair an AI-assisted node with a second node you control under **2/2** multi-agree TSS so the agent can propose trades but cannot complete a signature alone. Larger Groups use higher thresholds for shared custody. See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md).
 
 Further reading for operators: [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md).

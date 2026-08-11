@@ -1,7 +1,13 @@
 
  ## Creating a Group
 
-A node Group is a subset of the Configured Nodes that have decided to jointly sign transactions using MPC. At this stage, the Group's purpose is not defined. That requires a further step (KeyGen creation). 
+A node Group is a subset of the Configured Nodes that have decided to jointly sign transactions using MPC. At this stage, the Group's purpose is not defined. That requires a further step (KeyGen creation) — **multi-agree** for an MPA wallet, or **tx-check** if you later aim to secure Continuum cross-chain traffic. See the twofold purpose in [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md).
+
+**Group size depends on the role:**
+
+- **2 nodes** — simplest MPA wallet (**2/2** KeyGen). Common when one node is AI-assisted and the other is a human circuit breaker (often the same operator).
+- **3+ nodes** — shared custody / loss safeguard with a higher threshold.
+- **5+ independent operators** — ideal for Groups that will [join the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) as cross-chain signers (**3/5 TSS**).
 
 Any node can request Group creation by clicking the Add group button and selecting some of the Configured Nodes
 

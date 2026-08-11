@@ -17,7 +17,7 @@ PRIMARY ideas are tied to the analysis that produced them (trend structure, Fib 
 1. Choose a trade idea (**Build #N**, or ask the agent to build a specific idea).
 2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)).
 3. The agent builds a **multi-sign request** (management-signed by your node’s default Ed25519 signer) for your preferred KeyGen.
-4. Other nodes in the KeyGen **Accept** or **Reject** as usual. Only after threshold agreement can the originator complete MPC signing and execution.
+4. Other nodes in the KeyGen **Accept** or **Reject** as usual. Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
 
 You can still compose trades by hand in the node app; trade ideas are the AI-assisted path from chart → levels → proposal.
 
@@ -31,7 +31,7 @@ On each run the agent can:
 - Rank or pick among **PRIMARY** (and related) trade ideas
 - Propose or build multi-sign requests for the best options under your threshold rules
 
-That lets the wallet watch markets periodically without you sitting in chat, while humans (or other nodes) still control Accept / Reject on real trades. Cron setup: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) (optional Cron tab) and the AI Agent Cron UI.
+That lets the wallet watch markets periodically without you sitting in chat, while humans (or other nodes) still control Accept / Reject on real trades — the MPC threshold is the circuit breaker against unauthorized AI spends. Cron setup: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) (optional Cron tab) and the AI Agent Cron UI.
 
 ### Related
 

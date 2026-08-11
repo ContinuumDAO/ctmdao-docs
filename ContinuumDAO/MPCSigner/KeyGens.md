@@ -3,6 +3,11 @@
 
 A key (or KeyGen) contains the information that each node needs to take part in the joint creation of the Private Key to collectively sign transactions. A KeyGen has a *public key* but **NO PRIVATE KEY**. A new KeyGen can be requested by anyone in a Group. If all nodes in the Group agree to Join, then the new KeyGen is created.
 
+**Two roles for KeyGens** (same node software — see [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md)):
+
+1. **MPA wallet custody (multi-agree)** — everyday asset control. The simplest setup is a **2-node Group with threshold 1** (everyday language: **2/2** — both must Accept). Typical pattern: one AI-assisted node + one human circuit-breaker node you control. Larger Groups add loss-of-party resilience or committee control.
+2. **Cross-chain Continuum (tx-check)** — optional. Groups that secure C3Caller messaging typically use **five or more independent** operators and **3/5 TSS**; eligibility starts at three nodes with threshold ≥ 2 — see [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md).
+
 Here is the dialogue to request a new KeyGen in the Keys page of the [MPA wallet](https://mpa.continuumdao.org)
 
 <img src="/_media/KeyGen_request.png"  alt=""/>
@@ -11,7 +16,7 @@ We can go through each of the inputs here -
 
 (1) MsgCheck
 
-The user selects either "multi-agree", or "tx-check". The "multi-agree" option allows the nodes in the Group of the keyGen to choose whether to sign a transaction (Accept), or not (Reject). This is suitable for MPA wallet users, where the nodes can be run by humans or AI agents. The other option is "tx-check", where once a signature request has been received by one of the nodes, the others automatically Accept and the signature generation should then proceed without the explicit manual agreement step that multi-agree has. This is useful for C3Caller signatures, where a Group is asked for a signature using a KeyGen and where the security is due to the fact that multiple unrelated nodes collectively sign and they can only do so together, without knowledge of the Private Key.
+The user selects either "multi-agree", or "tx-check". The **multi-agree** option allows the nodes in the KeyGen to choose whether to sign a transaction (Accept), or not (Reject). This is the MPA wallet path: humans and/or AI agents, with Accept as the circuit breaker (including simple **2/2**). The other option is **tx-check**, where once a signature request has been received by one of the nodes, the others automatically Accept and signature generation proceeds without a manual agreement step. That suits **C3Caller** cross-chain signatures, where security comes from many **independent** nodes holding shares and signing together, without knowledge of the full Private Key — not from a human Accept click on every message.
 
 (2) Multi-sign client auth
 
@@ -27,9 +32,15 @@ Each KeyGen applies to a single Group that has previously been created, This def
 
 (5) Threshold
 
-This defines how many of the nodes must Accept (or agree) to a Sign Request made by another node. It is the TSS algorithm. Perversely, a threshold of 1 requires 2 nodes to agree, a threshold of 2 requires 3 nodes to agree. This comes directly from the scientific paper used in our MPC algorithm (GG18).
+This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold + 1` Accepts** (not “always three nodes”):
 
-So long as threshold+1 nodes have agreed to a Sign Request, that signature may be generated. For "multi-agree", the signature must be generated only by the node that did the Sign Request. For "tx-check", the signature is performed by the first node in the Configured Nodes and passed back to the C3Caller Relayer for execution.
+| UI **Threshold** | Accepts needed (`threshold + 1`) | Everyday name | Typical use |
+|------------------|----------------------------------|---------------|-------------|
+| **1** | **2** | **2/2** (with a 2-node Group) | Personal AI + human circuit breaker |
+| **2** | **3** | **3/5** (with a 5-node Group), or 3/3, 3/4, … | Cross-chain Continuum Groups; larger committees |
+| higher | threshold + 1 | e.g. 4/7 | Stronger shared custody |
+
+So long as **threshold + 1** nodes have agreed to a Sign Request, that signature may be generated. For **multi-agree**, the signature must be generated only by the node that created the Sign Request. For **tx-check**, the signature is performed by the first node in the Configured Nodes and passed back to the C3Caller Relayer for execution.
 
 (6) Key type
 

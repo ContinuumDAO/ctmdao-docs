@@ -6,9 +6,9 @@ A lot more details about setting up an MPC node is in our github [here](https://
 
 ### Type of Machine
 
-If you are only setting up a Multi-Party Agent wallet, then you can use a home machine with Linux (e.g. Ubuntu/Debian/Mint). You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient).
+If you are only setting up a Multi-Party Agent wallet (secure custody / AI with human Accept — often **2/2**), then you can use a home machine with Linux (e.g. Ubuntu/Debian/Mint). You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient). See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) for the twofold purpose of nodes.
 
-If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewards for doing so, then you will need a machine that has at least the above specification but must be a VPS or hosted to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
+If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewards for doing so (typically **5+ independent** operators, **3/5 TSS**), then you will need a machine that has at least the above specification but must be a VPS or hosted to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
 
 
 ### Quick Start

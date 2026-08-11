@@ -2,7 +2,7 @@
 
 The built-in AI agent (Agent chat and Telegram, if configured) needs an **Ed25519 management key** to call your node’s API. The **default signer** (also called **preferred signer** in the UI) is which allowed management key it uses.
 
-This is **not** the shared MPC wallet key. On-chain control still uses MPC — the node never holds the full on-chain private key.
+This is **not** the shared MPC wallet key. On-chain control still uses MPC — the node never holds the full on-chain private key. In a typical **2/2** AI setup, the agent’s management signer lives on the AI node; your human circuit-breaker node still must **Accept** the multi-sign before funds move.
 
 ### What “default signer” means
 

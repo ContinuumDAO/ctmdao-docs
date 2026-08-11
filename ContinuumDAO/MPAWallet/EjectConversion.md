@@ -1,6 +1,6 @@
 ## Eject conversion to standard wallet
 
-An MPA **KeyGen** is an MPC wallet: each Group node holds only a **share**. There is no single private key on any machine until the Group deliberately **ejects** that KeyGen.
+An MPA **KeyGen** is an MPC wallet: each Group node holds only a **share**. There is no single private key on any machine until the Group deliberately **ejects** that KeyGen. That is the point of the custody role in [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) — assets stay under TSS until the Group chooses to convert to a normal key.
 
 <img src="/_media/EjectKeyGen.png"  alt=""/>
 

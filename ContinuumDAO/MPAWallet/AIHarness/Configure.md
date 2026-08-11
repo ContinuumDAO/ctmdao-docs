@@ -2,7 +2,7 @@
 
 This checklist is **optional**. You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi-sign) without an AI agent. The MPA wallet is **AI-first**, though, so most users will want to complete these steps once a KeyGen exists.
 
-Use this flow **after** you have Configured Nodes, a Group, and at least one KeyGen. See [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) if you are not there yet.
+Use this flow **after** you have Configured Nodes, a Group, and at least one **multi-agree** KeyGen. The simplest AI setup is **2/2** (AI-assisted node + human Accept node). See [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) and [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) if you are not there yet.
 
 What the harness is: [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md).
 
