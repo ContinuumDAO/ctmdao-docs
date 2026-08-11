@@ -2,6 +2,8 @@
 
 An MPA **KeyGen** is an MPC wallet: each Group node holds only a **share**. There is no single private key on any machine until the Group deliberately **ejects** that KeyGen.
 
+<img src="/_media/EjectKeyGen.png"  alt=""/>
+
 **Eject** is a threshold-governed conversion: enough nodes in the KeyGen (the same TSS quorum as multi-sign — **threshold + 1** Accepts) agree to reconstruct the full private key, verify it against the KeyGen’s public address, then **retire MPC** for that key. Afterward the Group can treat it as a normal wallet and import the key into a browser wallet such as **MetaMask**.
 
 This is optional and irreversible for that KeyGen’s MPC life. Use it when you want to leave shared MPC control (for example consolidate to one hot wallet, migrate, or wind down the Group’s MPC use of that address).
