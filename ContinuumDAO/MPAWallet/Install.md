@@ -68,7 +68,7 @@ Enter your **public** WAN IPv4 in the installer (for example from [https://ip.me
 
 **Prerequisites (you install these yourself):**
 
-1. **Docker Desktop** — Continuum’s PC installer does **not** install Docker Desktop. Download and install it from [Docker Desktop](https://www.docker.com/products/docker-desktop/), start it, and leave it running. On Windows, use the **WSL2** backend.
+1. **Docker Desktop** — Continuum’s PC installer does **not** install Docker Desktop. Download and install it from [Docker Desktop](https://www.docker.com/products/docker-desktop/), start it, and leave it running. On Windows, use the **WSL2** backend that comes with the Docker Desktop installation.
 2. **Continuum Node Docker extension** — In Docker Desktop, open **Extensions**, enable Extensions if needed, then **search the Marketplace** for **Continuum Node** (image **`continuumdao/continuum-node-installer`**) and install it. The node-map **`+`** flow also directs you to this extension once Docker Desktop is ready.
 
 #### Home router setup (port forwarding)
