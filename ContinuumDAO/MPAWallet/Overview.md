@@ -30,7 +30,7 @@ The **same** nodes can join larger **Groups** that secure Continuum **cross-chai
 | Shared custody / committee | 3+ nodes | e.g. 2/3, 3/5 | People / orgs you choose | **multi-agree** |
 | Cross-chain Continuum signer | **5+** nodes (ideal) | **3/5** typical | **Independent** operators | **tx-check** (auto-agree for relayer traffic) |
 
-Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map **`+`**). Advanced / manual shell steps: [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
+Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map **`+`**). Back up bootstrap keys and the encrypted node database early: [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md). Advanced / manual shell steps: [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
 
 ### Using the wallet
 

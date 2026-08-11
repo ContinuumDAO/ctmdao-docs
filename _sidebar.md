@@ -41,6 +41,7 @@
 
   * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
   * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+  * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
   * [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
   * [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)

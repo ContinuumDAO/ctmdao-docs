@@ -78,7 +78,7 @@ Install **Docker Desktop for Linux** yourself if you use the Desktop extension p
 ### After install (all paths)
 
 1. [Attach your node](#attach-your-node) and confirm you can open the Node page.
-2. Back up bootstrap Ed25519 material if the install created it — see [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and the technical [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md).
+2. Back up bootstrap Ed25519 material and, soon after, an encrypted database snapshot — see [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md) (also [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and technical [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)).
 3. Continue with **Post install steps** below.
 
 ### Attach your node

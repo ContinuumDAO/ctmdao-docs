@@ -43,7 +43,7 @@ If you remove an added key that was preferred, pick another preferred key before
 | Situation | What to do |
 |-----------|------------|
 | Fresh install | Bootstrap is enough unless you want a separate preferred key |
-| Recreated node | Restore or regenerate bootstrap before expecting the same identity |
+| Recreated node | Restore the original bootstrap private key (same PublicMgtKey) — see [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md) |
 | Telegram bot | Same default signer as Agent chat |
 | Want more detail | Technical lifecycle: [CONFIGURING_ED25519_KEYS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md) |
 
