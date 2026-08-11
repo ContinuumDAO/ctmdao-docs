@@ -158,7 +158,7 @@ A single node is not enough to create a shared KeyGen address. You need peers, a
 
 ### One node is not enough for a KeyGen address
 
-A lone node cannot create a KeyGen / shared wallet address by itself. The **simplest** useful MPA wallet is **two nodes with 2/2 TSS** (both must agree to sign) — typical when you want to control an AI agent yourself: one node proposes via the agent, the other is your human-in-the-loop circuit breaker. You do **not** need three nodes for a personal wallet.
+A lone node cannot create a KeyGen / shared wallet address by itself. The **simplest** useful MPA wallet is **two nodes with 2/2 TSS** (both must agree to sign) — typical when you want to control an AI agent yourself: one node proposes via the agent, the other is your human-in-the-loop circuit breaker.
 
 Why add a second (or more) node — same peer setup, different roles:
 
