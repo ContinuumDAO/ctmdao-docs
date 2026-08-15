@@ -1,7 +1,7 @@
 
 ## An Overview of the Multi-party Agent Wallet
 
-[The MPA wallet](https://mpa.continuumdao.org) is an **AI-first** wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). There is **no full on-chain private key** on any machine — only threshold shares — until a Group deliberately [ejects](/ContinuumDAO/MPAWallet/EjectConversion.md) a KeyGen.
+[The MPA wallet](https://mpa.continuumdao.org) is an **AI-first** wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built-in **AI agent harness** — the natural way to propose trades, run analysis, and drive DeFi flows — while a **rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) gives you **full manual control** without an agent: Groups, KeyGens, multi-sign, DeFi protocol actions, charts, and node management in one interface. There is **no full on-chain private key** on any machine — only threshold shares — until a Group deliberately [ejects](/ContinuumDAO/MPAWallet/EjectConversion.md) a KeyGen.
 
 ContinuumDAO's MPA wallet is **fully decentralized**: unlike many MPC wallets that store key shares in vendor-controlled **databases**, custody lives **only on nodes you deploy**. There is no custodial recovery service and no ContinuumDAO-held backup of your shares. You choose the Group size and TSS threshold yourself.
 
@@ -34,9 +34,11 @@ The **same** nodes can join larger **Groups** that secure Continuum **cross-chai
 
 Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map **`+`**). Back up bootstrap keys and the encrypted node database early: [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md). Advanced / manual shell steps: [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
 
-### Using the wallet
+### Using the wallet — AI-first, rich frontend always
 
-You can operate entirely from the **node app** UI (Groups, KeyGens, multi-sign) without enabling the AI agent. For most users it is desirable to also use the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md): one or more nodes can be agent-assisted, agents and people can message each other, and your threshold still bounds what can be signed. Configuring the harness is **optional** — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
+The MPA wallet is **AI-first by design**: the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md) is the recommended path for market analysis, trade ideas, and protocol workflows — with your threshold still bounding every signature. **You do not need the agent to use the wallet.** The **rich frontend** (hosted at [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app on your machine) is a **complete wallet UI**: create Groups and KeyGens, review and **Accept** or **Reject** pending transactions, compose DeFi actions by hand, manage backups, and operate every custody feature without enabling AI.
+
+Most users will want both — agent-assisted flows plus the frontend as human circuit breaker and manual override. Configuring the harness is **optional** — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 
 Direct **web3 / DeFi protocol** integrations built into the node (no separate browser wallet or key export): [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) — Uniswap, Aave, Curve, GMX, Hyperliquid, and other major protocols for **Private-Key-less trading** from the node app or AI agent MCP. Interactive candlesticks, analysis, and trade ideas: [AI charting](/ContinuumDAO/MPAWallet/AICharting.md), [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md), and [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md).
 

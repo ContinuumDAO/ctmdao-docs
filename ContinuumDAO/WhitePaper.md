@@ -4,13 +4,13 @@
 
 # Welcome to Continuum
 
-An open public cross-chain network secured by Multi-Party Computation — and the **Multi-Party Agent (MPA) wallet**, a flagship MPC product for custody **without a Private Key**, **AI-assisted trading**, and optional **cross-chain signing** rewards — run as a public good under **DAO governance**.
+An open public cross-chain network secured by Multi-Party Computation — and the **Multi-Party Agent (MPA) wallet**, an **AI-first** flagship MPC product (with a **rich frontend** for full manual control) for custody **without a Private Key**, **AI-assisted trading**, and optional **cross-chain signing** rewards — run as a public good under **DAO governance**.
 
 ## About ContinuumDAO
 
 ContinuumDAO is a community that is collectively building a future in which all blockchains are linked, to enable the integration of decentralized blockchain ledgers for all dApps. We realise that the entirety of finance and other ‘trust’ based networks will transition to web3 in the next few years and that the biggest opportunity for blockchain is to provide DeFi like services for actual businesses, whether that is to raise capital, or allow investment in assets or provide services that it would be impossible to do so using traditional tools. A future open to everyone, not just in the financial centers of the world. To do this though, it is necessary for all blockchains to be able to communicate with each other securely. This is urgent, since it seems likely that the number of chains will only increase. That is the mission of ContinuumDAO.
 
-As the backbone of ContinuumDAO, we have the first public institutional-grade Multi-Party Computation (MPC) node network called the Continuum. **The Multi-Party Agent (MPA) wallet** is a flagship product: fully decentralized **self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** — **without any single Private Key**, with optional **AI-assisted trading** on the **most important web3 protocols built in directly** (swaps, lending, staking, perps, and bridges) for **secure, Private-Key-less trading**. The same node software also powers **C3Caller** cross-chain messaging and **cross-on-chain governance** — all operated under **DAO governance**, with signing and agreement handled **off-chain** using peer-reviewed **CGGMP24** and **FROST** threshold signature protocols (Lockness / LF Decentralized Trust).
+As the backbone of ContinuumDAO, we have the first public institutional-grade Multi-Party Computation (MPC) node network called the Continuum. **The Multi-Party Agent (MPA) wallet** is a flagship product: an **AI-first** wallet — every node includes a built-in **AI agent harness** for analysis, trade ideas, and DeFi workflows — that is also **fully usable through a rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) for manual Groups, KeyGens, multi-sign, and protocol actions without an agent. It offers fully decentralized **self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** — **without any single Private Key**, with optional **AI-assisted trading** on the **most important web3 protocols built in directly** (swaps, lending, staking, perps, and bridges) for **secure, Private-Key-less trading**. The same node software also powers **C3Caller** cross-chain messaging and **cross-on-chain governance** — all operated under **DAO governance**, with signing and agreement handled **off-chain** using peer-reviewed **CGGMP24** and **FROST** threshold signature protocols (Lockness / LF Decentralized Trust).
 
 We are committed to a permissionless and decentralized architecture, which will create a strong and durable framework, with an open protocol that everyone can help run, and anyone can contribute towards, that is owned by the community. An unstoppable system, just like the internet on which it runs.
 
@@ -51,7 +51,7 @@ Systems that use zkProofs and relayers of those proofs do not have protocol leve
 ## How is ContinuumDAO Different?
 
 - Our cross-chain network, called the Continuum, is run by a **DAO** and designed for autonomous operation. All critical operations and financial transactions depend on on-chain voting. There is no central ‘team’.
-- **The MPA wallet** is a core MPC product: **fully decentralized self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** such as Solana and NEAR — **without a Private Key**, with **direct integration to the most important web3 protocols** (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading**, **AI-assisted** workflows, threshold-bound signing, and **private off-chain** agreement — secured by **CGGMP24** (ECDSA) and **FROST** (EdDSA) as maintained by Lockness under LF Decentralized Trust (Linux Foundation).
+- **The MPA wallet** is a core MPC product: an **AI-first** wallet with a **rich frontend** for complete manual operation — **fully decentralized self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** such as Solana and NEAR — **without a Private Key**, with **direct integration to the most important web3 protocols** (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading**, **AI-assisted** workflows, threshold-bound signing, and **private off-chain** agreement — secured by **CGGMP24** (ECDSA) and **FROST** (EdDSA) as maintained by Lockness under LF Decentralized Trust (Linux Foundation).
 - **MPC nodes** are the fundamental unit of the network. Wallet owners install nodes, form **MPC Groups**, and create **KeyGens** (shared addresses). The same nodes can serve **personal custody** (multi-agree) and, optionally, **cross-chain Continuum signing** (tx-check Groups for C3Caller traffic).
 - Cross-chain signatures are generated by MPC, which is well recognised by institutions as being secure. MPC signatures are collectively made by an MPC Group, but the private key is never assembled on any single machine — each node holds only a share.
 - The number of nodes in a Group that collectively sign can be selected when the Group is formed. The higher the number, the more secure, but the slower will be the signatures. ContinuumDAO will soon enable ‘pre-signing’, to speed up the computation and allow larger MPC Groups.
@@ -82,11 +82,13 @@ Over the last year, the DAO has also been working on some projects that will use
 
 (2) Roll out of the **Multi-Party Agent (MPA) wallet** and testing with the community — MPC custody without a Private Key, **AI-assisted trading** harness, and optional opt-in to **cross-chain signing Groups** with **CTM rewards** for participating wallet operators. Estimated delivery in Q3 2026
 
-(3) Establishment of community-run **MPC Groups** (built from MPA wallet nodes) attached to the Relayer for C3Caller signing. Estimated delivery Q4 2026.
+(3) **AI Harness development for MPA wallet** — establish the built-in agent harness as the **premier AI harness for safe on-chain trading**: DeFi protocol tool packs, charting and trade ideas, human-in-the-loop **Accept** flows, and tight coupling between agent proposals and MPC threshold signing so AI can analyze and propose but never spend alone. Estimated delivery Q4 2026
 
-(3) Testing of new Relayer and Scanner functionality for the C3Caller backend. This adds extra security layers and permits full control of the backend infrastructure using smart contracts and Governance voting. Estimated delivery in Q4 2026
+(4) Establishment of community-run **MPC Groups** (built from MPA wallet nodes) attached to the Relayer for C3Caller signing. Estimated delivery Q4 2026.
 
-(4) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q2 2026
+(5) Testing of new Relayer and Scanner functionality for the C3Caller backend. This adds extra security layers and permits full control of the backend infrastructure using smart contracts and Governance voting. Estimated delivery in Q4 2026
+
+(6) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q2 2026
 
 (7) Establishment of a DEX trading pool for our token CTM. Possibly we will also launch on one or more CEX platforms.
 
@@ -186,12 +188,13 @@ Wallet owners may use **only** the custody role, or also opt into cross-chain Gr
 
 ### The Multi-Party Agent (MPA) wallet
 
-The **MPA wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview)) is ContinuumDAO’s flagship MPC product:
+The **MPA wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview)) is ContinuumDAO’s flagship MPC product — **AI-first**, with a **rich frontend** for full manual use:
 
+- **AI-first control** — a built-in **AI agent harness** on every node proposes trades, runs technical analysis, and invokes DeFi protocol tools; humans (or other nodes) **Accept** or **Reject** before any signature completes. The agent is the natural default; the frontend is your circuit breaker and manual override.
+- **Rich frontend — fully usable without AI** — [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app provides a complete wallet UI: Groups, KeyGens, multi-sign, DeFi flows, charts, backups, and node management — no agent required.
 - **Multi-chain self-custody** — fully decentralized holding and movement of **Bitcoin** (SegWit and Taproot), **Ethereum and EVM-compatible tokens**, and — on the roadmap — **Ed25519 assets** (Solana, NEAR, and similar chains), all from the same Group of nodes without a single recoverable Private Key.
-- **Direct web3 protocol support** — built-in connectivity to the **most important DeFi and trading protocols** (including Uniswap, Aave, Curve, Morpho, GMX, Hyperliquid, Lido, Ethena, and Circle CCTP), so users can swap, lend, stake, and trade perps **without exporting a Private Key** — from the node app or via the AI agent, always under MPC threshold control.
+- **Direct web3 protocol support** — built-in connectivity to the **most important DeFi and trading protocols** (including Uniswap, Aave, Curve, Morpho, GMX, Hyperliquid, Lido, Ethena, and Circle CCTP), so users can swap, lend, stake, and trade perps **without exporting a Private Key** — from the frontend or via the AI agent, always under MPC threshold control.
 - **No Private Key** — only threshold shares; optional **eject** to a conventional key if the Group agrees.
-- **AI-assisted trading** — agents propose trades, run technical analysis, and invoke protocol tools directly; humans (or other nodes) **Accept** or **Reject** before any signature completes.
 - **Private off-chain security** — multi-sign negotiation and agent context stay on the operators’ nodes, encrypted; the chain sees only the final transaction.
 - **State-of-the-art MPC** — CGGMP24 and FROST, with proactive key refresh, maintained under Lockness / LF Decentralized Trust.
 - **DAO-aligned operation** — protocol parameters, approved signers, rewards, and the **free signature limit** for staked nodes are governed by the DAO; the wallet itself is non-custodial and user-controlled.
@@ -249,7 +252,7 @@ CTM is a multi-chain token, that can only be minted on Ethereum by Governance vo
 
 ### Utility
 
-- **MPA wallet** — non-custodial MPC self-custody on **user-run nodes** (no vendor database of key shares), **direct web3 protocol trading** without a Private Key, encrypted backup / recovery, optional **eject** to a standard private-key wallet, and AI-assisted workflows
+- **MPA wallet** — **AI-first** MPC self-custody on **user-run nodes**, with a **rich frontend** for full manual control (no vendor database of key shares), **direct web3 protocol trading** without a Private Key, encrypted backup / recovery, optional **eject** to a standard private-key wallet, and AI-assisted workflows
 - C3Caller cross-chain message payments (USD and other stable coins, CTM)
 - Governance — as veCTM
 - Staking to secure the MPC network — as veCTM
