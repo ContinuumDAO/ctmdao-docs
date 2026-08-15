@@ -140,15 +140,9 @@ Install **Docker Desktop for Linux** yourself if you use the Desktop extension p
 
 ### Attach your node
 
-Your browser talks to **your** node. ContinuumDAO does not need to relay that control path. Choose one:
+Your browser talks to **your** node. ContinuumDAO does not relay that control path. Three attach options on the hosted SPA: **Browser HTTPS**, **Node hosted app (local PC)**, and **Node hosted app (SSH tunnel)**. Geo-restricted users see only the two node-hosted options.
 
-| Method | When to use | What you do |
-|--------|-------------|-------------|
-| **SSH tunnel** | Remote VPS (often the most popular) — no ContinuumDAO support required | Create an SSH tunnel from your PC to the node, then attach in the app over localhost. Encryption is SSH. |
-| **Browser HTTPS (self-signed cert)** | You want direct TLS to the node without a public CA | Import the node’s self-signed web cert (e.g. **Fetch Self-Signed Web Cert**), then attach with **Browser HTTPS** and short-lived token access. |
-| **Local / node-hosted app** | Node on the same PC | Open the local node app (e.g. `localhost:3333`) and select the node-hosted app path — no tunnel needed. |
-
-You may use [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted frontend; either way, attach traffic goes to your node via the method above. More detail: [Overview](/ContinuumDAO/MPAWallet/Overview.md) and [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) (SSH tunnel vs Browser HTTPS steps).
+Full walkthrough with screenshots: [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md). See also [Overview](/ContinuumDAO/MPAWallet/Overview.md) and [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
 
 ---
 

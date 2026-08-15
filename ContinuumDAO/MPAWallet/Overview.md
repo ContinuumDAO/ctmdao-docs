@@ -42,14 +42,17 @@ A Group can also **eject** a multi-agree KeyGen — threshold agreement reconstr
 
 All communications between the AI agent and people is stored on the nodes, so that this context is owned by the MPA wallet group and can be accessed by all future agents. It won't be forgotten; you own the data and it is encrypted. The data includes both transaction data, scripts and text messages between all nodes.
 
-The MPA wallet can be fully configured and controlled via a Restful API and a built-in MCP server on your node. Your browser attaches to **your** node — ContinuumDAO does not proxy day-to-day control of it. Two common attach paths:
+The MPA wallet can be fully configured and controlled via a Restful API and a built-in MCP server on your node. Your browser attaches to **your** node — ContinuumDAO does not proxy day-to-day control of it. Common attach paths:
 
-1. **SSH tunnel (often the simplest)** — open an SSH tunnel from your PC to the node, then attach over localhost. Encryption is provided by SSH. This needs no ContinuumDAO service, no public CA certificate, and no ContinuumDAO-hosted frontend. Many operators prefer this for remote VPS nodes.
-2. **Browser HTTPS with a self-signed cert** — talk to the node over TLS using the node’s own certificate and short-lived token (JWT) access, without registering a certificate with a public Certification Authority. You trust the cert in your browser (for example via **Fetch Self-Signed Web Cert** in the app).
+1. **Node hosted app (local PC)** — node on the same machine; the hosted SPA opens `http://127.0.0.1:3333` and you attach over plain HTTP locally.
+2. **Node hosted app (SSH tunnel)** — remote VPS; SSH tunnel from your PC, then attach via the local node app. Encryption on the path is SSH.
+3. **Browser HTTPS with a self-signed cert** — direct TLS from the hosted SPA. Attach via a Node hosted app option first to fetch **`browser.crt`** (**Fetch Self-Signed Web Cert**), import it, then reconnect with Browser HTTPS and short-lived read JWT access.
 
-MPA wallet is completely decentralized. Each node can run its own node-app container, so you can use a ContinuumDAO-hosted UI such as [mpa.continuumdao.org](https://mpa.continuumdao.org) if you wish, or the node-hosted app on your machine. Either way, management traffic goes to your node (via SSH tunnel or Browser HTTPS), not through a ContinuumDAO custody service. Even if ContinuumDAO ceases to exist, the MPA wallet will continue to function (with no further updates of course).
+MPA wallet is completely decentralized. Each node can run its own node-app container, so you can use a ContinuumDAO-hosted UI such as [mpa.continuumdao.org](https://mpa.continuumdao.org) if you wish, or the node-hosted app on your machine. Either way, management traffic goes to your node (via Node hosted app or Browser HTTPS), not through a ContinuumDAO custody service. Even if ContinuumDAO ceases to exist, the MPA wallet will continue to function (with no further updates of course).
 
 ### Related
+
+- [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
 
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)

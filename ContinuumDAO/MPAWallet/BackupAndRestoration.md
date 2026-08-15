@@ -12,7 +12,7 @@ UI for the steps below: attach to your node in continuumdao-node-app / [MPA wall
 
 ### Back up the bootstrap public and private keys to your PC
 
-Do this soon after install (and again if you ever rotate recovery copies). Prefer attaching over **Browser HTTPS** or **SSH tunnel / loopback** — fetching the bootstrap private seed is blocked on plain remote HTTP.
+Do this soon after install (and again if you ever rotate recovery copies). Prefer attaching over **Browser HTTPS** or **Node hosted app** — fetching the bootstrap private seed is blocked on plain remote HTTP.
 
 1. Open **Node → Database**.
 2. Open the **Bootstrap Key** tab.
@@ -66,7 +66,7 @@ Backups are **encrypted** using material derived from the **bootstrap** key, the
 
 #### Steps (create + download)
 
-1. Attach with MetaMask or Ed25519 management keys (**Browser HTTPS** or loopback recommended for download).
+1. Attach with MetaMask or Ed25519 management keys (**Browser HTTPS** or **Node hosted app** recommended for download).
 2. Confirm the bootstrap private key is present on the node (**Bootstrap Key** tab / fetch works). Database encryption requires it.
 3. Open **Backup Database**.
 4. Choose scope if offered (all Groups, or include/exclude specific Group IDs), add optional notes, then create the backup and sign the management request. The node may enter a short **maintenance / drain** window for a consistent dump.

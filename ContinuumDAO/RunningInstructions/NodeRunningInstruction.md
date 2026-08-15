@@ -281,23 +281,21 @@ sudo docker compose up -d
 You will need to ensure that your browser will trust your self-signed SSL certificate and to do that, you will need the public cert used for JWT based encrypted traffic.
 
 
-If you got this far, congratulations! Your node is running. You may now attach to your node securely via your browser at https://mpa.continuumdao.org using ContinuumDAO's public frontend.
+If you got this far, congratulations! Your node is running. You may now attach to your node at [mpa.continuumdao.org](https://mpa.continuumdao.org) or via the node-hosted app on your machine. See [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md) for the three transport options.
 
-If you skipped the steps to add the webTLS cert, choose the option **SSH tunnel** and follow the instructions. Many operators prefer the SSH tunnel: it encrypts the path with SSH, needs no ContinuumDAO service and no public CA certificate, and is often simpler than trusting a self-signed Browser HTTPS cert. 
+**Node on the same PC:** at the hosted SPA choose **Node hosted app (local PC)** — your browser opens `http://127.0.0.1:3333` on the same path with no SSH step. Or start the local node app with `./local-node-app/install-or-update-node-app.sh` and attach there directly.
 
-If you want to run your own frontend on your node itself, you can easily do so. Read the README.md file in local-node-app/README.md and set the required environmental variables. Then start it:
+**Remote VPS:** choose **Node hosted app (SSH tunnel)** on the hosted SPA, enter your public IPv4, run the three-port SSH command on your PC, then continue to the local node app and attach.
+
+**Browser HTTPS:** attach via a Node hosted app option first, use **Fetch Self-Signed Web Cert** to download **`browser.crt`**, import it into your browser, then reconnect on the hosted SPA with **Browser HTTPS** and a read JWT. The old “SSH tunnel to ContinuumDAO hosted app” option is no longer offered.
+
+To run the node-hosted frontend on the node itself, read `local-node-app/README.md`, set the required environment variables, then:
 
 ```bash
 ./local-node-app/install-or-update-node-app.sh
 ```
 
-This pulls the frontend code and starts the web server on your node. You can then attach to it. If your node is running on your laptop/PC, in your browser go to localhost:3333 and select 'Node hosted app' and there is no need to run the ssh tunnel command.
-
-If you want to connect to your web server over the internet, then also choose 'Node hosted app', enter the IPv4 address of your node in the box 'Your node’s public address '  and copy and run the ssh command presented to you to run in your terminal.
-
-Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), you should go to the Node page and 'Node Peer IP Editing'  to set up the IP address of the other nodes and then go to 'Inter Node Communication' to set up secure messaging between the nodes. 
-
-If you prefer direct TLS from the browser instead of an SSH tunnel, fetch your web TLS cert with **Fetch Self-Signed Web Cert** and follow the instructions to add it to your browser's certificate store. After refreshing the browser, attach using the **Browser HTTPS** route. The SSH tunnel alone is a complete, supported option and does not require ContinuumDAO assistance.
+Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), go to the Node page → **Node Peer IP Editing** to set up the IP address of the other nodes, then **Inter Node Communication** for secure messaging between nodes.
 
 ### Related
 
