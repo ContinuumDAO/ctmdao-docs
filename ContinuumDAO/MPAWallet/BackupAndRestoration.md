@@ -115,6 +115,7 @@ Store them offline and redundantly. Do not put the private seed in git, tickets,
 | Bootstrap private key **≠** same location as encrypted DB backup | One breach should not yield both decryptor and ciphertext |
 | One node’s recovery bundle **≠** same location as another node’s | Limits blast radius across your Group nodes |
 | Prefer different media or vaults for bootstrap vs database files | e.g. bootstrap on offline hardware wallet / paper; DB backup on a different encrypted disk |
+| **Dedicated signing devices** | Management-sign from machines not used for general web use; ideally **one device per node** — see [Overview](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices) |
 
 Again: compromising this recovery bundle is serious for **your node’s privacy and operability**, but with a proper Group TSS threshold it is **not** by itself enough to steal KeyGen assets — attackers would still need enough other nodes’ shares / Accepts (or a full [eject](/ContinuumDAO/MPAWallet/EjectConversion.md) they somehow control).
 

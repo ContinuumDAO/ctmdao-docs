@@ -64,7 +64,14 @@ The MPA wallet is designed so that **custody stays in your hands**, not on Conti
 - **Eject to a standard wallet** — if the Group agrees, a KeyGen can be **ejected**: threshold MPC reconstructs a normal private key for import into MetaMask or another conventional wallet. See [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
 - **Continuity without ContinuumDAO** — even if ContinuumDAO ceased operations, your MPA wallet would **continue to work** from your deployed nodes and backups (without further updates from the DAO).
 
-### Subscription through staking
+### Management signing and devices
+
+When you attach to a node, you **management-sign** sensitive actions: Accept/Reject on multi-sign, KeyGen flows, bootstrap and database backup operations, and other node API calls (MetaMask **EIP-191** or **Ed25519** — see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
+
+- **Prefer a device not used for general internet use** — a machine you do not browse, email, or install casual software on reduces exposure to malware, malicious extensions, and phishing on the device that authorizes node control.
+- **Strongest setup: one dedicated device per node** — attach and sign management requests for each node from **separate** hardware (or at least separate user accounts and browsers with no shared daily-use profile). If one everyday laptop is compromised, the others in your Group should not be trivially reachable from the same environment.
+
+This complements [backup storage separation](/ContinuumDAO/MPAWallet/BackupAndRestoration.md): keep recovery material split, and keep **signing environments** split too.
 
 MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **stake veCTM on their node** — through **subscription through staking**: **free use of the wallet up to a governance-set free signature limit**. Attach veCTM from the staking panel after your node is running; limits and any overage fees are set by DAO voting. This rewards long-term participants who help secure the network while keeping personal custody affordable.
 
