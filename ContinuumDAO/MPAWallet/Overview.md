@@ -3,7 +3,7 @@
 
 [The MPA wallet](https://mpa.continuumdao.org) is an **AI-first** wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). There is **no full on-chain private key** on any machine — only threshold shares — until a Group deliberately [ejects](/ContinuumDAO/MPAWallet/EjectConversion.md) a KeyGen.
 
-ContinuumDAO's MPA wallet is truly decentralized: no custodial recovery service holds a backup of your key. You choose the Group size and TSS threshold yourself.
+ContinuumDAO's MPA wallet is **fully decentralized**: unlike many MPC wallets that store key shares in vendor-controlled **databases**, custody lives **only on nodes you deploy**. There is no custodial recovery service and no ContinuumDAO-held backup of your shares. You choose the Group size and TSS threshold yourself.
 
 Unlike a **multi-sig** wallet, agreement and MPC signing happen **off-chain** among your nodes. What lands on the blockchain is a normal single signature from the shared public key — not a trail of who proposed, who Accepted, or who Rejected. There is **no on-chain record** of the encrypted communications between nodes, or of which nodes signed in reaching agreement or rejection of any proposition. That preserves privacy for the Group’s decision process; only the resulting transaction (if any) is public.
 
@@ -13,10 +13,12 @@ The same node software supports two related purposes. You can use the first alon
 
 #### 1. Secure, decentralized asset custody (MPA wallet)
 
-Use MPC so digital assets are held **without a single Private Key**, with:
+Use MPC for **fully decentralized self-custody** of **Bitcoin** (SegWit and Taproot), **Ethereum and other EVM-compatible assets**, and — as support rolls out — **Ed25519 chains** (e.g. Solana, NEAR). Assets are held **without a single Private Key**, with:
 
-- **Loss safeguard** — extra nodes (and a suitable threshold) so one lost party or offline machine does not strand the wallet forever.
-- **Human-in-the-loop circuit breaker against unauthorized AI spends** — typically a simple **2/2** setup: one node runs (or is driven by) an AI agent; another node you control must **Accept** before a signature can complete. The AI can propose and compose; it cannot spend alone.
+- **Loss safeguard** — extra nodes (and a suitable threshold) so one lost party, offline machine, or death does not strand the wallet forever; relatives or friends can hold shares as co-custodians.
+- **No hardware-wallet vendor dependency** — no recovery tied to email addresses, home addresses, or a single manufacturer’s cloud.
+- **Human-in-the-loop circuit breaker against unauthorized AI spends** — typically a simple **2/2** setup: one node runs (or is driven by) an AI agent; another node you control must **Accept** before a signature can complete.
+- **Direct web3 protocol access** — the node app and optional AI agent connect **directly** to major DeFi protocols (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading** — swaps, lending, staking, perps, and bridges — always through your MPC KeyGen and threshold Accepts. Full list: [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
 
 You can also run larger personal or committee Groups (DAO treasury, investment club, family) with higher thresholds. The **simplest** useful configuration for someone who wants to control their own AI agent is **2/2**.
 
@@ -36,7 +38,7 @@ Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map *
 
 You can operate entirely from the **node app** UI (Groups, KeyGens, multi-sign) without enabling the AI agent. For most users it is desirable to also use the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md): one or more nodes can be agent-assisted, agents and people can message each other, and your threshold still bounds what can be signed. Configuring the harness is **optional** — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 
-Direct DeFi / web3 protocol integrations (node app and agent MCP): [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md). Interactive candlesticks, analysis, and trade ideas: [AI charting](/ContinuumDAO/MPAWallet/AICharting.md), [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md), and [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md).
+Direct **web3 / DeFi protocol** integrations built into the node (no separate browser wallet or key export): [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) — Uniswap, Aave, Curve, GMX, Hyperliquid, and other major protocols for **Private-Key-less trading** from the node app or AI agent MCP. Interactive candlesticks, analysis, and trade ideas: [AI charting](/ContinuumDAO/MPAWallet/AICharting.md), [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md), and [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md).
 
 A Group can also **eject** a multi-agree KeyGen — threshold agreement reconstructs a normal private key for import into MetaMask or another browser wallet: [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
 
@@ -48,7 +50,21 @@ The MPA wallet can be fully configured and controlled via a Restful API and a bu
 2. **Node hosted app (SSH tunnel)** — remote VPS; SSH tunnel from your PC, then attach via the local node app. Encryption on the path is SSH.
 3. **Browser HTTPS with a self-signed cert** — direct TLS from the hosted SPA. Attach via a Node hosted app option first to fetch **`browser.crt`** (**Fetch Self-Signed Web Cert**), import it, then reconnect with Browser HTTPS and short-lived read JWT access.
 
-MPA wallet is completely decentralized. Each node can run its own node-app container, so you can use a ContinuumDAO-hosted UI such as [mpa.continuumdao.org](https://mpa.continuumdao.org) if you wish, or the node-hosted app on your machine. Either way, management traffic goes to your node (via Node hosted app or Browser HTTPS), not through a ContinuumDAO custody service. Even if ContinuumDAO ceases to exist, the MPA wallet will continue to function (with no further updates of course).
+MPA wallet is completely decentralized. Each node can run its own node-app container, so you can use a ContinuumDAO-hosted UI such as [mpa.continuumdao.org](https://mpa.continuumdao.org) if you wish, or the node-hosted app on your machine. Either way, management traffic goes to your node (via Node hosted app or Browser HTTPS), not through a ContinuumDAO custody service.
+
+### Fully decentralized custody
+
+The MPA wallet is designed so that **custody stays in your hands**, not on ContinuumDAO infrastructure:
+
+- **No key shares in databases** — unlike many other MPC wallets, threshold shares are **not** stored in vendor-controlled databases. Shares, Group state, and encrypted wallet context live **only on the nodes you run**.
+- **Self-contained node software** — the code that operates your wallet runs **entirely on your nodes**. The only on-chain dependency for protocol fees is a **DAO-governed smart contract**; there is no central service that holds or reconstructs your keys.
+- **Recovery and hardware switching** — you can save **encrypted node data** (together with your bootstrap keys) to storage you control, then restore on new hardware or a new VPS while keeping the same node identity. See [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md).
+- **Eject to a standard wallet** — if the Group agrees, a KeyGen can be **ejected**: threshold MPC reconstructs a normal private key for import into MetaMask or another conventional wallet. See [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md).
+- **Continuity without ContinuumDAO** — even if ContinuumDAO ceased operations, your MPA wallet would **continue to work** from your deployed nodes and backups (without further updates from the DAO).
+
+### Subscription through staking
+
+MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **stake veCTM on their node** — through **subscription through staking**: **free use of the wallet up to a governance-set free signature limit**. Attach veCTM from the staking panel after your node is running; limits and any overage fees are set by DAO voting. This rewards long-term participants who help secure the network while keeping personal custody affordable.
 
 ### Related
 

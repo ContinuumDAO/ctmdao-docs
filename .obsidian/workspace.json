@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/C3Caller/ContractAddresses.md",
+                "file": "ContinuumDAO/WhitePaper.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ContractAddresses"
+              "title": "WhitePaper"
             }
           }
         ]
@@ -173,6 +173,7 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/ContractAddresses.md",
     "ContinuumDAO/C3Caller/C3CallerDemo.md",
     "ContinuumDAO/C3Caller/Contracts.md",
     "ContinuumDAO/MPC/WhatIsMPC.md",
@@ -206,7 +207,6 @@
     "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
     "ContinuumDAO/OpenClaw/FoundryInstructionSkill.md",
     "ContinuumDAO/MPAWallet/DefaultEd25519Signer.md",
-    "ContinuumDAO/MPAWallet/AIHarness/Overview.md",
     "ContinuumDAO/MPAWallet/AIHarness",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
