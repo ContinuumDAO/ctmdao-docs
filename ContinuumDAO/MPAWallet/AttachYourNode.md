@@ -6,7 +6,7 @@ On the hosted app you choose how to reach your node. In **geo-restricted** juris
 
 | Option                           | When to use                                                         |
 | -------------------------------- | ------------------------------------------------------------------- |
-| **Browser HTTPS**                | Direct TLS to the node from the hosted SPA (non-restricted regions) |
+| **Browser HTTPS**                | Direct TLS to the node (non-restricted regions) |
 | **Node hosted app (local PC)**   | Node runs on the same machine as your browser                       |
 | **Node hosted app (SSH tunnel)** | Remote VPS — SSH from your PC, then attach via the local node app   |
 
@@ -15,9 +15,9 @@ On the hosted app you choose how to reach your node. In **geo-restricted** juris
 
 ### Option 1: Browser HTTPS
 
-Attach on the hosted SPA over HTTPS to your node’s read port. You need a short-lived read JWT and a browser that trusts the node’s self-signed **`browser.crt`**.
+Attach over HTTPS to your node’s read port. You need a short-lived read JWT and a browser that trusts the node’s self-signed **`browser.crt`**.
 
-**Recommended order:** attach via a **Node hosted app** option first (see below), open **Node → Fetch Self-Signed Web Cert**, download **`browser.crt`**, import it into your browser, then reconnect on the hosted SPA with **Browser HTTPS** if you want direct TLS from the browser.
+**Recommended order:** attach via a **Node hosted app** option first (see below), open **Node → Fetch Self-Signed Web Cert**, download **`browser.crt`**, import it into your browser, then reconnect.with **Browser HTTPS** if you want direct TLS from the browser.
 
 <img src="/_media/attach-option-browser-https.png" alt="" />
 
@@ -27,9 +27,9 @@ Attach on the hosted SPA over HTTPS to your node’s read port. You need a short
 
 Use when the node runs on the **same PC** as your browser.
 
-1. On the hosted SPA, select **Node hosted app (local PC)**.
+1. Select **Node hosted app (local PC)**.
 2. Your browser opens the local node app at `http://127.0.0.1:3333` on the **same path** (e.g. `/multi-sign` stays `/multi-sign`).
-3. No public IP field and no SSH command on the hosted SPA.
+3. No public IP field and no SSH command.
 4. On the local app, attach with plain HTTP to `127.0.0.1:8080` (management) as prompted.
 
 
@@ -41,7 +41,7 @@ Use when the node runs on the **same PC** as your browser.
 
 Use when the node runs on a **remote VPS** (or another machine you reach over SSH). This is a good default option to connect to a remote nodes, e.g. on a VPS. It does not require to have a Let's Encrypt type of cert for https to be installed, or to import a self-signed cert into your browser, which can be problematic.
 
-1. On the hosted SPA, select **Node hosted app (SSH tunnel)**.
+1. Select **Node hosted app (SSH tunnel)**.
 2. Enter your node’s **public IPv4 or hostname**.
 3. Copy the **three-port SSH tunnel** command and run it in a terminal on **this** PC.
 4. Click **Continue** / **Next** / **Submit** — the browser opens `http://127.0.0.1:3333` on the same path.
