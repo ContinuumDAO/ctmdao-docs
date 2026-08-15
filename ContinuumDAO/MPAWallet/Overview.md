@@ -71,7 +71,15 @@ When you attach to a node, you **management-sign** sensitive actions: Accept/Rej
 - **Prefer a device not used for general internet use** — a machine you do not browse, email, or install casual software on reduces exposure to malware, malicious extensions, and phishing on the device that authorizes node control.
 - **Strongest setup: one dedicated device per node** — attach and sign management requests for each node from **separate** hardware (or at least separate user accounts and browsers with no shared daily-use profile). If one everyday laptop is compromised, the others in your Group should not be trivially reachable from the same environment.
 
+**Ethereum (EIP-191 / MetaMask) management signers:**
+
+- **Do not use hardware wallets** — devices such as Ledger or Trezor often lack enough memory to sign the **large EIP-191 management payloads** the node app produces. Use a **software wallet** in the browser instead.
+- **Use a newly created, dedicated address** — generate a fresh wallet for **management signing only**. Set that address as your node’s **`NodeMgtKey`**. Do **not** reuse addresses that hold custody funds, DeFi positions, or everyday assets; management keys authenticate node control, not your MPC wallet balances.
+- **One management address per node** — each node should have its **own** Ethereum management address, separate from other nodes and from any KeyGen custody addresses.
+
 This complements [backup storage separation](/ContinuumDAO/MPAWallet/BackupAndRestoration.md): keep recovery material split, and keep **signing environments** split too.
+
+### Subscription through staking
 
 MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **stake veCTM on their node** — through **subscription through staking**: **free use of the wallet up to a governance-set free signature limit**. Attach veCTM from the staking panel after your node is running; limits and any overage fees are set by DAO voting. This rewards long-term participants who help secure the network while keeping personal custody affordable.
 

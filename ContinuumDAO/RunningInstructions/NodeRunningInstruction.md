@@ -127,7 +127,7 @@ hostname -i  # may only show the localhost 127.0.0.1
 
 You can also use the command ip address or get the IPv4 address from the VPS supplier.
 
-- Choose which Ethereum address you wish to manage your node (in configs.yaml - NodeMgtKey), and which ed25519 key (in configs.yaml PublicMgtKey). Both of these will be required by process_config.sh (the next step)
+- Choose which Ethereum address you wish to manage your node (in configs.yaml - **NodeMgtKey**), and which ed25519 key (in configs.yaml **PublicMgtKey**). Both of these will be required by process_config.sh (the next step). For **NodeMgtKey**, use a **new software-wallet address** created for management only — not a hardware wallet (too little memory for large EIP-191 signatures) and not an address that holds custody funds. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 - Optional and recommended: (This can be done from https://mpa.continuumdao.org Nodes page) :
 
 New node, new database
