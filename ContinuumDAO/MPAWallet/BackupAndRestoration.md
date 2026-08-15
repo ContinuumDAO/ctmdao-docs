@@ -4,6 +4,13 @@ Every MPA node has a **bootstrap Ed25519** key pair. The public half is **`Publi
 
 You should treat the **bootstrap private key** and any **encrypted database backups** as critical recovery material. Store both safely (offline / encrypted storage you control). Losing the bootstrap private key means you cannot decrypt database backups or reinstall the same node identity.
 
+**Storage separation (important):**
+
+- **Do not store encrypted database backups in the same place as the bootstrap private key** — not the same folder, USB stick, password-manager entry, cloud account, or backup bundle. If one location is compromised, an attacker should not get both the ciphertext and the key that decrypts it.
+- **Do not store more than one node’s backup material in the same place** — keep each node’s bootstrap key and encrypted DB backup in **separate** locations (or at least separate encrypted containers with different access). That limits damage if a single storage site is lost or exposed.
+
+You need **both** pieces to restore a node, but they should be recoverable from **different** stores you control.
+
 **Important security note:** With a sensible TSS setup (for example **2/2** or a larger committee threshold), someone who steals only your bootstrap key and/or an encrypted database dump still **cannot** reconstruct a KeyGen’s full on-chain private key or move assets alone. Those backups restore **this node’s** share of history and configuration (Groups, KeyGens metadata, contacts, and so on) — not a complete wallet key. Stealing assets would still require enough MPC shares / Accepts from the Group. That is one reason to keep spare Group nodes and a proper threshold (see [Overview](/ContinuumDAO/MPAWallet/Overview.md)).
 
 UI for the steps below: attach to your node in continuumdao-node-app / [MPA wallet](https://mpa.continuumdao.org), then open **Node → Database**.
@@ -20,7 +27,7 @@ Do this soon after install (and again if you ever rotate recovery copies). Prefe
 4. You should see:
    - **PublicMgtKey (bootstrap public)** — 64 hex. Use **Copy** or **Save to disk…**.
    - **ed25519PrivateSeedHex** — 64 hex private seed. Use **Copy** or **Save to disk…** (typical download name `ed25519_bootstrap_private.hex`).
-5. Move both files (or a printed / offline copy of the hex) to **your own PC** (or other storage you control), then into long-term safe storage: encrypted disk, password manager vault reserved for node recovery, offline media — not chat, email, or cloud folders shared with others.
+5. Move both files (or a printed / offline copy of the hex) to **your own PC** (or other storage you control), then into long-term safe storage: encrypted disk, password manager vault reserved for node recovery, offline media — not chat, email, or cloud folders shared with others. **Keep the bootstrap private key in a different location from any encrypted database backup** for this node (and from other nodes’ recovery material).
 6. Confirm you can open the saved files before you rely on them. Optionally remove the private seed from the node later only if you understand the consequences (database backup/restore and some agent signing paths need the seed on disk).
 
 Without this offline copy, a dead VPS or wiped disk can leave you unable to decrypt backups or recreate the same Node Key.
@@ -71,7 +78,7 @@ Backups are **encrypted** using material derived from the **bootstrap** key, the
 3. Open **Backup Database**.
 4. Choose scope if offered (all Groups, or include/exclude specific Group IDs), add optional notes, then create the backup and sign the management request. The node may enter a short **maintenance / drain** window for a consistent dump.
 5. In **Saved backups on this node**, find the new **Backup ID** and use the download control to save the encrypted `.json` envelope to your PC.
-6. Store that file **with** your offline bootstrap key backup. The ciphertext alone is useless without the bootstrap private key; the bootstrap key alone does not replace a missing backup file.
+6. Store that file in **safe storage separate from the bootstrap private key** — different device, vault, or offline medium. The ciphertext alone is useless without the bootstrap private key; the bootstrap key alone does not replace a missing backup file. **Do not put this node’s backup in the same location as another node’s backup.**
 
 Repeat backups after important changes (new KeyGens, major config, before OS upgrades).
 
@@ -100,6 +107,14 @@ Restoring **replaces** the Mongo database on the target node with the snapshot. 
 | Peer / relay notes | Speeds re-joining Configured Nodes after a rebuild |
 
 Store them offline and redundantly. Do not put the private seed in git, tickets, or shared drives.
+
+**Separation rules:**
+
+| Rule | Reason |
+|------|--------|
+| Bootstrap private key **≠** same location as encrypted DB backup | One breach should not yield both decryptor and ciphertext |
+| One node’s recovery bundle **≠** same location as another node’s | Limits blast radius across your Group nodes |
+| Prefer different media or vaults for bootstrap vs database files | e.g. bootstrap on offline hardware wallet / paper; DB backup on a different encrypted disk |
 
 Again: compromising this recovery bundle is serious for **your node’s privacy and operability**, but with a proper Group TSS threshold it is **not** by itself enough to steal KeyGen assets — attackers would still need enough other nodes’ shares / Accepts (or a full [eject](/ContinuumDAO/MPAWallet/EjectConversion.md) they somehow control).
 
