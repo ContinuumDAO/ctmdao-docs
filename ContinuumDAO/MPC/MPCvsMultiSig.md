@@ -26,7 +26,7 @@ Multi-Sig wallets impose substantial demands on blockchain contract capabilities
 
 Scaling Multi-Sig solutions across multiple blockchains is also challenging. Each node must update its contracts to manage signatures on new chains, or sometimes even establish new dedicated nodes on these networks.
 
-Additionally, with Multi-Sig solutions they often depend on assets that are locked and staked to deter misconduct. However, the amount staked is usually much smaller than the transaction volumes handled, presenting a security risk. In contrast, Multi-Party Computation with Threshold Signature Scheme (MPC-TSS), particularly within a Trusted Execution Environment, does not face this issue.
+Additionally, with Multi-Sig solutions they often depend on assets that are locked and staked to deter misconduct. However, the amount staked is usually much smaller than the transaction volumes handled, presenting a security risk. In contrast, Multi-Party Computation with Threshold Signature Scheme (MPC-TSS) — using peer-reviewed protocols such as CGGMP24 and FROST — derives its security from cryptography rather than economic staking alone.
 
 In summary, Multi-Party Computation (MPC) offers better compatibility without relying heavily on smart contracts. MPC handles more of its processes off-chain and uses cryptographic protocols to ensure security. This setup allows for only one final transaction to be recorded on the blockchain, which can significantly reduce transaction fees compared to Multi-Sig systems.
 

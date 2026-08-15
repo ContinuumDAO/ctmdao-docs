@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPAWallet/AttachYourNode.md",
+                "file": "ContinuumDAO/MPC/WhatIsMPC.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "AttachYourNode"
+              "title": "WhatIsMPC"
             }
           }
         ]
@@ -173,6 +173,9 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/MPC/BetterSecurity.md",
+    "ContinuumDAO/MPC/BetterSecurity.md",
+    "ContinuumDAO/MPAWallet/AttachYourNode.md",
     "_media/attach-option-ssh-tunnel.png",
     "_media/Screenshot from 2026-08-15 16-32-08.png",
     "_media/attach-option-node-hosted-local.png",
@@ -205,8 +208,6 @@
     "ContinuumDAO/C3Caller/Overview.md",
     "ContinuumDAO/Introduction.md",
     "README.md",
-    "().md",
-    "ContinuumDAO/AssetX/GettingStarted.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "_media/docker-compose_server.yml",
@@ -215,7 +216,6 @@
     "_media/C3CallerSchematic.png",
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
-    "_media/C3CallerDappRegister.png",
     "_media/lu4834716po11.tmp",
     "_media/lu4834716po0a.tmp",
     "_media/lu4834716pnyt.tmp",

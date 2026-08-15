@@ -13,5 +13,5 @@ Some Definitions
 
 **Message Verification Type, msgCheck:** Includes multi-agree and tx-check, where the former requires other nodes to manually agree to a signature; the latter means other nodes automatically agree once transaction conditions are met.
 
-**KeyType:** Refers to the supported signature algorithm types, such as secp256k1, EdDSA, or BLS12381.
+**KeyType:** Refers to the supported signature algorithm types. Continuum currently implements **secp256k1** (ECDSA via **CGGMP24**) and **ed25519** (EdDSA via **FROST**), following the Lockness implementations under LF Decentralized Trust (Linux Foundation).
 

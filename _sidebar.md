@@ -13,30 +13,6 @@
   * [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md)
   * [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md)
 
-* MPC (Multi Party Computation)
-
-  * [What is MPC?](/ContinuumDAO/MPC/WhatIsMPC.md)
-  * [Core Steps](/ContinuumDAO/MPC/CoreSteps.md)
-  * [Main Features](/ContinuumDAO/MPC/MainFeatures.md)
-  * [MPC vs Others](/ContinuumDAO/MPC/MPCvsOthers.md)
-  * [MPC vs ZK](/ContinuumDAO/MPC/MPCvsZK.md)
-  * [MPC vs Multi-Signature](/ContinuumDAO/MPC/MPCvsMultiSig.md)
-  * [Stronger Security](/ContinuumDAO/MPC/StrongerSecurity.md)
-  * [Typical Use Cases](/ContinuumDAO/MPC/TypicalUseCases.md)
-  * [For Developers](/ContinuumDAO/MPC/ForDevelopers.md)
-
-* Running an MPC Node (advanced / manual/ AI provisioning)
-
-  * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
-
-* Creating an MPC Signer
-
-  * [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
-  * [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
-  * [Groups](/ContinuumDAO/MPCSigner/Groups.md)
-  * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
-  * [Joining the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
-
 * Using an MPA wallet
 
   * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
@@ -55,6 +31,30 @@
   * [Overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
   * [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
   * [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
+
+* MPC (Multi Party Computation)
+
+  * [What is MPC?](/ContinuumDAO/MPC/WhatIsMPC.md)
+  * [Core Steps](/ContinuumDAO/MPC/CoreSteps.md)
+  * [Main Features](/ContinuumDAO/MPC/MainFeatures.md)
+  * [MPC vs Others](/ContinuumDAO/MPC/MPCvsOthers.md)
+  * [MPC vs ZK](/ContinuumDAO/MPC/MPCvsZK.md)
+  * [MPC vs Multi-Signature](/ContinuumDAO/MPC/MPCvsMultiSig.md)
+  * [Better Security](/ContinuumDAO/MPC/BetterSecurity.md)
+  * [Typical Use Cases](/ContinuumDAO/MPC/TypicalUseCases.md)
+  * [For Developers](/ContinuumDAO/MPC/ForDevelopers.md)
+
+* Running an MPC Node (advanced / manual/ AI provisioning)
+
+  * [Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)
+
+* Creating an MPC Signer
+
+  * [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
+  * [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
+  * [Groups](/ContinuumDAO/MPCSigner/Groups.md)
+  * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+  * [Joining the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
 
 * Further reading (operators / APIs)
 

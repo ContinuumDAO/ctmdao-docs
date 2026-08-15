@@ -32,7 +32,7 @@ Each KeyGen applies to a single Group that has previously been created, This def
 
 (5) Threshold
 
-This is the TSS parameter from the scientific papers behind our MPC stack. **Signing requires `threshold` Accepts** :
+This is the TSS parameter from the **CGGMP24** and **FROST** protocols (Lockness / LF Decentralized Trust). **Signing requires `threshold` Accepts** :
 
 | UI **Threshold** | Accepts needed | Everyday name | Typical use |
 |------------------|----------------|---------------|-------------|
@@ -44,7 +44,12 @@ So long as **threshold** nodes have agreed to a Sign Request, that signature may
 
 (6) Key type
 
-This is the cryptographic key type for which a signature is being sought. We currently support two key types secp256k1, an ECDSA elliptic curve signature used by Ethereum and EVMs and some other chains and ed25519 which is the Edward's curve signature used by many non-EVM chains e.g. Solana, NEAR, TON, SUI, APTOS, Algorand, Stellar. 
+This is the cryptographic key type for which a signature is being sought. We currently support two key types:
+
+- **secp256k1** — ECDSA, threshold signing via **CGGMP24**; used by Ethereum, EVMs, and some other chains
+- **ed25519** — EdDSA, threshold signing via **FROST**; used by many non-EVM chains (e.g. Solana, NEAR, TON, SUI, APTOS, Algorand, Stellar)
+
+Both protocols are maintained by the Lockness project under LF Decentralized Trust (Linux Foundation). 
 
 NOTE *don't confuse the management signature type Ed25519 with the MPC signature ed25519*
 

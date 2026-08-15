@@ -1,7 +1,7 @@
 
 ## Main Features
 
-The implementation and security of the MPC protocol are ensured by a series of cryptographic protocols, including secret sharing, homomorphic encryption, commitment schemes, and zero-knowledge proof technologies. This distributed private key management scheme greatly enhances both the decentralization and security of the system while avoiding single points of failure. It features:
+The implementation and security of the MPC protocol are ensured by peer-reviewed threshold signature schemes — **CGGMP24** for ECDSA and **FROST** for EdDSA — maintained by the Lockness project under LF Decentralized Trust (Linux Foundation), together with secret sharing, homomorphic encryption, commitment schemes, and zero-knowledge proof technologies. This distributed private key management scheme greatly enhances both the decentralization and security of the system while avoiding single points of failure. It features:
 
 #### 1. Decentralization
 
