@@ -20,7 +20,7 @@ A better question is why would anyone who wishes to create a multi-chain dApp re
 
 ## Why is the ContinuumDAO Mission Important?
 
-The existing landscape of web3 is confusing for new and even existing users. Continuum will solve one of the biggest pain points — how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system.
+The existing landscape of web3 is confusing for new and even existing users. Continuum will solve some of the biggest pain points - how to utilize AI safely for on-chain trading and how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system.
 
 **The Multi-Party Agent (MPA) wallet** addresses a parallel pain point: **fully decentralized self-custody** without ever holding a recoverable Private Key on any device — and **without storing key shares in vendor databases**, as many other MPC wallets do. Custody lives entirely on **nodes users deploy**; wallet software is self-contained on those nodes, with only a **fee smart contract** on chain. The wallet supports **Bitcoin** (SegWit and Taproot), **Ethereum and other EVM-compatible assets**, and — as the network expands — **many Ed25519 chains** (Solana, NEAR, and others) via threshold **FROST** signing. Users run one or more **MPC nodes** that hold only threshold **shares**. Agreement to sign — including AI-proposed trades — happens **off-chain** among those nodes; the chain sees a normal single signature. There is no on-chain record of who proposed, accepted, or rejected a transaction, which preserves **private, off-chain security** for the wallet group’s decisions.
 
