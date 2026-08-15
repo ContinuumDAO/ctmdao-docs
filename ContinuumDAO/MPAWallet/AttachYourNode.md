@@ -2,15 +2,14 @@
 
 Open [mpa.continuumdao.org](https://mpa.continuumdao.org) on any page that shows the attach gate (Multi-Sign, Node, Groups, Keys). Your browser talks to **your** node — ContinuumDAO does not relay day-to-day control traffic.
 
-On the hosted app you choose how to reach your node. In **geo-restricted** jurisdictions only the two **Node hosted app** options are shown (no Browser HTTPS on the hosted SPA).
+On the hosted app you choose how to reach your node. In **geo-restricted** jurisdictions only the two **Node hosted app** options are shown (no Browser HTTPS), since ContinuumDAO cannot offer you a service, but instead you must run an app that you have downloaded. The app that ContinuumDAO offers as a service is identical to the app that you can download and run on your node yourself. All three options ensure private encrypted traffic to your node.
 
-| Option | When to use |
-|--------|-------------|
-| **Browser HTTPS** | Direct TLS to the node from the hosted SPA (non-restricted regions) |
-| **Node hosted app (local PC)** | Node runs on the same machine as your browser |
-| **Node hosted app (SSH tunnel)** | Remote VPS — SSH from your PC, then attach via the local node app |
+| Option                           | When to use                                                         |
+| -------------------------------- | ------------------------------------------------------------------- |
+| **Browser HTTPS**                | Direct TLS to the node from the hosted SPA (non-restricted regions) |
+| **Node hosted app (local PC)**   | Node runs on the same machine as your browser                       |
+| **Node hosted app (SSH tunnel)** | Remote VPS — SSH from your PC, then attach via the local node app   |
 
-The old **SSH tunnel to ContinuumDAO hosted app** transport is no longer offered. Use Browser HTTPS or a Node hosted app path instead.
 
 ---
 
@@ -20,8 +19,7 @@ Attach on the hosted SPA over HTTPS to your node’s read port. You need a short
 
 **Recommended order:** attach via a **Node hosted app** option first (see below), open **Node → Fetch Self-Signed Web Cert**, download **`browser.crt`**, import it into your browser, then reconnect on the hosted SPA with **Browser HTTPS** if you want direct TLS from the browser.
 
-<!-- Screenshot placeholder: replace _media/attach-option-browser-https.png -->
-<img src="/_media/attach-option-browser-https.png" alt="Browser HTTPS attach option — screenshot pending" />
+<img src="/_media/attach-option-browser-https.png" alt="" />
 
 ---
 
@@ -34,8 +32,8 @@ Use when the node runs on the **same PC** as your browser.
 3. No public IP field and no SSH command on the hosted SPA.
 4. On the local app, attach with plain HTTP to `127.0.0.1:8080` (management) as prompted.
 
-<!-- Screenshot placeholder: replace _media/attach-option-node-hosted-local.png -->
-<img src="/_media/attach-option-node-hosted-local.png" alt="Node hosted app (local PC) — screenshot pending" />
+
+<img src="/_media/attach-option-node-hosted-local.png" alt="" />
 
 ---
 
@@ -54,12 +52,11 @@ Use when the node runs on a **remote VPS** (or another machine you reach over SS
 
 ---
 
-### Geo-restricted hosted app
+### Hosted app over an SSH tunnel
 
 If Browser HTTPS is hidden for your region, choose **Node hosted app (local PC)** or **Node hosted app (SSH tunnel)** only. Acknowledge the compliance banner, then follow the steps above.
 
-<!-- Screenshot placeholder: replace _media/attach-option-geo-restricted.png -->
-<img src="/_media/attach-option-geo-restricted.png" alt="Geo-restricted attach options — screenshot pending" />
+<img src="/_media/attach-option-ssh-tunnel.png" alt="" />
 
 ---
 

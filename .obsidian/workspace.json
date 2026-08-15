@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPCSigner/KeyGens.md",
+                "file": "ContinuumDAO/MPAWallet/AttachYourNode.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "KeyGens"
+              "title": "AttachYourNode"
             }
           }
         ]
@@ -173,8 +173,14 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
-    "ContinuumDAO/MPAWallet/Overview.md",
+    "_media/attach-option-ssh-tunnel.png",
+    "_media/Screenshot from 2026-08-15 16-32-08.png",
+    "_media/attach-option-node-hosted-local.png",
+    "_media/Screenshot from 2026-08-15 16-28-33.png",
+    "_media/attach-option-browser-https.png",
+    "_media/Screenshot from 2026-08-15 16-19-02.png",
     "ContinuumDAO/MPCSigner/KeyGens.md",
+    "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/MPCSigner/Groups.md",
     "ContinuumDAO/MPAWallet/Install.md",
     "ContinuumDAO/MPAWallet/AICharting.md",
@@ -201,7 +207,6 @@
     "README.md",
     "().md",
     "ContinuumDAO/AssetX/GettingStarted.md",
-    "ContinuumDAO/C3Caller/C3CallerFoundry.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "_media/docker-compose_server.yml",
@@ -211,15 +216,10 @@
     "_media/lu4834716po3y.tmp",
     "_media/C3CallerFundAccount.png",
     "_media/C3CallerDappRegister.png",
-    "_media/C3CallerContractStructure.png",
-    "_media/C3CallerAddContracts.png",
     "_media/lu4834716po11.tmp",
     "_media/lu4834716po0a.tmp",
-    "_media/C3CallerWorkingMechanism.png",
     "_media/lu4834716pnyt.tmp",
     "_media/lu4834716pny2.tmp",
-    "_media/lu4834716pnxb.tmp",
-    "_media/Router_Node_Structure.png",
-    "_media/Router_Contract_Structure.png"
+    "_media/lu4834716pnxb.tmp"
   ]
 }
