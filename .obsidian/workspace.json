@@ -173,6 +173,11 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "scripts/before-git-push.sh",
+    "search-index.json",
+    "package.json",
+    "scripts/build-search-index.mjs",
+    "scripts",
     "_media/governance-proposal-config-delta.png",
     "_media/Screenshot from 2026-08-15 18-55-38.png",
     "_media/governance-proposal-config-bravo.png",
@@ -192,7 +197,6 @@
     "_media/Screenshot from 2026-08-15 16-32-08.png",
     "_media/attach-option-node-hosted-local.png",
     "_media/Screenshot from 2026-08-15 16-28-33.png",
-    "_media/attach-option-browser-https.png",
     "ContinuumDAO/MPCSigner/KeyGens.md",
     "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/MPCSigner/Groups.md",
@@ -216,10 +220,6 @@
     "ContinuumDAO/RunningInstructions",
     "ContinuumDAO/MPC",
     "_media/lu4834716po3y.tmp",
-    "_media/lu4834716po11.tmp",
-    "_media/lu4834716po0a.tmp",
-    "_media/lu4834716pnyt.tmp",
-    "_media/lu4834716pny2.tmp",
-    "_media/lu4834716pnxb.tmp"
+    "_media/lu4834716po11.tmp"
   ]
 }

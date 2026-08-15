@@ -54,6 +54,60 @@ function parseSidebar(content) {
 	return entries;
 }
 
+/** @param {string} title */
+function headingTitleToAnchor(title) {
+	return title
+		.replace(/\*\*/g, '')
+		.replace(/`/g, '')
+		.trim()
+		.toLowerCase()
+		.replace(/&/g, 'amp')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
+/** @param {string[]} lines */
+function sectionExcerpt(lines) {
+	const text = lines
+		.join('\n')
+		.replace(/^#+\s.+$/gm, '')
+		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+		.replace(/[*_`>#|-]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	return text.slice(0, EXCERPT_LEN);
+}
+
+/** @param {string} md */
+function extractSections(md) {
+	const lines = md.split('\n');
+	/** @type {Array<{ id: string, title: string, level: number, excerpt: string }>} */
+	const sections = [];
+	for (let i = 0; i < lines.length; i++) {
+		const m = lines[i].match(/^(#{1,6})\s+(.+)/);
+		if (!m) {
+			continue;
+		}
+		const level = m[1].length;
+		const rawTitle = m[2].trim();
+		const title = rawTitle.replace(/\*\*/g, '').trim();
+		const id = headingTitleToAnchor(rawTitle);
+		if (!id) {
+			continue;
+		}
+		const body = [];
+		for (let j = i + 1; j < lines.length; j++) {
+			const next = lines[j].match(/^(#{1,6})\s+/);
+			if (next && next[1].length <= level) {
+				break;
+			}
+			body.push(lines[j]);
+		}
+		sections.push({id, title, level, excerpt: sectionExcerpt(body)});
+	}
+	return sections;
+}
+
 /** @param {string} md @returns {string[]} */
 function extractHeadings(md) {
 	/** @type {string[]} */
@@ -134,11 +188,13 @@ for (const path of [...allPaths].sort()) {
 	}
 	const sidebar = sidebarByPath.get(path);
 	const title = extractTitle(md, sidebar?.title ?? path.split('/').pop() ?? path);
+	const sections = extractSections(md);
 	pages.push({
 		path,
 		title,
 		section: sidebar?.section ?? '',
-		headings: extractHeadings(md).slice(0, 20),
+		headings: extractHeadings(md),
+		sections,
 		excerpt: buildExcerpt(md),
 		url: `${DOCS_BASE_URL}/${path}`,
 	});
@@ -159,7 +215,7 @@ try {
 }
 
 const index = {
-	version: 1,
+	version: 2,
 	generatedAt,
 	pages,
 };
