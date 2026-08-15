@@ -1,146 +1,126 @@
 # Creating a Proposal on ContinuumDAO
 
-This guide details:
+This guide covers:
 
-- How to create a proposal on ContinuumDAO
+- **Proposal types** and **configurations** (Bravo vs Delta)
+- How to **create** a proposal in the [Governance app](https://app.continuumdao.org/governance/create-proposal)
 - How to share the proposal on the forum
-- How to vote on your proposal and on others.
+- How to **vote** and **execute** proposals
 
-Currently it is only possible to create a proposal from the command line, but a frontend interface will eventually be available.
+All governance actions — **create**, **vote**, and **execute** — are available at [app.continuumdao.org/governance](https://app.continuumdao.org/governance). The create flow is implemented in the open-source [continuumdao-app](https://github.com/ContinuumDAO/continuumdao-app); on-chain proposals are submitted to the **ContinuumDAO Governor** contract ([veCTM](https://github.com/ContinuumDAO/vectm) codebase).
 
-For this example, we will create a proposal to transfer 1 CTM from the DAO treasury to us, the proposer.
+Before you start, read [How to Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md) for the discussion phase, proposal template, and vote-power requirements.
 
-## Create a Proposal
+## Proposal types
 
-### Step 1: Install Foundry
+When you create a proposal, choose the **type** that best matches its purpose (as defined in the [Constitution](/ContinuumDAO/Governance/Constitution.md)):
 
-You can install Foundry by following these [instructions](https://book.getfoundry.sh/getting-started/installation).
+| Type | Use for | Examples |
+| ---- | ------- | -------- |
+| **Decision** | General governance decisions; may or may not include on-chain actions | Join RAKDAO; replace a Committee member; add or remove a chain from C3Caller |
+| **Election** | Multi-choice elections | Committee elections |
+| **Treasury** | Transfers or spending from the DAO Treasury | Core contributor funding; grants; operational budgets |
+| **Constitution** | Changes to the ContinuumDAO Constitution | Amend Mission & Vision, governance rules, or procedures — must include the full revised Constitution text if the document changes |
+| **Admin** | Protocol and contract administration (`onlyGov`) | Proxy upgrades; re-deploy core contracts; governor or protocol parameter changes |
 
-### Step 2: Clone the veCTM Repository and Install Dependencies
+<img src="/_media/governance-proposal-type.png" alt=""/>
 
-To clone the veCTM repository, navigate to a directory where you want to install it and run:
+These types label proposals in the Governance app and on the [Forum](https://forum.continuumdao.org/). Match your forum post category to the subject (e.g. [Proposals - Treasury](https://forum.continuumdao.org/category/7/proposals-treasury), [Proposals - Constitution](https://forum.continuumdao.org/category/6/proposals-constitution)).
 
-```bash
-git clone https://github.com/ContinuumDAO/vectm.git
-```
+## Proposal configurations
 
-Then, change directory into `vectm` and install the dependencies:
+Choose how votes are counted:
 
-```bash
-forge install
-```
+### Bravo (For / Against / Abstain)
 
-### Step 3: Add Deployment Environment
+Standard **yes / no / abstain** voting on a **single set of on-chain actions**. If the proposal passes, those actions execute.
 
-In order to execute the proposal creation transaction, you must add the private key of the account with which you wish to do so. This account should have some fees to cover the gas cost.
+Use Bravo for most **Treasury**, **Admin**, and **Decision** proposals with one clear outcome.
 
-It will also be necessary to add an RPC URL for the chain (in our case we are deploying to Arbitrum Sepolia testnet).
+<img src="/_media/governance-proposal-config-bravo.png" alt=""/>
 
-Edit the file `.env` with the following format:
+Each **action** specifies:
 
-```
-PRIVATE_KEY=0x0123abcd0123abcd0123abcd0123abcd0123abcd0123abcd0123abcd0123abcd
-RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
-```
+- **Network** — target chain (Governor / C3Caller network)
+- **Target** — contract address (or recipient for a value transfer)
+- **Value** — native token sent with the call (`0` if none)
+- **Signature** — function selector, e.g. `transfer(address,uint256)` (ABI auto-fetch is available in the app)
+- **Inputs** — typed parameters for the call
 
-### Step 4: Create the Proposal
+Use **Validate** / **Simulate** on each action before submitting. The app encodes calldata and calls `propose(targets, values, calldatas, description)` on the Governor.
 
-Open the file `script/CreateProposal.s.sol` in an editor of your choice.
+### Delta (Multiple-option)
 
-#### Choose the number of actions
+**Weighted multi-option** voting: voters distribute vote power across **options** using coefficients. Each option has a **label** and its own list of **actions**. You set **number of options** and **number of winners** (winners ≥ 1 and &lt; options).
 
-Change the number `numberOfActions` to reflect the number of transactions that will be executed upon successful passing of your proposal. These can be contract calls, transfers of ETH or whatever the gas token is, or a contract deployment.
+Use Delta for **Elections** and any vote where several mutually exclusive (or ranked) outcomes each imply different on-chain execution — e.g. three Treasury allocation plans, or Committee slates.
 
-In our example proposal, we want to carry out one transaction upon passing by the DAO, therefore we set the number to 1.
+<img src="/_media/governance-proposal-config-delta.png" alt=""/>
 
-If the transaction count is more than 1, you must specify the following fields for each transaction.
+Delta proposals use the same `propose` interface; the first slot carries **metadata** (option count, winner count, action index boundaries) and options are flattened into the targets/values/calldatas arrays. See [propose_instructions.md](https://github.com/ContinuumDAO/continuumdao-app/blob/main/propose_instructions.md) in continuumdao-app for encoding details.
 
-#### Specify the target address(es)
+## Create a proposal (step by step)
 
-Next, add the address(es) that will be called upon successful passing of your proposal. This can be a contract address, or in the case of a simple ETH transfer, an account.
+1. Open **[Create Proposal](https://app.continuumdao.org/governance/create-proposal)**.
 
-In our example proposal, we want to transfer some CTM, which requires we call a function on the CTM address. Therefore, the target of our proposal is the CTM token contract address.
+<img src="/_media/governance-create-proposal-page.png" alt=""/>
 
-```solidity
-address ctmAddr = 0xADeE65208A9fd9d6d47AD2D8A53D7E019955d1Db;
-targets[0] = ctmAddr;
-```
+2. **Connect your wallet** — the address must hold at least **1% of total vote power** or **1000 veCTM vote power**, whichever is higher (including delegation).
 
-#### Specify the value(s)
+3. **Title** (up to **128** characters) — accurate summary; **do not** include the proposal number (the app assigns enumeration).
 
-Add the value for each transaction. If you are transferring ETH or calling a payable function, set the value accordingly. Otherwise, just set it to zero.
+4. **Description** (up to **1024** characters) — full context: motivation, scope, off-chain outcomes, and what on-chain actions do.
 
-In our example proposal, we aren't transferring any ETH nor are we calling a payable function, so we will leave the value as zero.
+5. **Proposal type** — Decision, Election, Treasury, Constitution, or Admin (see table above).
 
-```solidity
-values[0] = 0;
-```
+6. **Forum link** — URL to the Forum discussion for this proposal (required). Start discussion in [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) before submitting.
 
-#### Specify the calldata(s)
+7. **Proposal configuration** — **Bravo** or **Delta** (see above).
 
-For a contract function call, you must specify the nature and parameters of the function that you wish to execute. If you are simply sending ETH, it is not necessary to specify any calldata.
+8. **Proposal actions** — add one or more actions (Bravo) or configure each option’s actions (Delta). For Delta, set **No. of Options** and **No. of Winners**, then paginate between options and add actions per option.
 
-In our example proposal, we *are* calling a contract function - `transfer`. Therefore, we will set the calldata to a ERC20 `transfer` call, ABI encoded with the recipient of the tokens and the amount of tokens to transfer.
+9. Click **Propose & Submit** — confirm the on-chain transaction (gas from your wallet). The app registers the proposal with the backend using the returned **on-chain proposal ID**.
 
-```solidity
-calldatas[0] = abi.encodeWithSignature("transfer(address,uint256)", proposer, 1 ether);
-```
+Once confirmed, the proposal appears on [Governance](https://app.continuumdao.org/governance). It enters **Temperature Check** (5 days), then **Formal Vote** (10 days).
 
-Notice that the first argument in the `encodeWithSignature` method is the name of the function, and the types of the parameters that it takes in brackets. The 2nd, 3rd, ...*n*th arguments are the actual values that will be passed to this function.
+### Example — Treasury transfer (Bravo)
 
-#### Specify the description
+Transfer **CTM** from the Treasury to a recipient:
 
-Add a descriptive title to your proposal. It should follow the format "Proposal #X: ...". This will allow voters to know what they are actually voting for.
+| Field | Example |
+| ----- | ------- |
+| Network | Linea (or chain where CTM/Treasury lives) |
+| Target | CTM token contract |
+| Value | `0` |
+| Signature | `transfer(address,uint256)` |
+| Inputs | recipient address; amount (with unit, e.g. Ether) |
 
-```solidity
-string memory description = "Proposal #1: Transfer 1 CTM from treasury to proposer"
-```
+Validate/simulate in the app, then submit.
 
-### Step 5: Run the Script
+## Share the proposal
 
-Once you have added a private key and built your proposal, you can run the script.
+Post on the [Forum](https://forum.continuumdao.org/) with:
 
-Start by compiling the script:
+- Proposal **title** and **type**
+- Link to the proposal on [app.continuumdao.org/governance](https://app.continuumdao.org/governance)
+- Full proposal text from the [template](/ContinuumDAO/Governance/HowToWriteAProposal.md)
 
-```bash
-forge build
-```
+A Committee member can post on your behalf if needed. Community discussion continues during Temperature Check; Formal Vote opens automatically after 5 days.
 
-Then run it:
+## Vote and execute
 
-```bash
-forge script script/CreateProposal.s.sol:CreateProposal --rpc-url $SEPOLIA_RPC_URL --broadcast -vvvv
-```
+Open the [Governance app](https://app.continuumdao.org/governance), connect the wallet that holds veCTM (or delegated power), and open the proposal.
 
-Once the run command passes, your proposal will be active.
+### Bravo proposals
 
-**NB**: Copy the output from the console, you will need it later. The important data you will need to copy can be found in the output under "\== Logs \==".
+Vote **For**, **Against**, or **Abstain**.
 
-In our example proposal, there is only one transaction, so copy the content under "Proposal Data:".
+*Screenshot placeholder — add `/_media/governance-vote-bravo.png` when ready (Bravo vote For/Against/Abstain).*
 
-```bash
-== Logs ==
-  Creating proposal with 1 transaction(s)...
-  Proposal Data:
-  Transaction 1
-  0xADeE65208A9fd9d6d47AD2D8A53D7E019955d1Db
-  0
-  0xa9059cbb000000000000000000000000e3d231836b8a
-  70ce89ed118f1c439ce78e7c54c7000000000000000000
-  0000000000000000000000000000000de0b6b3a7640000
-```
+### Delta proposals
 
-## Share the Proposal
+Allocate vote power across options with **coefficients** (weighted split). The app builds the `castVoteWithReasonAndParams` payload.
 
-In order for other voters to be made aware of the proposal, you must create a proposal topic on the [forum](https://forum.continuumdao.org). Log in with your account and create a new post under either [Treasury](https://forum.continuumdao.org/category/7/proposals-treasury) or [Constitution](https://forum.continuumdao.org/category/6/proposals-constitution), depending on the nature of your proposal. Make sure to follow the [Proposal Guide](https://docs.continuumdao.org/ContinuumDAO/Governance/HowToWriteAProposal).
+*Screenshot placeholder — add `/_media/governance-vote-delta.png` when ready (Delta multi-option weighted vote).*
 
-Include the title of your proposal, as well as (NB) **the output of the proposal creation command**.
-
-DAO members can now discuss the proposal, and vote accordingly.
-
-## Vote
-
-You can now head over to the ContinuumDAO Governance page and vote on this proposal and others. If a proposal is passed, then anyone will be able to execute the result of the vote.
-
-In our proposal example, once it passes, it can be executed, which will automatically carry out the transfer of 1 CTM from the DAO treasury to the proposer address.
-
+If a proposal **passes**, anyone can **Execute** it from the same app once voting completes (or sooner if Super Quorum is reached). Execution runs the winning on-chain actions automatically.
