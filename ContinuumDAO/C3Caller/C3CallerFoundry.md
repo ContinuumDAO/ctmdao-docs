@@ -1,292 +1,168 @@
 ## C3Caller Deployment Using Foundry
 
-These following steps are just an example, we encourage you to develop your own ideas and create a personalized dApp.
+This walkthrough deploys the **`DemoToken`** (`CTMERC20` demo from [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)) on two testnets, registers the dApp on-chain, and sends a cross-chain transfer.
 
-### Register dApp
+> **C3Caller is not yet live.** This guide describes the intended workflow for when protocol contracts are deployed. Use addresses from [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md) once published.
 
-1. Open [Register your dApp](https://c3caller.continuumdao.org/dapp).
-2. Click “dApp Register”.
+> There is **no registration web UI** yet (coming soon). All registration steps use **`C3DAppManager`** directly.
 
-<img src="/_media/C3CallerTest-1.png"  alt=""/>
+### Prerequisites
 
-3. Confirm the transaction in your wallet.
-4. Refresh the page, and take note of the dApp ID you are given.
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
+- Testnet gas tokens on your chosen source and destination chains
+- Accepted fee token on both chains (see [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md) when live)
 
-<img src="/_media/C3CallerTest-2.png"  alt=""/>
-
-### Install Foundry
-
-Once you have registered your dApp and obtained a unique dApp ID, it is time to install Foundry.
-
-You can install Foundry by following these [instructions](https://book.getfoundry.sh/getting-started/installation).
-
-### Create a Foundry Project
-
-Create a Foundry project where we will build, test, deploy and interact with our C3Caller dApp:
+### Create a project
 
 ```bash
-forge init c3caller-dapp
-cd c3caller-dapp/
+forge init c3caller-dapp && cd c3caller-dapp
+forge install ContinuumDAO/c3caller OpenZeppelin/openzeppelin-contracts
 ```
 
-You will see some default contracts in `src/`, `test/` and `script/`.
+Add to `remappings.txt`:
 
-### Install Dependencies
-
-Next, install the OpenZeppelin dependencies which are required by C3Caller:
-
-```bash
-forge install OpenZeppelin/openzeppelin-contracts
+```
+@c3caller/=lib/c3caller/src/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
 ```
 
-Configure dependency remappings:
+Set **`foundry.toml`** compiler to **`solc = "0.8.27"`** (required by c3caller).
 
-```bash
-echo "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/" > remappings.txt
-```
+### Environment
 
-Copy the C3CallerDapp abstract contract and IC3Caller into your `src/` folder:
-
-```bash
-wget https://raw.githubusercontent.com/ContinuumDAO/router-contract/main/contracts/protocol/C3CallerDapp.sol -P src/
-wget https://raw.githubusercontent.com/ContinuumDAO/router-contract/main/contracts/protocol/IC3Caller.sol -P src/
-```
-
-### Setup Environment
-
-Create a `.env` file to store private keys, RPC URLs and Etherscan API keys:
-
-```bash
-touch .env
-```
-
-In this example we will make a cross-chain transaction from Arbitrum Sepolia testnet to BSC Testnet. Paste the following into your `.env` file, adding in your own private key:
+Create `.env` (example — replace `<…>` with live addresses when available):
 
 ```bash
 ARB_SEPOLIA_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
 BSC_TESTNET_RPC_URL=https://bsc-testnet-dataseed.bnbchain.org/
-ARB_SEPOLIA_C3_ENDPOINT=0xeC1f296fC2Dd0FFf803c30DBD315b5457aFaA8B3
-BSC_TESTNET_C3_ENDPOINT=0x088A7e395981B2d5230c4f0d6273594c1ff40179
-PRIVATE_KEY=0xabc123...
+PRIVATE_KEY=0x...
+
+C3_CALLER=<C3Caller address>
+DAPP_MANAGER=<C3DAppManager address>
+FEE_TOKEN=<fee token address>
+
+DAPP_KEY="v1.myprotocol.demotoken"
+METADATA='{"version":1,"name":"Demo","description":"Demo cross-chain token","email":"you@example.com","url":"example.com"}'
 ```
 
-> Note
-> Make sure your account has ETH on Arbitrum Sepolia, and BNB on BSC Testnet.
+Add RPC aliases to `foundry.toml`:
 
-Source `.env`:
-
-```bash
-source .env
-```
-
-Add the aliases to your `foundry.toml`:
-
-```
+```toml
 [rpc_endpoints]
 arbSepolia = "${ARB_SEPOLIA_RPC_URL}"
 bscTestnet = "${BSC_TESTNET_RPC_URL}"
 ```
 
-### Implement C3CallerDapp
+### Implement DemoToken
 
-Remove the files in `src/`, `test/` and `script/` and create `src/CToken.sol:
-
-```bash
-rm src/Counter.sol test/Counter.t.sol script/Counter.s.sol
-touch src/CToken.sol
-```
-
-Paste the following in `src/CToken.sol`:
-
-```solidity
-// SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity ^0.8.20;
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/utils/Context.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "./C3CallerDapp.sol";
-
-
-contract CToken is ERC20, C3CallerDapp {
-    using Strings for *;
-
-    uint8 private _decimals;
-
-    bytes4 public FuncCrossIn = bytes4(keccak256("crossIn(address,uint256)"));
-
-    constructor(
-        string memory name_,
-        string memory symbol_,
-        address c3callerProxy_,
-        uint256 dappID_,
-        uint8 decimals_
-    ) ERC20(name_, symbol_) C3CallerDapp(c3callerProxy_, dappID_) {
-        _decimals = decimals_;
-        _mint(msg.sender, 100 * 10 ** _decimals);
-    }
-
-    function claim(uint256 amount) public {
-        _mint(msg.sender, amount);
-    }
-
-    function decimals() public view virtual override returns (uint8) {
-        return _decimals;
-    }
-
-    function crossTo(
-        uint256 chainID_,
-        address ctokenAddr_,
-        uint256 amount_
-    ) public {
-        _burn(msg.sender, amount_);
-
-        c3call(
-            ctokenAddr_.toHexString(),
-            chainID_.toString(),
-            abi.encodeWithSignature(
-                "crossIn(address,uint256)",
-                msg.sender,
-                amount_
-            )
-        );
-    }
-
-    function crossIn(
-        address to_,
-        uint256 amount_
-    ) external onlyCaller returns (bool) {
-        _mint(to_, amount_);
-        return true;
-    }
-
-    function _c3Fallback(
-        bytes4 selector,
-        bytes calldata data_,
-        bytes calldata /*reason_*/
-    ) internal override returns (bool) {
-        (address to, uint256 amount) = abi.decode(data_, (address, uint256));
-        require(to != address(0), "empty to");
-        require(amount > 0, "empty amount");
-        if (selector == FuncCrossIn) {
-            _mint(to, amount);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function isValidSender(address /*txSender*/) external pure returns (bool){
-        return true;
-    }
-}
-```
-
-### Compile the dApp
-
-Run the following command to compile your contracts:
+Create `src/DemoToken.sol` using the contract from [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md).
 
 ```bash
 forge build
 ```
 
-### Deploy the dApp to Arbitrum Sepolia (Chain A)
+### Register the dApp (each chain)
 
-Deploy the dApp to Arbitrum Sepolia, using the dApp ID you were provided with after registration:
-
-```bash
-forge create --rpc-url arbSepolia --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $ARB_SEPOLIA_C3_ENDPOINT <DAPP_ID> 18
-```
-
-Copy the address (the address listed after "Deployed to: ") of the contract that was deployed and go back to the dApp registry. We will refer to it as `<ARB_CTOKEN>`.
-
-### Add Contract to dApp
-
-Click on the plus sign to add contract addresses to your dApp, and select Arbitrum Sepolia chain.
-
-Enter the address of the deployed contract, and sign the transaction.
-
-You must add some fees to cover gas on the destination chain, and you can do this from you dApp admin page. Adding 5-10 testnet CTM should cover it. You can go to the faucet if you require testnet CTM.
-
-### Deploy the dApp to BSC Testnet (Chain B)
-
-Deploy the dApp to BSC Testnet, using the same dApp ID from before:
+On **Arbitrum Sepolia**:
 
 ```bash
-forge create --rpc-url bscTestnet --private-key $PRIVATE_KEY src/CToken.sol:CToken --constructor-args "CToken" "CTN" $BSC_TESTNET_C3_ENDPOINT <DAPP_ID> 18
+source .env
+export ADMIN=$(cast wallet address $PRIVATE_KEY)
+
+cast call $DAPP_MANAGER "deriveDAppID(address,string)(uint256)" $ADMIN "$DAPP_KEY" --rpc-url arbSepolia
+
+cast send $FEE_TOKEN "approve(address,uint256)" $DAPP_MANAGER $(cast max-uint) \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
+
+cast send $DAPP_MANAGER "initDAppConfig(string,address,string)" "$DAPP_KEY" $FEE_TOKEN "$METADATA" \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
+
+export DAPP_ID=$(cast call $DAPP_MANAGER "deriveDAppID(address,string)(uint256)" $ADMIN "$DAPP_KEY" --rpc-url arbSepolia)
+echo "dApp ID: $DAPP_ID"
 ```
 
-Make a note of the deployed contract address (the address listed after "Deployed to: "), we will refer to it as `<BSC_CTOKEN>`.
+Repeat **`approve`** + **`initDAppConfig`** on **BSC Testnet** with the **same** `DAPP_KEY` and admin wallet.
 
-Since this contract is the recipient of the cross-chain message, no further action is required.
+Alternatively, use the [InitC3DApp.s.sol](https://github.com/ContinuumDAO/c3caller/blob/main/script/InitC3DApp.s.sol) script from the c3caller repo.
 
-### Read Total Supplies
+### Deploy DemoToken
 
-Before running the transaction, we will read the total supplies of the token on Arbitrum Sepolia and BSC Testnet:
+Arbitrum Sepolia:
 
 ```bash
-cast call <ARB_CTOKEN> "totalSupply()(uint256)" --rpc-url arbSepolia
+forge create src/DemoToken.sol:DemoToken \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY \
+  --constructor-args $C3_CALLER $DAPP_ID
 
-# output -> 100000000000000000000 [1e20]
+export ARB_DEMO=<Deployed address>
 ```
+
+BSC Testnet (same `DAPP_ID`):
 
 ```bash
-cast call <BSC_CTOKEN> "totalSupply()(uint256)" --rpc-url bscTestnet
+forge create src/DemoToken.sol:DemoToken \
+  --rpc-url bscTestnet --private-key $PRIVATE_KEY \
+  --constructor-args $C3_CALLER $DAPP_ID
 
-# output -> 100000000000000000000 [1e20]
+export BSC_DEMO=<Deployed address>
 ```
 
-Paste the resulting total supplies into a unit conversion:
+### Whitelist and configure peers
+
+On each chain:
 
 ```bash
-cast to-unit 100000000000000000000 ether
+cast send $DAPP_MANAGER "setDAppAddr(uint256,address,bool)" $DAPP_ID $ARB_DEMO true \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
 
-# output -> 100
+cast send $DAPP_MANAGER "setDAppAddr(uint256,address,bool)" $DAPP_ID $BSC_DEMO true \
+  --rpc-url bscTestnet --private-key $PRIVATE_KEY
 ```
 
-We can see that the total supply of CToken on both Arbitrum Sepolia and BSC Testnet are 100 CTN.
-
-We are now ready to make the cross-chain transaction.
-
-### Cross-chain Transaction
-
-Let's make a transfer of some tokens from Arbitrum Sepolia to BSC Testnet.
+On each chain, call **`setPeer`** with the **0x-prefixed hex string** of the sister deployment (same format as OpenZeppelin `Strings.toHexString(address)`):
 
 ```bash
-cast send <ARB_CToken> "crossTo(uint256,address,uint256)()" 97 <BSC_CToken> 25ether --rpc-url arbSepolia --private-key $PRIVATE_KEY
+cast send $ARB_DEMO "setPeer(string,string)" "97" "0xYourBscDemoTokenAddress" \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
+
+cast send $BSC_DEMO "setPeer(string,string)" "421614" "0xYourArbDemoTokenAddress" \
+  --rpc-url bscTestnet --private-key $PRIVATE_KEY
 ```
 
-Our transaction has now been relayed to the C3Caller and will soon be executed on the destination chain. This should take around five minutes.
-
-### Check Results of Transaction
-
-We can right away observe the change to the total supply of CToken on Arbitrum Sepolia:
+Fund fee reserves if needed:
 
 ```bash
-cast call <ARB_CToken> "totalSupply()(uint256)" --rpc-url arbSepolia
-
-# output -> 75000000000000000000 [7.5e19]
+cast send $DAPP_MANAGER "deposit(uint256,address,uint256)" $DAPP_ID $FEE_TOKEN 1000000000000000000 \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
 ```
 
-After a few minutes we will observe the change to the total supply of CToken on BSC Testnet:
+(Approve `FEE_TOKEN` for `DAPP_MANAGER` first.)
+
+### Mint and cross-chain transfer
+
+Mint on Arbitrum Sepolia:
 
 ```bash
-cast call <BSC_CToken> "totalSupply()(uint256)" --rpc-url bscTestnet
-
-# output -> 125000000000000000000 [1.25e20]
+cast send $ARB_DEMO "mint(uint256)" 100000000000000000000 --rpc-url arbSepolia --private-key $PRIVATE_KEY
 ```
 
-Paste the resulting total supplies into a unit conversion:
+Transfer 25 tokens to your address on BSC (chain ID **`"97"`**). The recipient must be a **hex string** (same as `address.toHexString()`):
 
 ```bash
-cast to-unit 75000000000000000000 ether
-
-# output -> 75
+export RECIPIENT=$(cast wallet address $PRIVATE_KEY)
+cast send $ARB_DEMO "c3transfer(string,uint256,string)" "$RECIPIENT" 25000000000000000000 "97" \
+  --rpc-url arbSepolia --private-key $PRIVATE_KEY
 ```
+
+The Relayer and MPC network process the message; after a few minutes check balances on BSC:
 
 ```bash
-cast to-unit 125000000000000000000 ether
-
-# output -> 125
+cast call $BSC_DEMO "balanceOf(address)(uint256)" $RECIPIENT --rpc-url bscTestnet
 ```
 
-The cross-chain transaction has executed successfully.
+### Related
+
+- [Simple Demo (CTMERC20)](/ContinuumDAO/C3Caller/C3CallerDemo.md)
+- [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md)
+- [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md)
+- [c3caller repository](https://github.com/ContinuumDAO/c3caller)

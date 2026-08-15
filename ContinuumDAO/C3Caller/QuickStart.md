@@ -1,62 +1,116 @@
 ## Quick Start
 
-### Register dApp
+> **C3Caller is not yet live.** The steps below describe the workflow for when protocol contracts are deployed. See [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md) for launch status.
 
-1. Register your own dApp with your wallet. The dApp name is only for your information and will only be visible to you. Gas fee bills and alert mails will be sent to this email.
+### 1. Register your dApp (on-chain)
 
-<img src="/_media/C3CallerDappRegister.png"  alt=""/>
+There is **no live registration frontend** yet (C3Caller Hub — coming soon). When live, register on each network where you want to send or receive messages.
 
-2. Configure which chain and contract you implement C3CallerDapp on. The Relayer will check if the target is correct and on the list.
+On every chain, call **`C3DAppManager.initDAppConfig`** with:
 
-<img src="/_media/C3CallerAddContracts.jpg"  alt=""/>
+1. **`dappKey`** — a stable string you reuse on all chains, e.g. `v1.myprotocol.demotoken`. The dApp ID is derived deterministically from your address + key via `deriveDAppID(creator, dappKey)`.
+2. **`feeToken`** — a token accepted on that chain (inspect `C3DAppManager` for valid fee tokens once deployed — see [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md)).
+3. **`metadata`** — JSON metadata (name, description, email, url) — see the [c3caller README](https://github.com/ContinuumDAO/c3caller#metadata).
 
-3. Deposit some fees (it's free on the testnet now). C3Caller allows dApps to choose the token type to pay the gas and service fees, like CTM (CTM's native token), USDT, USDC, DAI. Withdrawals are available anytime.
+> **Important:** use the **same creator wallet and dappKey on every chain**. A different account or key produces a different dApp ID and your deployments will not interoperate.
 
-<img src="/_media/C3CallerFundAccount.jpg"  alt=""/>
+Before `initDAppConfig`, **approve** the fee token for `C3DAppManager` (at least the minimum deposit for that token). The registration call pulls the minimum deposit automatically.
 
-### Contract Implementation
+Example (Foundry `cast` — replace placeholders with live addresses from [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md) when available):
 
-To use C3Caller, your contract should extend ‘C3CallerDapp’ as a parent contract. Use ‘c3call’ to send messages to another chain.
+```bash
+export DAPP_MANAGER=<C3DAppManager address on this chain>
+export FEE_TOKEN=<accepted fee token on this chain>
+export DAPP_KEY="v1.myprotocol.demotoken"
+export METADATA='{"version":1,"name":"Demo","description":"Demo cross-chain token","email":"you@example.com","url":"example.com"}'
 
-Implement ‘\_c3Fallback’ to receive calldata if the transaction execution fails. The code is open-source now and can be viewed at: [https://github.com/ContinuumDAO/router-contract](https://github.com/ContinuumDAO/router-contract).
+# Preview the dApp ID (must match on every chain)
+cast call $DAPP_MANAGER "deriveDAppID(address,string)(uint256)" $YOUR_ADDRESS "$DAPP_KEY" --rpc-url $ARB_SEPOLIA_RPC_URL
 
-### Testnet Endpoint
+cast send $FEE_TOKEN "approve(address,uint256)" $DAPP_MANAGER $(cast max-uint) --rpc-url $ARB_SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
 
+cast send $DAPP_MANAGER "initDAppConfig(string,address,string)" "$DAPP_KEY" $FEE_TOKEN "$METADATA" \
+  --rpc-url $ARB_SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
 ```
-abstract contract C3CallerDapp is IC3Dapp {
-    ...
 
-    function _c3Fallback(
-        bytes4 selector,
-        bytes calldata data,
-        bytes calldata reason
-    ) internal virtual returns (bool);
+Repeat on each destination chain. The [InitC3DApp.s.sol](https://github.com/ContinuumDAO/c3caller/blob/main/script/InitC3DApp.s.sol) script in the c3caller repo automates this from `deployments.toml`.
 
-    function c3Fallback(
-        uint256 _dappID,
-        bytes calldata _data,
-        bytes calldata _reason
-    ) external override onlyCaller returns (bool) {
-        require(_dappID == dappID, "dappID dismatch");
-        return _c3Fallback(bytes4(_data[0:4]), _data[4:], _reason);
+### 2. Deploy your dApp contract
+
+Install the library:
+
+```bash
+forge install ContinuumDAO/c3caller
+# or: forge soldeer install @c3caller~0.3.1
+```
+
+Your contract inherits **`C3CallerDApp`** (arbitrary messaging) or **`CTMERC20`** (cross-chain ERC-20 — recommended for fungible tokens; see [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md) and the production **`CTM`** token in [vectm](https://github.com/ContinuumDAO/vectm/blob/main/src/token/ctm/CTM.sol)).
+
+Constructor arguments:
+
+1. **`c3caller`** — the `C3Caller` contract on this network (not a legacy “proxy endpoint”).
+2. **`dappID`** — from step 1 (`deriveDAppID` or the return value of `initDAppConfig`).
+
+### 3. Whitelist deployed addresses
+
+On each network, the dApp admin calls:
+
+```bash
+cast send $DAPP_MANAGER "setDAppAddr(uint256,address,bool)" $DAPP_ID $YOUR_CONTRACT true \
+  --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+```
+
+Only whitelisted contracts may send or receive C3Caller messages for that dApp ID.
+
+### 4. Fund fee reserves
+
+Top up the dApp’s fee balance when needed:
+
+```bash
+cast send $FEE_TOKEN "approve(address,uint256)" $DAPP_MANAGER $AMOUNT --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+cast send $DAPP_MANAGER "deposit(uint256,address,uint256)" $DAPP_ID $FEE_TOKEN $AMOUNT \
+  --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+```
+
+On public testnets, fee tokens will be documented at launch — see [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md).
+
+### 5. For CTMERC20 tokens — configure peers
+
+Cross-chain ERC-20 dApps must map sister deployments:
+
+```bash
+cast send $YOUR_TOKEN "setPeer(string,string)" "97" $BSC_DEPLOYED_ADDRESS_HEX \
+  --rpc-url $ARB_SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
+```
+
+Chain IDs and peer addresses are **strings** (EVM addresses as hex strings) for non-EVM compatibility.
+
+### Contract implementation sketch
+
+```solidity
+import {C3CallerDApp} from "@c3caller/dapp/C3CallerDApp.sol";
+import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
+
+contract MyDApp is C3CallerDApp {
+    using Strings for address;
+
+    constructor(address _c3caller, uint256 _dappID) C3CallerDApp(_c3caller, _dappID) {}
+
+    function onMessage(string calldata msg_) external onlyC3Caller {
+        // handle incoming execute
     }
 
-    function c3call(
-        string memory _to,
-        string memory _toChainID,
-        bytes memory _data
-    ) internal {
-        IC3CallerProxy(c3CallerProxy).c3call(dappID, _to, _toChainID, _data);
+    function sendMessage(address peer, string memory toChainID, string memory msg_) external {
+        bytes memory data = abi.encodeWithSelector(this.onMessage.selector, msg_);
+        _c3call(peer.toHexString(), toChainID, data);
+    }
+
+    function _c3Fallback(bytes4, bytes calldata, bytes calldata) internal override returns (bool) {
+        return false;
     }
 }
 ```
 
+Full walkthroughs: [Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md) · [Deployment with Remix](/ContinuumDAO/C3Caller/C3CallerTest.md) · [Simple Demo (CTMERC20)](/ContinuumDAO/C3Caller/C3CallerDemo.md)
 
-|  **Chain**   |  **C3Caller Address**   |  **Endpoint Address**   |
-| --- | --- | --- |
-|  **Goerli**   |  0x93591ADc60f528C49b500063753BBDFe213c6E79   |  0xa4C104db0937F1E886d5C9c9789D6f0e5bfBA75c   |
-|  **BNB Test** |  0x7581638A442907450636f4F0E8974A6449D9edC2   |  0x2628F5641d4c06dD150b1852aa393B90c0EA40E8   |
-|  **Polygon Mumbai** |  0x983B5eAC55D7Ef37C69bBAb67d8655453120bD4B   |  0x1F5CbcfAd7e33648747c9798A23084CE8C77b00e   |
-|  **Arbitrum Sepolia** | 0x433f3275a787be38703917fF2919CeFEAd9327cD |  0x1f462e92005DC96D754C02d38c3D39Acbd01B9ca |
-|  **Fantom Sonic** | 0x433f3275a787be38703917fF2919CeFEAd9327cD | 0x1f462e92005DC96D754C02d38c3D39Acbd01B9ca |
-
+Open-source contracts: [github.com/ContinuumDAO/c3caller](https://github.com/ContinuumDAO/c3caller)

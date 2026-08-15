@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPC/WhatIsMPC.md",
+                "file": "ContinuumDAO/C3Caller/ContractAddresses.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "WhatIsMPC"
+              "title": "ContractAddresses"
             }
           }
         ]
@@ -173,8 +173,11 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "ContinuumDAO/C3Caller/C3CallerDemo.md",
+    "ContinuumDAO/C3Caller/Contracts.md",
+    "ContinuumDAO/MPC/WhatIsMPC.md",
     "ContinuumDAO/MPC/BetterSecurity.md",
-    "ContinuumDAO/MPC/BetterSecurity.md",
+    "ContinuumDAO/MPC/StrongerSecurity.md",
     "ContinuumDAO/MPAWallet/AttachYourNode.md",
     "_media/attach-option-ssh-tunnel.png",
     "_media/Screenshot from 2026-08-15 16-32-08.png",
@@ -205,9 +208,6 @@
     "ContinuumDAO/MPAWallet/DefaultEd25519Signer.md",
     "ContinuumDAO/MPAWallet/AIHarness/Overview.md",
     "ContinuumDAO/MPAWallet/AIHarness",
-    "ContinuumDAO/C3Caller/Overview.md",
-    "ContinuumDAO/Introduction.md",
-    "README.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "_media/docker-compose_server.yml",

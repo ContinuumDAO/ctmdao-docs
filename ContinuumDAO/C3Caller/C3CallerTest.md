@@ -1,143 +1,108 @@
 ## C3Caller with Remix
 
-These following steps are just an example, we encourage you to develop your own ideas and create a personalized dApp.
+This guide deploys the **`CTMERC20`** demo token via [Remix](https://remix.ethereum.org/). For a full Foundry workflow, see [Deployment with Foundry](/ContinuumDAO/C3Caller/C3CallerFoundry.md).
 
-1. Open [Register your dApp](https://c3caller-frontend.pages.dev/dapp)
-2. Click “dApp Register”
+> **C3Caller is not yet live.** This guide describes the intended workflow for when protocol contracts are deployed.
 
-<img src="/_media/C3CallerTest-1.png"  alt=""/>
+> **Registration:** there is no live dApp registration frontend (coming soon). Register on-chain first — see [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md) — once contracts are live.
 
-3. Confirm the transaction in your wallet
-4. Refresh the page
+### 1. Register the dApp on-chain
 
-<img src="/_media/C3CallerTest-2.png"  alt=""/>
+On each testnet you plan to use (when live):
 
-5. NewDappContract using C3Caller [https://remix.ethereum.org/](https://remix.ethereum.org/)
+1. Approve the fee token for **`C3DAppManager`** on that chain.
+2. Call **`initDAppConfig(dappKey, feeToken, metadata)`** with the **same admin wallet and dappKey** on every chain.
+3. Note your **`dappID`**: `deriveDAppID(admin, dappKey)` on `C3DAppManager`.
 
-<img src="/_media/C3CallerTest-3.png"  alt=""/>
+Use [Remix “Deploy & Run”](https://remix.ethereum.org/) with the **`C3DAppManager`** ABI, or `cast send` as shown in Quick Start. Contract addresses: [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md).
 
-6. Create a new file in “contracts” folder and copy the following code into the file
+### 2. Prepare flattened contracts
 
-<img src="/_media/C3CallerTest-4.png"  alt=""/>
+Remix works best with flattened sources. From a local clone of [c3caller](https://github.com/ContinuumDAO/c3caller):
+
+```bash
+git clone https://github.com/ContinuumDAO/c3caller.git
+cd c3caller
+forge install
+./helpers/0-flatten.sh   # writes build/token/CTMERC20.sol and other artifacts
+```
+
+Upload **`build/token/CTMERC20.sol`** (or the whole `build/` folder) into Remix.
+
+### 3. Create DemoToken.sol in Remix
+
+Add a new file **`DemoToken.sol`**:
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0-or-later
-pragma solidity ^0.8.20;
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/utils/Context.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "https://github.com/ContinuumDAO/router-contract/blob/main/contracts/protocol/C3CallerDapp.sol";
+// SPDX-License-Identifier: BSL-1.1
+pragma solidity 0.8.27;
 
+import "./CTMERC20.sol";  // flattened file from c3caller build/
 
-contract CToken is ERC20, C3CallerDapp {
-    using Strings for *;
+contract DemoToken is CTMERC20 {
+    constructor(address _c3caller, uint256 _dappID)
+        CTMERC20("Demo Token", "DEMO", _c3caller, _dappID)
+    {}
 
-    uint8 private _decimals;
-
-    bytes4 public FuncCrossIn = bytes4(keccak256("crossIn(address,uint256)"));
-
-    constructor(
-        string memory name_,
-        string memory symbol_,
-        address c3callerProxy_,
-        uint256 dappID_,
-        uint8 decimals_
-    ) ERC20(name_, symbol_) C3CallerDapp(c3callerProxy_, dappID_) {
-        _decimals = decimals_;
-        _mint(msg.sender, 100000000 * 10 ** _decimals);
+    function _incrementGlobalSupply(uint256 _amount) internal override {
+        globalSupply += _amount;
     }
 
-    function claim(uint256 amount) public {
-        _mint(msg.sender, amount);
+    function _decrementGlobalSupply(uint256 _amount) internal override {
+        globalSupply -= _amount;
     }
 
-    function decimals() public view virtual override returns (uint8) {
-        return _decimals;
-    }
-
-    function crossTo(
-        uint256 chainID_,
-        address ctokenAddr_,
-        uint256 amount_
-    ) public {
-        _burn(msg.sender, amount_);
-
-        c3call(
-            ctokenAddr_.toHexString(),
-            chainID_.toString(),
-            abi.encodeWithSignature(
-                "crossIn(address,uint256)",
-                msg.sender,
-                amount_
-            )
-        );
-    }
-
-    function crossIn(
-        address to_,
-        uint256 amount_
-    ) external onlyCaller returns (bool) {
-        _mint(to_, amount_);
-        return true;
-    }
-
-    function _c3Fallback(
-        bytes4 selector,
-        bytes calldata data_,
-        bytes calldata /*reason_*/
-    ) internal override returns (bool) {
-        (address to, uint256 amount) = abi.decode(data_, (address, uint256));
-        require(to != address(0), "empty to");
-        require(amount > 0, "empty amount");
-        if (selector == FuncCrossIn) {
-            _mint(to, amount);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function isValidSender(address /*txSender*/) external pure returns (bool){
-        return true;
+    function mint(uint256 _amount) external {
+        _incrementGlobalSupply(_amount);
+        _mint(msg.sender, _amount);
     }
 }
 ```
 
-7. Compile: choose a version above 0.8.20
+Compile with Solidity **0.8.27**.
 
-<img src="/_media/C3CallerTest-5.png"  alt=""/>
+### 4. Deploy on chain A
 
-8. Deploy Contract
+Constructor arguments:
 
-Input your token name and the dAppID that you registered before
+| Field | Value |
+| ----- | ----- |
+| `_c3caller` | `C3Caller` address on this chain (see [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md)) |
+| `_dappID` | Your derived dApp ID from registration |
 
-<img src="/_media/C3CallerTest-6.png"  alt=""/>
+Deploy and save the contract address.
 
-<img src="/_media/C3CallerTest-7.png"  alt=""/>
+### 5. Whitelist the deployment
 
-C3Caller Proxy: 0xeC1f296fC2Dd0FFf803c30DBD315b5457aFaA8B3
+In Remix, attach to **`C3DAppManager`** on the same chain and call:
 
-<img src="/_media/C3CallerTest-8.png"  alt=""/>
+```
+setDAppAddr(dappID, demoTokenAddress, true)
+```
 
-<img src="/_media/C3CallerTest-9.png"  alt=""/>
+### 6. Deploy on chain B
 
-Steps on BNB chain:
+Use the **same `dappID`** and the **`C3Caller`** address on the destination chain. Whitelist with **`setDAppAddr`** there as well.
 
-- Add BNB test chain
-    - click plug icon
-    - search for the BNB test network in the Chainlist add to the Metamask
-    - when The custom () shows 97, it is working.
+### 7. Configure peers
 
-<img src="/_media/C3CallerTest-10png"  alt=""/>
+On each `DemoToken` deployment, call **`setPeer(toChainIDStr, peerAddressStr)`** pointing at the sister deployment. Chain IDs and addresses are **strings**.
 
-<img src="/_media/C3CallerTest-11.png"  alt=""/>
+### 8. Test a transfer
 
-<img src="/_media/C3CallerTest-12.png"  alt=""/>
+On the source chain (once the Relayer is live):
 
-BNB proxy: 0x088A7e395981B2d5230c4f0d6273594c1ff4017
+1. Call **`mint`** to fund your wallet.
+2. Call **`c3transfer(recipientHexString, amount, toChainIDStr)`**.
 
-<img src="/_media/C3CallerTest-13.png"  alt=""/>
+After the Relayer processes the message, check **`balanceOf`** on the destination deployment.
 
-<img src="/_media/C3CallerTest-14.png"  alt=""/>
+### Contract addresses
 
-<img src="/_media/C3CallerTest-15.png"  alt=""/>
+See [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md) — published when C3Caller goes live.
+
+### Related
+
+- [Simple Demo (CTMERC20)](/ContinuumDAO/C3Caller/C3CallerDemo.md) — API explanation
+- [Quick Start](/ContinuumDAO/C3Caller/QuickStart.md) — registration details
+- Production **`CTM`** reference: [vectm/src/token/ctm/CTM.sol](https://github.com/ContinuumDAO/vectm/blob/main/src/token/ctm/CTM.sol)
