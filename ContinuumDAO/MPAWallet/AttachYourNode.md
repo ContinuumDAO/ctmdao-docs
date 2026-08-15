@@ -1,6 +1,6 @@
 ## Attach your node
 
-Open [mpa.continuumdao.org](https://mpa.continuumdao.org) on any page that shows the attach gate (Multi-Sign, Node, Groups, Keys). Your browser talks to **your** node — ContinuumDAO does not relay day-to-day control traffic.
+Open [mpa.continuumdao.org](https://mpa.continuumdao.org). Your browser talks to **your** node — ContinuumDAO does not relay day-to-day control traffic.
 
 On the hosted app you choose how to reach your node. In **geo-restricted** jurisdictions only the two **Node hosted app** options are shown (no Browser HTTPS), since ContinuumDAO cannot offer you a service, but instead you must run an app that you have downloaded. The app that ContinuumDAO offers as a service is identical to the app that you can download and run on your node yourself. All three options ensure private encrypted traffic to your node.
 
@@ -39,7 +39,7 @@ Use when the node runs on the **same PC** as your browser.
 
 ### Option 3: Node hosted app (SSH tunnel)
 
-Use when the node runs on a **remote VPS** (or another machine you reach over SSH).
+Use when the node runs on a **remote VPS** (or another machine you reach over SSH). This is a good default option to connect to a remote nodes, e.g. on a VPS. It does not require to have a Let's Encrypt type of cert for https to be installed, or to import a self-signed cert into your browser, which can be problematic.
 
 1. On the hosted SPA, select **Node hosted app (SSH tunnel)**.
 2. Enter your node’s **public IPv4 or hostname**.
