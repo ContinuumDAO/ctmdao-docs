@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-15T21:53:32.195Z",
+  "generatedAt": "2026-08-16T09:04:22.078Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2285,7 +2285,7 @@
       "section": "",
       "headings": [],
       "sections": [],
-      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO A trustless Secure Multi Party Computation node network called the Continuum and run worldwide by a DAO. Before git push: run ./scripts/before git push.sh or npm run before git push . This rebuilds search index.json and fails if the index is missing or not ",
+      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO A trustless Secure Multi Party Computation node network called the Continuum and run worldwide by a DAO. <! <span style=\"color:green;font weight:700;font size:20px\" markdown color font styles </span",
       "url": "https://docs.continuumdao.org/README"
     }
   ]
