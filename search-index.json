@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-16T13:23:57.357Z",
+  "generatedAt": "2026-08-16T14:29:42.182Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -883,7 +883,7 @@
           "id": "5-optional-next",
           "title": "5. Optional next",
           "level": 3,
-          "excerpt": "Skills — steer agent behaviour ( AI Agent → Skills ). Cron — scheduled agent turns ( AI Agent → Cron ). Other webhooks — GitHub, Stripe, and similar ( AI Agent → Webhooks )."
+          "excerpt": "Skills — steer agent behaviour ( AI Agent → Skills ). Cron — scheduled agent turns ( AI Agent → Cron ). Other webhooks — GitHub, Stripe, and similar ( AI Agent → Webhooks ). Workspace — upload or edit scripts and data on the node ( AI Agent → Workspace ); useful for Foundry script batches and JSON i"
         },
         {
           "id": "related",
@@ -910,6 +910,7 @@
         "Charting and technical analysis",
         "Third-party MCP servers",
         "Skill files",
+        "Workspace (scripts and data)",
         "Cron (scheduled jobs)",
         "Webhooks",
         "Signing and safety",
@@ -975,6 +976,12 @@
           "title": "Skill files",
           "level": 4,
           "excerpt": "Bundled and custom skills steer how the agent behaves for common tasks."
+        },
+        {
+          "id": "workspace-scripts-and-data",
+          "title": "Workspace (scripts and data)",
+          "level": 4,
+          "excerpt": "Node → AI Agent → Workspace lets you browse and manage the node user folder : create directories, add or edit files, and download copies locally. Use it to upload Foundry scripts , JSON inputs, and other artefacts the agent or Foundry MCP can run — see Foundry script — Workspace tab."
         },
         {
           "id": "cron-scheduled-jobs",
@@ -1186,15 +1193,25 @@
     },
     {
       "path": "ContinuumDAO/MPAWallet/ComposeTransactionFlow",
-      "title": "Compose transaction flow",
+      "title": "KeyGen address from Compose tab; RPC from Configure blockchains",
       "section": "Using an MPA wallet",
       "headings": [
         "Compose transaction flow",
+        "Manual compose",
         "Select KeyGen and chain",
         "Add one or more transaction steps",
         "Edit and cycle through steps",
         "Validate and Simulate",
         "Submit — OK creates the multi-sign request",
+        "Foundry script",
+        "Upload scripts and data (Workspace tab)",
+        "1. Write the script",
+        "2. Dry-run with forge (no broadcast)",
+        "3. Import into Compose",
+        "Agent / API path (no file upload)",
+        "Example command summary",
+        "KeyGen address from Compose tab; RPC from Configure blockchains",
+        "No --broadcast → import broadcast/.../dry-run/run-latest.json in the node app",
         "Bump / remove — mempool transactions",
         "Bump",
         "Remove",
@@ -1205,37 +1222,97 @@
           "id": "compose-transaction-flow",
           "title": "Compose transaction flow",
           "level": 2,
-          "excerpt": "This page documents the manual Compose UI in the node app — one way to build a multi sign request before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Compose UI (this page) Hand built transfers, "
+          "excerpt": "This page describes how an originator builds a multi sign request (single transaction or batch ) before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Manual compose Hand built transfers, custom co"
+        },
+        {
+          "id": "manual-compose",
+          "title": "Manual compose",
+          "level": 3,
+          "excerpt": "Use the node app Compose tab when you want to build transactions field by field in the UI. 1. Choose the KeyGen that will sign (must be multi agree for MPA custody). 2. Choose the blockchain (network) for this request. 3. Optionally set Purpose text and Custom Chain config (gas profile, RPC gateway,"
         },
         {
           "id": "select-keygen-and-chain",
           "title": "Select KeyGen and chain",
-          "level": 3,
+          "level": 4,
           "excerpt": "1. Choose the KeyGen that will sign (must be multi agree for MPA custody). 2. Choose the blockchain (network) for this request. 3. Optionally set Purpose text and Custom Chain config (gas profile, RPC gateway, gas multiplier) — peers see these on Join ; see Creating a multi sign request."
         },
         {
           "id": "add-one-or-more-transaction-steps",
           "title": "Add one or more transaction steps",
-          "level": 3,
+          "level": 4,
           "excerpt": "Each step is one transaction (one signature) in the eventual batch. Single step — the simplest case is an ERC20 transfer : token contract, recipient, amount. That is the same example used in Join — threshold Accept / Reject and Execute — MPC signing and broadcast. Multiple steps — add further steps "
         },
         {
           "id": "edit-and-cycle-through-steps",
           "title": "Edit and cycle through steps",
-          "level": 3,
+          "level": 4,
           "excerpt": "The compose screen lists every step in the batch. Select a step to edit its fields (contract, method, parameters, value, gas hints for that step). Cycle through steps with previous/next controls so you can review each transaction before submitting. Fix errors on any step before Validate — later step"
         },
         {
           "id": "validate-and-simulate",
           "title": "Validate and Simulate",
-          "level": 3,
+          "level": 4,
           "excerpt": "Before OK creates the multi sign request, run checks on the current step or on the whole batch (as the UI offers): Action What it does Validate Local and node side checks without broadcasting: required fields present, addresses and amounts well formed, KeyGen type matches the chain, nonce sequence c"
         },
         {
           "id": "submit-ok-creates-the-multi-sign-request",
           "title": "Submit — OK creates the multi-sign request",
+          "level": 4,
+          "excerpt": "When every step looks correct, confirm OK (or Create sign request ). The originator management signs the submission. The node creates the multi sign request and publishes it to the KeyGen. From here the flow continues on Join. <! Screenshot placeholder: replace media/mpc compose transaction flow.png"
+        },
+        {
+          "id": "foundry-script",
+          "title": "Foundry script",
           "level": 3,
-          "excerpt": "When every step looks correct, confirm OK (or Create sign request ). The originator management signs the submission. The node creates the multi sign request and publishes it to the KeyGen. From here the flow continues on Join: non originator nodes Accept or Reject the whole batch, then the originato"
+          "excerpt": "Use a Foundry script when the batch is easier to express in Solidity than in the Compose form — for example: Deploy a contract with the KeyGen as owner/admin, then call admin only functions in the same batch Conditional logic in run() (read on chain state, branch, build different calldata) Bulk oper"
+        },
+        {
+          "id": "upload-scripts-and-data-workspace-tab",
+          "title": "Upload scripts and data (Workspace tab)",
+          "level": 4,
+          "excerpt": "Node → AI Agent → Workspace manages the node’s writable user folder (on the host this is the user folder/ directory beside your node config; in the container it is /app/user folder ). Use it to add or edit scripts and data on the node without SSH: Browse — skills/ , scripts/ , data/ , plans/ , and o"
+        },
+        {
+          "id": "1-write-the-script",
+          "title": "1. Write the script",
+          "level": 4,
+          "excerpt": "Create a standard Foundry Script (see Foundry Book — Scripts). Use the KeyGen’s Ethereum address as the on chain from / broadcast sender: solidity // SPDX License Identifier: MIT pragma solidity ^0.8.24; import {Script} from \"forge std/Script.sol\"; contract DeployAndConfigure is Script { function ru"
+        },
+        {
+          "id": "2-dry-run-with-forge-no-broadcast",
+          "title": "2. Dry-run with forge (no broadcast)",
+          "level": 4,
+          "excerpt": "Run the script against a live RPC for the target chain. Set sender to the KeyGen’s Ethereum address (shown on the Compose tab). Do not pass broadcast — MPC signing and broadcast happen later on Execute , not from Foundry. bash export MPC ADDRESS=0xYourKeyGenEthereumAddress forge script script/Deploy"
+        },
+        {
+          "id": "3-import-into-compose",
+          "title": "3. Import into Compose",
+          "level": 4,
+          "excerpt": "On the Compose tab (with the correct KeyGen selected): 1. Click Import from Foundry broadcast . 2. Select run latest.json from the path above. 3. If nonces in the file are stale (lower than the KeyGen’s pending nonce on chain), confirm Yes to refresh nonces from the chain, or re run the script. 4. O"
+        },
+        {
+          "id": "agent-api-path-no-file-upload",
+          "title": "Agent / API path (no file upload)",
+          "level": 4,
+          "excerpt": "The AI agent can skip the upload dialog and call the continuum MCP tool create forge multi sign request with the parsed broadcast JSON, KeyGen id, purpose, and optional overrideSender / startingNonce . Longer sequences can be merged with create joined multi sign request (chain Foundry output with ma"
+        },
+        {
+          "id": "example-command-summary",
+          "title": "Example command summary",
+          "level": 4,
+          "excerpt": "bash"
+        },
+        {
+          "id": "keygen-address-from-compose-tab-rpc-from-configure-blockchains",
+          "title": "KeyGen address from Compose tab; RPC from Configure blockchains",
+          "level": 1,
+          "excerpt": "forge script script/MyScript.s.sol:MyScript \\ rpc url <RPC \\ sender <KeyGen Eth address"
+        },
+        {
+          "id": "no-broadcast-import-broadcast-dry-run-run-latest-json-in-the-node-app",
+          "title": "No --broadcast → import broadcast/.../dry-run/run-latest.json in the node app",
+          "level": 1,
+          "excerpt": "<! Screenshot placeholder: replace media/mpc compose foundry import.png <img src=\"/ media/mpc compose foundry import.png\" alt=\"Import from Foundry broadcast — run latest.json loaded into Compose batch (screenshot pending)\" / Separate from composing a new sign request, the node app supports bump and "
         },
         {
           "id": "bump-remove-mempool-transactions",
@@ -1259,10 +1336,10 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop DeFi protocol support KeyGens Overview Default Ed25519 signer"
+          "excerpt": "MPC Accept/Reject loop DeFi protocol support Configure the AI harness KeyGens Overview Default Ed25519 signer"
         }
       ],
-      "excerpt": "This page documents the manual Compose UI in the node app — one way to build a multi sign request before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Compose UI (this page) Hand built transfers, ",
+      "excerpt": "This page describes how an originator builds a multi sign request (single transaction or batch ) before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Manual compose Hand built transfers, custom co",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ComposeTransactionFlow"
     },
     {

@@ -45,6 +45,10 @@ Add other MCP servers under **Node → AI Agent → MCP Servers** (catalog or cu
 
 Bundled and custom skills steer how the agent behaves for common tasks.
 
+#### Workspace (scripts and data)
+
+**Node → AI Agent → Workspace** lets you browse and manage the node **`user_folder`**: create directories, add or edit files, and download copies locally. Use it to upload **Foundry scripts**, JSON inputs, and other artefacts the agent or Foundry MCP can run — see [Foundry script — Workspace tab](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#upload-scripts-and-data-workspace-tab).
+
 #### Cron (scheduled jobs)
 
 Run agent turns on a schedule from **AI Agent → Cron**.
