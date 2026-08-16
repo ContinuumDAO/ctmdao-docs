@@ -65,13 +65,13 @@ Whatever happens to a multi-sign request — pending on **Join**, approved then 
 
 ### Batching multiple signatures
 
-Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be **batched into a single multi-sign request**. The Group treats the batch as **one** proposal in the Accept/Reject loop:
+Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be **batched into a single multi-sign request**. The Group treats the batch as **one** proposal in the Accept/Reject loop — peers cannot Accept some items and Reject others:
 
-- **Join** — peers review the **whole batch** once; one Accept or Reject (with optional Thoughts) covers all items in that request.
-- **Threshold** — the same KeyGen **threshold** applies to the batch as a unit; partial Accept across items inside one batch is not supported.
-- **Execute** — after approval, MPC signing and broadcast proceed for the batch according to the product’s ordering rules (all signatures in the round, then execute as configured).
+- **Join** — peers review the **whole batch** once. Each node casts **one** Accept or **one** Reject (with optional Thoughts) for the entire batch. There is no per-transaction vote inside a batch.
+- **Threshold** — the same KeyGen **threshold** applies to the batch as a unit. Partial agreement across items is not supported: either the batch passes or it does not.
+- **Execute** — after approval, MPC signing runs for **all** items in the batch. The originator may then **broadcast the entire batch as one** — not a subset. You cannot shelve, sign, or execute individual transactions from an approved batch while leaving the rest behind; the batch moves through Get Sigs and Execute together.
 
-Batching is useful when a DeFi action or agent workflow needs several chained transactions (approve + swap, bridge steps, collateral + borrow, and similar) while keeping one human or committee decision for the entire operation.
+Batching is useful when a DeFi action or agent workflow needs several chained transactions (approve + swap, bridge steps, collateral + borrow, and similar) while keeping one human or committee decision — and one atomic execution step — for the entire operation.
 
 ### Related
 

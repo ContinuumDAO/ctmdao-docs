@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-16T12:01:48.777Z",
+  "generatedAt": "2026-08-16T12:32:37.463Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1468,6 +1468,7 @@
         "Creating a multi-sign request",
         "Join — threshold Accept / Reject",
         "Execute — MPC signing and broadcast",
+        "AI agent flow",
         "History — audit on each node",
         "Batching multiple signatures",
         "Related"
@@ -1498,6 +1499,12 @@
           "excerpt": "When enough nodes have Accepted within the time limit, the originator node shows the completed sign request round on the Execute tab. The originator can then: 1. Shelve — park the approved request without generating signatures yet (useful if market conditions or gas changed since the Accept phase). "
         },
         {
+          "id": "ai-agent-flow",
+          "title": "AI agent flow",
+          "level": 3,
+          "excerpt": "Note that this ERC20 transfer could have been done in the AI agent chat (in the node app, or in the Telegram bot) e.g. the originator says \"Send John 0.1 USDC on Linea using the custom gas and with the Purpose text 'Test transfer before sending monthly revenue to the staker'\" and then on a non orgin"
+        },
+        {
           "id": "history-audit-on-each-node",
           "title": "History — audit on each node",
           "level": 3,
@@ -1507,7 +1514,7 @@
           "id": "batching-multiple-signatures",
           "title": "Batching multiple signatures",
           "level": 3,
-          "excerpt": "Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be batched into a single multi sign request . The Group treats the batch as one proposal in the Accept/Reject loop: Join — peers review the whole batch once; one Accept or Reject (with optional Thoughts) cover"
+          "excerpt": "Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be batched into a single multi sign request . The Group treats the batch as one proposal in the Accept/Reject loop — peers cannot Accept some items and Reject others: Join — peers review the whole batch once. "
         },
         {
           "id": "related",
