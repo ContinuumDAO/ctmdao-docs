@@ -16,7 +16,7 @@ We can go through each of the inputs here -
 
 (1) MsgCheck
 
-The user selects either "multi-agree", or "tx-check". The **multi-agree** option allows the nodes in the KeyGen to choose whether to sign a transaction (Accept), or not (Reject). This is the MPA wallet path: humans and/or AI agents, with Accept as the circuit breaker (including simple **2/2**). The other option is **tx-check**, where once a signature request has been received by one of the nodes, the others automatically Accept and signature generation proceeds without a manual agreement step. That suits **C3Caller** cross-chain signatures, where security comes from many **independent** nodes holding shares and signing together, without knowledge of the full Private Key — not from a human Accept click on every message.
+The user selects either "multi-agree", or "tx-check". The **multi-agree** option allows the nodes in the KeyGen to choose whether to sign a transaction (Accept), or not (Reject). This is the MPA wallet path: humans and/or AI agents, with Accept as the circuit breaker (including simple **2/2**). Full UI flow: [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). The other option is **tx-check**, where once a signature request has been received by one of the nodes, the others automatically Accept and signature generation proceeds without a manual agreement step. That suits **C3Caller** cross-chain signatures, where security comes from many **independent** nodes holding shares and signing together, without knowledge of the full Private Key — not from a human Accept click on every message.
 
 (2) Multi-sign client auth
 
@@ -95,6 +95,7 @@ If the Group later wants to leave MPC for this key and hold a normal private key
 - [Groups](/ContinuumDAO/MPCSigner/Groups.md)
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — 2/2 vs cross-chain roles
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
 - [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) — tx-check KeyGens for C3Caller

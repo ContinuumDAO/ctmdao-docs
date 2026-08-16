@@ -4,7 +4,7 @@ An MPA **KeyGen** is an MPC wallet: each Group node holds only a **share**. Ther
 
 <img src="/_media/EjectKeyGen.png"  alt=""/>
 
-**Eject** is a threshold-governed conversion: enough nodes in the KeyGen (the same TSS quorum as multi-sign — **threshold** Accepts) agree to reconstruct the full private key, verify it against the KeyGen’s public address, then **retire MPC** for that key. Afterward the Group can treat it as a normal wallet and import the key into a browser wallet such as **MetaMask**.
+**Eject** is a threshold-governed conversion: enough nodes in the KeyGen (the same TSS quorum as [multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) — **threshold** Accepts) agree to reconstruct the full private key, verify it against the KeyGen’s public address, then **retire MPC** for that key. Afterward the Group can treat it as a normal wallet and import the key into a browser wallet such as **MetaMask**.
 
 This is optional and irreversible for that KeyGen’s MPC life. Use it when you want to leave shared MPC control (for example consolidate to one hot wallet, migrate, or wind down the Group’s MPC use of that address).
 
@@ -45,6 +45,7 @@ For **Ethereum / MetaMask**: use the exported **Ethereum private key** (64 hex, 
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) — creating multi-agree keys and thresholds
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)

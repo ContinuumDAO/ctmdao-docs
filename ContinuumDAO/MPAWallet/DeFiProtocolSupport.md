@@ -2,7 +2,7 @@
 
 MPA wallet can interact with selected web3 / DeFi protocols **directly** — through the **node app** multi-sign UI and through the built-in **AI agent** (continuum MCP: load a protocol pack, then use that protocol’s tools).
 
-On-chain actions still go through your Group’s **MPC KeyGen** and multi-agree threshold. ContinuumDAO does not hold keys or custody funds. Configuring the [AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) is optional; protocol flows in the node app work without an agent.
+On-chain actions still go through your Group’s **MPC KeyGen** and multi-agree threshold — the same [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) as manual transfers (Join → Execute → History). Protocol builds can set Purpose text, response time limits, and batched multi-transaction requests. ContinuumDAO does not hold keys or custody funds. Configuring the [AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) is optional; protocol flows in the node app work without an agent.
 
 Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP servers) are **not** listed below — those are chart / price sources, not execution protocols.
 
@@ -33,6 +33,7 @@ Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP s
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)

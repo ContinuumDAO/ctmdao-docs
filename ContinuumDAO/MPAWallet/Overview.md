@@ -1,11 +1,11 @@
 
 ## An Overview of the Multi-party Agent Wallet
 
-[The MPA wallet](https://mpa.continuumdao.org) is an **AI-first** wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built-in **AI agent harness** — the natural way to propose trades, run analysis, and drive DeFi flows — while a **rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) gives you **full manual control** without an agent: Groups, KeyGens, multi-sign, DeFi protocol actions, charts, and node management in one interface. There is **no full on-chain private key** on any machine — only threshold shares — until a Group deliberately [ejects](/ContinuumDAO/MPAWallet/EjectConversion.md) a KeyGen.
+[The MPA wallet](https://mpa.continuumdao.org) is an **AI-first** wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built-in **AI agent harness** — the natural way to propose trades, run analysis, and drive DeFi flows — while a **rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) gives you **full manual control** without an agent: Groups, KeyGens, [multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md), DeFi protocol actions, charts, and node management in one interface. There is **no full on-chain private key** on any machine — only threshold shares — until a Group deliberately [ejects](/ContinuumDAO/MPAWallet/EjectConversion.md) a KeyGen.
 
 ContinuumDAO's MPA wallet is **fully decentralized**: unlike many MPC wallets that store key shares in vendor-controlled **databases**, custody lives **only on nodes you deploy**. There is no custodial recovery service and no ContinuumDAO-held backup of your shares. You choose the Group size and TSS threshold yourself.
 
-Unlike a **multi-sig** wallet, agreement and MPC signing happen **off-chain** among your nodes. What lands on the blockchain is a normal single signature from the shared public key — not a trail of who proposed, who Accepted, or who Rejected. There is **no on-chain record** of the encrypted communications between nodes, or of which nodes signed in reaching agreement or rejection of any proposition. That preserves privacy for the Group’s decision process; only the resulting transaction (if any) is public.
+Unlike a **multi-sig** wallet, agreement and MPC signing happen **off-chain** among your nodes through the [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). What lands on the blockchain is a normal single signature from the shared public key — not a trail of who proposed, who Accepted, or who Rejected. There is **no on-chain record** of the encrypted communications between nodes, or of which nodes signed in reaching agreement or rejection of any proposition. That preserves privacy for the Group’s decision process; only the resulting transaction (if any) is public.
 
 ### Why create an MPA wallet (two roles)
 
@@ -17,8 +17,8 @@ Use MPC for **fully decentralized self-custody** of **Bitcoin** (SegWit and Tapr
 
 - **Loss safeguard** — extra nodes (and a suitable threshold) so one lost party, offline machine, or death does not strand the wallet forever; relatives or friends can hold shares as co-custodians.
 - **No hardware-wallet vendor dependency** — no recovery tied to email addresses, home addresses, or a single manufacturer’s cloud.
-- **Human-in-the-loop circuit breaker against unauthorized AI spends** — typically a simple **2/2** setup: one node runs (or is driven by) an AI agent; another node you control must **Accept** before a signature can complete.
-- **Direct web3 protocol access** — the node app and optional AI agent connect **directly** to major DeFi protocols (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading** — swaps, lending, staking, perps, and bridges — always through your MPC KeyGen and threshold Accepts. Full list: [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+- **Human-in-the-loop circuit breaker against unauthorized AI spends** — typically a simple **2/2** setup: one node runs (or is driven by) an AI agent; another node you control must **Accept** on the **Join** tab before a signature can complete. See [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+- **Direct web3 protocol access** — the node app and optional AI agent connect **directly** to major DeFi protocols (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading** — swaps, lending, staking, perps, and bridges — always through your MPC KeyGen and the same [Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). Full list: [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
 
 You can also run larger personal or committee Groups (DAO treasury, investment club, family) with higher thresholds. The **simplest** useful configuration for someone who wants to control their own AI agent is **2/2**.
 
@@ -36,7 +36,7 @@ Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map *
 
 ### Using the wallet — AI-first, rich frontend always
 
-The MPA wallet is **AI-first by design**: the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md) is the recommended path for market analysis, trade ideas, and protocol workflows — with your threshold still bounding every signature. **You do not need the agent to use the wallet.** The **rich frontend** (hosted at [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app on your machine) is a **complete wallet UI**: create Groups and KeyGens, review and **Accept** or **Reject** pending transactions, compose DeFi actions by hand, manage backups, and operate every custody feature without enabling AI.
+The MPA wallet is **AI-first by design**: the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md) is the recommended path for market analysis, trade ideas, and protocol workflows — with your threshold still bounding every signature. **You do not need the agent to use the wallet.** The **rich frontend** (hosted at [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app on your machine) is a **complete wallet UI**: create Groups and KeyGens, review and **Accept** or **Reject** pending transactions on the **Join** tab, complete MPC signing and broadcast on **Execute**, audit rounds on **History**, compose DeFi actions by hand, manage backups, and operate every custody feature without enabling AI. Flow details: [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 Most users will want both — agent-assisted flows plus the frontend as human circuit breaker and manual override. Configuring the harness is **optional** — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 
@@ -66,7 +66,7 @@ The MPA wallet is designed so that **custody stays in your hands**, not on Conti
 
 ### Management signing and devices
 
-When you attach to a node, you **management-sign** sensitive actions: Accept/Reject on multi-sign, KeyGen flows, bootstrap and database backup operations, and other node API calls (MetaMask **EIP-191** or **Ed25519** — see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
+When you attach to a node, you **management-sign** sensitive actions: [Accept/Reject on multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md), KeyGen flows, bootstrap and database backup operations, and other node API calls (MetaMask **EIP-191** or **Ed25519** — see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
 
 - **Prefer a device not used for general internet use** — a machine you do not browse, email, or install casual software on reduces exposure to malware, malicious extensions, and phishing on the device that authorizes node control.
 - **Strongest setup: one dedicated device per node** — attach and sign management requests for each node from **separate** hardware (or at least separate user accounts and browsers with no shared daily-use profile). If one everyday laptop is compromised, the others in your Group should not be trivially reachable from the same environment.
@@ -86,7 +86,7 @@ MPA wallet access can be paid via a **monthly subscription**, or — for node op
 ### Related
 
 - [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
-
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)

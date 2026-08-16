@@ -1,6 +1,6 @@
 ## Configure the AI harness
 
-This checklist is **optional**. You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi-sign) without an AI agent. The MPA wallet is **AI-first**, though, so most users will want to complete these steps once a KeyGen exists.
+This checklist is **optional**. You can run an MPA wallet entirely from the node app (Groups, KeyGens, [multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)) without an AI agent. The MPA wallet is **AI-first**, though, so most users will want to complete these steps once a KeyGen exists.
 
 Use this flow **after** you have Configured Nodes, a Group, and at least one **multi-agree** KeyGen. The simplest AI setup is **2/2** (AI-assisted node + human Accept node). See [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) and [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) if you are not there yet.
 
@@ -58,6 +58,7 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)

@@ -2,7 +2,7 @@
 
 The built-in AI agent (Agent chat and Telegram, if configured) needs an **Ed25519 management key** to call your node’s API. The **default signer** (also called **preferred signer** in the UI) is which allowed management key it uses.
 
-This is **not** the shared MPC wallet key. On-chain control still uses MPC — the node never holds the full on-chain private key. In a typical **2/2** AI setup, the agent’s management signer lives on the AI node; your human circuit-breaker node still must **Accept** the multi-sign before funds move.
+This is **not** the shared MPC wallet key. On-chain control still uses MPC — the node never holds the full on-chain private key. In a typical **2/2** AI setup, the agent’s management signer lives on the AI node; your human circuit-breaker node still must **Accept** the multi-sign on **Join** before funds move. Flow: [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 ### What “default signer” means
 
@@ -49,6 +49,7 @@ If you remove an added key that was preferred, pick another preferred key before
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)

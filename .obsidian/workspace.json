@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Governance/CreatingProposal.md",
+                "file": "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CreatingProposal"
+              "title": "MPCAcceptRejectLoop"
             }
           }
         ]
@@ -173,6 +173,17 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/mpc-accept-reject-execute-tab.png",
+    "_media/Screenshot from 2026-08-16 12-58-51.png",
+    "_media/mpc-accept-reject-join-non-originator.png",
+    "_media/Screenshot from 2026-08-16 12-52-30.png",
+    "_media/mpc-accept-reject-join-originator.png",
+    "_media/Screenshot from 2026-08-16 12-29-01.png",
+    "ContinuumDAO/MPAWallet/Overview.md",
+    "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
+    "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
+    "ContinuumDAO/Governance/CreatingProposal.md",
+    "scripts/README.md",
     "scripts/before-git-push.sh",
     "search-index.json",
     "package.json",
@@ -183,7 +194,6 @@
     "_media/governance-proposal-config-bravo.png",
     "_media/Screenshot from 2026-08-15 18-51-17.png",
     "_media/governance-proposal-type.png",
-    "_media/Screenshot from 2026-08-15 18-47-02.png",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/C3Caller/ContractAddresses.md",
@@ -193,12 +203,7 @@
     "ContinuumDAO/MPC/BetterSecurity.md",
     "ContinuumDAO/MPC/StrongerSecurity.md",
     "ContinuumDAO/MPAWallet/AttachYourNode.md",
-    "_media/attach-option-ssh-tunnel.png",
-    "_media/Screenshot from 2026-08-15 16-32-08.png",
-    "_media/attach-option-node-hosted-local.png",
-    "_media/Screenshot from 2026-08-15 16-28-33.png",
     "ContinuumDAO/MPCSigner/KeyGens.md",
-    "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/MPCSigner/Groups.md",
     "ContinuumDAO/MPAWallet/Install.md",
     "ContinuumDAO/MPAWallet/AICharting.md",
@@ -209,17 +214,12 @@
     "ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
     "_sidebar.md",
     "ContinuumDAO/MPAWallet/TradeIdeas.md",
-    "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
-    "ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
-    "ContinuumDAO/MPCSigner/CreateMPCSigner.md",
-    "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
     "ContinuumDAO/MPAWallet/AIHarness",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",
     "_media/docker-compose_server.yml",
     "ContinuumDAO/RunningInstructions",
     "ContinuumDAO/MPC",
-    "_media/lu4834716po3y.tmp",
-    "_media/lu4834716po11.tmp"
+    "_media/lu4834716po3y.tmp"
   ]
 }

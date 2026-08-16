@@ -2,7 +2,7 @@
 
 Open [mpa.continuumdao.org](https://mpa.continuumdao.org). Your browser talks to **your** node — ContinuumDAO does not relay day-to-day control traffic.
 
-For **management signing** (Accept/Reject, backups, KeyGen actions), prefer devices **not used for everyday browsing**; the most secure pattern is a **separate dedicated device per node**. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
+For **management signing** ([Accept/Reject on multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md), backups, KeyGen actions), prefer devices **not used for everyday browsing**; the most secure pattern is a **separate dedicated device per node**. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 
 On the hosted app you choose how to reach your node. In **geo-restricted** jurisdictions only the two **Node hosted app** options are shown (no Browser HTTPS), since ContinuumDAO cannot offer you a service, but instead you must run an app that you have downloaded. The app that ContinuumDAO offers as a service is identical to the app that you can download and run on your node yourself. All three options ensure private encrypted traffic to your node.
 
@@ -64,6 +64,7 @@ If Browser HTTPS is hidden for your region, choose **Node hosted app (local PC)*
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md)

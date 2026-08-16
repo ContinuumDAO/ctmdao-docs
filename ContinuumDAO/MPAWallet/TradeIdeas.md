@@ -17,7 +17,7 @@ PRIMARY ideas are tied to the analysis that produced them (trend structure, Fib 
 1. Choose a trade idea (**Build #N**, or ask the agent to build a specific idea).
 2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)).
 3. The agent builds a **multi-sign request** (management-signed by your node’s default Ed25519 signer) for your preferred KeyGen.
-4. Other nodes in the KeyGen **Accept** or **Reject** as usual. Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
+4. Other nodes in the KeyGen **Accept** or **Reject** as usual on the **Join** tab (Purpose, Thoughts, time limits, **Execute**, and **History** — see [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)). Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
 
 You can still compose trades by hand in the node app; trade ideas are the AI-assisted path from chart → levels → proposal.
 
@@ -33,11 +33,93 @@ On each run the agent can:
 
 That lets the wallet watch markets periodically without you sitting in chat, while humans (or other nodes) still control Accept / Reject on real trades — the MPC threshold is the circuit breaker against unauthorized AI spends. Cron setup: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) (optional Cron tab) and the AI Agent Cron UI.
 
+### Default settings
+
+When you pick a trade idea (**Build #N**), the node pre-fills the Build Trade form from two related sources:
+
+| File | Type | Role |
+|------|------|------|
+| **`trade-desk.yaml`** | Machine-readable YAML | Numeric defaults on a **deterministic fast path** — entry/stop offsets, proximity, per-protocol sizing, bracket TP/SL, and when to skip the fast path (`llmFallback`). |
+| **`trade-defaults`** skill (`Skills/trade-defaults/SKILL.md`) | Agent skill (policy prose) | Rules the LLM follows when the fast path **cannot** decide — break+retest alternates, Donchian / Supertrend primary vs nested alternate, unclear ideas with a clear alternate, discretionary purpose text, and per-protocol build policies. |
+
+**Where to edit:** **Node → AI Agent → Skills** — **Trade desk** for `trade-desk.yaml`, or the bundled **`trade-defaults`** skill. Runtime file: `agent_llm_config/trade-desk.yaml`. Cron jobs can also override build fields in a fenced **`tradeBuild`** YAML block inside a scheduled job message.
+
+**How they work together:** the node loads `trade-desk.yaml` first. If the idea is **clear** and no LLM-fallback rule matches, desk numbers prefill the form instantly — no extra LLM turn. Otherwise the **`trade-defaults`** skill guides the agent (for example choosing **`kl-ret`** break+retest over a bounce, or picking Donchian **`dc-ret`** vs **`dc-brk`**). Repeatable numbers stay in the YAML; discretionary policy stays in the skill.
+
+Analysis-time indicator periods and clear/unclear gates in the same YAML file are documented under [Technical analysis — Default settings](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md#default-settings).
+
+#### Build prefill (`trade-desk.yaml`)
+
+Universal build fields under `universal:`:
+
+| Setting | What it controls |
+|---------|------------------|
+| `entryOffsetPct` | Resting limit band beyond the analysis entry (always a **price %**). |
+| `invalidationOffsetPct` / `invalidationOffsetMode` | Stop / pattern-failure band beyond invalidation (`price` or `atr`). |
+| `entryProximityMode` / `entryProximityPct` | Same proximity gate as analysis — also checked at build on spot venues. |
+| `minTradeRatio` | Minimum reward/risk for a clear idea (default **3**). |
+| `assumedLeverage` | Isolated leverage for perp liquidation estimates (default **10**). |
+| `autoSubmitMultisign` | Allow cron/automation to submit without operator review (default **false**). |
+
+Protocol blocks under `protocols:` (`hyperliquid`, `arcus`, `gmx`, `uniswap`) set default sizing, time-in-force, collateral, and Hyperliquid/Arcus bracket TP offsets (`targetOffsetPct`, `targetOffsetMode`, `tpslExecMode`). Optional `purposeSuffix` per analysis kind appends to multisign Purpose text.
+
+**`llmFallback:`** skips the fast path and loads **`trade-defaults`** — for example when `status` is **unclear**, when a clear break+retest alternate exists, or always for setup code **`kl-ret`**.
+
+#### Skill policy (`trade-defaults`)
+
+| Analysis kind | What the skill decides |
+|---------------|------------------------|
+| **Trend structure** | Always **retest** entry mode; default TP = impulse measured move (`takeProfitSource: impulse_leg`). |
+| **Elliott Wave** | Wave menu selection; corrective counts stay unclear. |
+| **Key levels** | Primary bounce/rejection vs nested **`kl-ret`** break+retest alternate. |
+| **Key level Fibonacci** | Inside-range 0.618 fade only; bracket leg quoting. |
+| **Momentum / candlestick / divergence** | Cron confirmation alongside structural primaries; divergence uses setup code **`div`**. |
+| **Bollinger / Donchian / Supertrend / Ichimoku / Z-score / MAs** | Primary vs nested alternate setups (`bb-fade`, `dc-ret`/`dc-brk`, `st-flip`/`st-ret`, `ichi-tk`/`ichi-cloud`, `zs-fade`, `ma-cross`/`ma-ret`). |
+| **Classic chart patterns** | Bounce vs retest from pattern geometry; Purpose uses compact `ctm1` pipe meta. |
+
+Purpose text for multisign uses a compact `ctm1` prefix (protocol, side, setup code, effective entry/stop prices) so cron and peer nodes can scan side, setup code, and pattern-failure levels.
+
+#### Examples
+
+**Default build offsets (1% entry and stop bands):**
+
+```yaml
+universal:
+  entryOffsetPct: 1
+  invalidationOffsetMode: price
+  invalidationOffsetPct: 1
+```
+
+**Hyperliquid — conservative take-profit inside the analysis target:**
+
+```yaml
+protocols:
+  hyperliquid:
+    targetOffsetMode: price
+    targetOffsetPct: 0.1           # TP slightly inside full target (long: below; short: above)
+    tpslExecMode: limit_at_trigger
+    sizing:
+      mode: marginPct
+      marginPct: 10
+```
+
+**Disable LLM fallback for unclear ideas (fast path only when status is clear):**
+
+```yaml
+llmFallback:
+  whenStatusUnclear: false
+  whenBreakRetestAlternateEligible: false
+  setupPurposeCodes: []
+```
+
+When the fast path does not apply, **`trade-defaults`** still decides — for example switching from an unclear **`kl-bnc`** bounce to a clear nested **`kl-ret`** break+retest.
+
 ### Related
 
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — 2/2 human-in-the-loop Accept
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)

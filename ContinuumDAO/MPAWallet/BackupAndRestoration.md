@@ -65,7 +65,7 @@ Use this when the machine is gone or you want the same identity on a new host / 
 The node database holds confidential local state for this operator, including (among other things):
 
 - Groups and KeyGen participation / local share material as stored on this node  
-- Transaction / multi-sign history visible to this node  
+- Transaction / [multi-sign history](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md#history--audit-on-each-node) visible to this node  
 - Contacts / known addresses  
 - Chain, token, and related wallet configuration  
 
@@ -122,6 +122,7 @@ Again: compromising this recovery bundle is serious for **your node’s privacy 
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — TSS roles and spare nodes

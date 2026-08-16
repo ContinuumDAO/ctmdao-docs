@@ -31,7 +31,7 @@ The built-in **continuum** MCP server exposes wallet and node tools: groups, Key
 
 #### Built-in DeFi / web3 protocols
 
-Protocol interactions (swaps, lending, perps, bridges, and similar) run through the node’s DeFi / MCP stack — still under your Group’s MPC threshold for on-chain signing. Full list, capabilities, and KYC / API-key requirements: [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+Protocol interactions (swaps, lending, perps, bridges, and similar) run through the node’s DeFi / MCP stack — still under your Group’s MPC threshold for on-chain signing via the [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). Full list, capabilities, and KYC / API-key requirements: [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
 
 #### Charting and technical analysis
 
@@ -57,10 +57,11 @@ Inbound HTTP hooks wake the same agent. Telegram is the usual phone path — see
 
 - **Management actions** (calling the node API) use the node’s [default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
 - **On-chain control** still uses **MPC**. The node never holds the full wallet private key — only threshold shares.
-- **Human-in-the-loop circuit breaker** — in the usual personal setup, pair an AI-assisted node with a second node you control under **2/2** multi-agree TSS so the agent can propose trades but cannot complete a signature alone. Larger Groups use higher thresholds for shared custody. See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md).
+- **Human-in-the-loop circuit breaker** — in the usual personal setup, pair an AI-assisted node with a second node you control under **2/2** multi-agree TSS so the agent can propose trades but cannot complete a signature alone. Larger Groups use higher thresholds for shared custody. See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) and [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 ### Related
 
+- [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
