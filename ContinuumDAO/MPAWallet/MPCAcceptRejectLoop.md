@@ -55,7 +55,9 @@ After MPC produces valid signature(s) using the participating KeyGen nodes, the 
 
 <img src="/_media/mpc-execute-result.png" alt="" />
 
-Note that this ERC20 transfer could have been done in the AI agent chat e.g. the originator says "Send John 0.1 USDC on Linea using the custom gas and with the Purpose text 'Test transfer beore sending monthly revenue to the staker'" and then on a non-roginator node "What sign requests are pending?" and when the AI agent shows this pending sign request "Accept the sign request with the Thoughts text  'Yes, go ahead'" 
+### AI agent flow
+
+Note that this ERC20 transfer could have been done in the AI agent chat (in the node app, or in the Telegram bot) e.g. the originator says "Send John 0.1 USDC on Linea using the custom gas and with the Purpose text 'Test transfer before sending monthly revenue to the staker'" and then on a non-orginator node "What sign requests are pending?" and when the AI agent shows this pending sign request "Accept the sign request with the Thoughts text  'Yes, go ahead'". The originator then asks "What sign requests are ready to sign?". The originator than says "Go ahead and get signatures and execute" when the AI agent has identified the sign request that has passed the threshold. The AI agent on the originator node could also have had a live *auto-sign-and-broadcast* cron job and the other nodes could have had a live *auto-accept-sign-request* , or *conditional-accept-sign-request* cron job and then everything would have happened automatically after the originator's sign request was created.
 
 ### History — audit on each node
 
