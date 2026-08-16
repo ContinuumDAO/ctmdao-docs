@@ -51,7 +51,11 @@ The originator can then:
 
 <img src="/_media/mpc-accept-reject-execute-tab.png" alt="" />
 
-After MPC produces valid signature(s) using the participating KeyGen nodes, the **Execute** (broadcast) control becomes available. The originator submits the signed transaction(s) to the chain. What appears on-chain is a normal single-party signature from the shared KeyGen address — not an on-chain list of who Accepted (see [Overview](/ContinuumDAO/MPAWallet/Overview.md)). Note that this ERC20 transfer could have been done in the AI agent chat e.g. the originator says "Send John 0.1 USDC on Linea using the custom gas and with the Purpose text 'Test transfer beore sending monthly revenue to the staker'" and then on a non-roginator node "What sign requests are pending?" and when the AI agent shows this pending sign request "Accept the sign request with the Thoughts text  'Yes, go ahead'" 
+After MPC produces valid signature(s) using the participating KeyGen nodes, the **Execute** (broadcast) control becomes available. The originator submits the signed transaction(s) to the chain. What appears on-chain is a normal single-party signature from the shared KeyGen address — not an on-chain list of who Accepted (see [Overview](/ContinuumDAO/MPAWallet/Overview.md)). The block explorer link is immediately available and also can be found in the History tab for this finished sign request.
+
+<img src="/_media/mpc-execute-result.png" alt="" />
+
+Note that this ERC20 transfer could have been done in the AI agent chat e.g. the originator says "Send John 0.1 USDC on Linea using the custom gas and with the Purpose text 'Test transfer beore sending monthly revenue to the staker'" and then on a non-roginator node "What sign requests are pending?" and when the AI agent shows this pending sign request "Accept the sign request with the Thoughts text  'Yes, go ahead'" 
 
 ### History — audit on each node
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-16T11:11:52.271Z",
+  "generatedAt": "2026-08-16T12:01:48.777Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1489,7 +1489,7 @@
           "id": "join-threshold-accept-reject",
           "title": "Join — threshold Accept / Reject",
           "level": 3,
-          "excerpt": "Open the Join tab on any node in the KeyGen. Pending multi sign requests appear there for both the originator and non originator nodes. Non originator nodes see the proposed transaction(s), the Purpose text, any Custom Chain config , and enough detail to decide (for a simple ERC20 transfer: token, r"
+          "excerpt": "Open the Join tab on any node in the KeyGen. Pending multi sign requests appear there for both the originator and non originator nodes. The originator see the Join request that they created in their own Join tab. In this example, they created an ERC20 transfer sign request of some USDC, which is mar"
         },
         {
           "id": "execute-mpc-signing-and-broadcast",
