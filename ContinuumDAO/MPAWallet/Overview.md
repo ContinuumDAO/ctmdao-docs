@@ -36,7 +36,7 @@ Install a node: [Install a node](/ContinuumDAO/MPAWallet/Install.md) (node-map *
 
 ### Using the wallet — AI-first, rich frontend always
 
-The MPA wallet is **AI-first by design**: the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md) is the recommended path for market analysis, trade ideas, and protocol workflows — with your threshold still bounding every signature. **You do not need the agent to use the wallet.** The **rich frontend** (hosted at [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app on your machine) is a **complete wallet UI**: create Groups and KeyGens, review and **Accept** or **Reject** pending transactions on the **Join** tab, complete MPC signing and broadcast on **Execute**, audit rounds on **History**, compose DeFi actions by hand, manage backups, and operate every custody feature without enabling AI. Flow details: [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+The MPA wallet is **AI-first by design**: the built-in [AI agent harness](/ContinuumDAO/MPAWallet/AIHarness/Overview.md) is the recommended path for market analysis, trade ideas, and protocol workflows — with your threshold still bounding every signature. **You do not need the agent to use the wallet.** The **rich frontend** (hosted at [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app on your machine) is a **complete wallet UI**: create Groups and KeyGens, review and **Accept** or **Reject** pending transactions on the **Join** tab, complete MPC signing and broadcast on **Execute**, audit rounds on **History**, build sign requests via [Compose](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) or [DeFi protocol](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) UIs, manage backups, and operate every custody feature without enabling AI. Flow details: [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 Most users will want both — agent-assisted flows plus the frontend as human circuit breaker and manual override. Configuring the harness is **optional** — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 
@@ -87,6 +87,7 @@ MPA wallet access can be paid via a **monthly subscription**, or — for node op
 
 - [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
+- [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)

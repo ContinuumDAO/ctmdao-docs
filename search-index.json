@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-16T12:32:37.463Z",
+  "generatedAt": "2026-08-16T13:23:57.357Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1185,6 +1185,87 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/ComposeTransactionFlow",
+      "title": "Compose transaction flow",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Compose transaction flow",
+        "Select KeyGen and chain",
+        "Add one or more transaction steps",
+        "Edit and cycle through steps",
+        "Validate and Simulate",
+        "Submit — OK creates the multi-sign request",
+        "Bump / remove — mempool transactions",
+        "Bump",
+        "Remove",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "compose-transaction-flow",
+          "title": "Compose transaction flow",
+          "level": 2,
+          "excerpt": "This page documents the manual Compose UI in the node app — one way to build a multi sign request before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Compose UI (this page) Hand built transfers, "
+        },
+        {
+          "id": "select-keygen-and-chain",
+          "title": "Select KeyGen and chain",
+          "level": 3,
+          "excerpt": "1. Choose the KeyGen that will sign (must be multi agree for MPA custody). 2. Choose the blockchain (network) for this request. 3. Optionally set Purpose text and Custom Chain config (gas profile, RPC gateway, gas multiplier) — peers see these on Join ; see Creating a multi sign request."
+        },
+        {
+          "id": "add-one-or-more-transaction-steps",
+          "title": "Add one or more transaction steps",
+          "level": 3,
+          "excerpt": "Each step is one transaction (one signature) in the eventual batch. Single step — the simplest case is an ERC20 transfer : token contract, recipient, amount. That is the same example used in Join — threshold Accept / Reject and Execute — MPC signing and broadcast. Multiple steps — add further steps "
+        },
+        {
+          "id": "edit-and-cycle-through-steps",
+          "title": "Edit and cycle through steps",
+          "level": 3,
+          "excerpt": "The compose screen lists every step in the batch. Select a step to edit its fields (contract, method, parameters, value, gas hints for that step). Cycle through steps with previous/next controls so you can review each transaction before submitting. Fix errors on any step before Validate — later step"
+        },
+        {
+          "id": "validate-and-simulate",
+          "title": "Validate and Simulate",
+          "level": 3,
+          "excerpt": "Before OK creates the multi sign request, run checks on the current step or on the whole batch (as the UI offers): Action What it does Validate Local and node side checks without broadcasting: required fields present, addresses and amounts well formed, KeyGen type matches the chain, nonce sequence c"
+        },
+        {
+          "id": "submit-ok-creates-the-multi-sign-request",
+          "title": "Submit — OK creates the multi-sign request",
+          "level": 3,
+          "excerpt": "When every step looks correct, confirm OK (or Create sign request ). The originator management signs the submission. The node creates the multi sign request and publishes it to the KeyGen. From here the flow continues on Join: non originator nodes Accept or Reject the whole batch, then the originato"
+        },
+        {
+          "id": "bump-remove-mempool-transactions",
+          "title": "Bump / remove — mempool transactions",
+          "level": 3,
+          "excerpt": "Separate from composing a new sign request, the node app supports bump and remove for transactions this KeyGen has already signed and broadcast that are still pending in the mempool (not yet mined). These actions apply to an existing outbound tx (by hash or from History / pending list), not to a dra"
+        },
+        {
+          "id": "bump",
+          "title": "Bump",
+          "level": 4,
+          "excerpt": "Bump replaces a stuck or slow pending transaction with a replacement transaction: Same nonce as the pending tx (required for replacement on EVM chains). Higher max fee / priority fee (or equivalent) so miners or the sequencer pick it up sooner. Same intent in most cases (same recipient and value, or"
+        },
+        {
+          "id": "remove",
+          "title": "Remove",
+          "level": 4,
+          "excerpt": "Remove tries to drop or cancel a pending transaction still in the mempool: On EVM chains this is usually a cancel replacement: same nonce, zero value self transfer or empty call to yourself, with fees high enough to outbid the pending tx. If the original tx confirms first, remove/cancel is no longer"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "MPC Accept/Reject loop DeFi protocol support KeyGens Overview Default Ed25519 signer"
+        }
+      ],
+      "excerpt": "This page documents the manual Compose UI in the node app — one way to build a multi sign request before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Compose UI (this page) Hand built transfers, ",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ComposeTransactionFlow"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/DeFiProtocolSupport",
       "title": "DeFi protocol support",
       "section": "Using an MPA wallet",
@@ -1217,7 +1298,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop Overview Install a node AI harness overview Configure the AI harness Trade ideas KeyGens"
+          "excerpt": "MPC Accept/Reject loop Compose transaction flow Overview Install a node AI harness overview Configure the AI harness Trade ideas KeyGens"
         }
       ],
       "excerpt": "MPA wallet can interact with selected web3 / DeFi protocols directly — through the node app multi sign UI and through the built in AI agent (continuum MCP: load a protocol pack, then use that protocol’s tools). On chain actions still go through your Group’s MPC KeyGen and multi agree threshold — the",
@@ -1484,7 +1565,7 @@
           "id": "creating-a-multi-sign-request",
           "title": "Creating a multi-sign request",
           "level": 3,
-          "excerpt": "The originator is whichever node (or attached user / AI agent on that node) creates the sign request — for example you composing a transfer in the node app, or an agent building a trade from a trade idea. When creating the request, the originator can: Purpose text — free form context for the other n"
+          "excerpt": "The originator is whichever node (or attached user / AI agent on that node) creates the sign request. A request may contain one transaction or a batched set of steps; peers always Accept/Reject the whole proposal on Join (see Batching multiple signatures). Ways to create a request (all enter the sam"
         },
         {
           "id": "join-threshold-accept-reject",
@@ -1514,13 +1595,13 @@
           "id": "batching-multiple-signatures",
           "title": "Batching multiple signatures",
           "level": 3,
-          "excerpt": "Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be batched into a single multi sign request . The Group treats the batch as one proposal in the Accept/Reject loop — peers cannot Accept some items and Reject others: Join — peers review the whole batch once. "
+          "excerpt": "Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be batched into a single multi sign request . Batches are not limited to the Compose UI — DeFi protocol actions and (when documented) Foundry script automation often create batched requests too. The Group trea"
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Overview KeyGens DeFi protocol support Trade ideas Default Ed25519 signer Eject to Private Key"
+          "excerpt": "Compose transaction flow Overview KeyGens DeFi protocol support Trade ideas Default Ed25519 signer Eject to Private Key"
         }
       ],
       "excerpt": "Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator ) proposes one or more transactions; the other KeyGen nodes Accept or Reject until the KeyGen threshold is met or the round times out. Only then does the originator run MPC signing ",
@@ -1594,7 +1675,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Attach your node MPC Accept/Reject loop Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
+          "excerpt": "Attach your node MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
         }
       ],
       "excerpt": "The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built in AI agent harness — the natural way to propose trades, run analysis, and drive DeFi flows — while a rich frontend (mpa.continuumdao.",

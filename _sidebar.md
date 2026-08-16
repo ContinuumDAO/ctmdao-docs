@@ -21,6 +21,7 @@
   * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
   * [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
+  * [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
   * [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
   * [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
   * [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)

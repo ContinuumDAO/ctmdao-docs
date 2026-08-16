@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
+                "file": "ContinuumDAO/MPAWallet/ComposeTransactionFlow.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MPCAcceptRejectLoop"
+              "title": "ComposeTransactionFlow"
             }
           }
         ]
@@ -173,6 +173,10 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/mpc-compose-transaction-flow.png",
+    "_media/Screenshot from 2026-08-16 15-03-14.png",
+    "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
+    "ContinuumDAO/MPAWallet/ComposeTransactionFlow.md",
     "_media/mpc-execute-result.png",
     "_media/Screenshot from 2026-08-16 13-06-33.png",
     "_media/mpc-accept-reject-execute-tab.png",
@@ -182,7 +186,6 @@
     "_media/mpc-accept-reject-join-originator.png",
     "_media/Screenshot from 2026-08-16 12-29-01.png",
     "ContinuumDAO/MPAWallet/Overview.md",
-    "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
     "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
     "ContinuumDAO/Governance/CreatingProposal.md",
     "scripts/README.md",
@@ -192,8 +195,6 @@
     "scripts/build-search-index.mjs",
     "scripts",
     "_media/governance-proposal-config-delta.png",
-    "_media/Screenshot from 2026-08-15 18-55-38.png",
-    "_media/governance-proposal-config-bravo.png",
     "ContinuumDAO/Governance/HowToWriteAProposal.md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/C3Caller/ContractAddresses.md",
@@ -213,7 +214,6 @@
     "ContinuumDAO/MPAWallet/AIHarness/Configure.md",
     "ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
     "_sidebar.md",
-    "ContinuumDAO/MPAWallet/TradeIdeas.md",
     "ContinuumDAO/MPAWallet/AIHarness",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas",

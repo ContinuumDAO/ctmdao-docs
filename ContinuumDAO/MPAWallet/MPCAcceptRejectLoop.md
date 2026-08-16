@@ -6,9 +6,18 @@ This is the normal custody path for manual actions in the node app, agent-built 
 
 ### Creating a multi-sign request
 
-The originator is whichever node (or attached user / AI agent on that node) creates the sign request — for example you composing a transfer in the node app, or an agent building a trade from a [trade idea](/ContinuumDAO/MPAWallet/TradeIdeas.md).
+The **originator** is whichever node (or attached user / AI agent on that node) creates the sign request. A request may contain **one transaction or a batched set** of steps; peers always Accept/Reject the **whole** proposal on **Join** (see [Batching multiple signatures](#batching-multiple-signatures)).
 
-When creating the request, the originator can:
+**Ways to create a request** (all enter the same loop after creation):
+
+| Path | Details |
+|------|---------|
+| **[Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)** | Manual node-app UI: pick KeyGen and chain, add/edit steps, Validate/Simulate, then OK |
+| **[DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)** | Protocol UI or agent MCP builds the unsigned transaction(s) — often a multi-step batch (approve + swap, bridge legs, and similar) |
+| **[Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md) / AI agent** | Agent proposes or builds from chart analysis, cron, or chat |
+| **Foundry script automation** | Scripts submit batches via the node API — *documentation forthcoming* |
+
+Regardless of path, the originator can usually attach:
 
 - **Purpose text** — free-form context for the other nodes (human-readable summary, trade rationale, protocol action name, cron job id, and so on). Peers read this on the **Join** tab before Accepting or Rejecting.
 - **Custom Chain config (optional)** — instead of the node’s default chain settings, the originator can attach per-request RPC / gas overrides. Example fields:
@@ -65,16 +74,17 @@ Whatever happens to a multi-sign request — pending on **Join**, approved then 
 
 ### Batching multiple signatures
 
-Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be **batched into a single multi-sign request**. The Group treats the batch as **one** proposal in the Accept/Reject loop — peers cannot Accept some items and Reject others:
+Several distinct signatures (multiple transactions, or multiple steps in one workflow) can be **batched into a single multi-sign request**. Batches are **not** limited to the Compose UI — [DeFi protocol](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) actions and (when documented) **Foundry script** automation often create batched requests too. The Group treats every batch as **one** proposal in the Accept/Reject loop — peers cannot Accept some items and Reject others:
 
 - **Join** — peers review the **whole batch** once. Each node casts **one** Accept or **one** Reject (with optional Thoughts) for the entire batch. There is no per-transaction vote inside a batch.
 - **Threshold** — the same KeyGen **threshold** applies to the batch as a unit. Partial agreement across items is not supported: either the batch passes or it does not.
 - **Execute** — after approval, MPC signing runs for **all** items in the batch. The originator may then **broadcast the entire batch as one** — not a subset. You cannot shelve, sign, or execute individual transactions from an approved batch while leaving the rest behind; the batch moves through Get Sigs and Execute together.
 
-Batching is useful when a DeFi action or agent workflow needs several chained transactions (approve + swap, bridge steps, collateral + borrow, and similar) while keeping one human or committee decision — and one atomic execution step — for the entire operation.
+Batching is useful when a DeFi action, [Compose](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) workflow, or agent/Foundry script needs several chained transactions (approve + swap, bridge steps, collateral + borrow, and similar) while keeping one human or committee decision — and one atomic execution step — for the entire operation.
 
 ### Related
 
+- [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

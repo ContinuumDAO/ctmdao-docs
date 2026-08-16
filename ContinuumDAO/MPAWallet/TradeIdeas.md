@@ -19,7 +19,7 @@ PRIMARY ideas are tied to the analysis that produced them (trend structure, Fib 
 3. The agent builds a **multi-sign request** (management-signed by your node’s default Ed25519 signer) for your preferred KeyGen.
 4. Other nodes in the KeyGen **Accept** or **Reject** as usual on the **Join** tab (Purpose, Thoughts, time limits, **Execute**, and **History** — see [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)). Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
 
-You can still compose trades by hand in the node app; trade ideas are the AI-assisted path from chart → levels → proposal.
+You can still build trades manually ([Compose](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) or [DeFi protocol](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) UI); trade ideas are the AI-assisted path from chart → levels → proposal.
 
 ### Scheduling with cron
 
