@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-16T14:29:42.182Z",
+  "generatedAt": "2026-08-17T09:50:22.934Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1192,6 +1192,73 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/ChainManagement",
+      "title": "Chain management",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Chain management",
+        "View configured chains (Assets tab)",
+        "Configure blockchains (add, edit, remove)",
+        "EVM chains — gas fields (optional)",
+        "Bitcoin (SegWit and Taproot)",
+        "Solana and other non-EVM chains",
+        "AI agent flow",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "chain-management",
+          "title": "Chain management",
+          "level": 2,
+          "excerpt": "Before you can compose transactions, import Foundry batches, or run DeFi protocol flows, your node needs chain configuration : RPC endpoints, explorers, and optional gas defaults. Chain config is stored on each node locally (not propagated to other Group members). Every node that will simulate, sign"
+        },
+        {
+          "id": "view-configured-chains-assets-tab",
+          "title": "View configured chains (Assets tab)",
+          "level": 3,
+          "excerpt": "Open the Assets tab and use the chain selector at the top. It lists every network already configured on this node. Balances, token lists, and compose chain pickers all draw from this registry. <! Screenshot placeholder: replace media/chain management assets chain selector.png <img src=\"/ media/chain"
+        },
+        {
+          "id": "configure-blockchains-add-edit-remove",
+          "title": "Configure blockchains (add, edit, remove)",
+          "level": 3,
+          "excerpt": "1. From Assets , open the chain selector and click Configure blockchains . 2. The modal shows configured chains on this node and presets you can add with one click (most popular EVM mainnets and testnets ship in the app — Arbitrum, Base, Polygon, Linea, and many others). 3. To add a preset: select i"
+        },
+        {
+          "id": "evm-chains-gas-fields-optional",
+          "title": "EVM chains — gas fields (optional)",
+          "level": 3,
+          "excerpt": "For EIP 1559 chains you do not need to fill in optional fee fields such as Base fee or Priority fee for normal operation. That is the recommended setup: leave them empty and let the node fetch current gas parameters from the RPC gateway when building a proposal and again at Get Sig on the Execute ta"
+        },
+        {
+          "id": "bitcoin-segwit-and-taproot",
+          "title": "Bitcoin (SegWit and Taproot)",
+          "level": 3,
+          "excerpt": "Bitcoin custody uses KeyGen type , not the EVM chain registry: Style KeyGen type Address Chain config SegWit (P2WPKH) secp256k1 (same family as EVM) bc1q… mainnet (also testnet / signet variants derived from the same public key) Select the Bitcoin network in Compose / Assets when your node build exp"
+        },
+        {
+          "id": "solana-and-other-non-evm-chains",
+          "title": "Solana and other non-EVM chains",
+          "level": 3,
+          "excerpt": "The node stores non EVM network config separately ( POST /postNonEvmChainDetails ). Supported chainType values include solana , near , sui , ton , and stellar . Identity is (chainType, chainId) — for example Solana mainnet is chainType: solana , chainId: mainnet beta . Solana (supported now): add vi"
+        },
+        {
+          "id": "ai-agent-flow",
+          "title": "AI agent flow",
+          "level": 3,
+          "excerpt": "With the AI harness and continuum MCP server enabled, you can manage chains from Agent chat instead of the modal. List what is configured: What chains do I have configured on my node? The agent calls get chain registry and returns name, chain id, RPC, and gas defaults for each EVM entry (and can lis"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "MPC Accept/Reject loop — Use Custom Gas on create and fee override on Execute Compose transaction flow — chain must exist before compose / Foundry import KeyGens — secp256k1, ed25519, bitcoin taproot Configure the AI harness Overview Operator detail: API Implementation — chain config"
+        }
+      ],
+      "excerpt": "Before you can compose transactions, import Foundry batches, or run DeFi protocol flows, your node needs chain configuration : RPC endpoints, explorers, and optional gas defaults. Chain config is stored on each node locally (not propagated to other Group members). Every node that will simulate, sign",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ChainManagement"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/ComposeTransactionFlow",
       "title": "KeyGen address from Compose tab; RPC from Configure blockchains",
       "section": "Using an MPA wallet",
@@ -1312,7 +1379,7 @@
           "id": "no-broadcast-import-broadcast-dry-run-run-latest-json-in-the-node-app",
           "title": "No --broadcast → import broadcast/.../dry-run/run-latest.json in the node app",
           "level": 1,
-          "excerpt": "<! Screenshot placeholder: replace media/mpc compose foundry import.png <img src=\"/ media/mpc compose foundry import.png\" alt=\"Import from Foundry broadcast — run latest.json loaded into Compose batch (screenshot pending)\" / Separate from composing a new sign request, the node app supports bump and "
+          "excerpt": "In this example, the script sends USDC to 94 addresses. The script has been used before, so the initial nonce and those that follow must be set to the new nonce value: <img src=\"/ media/mpc compose foundry import 1.png\" alt=\"\" / And now you see that in this example, there are 94 transactions importe"
         },
         {
           "id": "bump-remove-mempool-transactions",
@@ -1678,7 +1745,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Compose transaction flow Overview KeyGens DeFi protocol support Trade ideas Default Ed25519 signer Eject to Private Key"
+          "excerpt": "Chain management Compose transaction flow Overview KeyGens DeFi protocol support Trade ideas Default Ed25519 signer Eject to Private Key"
         }
       ],
       "excerpt": "Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator ) proposes one or more transactions; the other KeyGen nodes Accept or Reject until the KeyGen threshold is met or the round times out. Only then does the originator run MPC signing ",

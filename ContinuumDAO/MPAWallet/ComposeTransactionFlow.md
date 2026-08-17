@@ -144,7 +144,7 @@ Requirements checked by the node app on import:
 
 - The file must be named **`run-latest.json`** (from that `dry-run/` folder).
 - The JSON must include **`.chain`** and a non-empty **`transactions[]`** array with **`from`** set to your KeyGen address.
-- The chain must already be configured under **Configure blockchains** with an **RPC gateway** (the importer reads live fees/nonces from that RPC).
+- The chain must already be configured under **Configure blockchains** with an **RPC gateway** (the importer reads live fees/nonces from that RPC). See [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md).
 - If the dry-run used Foundry’s default **simulation chain id** (`364865`), re-run with a real **`--rpc-url`** for your network.
 
 Optional forge flags (for example `--with-gas-price`, `--priority-gas-price`) can bake higher fees into the dry-run; if gas moves before **Execute**, re-run `forge script` and import the fresh `run-latest.json`.
@@ -177,10 +177,15 @@ forge script script/MyScript.s.sol:MyScript \
 # No --broadcast → import broadcast/.../dry-run/run-latest.json in the node app
 ```
 
+In this example, the script sends USDC to 94 addresses. The script has been used before, so the initial nonce and those that follow must be set to the new nonce value:
 
 <img src="/_media/mpc-compose-foundry-import-1.png" alt="" />
 
+And now you see that in this example, there are 94 transactions imported into the Compose flow:
+
 <img src="/_media/mpc-compose-foundry-import-2.png" alt="" />
+
+The user then enters Purpose text, selects Custom Gas (or not) and validates and clicks OK to create the batch multi-sign request as normal.
 
 ---
 

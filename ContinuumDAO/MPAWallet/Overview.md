@@ -86,6 +86,7 @@ MPA wallet access can be paid via a **monthly subscription**, or — for node op
 ### Related
 
 - [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
+- [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)

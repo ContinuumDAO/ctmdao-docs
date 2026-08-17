@@ -20,6 +20,7 @@
   * [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
   * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
+  * [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md)
   * [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
   * [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
   * [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

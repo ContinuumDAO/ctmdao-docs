@@ -84,6 +84,7 @@ Batching is useful when a DeFi action, [Compose](/ContinuumDAO/MPAWallet/Compose
 
 ### Related
 
+- [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md)
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
