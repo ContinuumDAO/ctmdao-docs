@@ -1,68 +1,93 @@
 # ContinuumDAO White Paper
 
-15th August 2026
+17th August 2026
 
 # Welcome to Continuum
 
-An open public cross-chain network secured by Multi-Party Computation — and the **Multi-Party Agent (MPA) wallet**, an **AI-first** flagship MPC product (with a **rich frontend** for full manual control) for custody **without a Private Key**, **AI-assisted trading**, and optional **cross-chain signing** rewards — run as a public good under **DAO governance**.
+An **AI-first Multi-Party Agent (MPA) wallet** for on-chain asset control — **without a Private Key**, with a **rich frontend** for full manual override, built-in **DeFi protocol access**, and a built-in **AI agent harness** designed as the premier fabric for human–AI custody. **Users install and run the node software themselves**; the wallet does not depend on ContinuumDAO to operate. Secured by threshold **MPC** (CGGMP24 / FROST) on **user-deployed nodes**, with optional **cross-chain signing** via **C3Caller** and a **DAO governance** framework for protocol updates and coordination.
 
 ## About ContinuumDAO
 
-ContinuumDAO is a community that is collectively building a future in which all blockchains are linked, to enable the integration of decentralized blockchain ledgers for all dApps. We realise that the entirety of finance and other ‘trust’ based networks will transition to web3 in the next few years and that the biggest opportunity for blockchain is to provide DeFi like services for actual businesses, whether that is to raise capital, or allow investment in assets or provide services that it would be impossible to do so using traditional tools. A future open to everyone, not just in the financial centers of the world. To do this though, it is necessary for all blockchains to be able to communicate with each other securely. This is urgent, since it seems likely that the number of chains will only increase. That is the mission of ContinuumDAO.
+ContinuumDAO is a community building the infrastructure for the next phase of on-chain finance. Traditional financial assets, trading, and trust networks are moving on-chain. Regulatory frameworks are maturing — the EU’s **MiCA** regime and evolving approval paths in the US are opening the door to institutional and retail participation at scale. The biggest opportunity is to provide DeFi-like services for real businesses: raising capital, investing in assets, and offering services that traditional tools cannot match — open to everyone, not just financial centres.
 
-As the backbone of ContinuumDAO, we have the first public institutional-grade Multi-Party Computation (MPC) node network called the Continuum. **The Multi-Party Agent (MPA) wallet** is a flagship product: an **AI-first** wallet — every node includes a built-in **AI agent harness** for analysis, trade ideas, and DeFi workflows — that is also **fully usable through a rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) for manual Groups, KeyGens, multi-sign, and protocol actions without an agent. It offers fully decentralized **self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** — **without any single Private Key**, with optional **AI-assisted trading** on the **most important web3 protocols built in directly** (swaps, lending, staking, perps, and bridges) for **secure, Private-Key-less trading**. The same node software also powers **C3Caller** cross-chain messaging and **cross-on-chain governance** — all operated under **DAO governance**, with signing and agreement handled **off-chain** using peer-reviewed **CGGMP24** and **FROST** threshold signature protocols (Lockness / LF Decentralized Trust).
+Much of the day-to-day management of these on-chain assets will run through **AI agents** — market analysis, DeFi workflows, scheduled actions — but **humans must remain in control**. Users need cryptographic custody they can trust, with a human circuit breaker, not vendor-hosted keys or opaque custodians.
 
-We are committed to a permissionless and decentralized architecture, which will create a strong and durable framework, with an open protocol that everyone can help run, and anyone can contribute towards, that is owned by the community. An unstoppable system, just like the internet on which it runs.
+ContinuumDAO addresses these pain points:
+
+- **Any-chain asset access** — **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** (Solana, NEAR, and others) from a single MPC Group
+- **AI-friendly infrastructure** — a built-in **AI agent harness** on every node, with DeFi tool packs, charting, and trade ideas; every on-chain action gated by MPC Accept/Reject
+- **Uniform DeFi access** — direct integrations with the most important web3 protocols (Uniswap, Aave, Curve, Morpho, GMX, Hyperliquid, Lido, Ethena, Circle CCTP, and others) on any supported chain, without browser extensions or key export
+- **Fully decentralized MPC custody** — threshold shares live only on **user-deployed nodes**; no vendor database; self-contained node software; signing and agreement handled **off-chain** using peer-reviewed **CGGMP24** and **FROST** threshold signature protocols (Lockness / LF Decentralized Trust)
+
+**The Multi-Party Agent (MPA) wallet** is ContinuumDAO’s flagship product: an **AI-first** wallet — also **fully usable through a rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) for manual Groups, KeyGens, multi-sign, and protocol actions without an agent — for **secure, Private-Key-less trading** across swaps, lending, staking, perps, and bridges.
+
+**Users install and run the MPA wallet node software themselves** on their own hardware or VPS. ContinuumDAO is **not required** for the wallet to function day-to-day: custody, signing, DeFi, and the AI harness all run on the operator’s nodes. ContinuumDAO’s role is to provide **optional software updates**, coordinate the **DAO governance framework** (fee contracts, approved cross-chain signers, treasury, protocol parameters), and maintain convenience services such as [mpa.continuumdao.org](https://mpa.continuumdao.org). **If ContinuumDAO ceased operations, existing wallets would continue to work** from user nodes and backups.
+
+As the backbone of this ecosystem, ContinuumDAO operates the first public institutional-grade Multi-Party Computation (MPC) node network called the Continuum. The same node software supports **two roles**:
+
+- **MPA wallet custody** — self-custody and AI-assisted trading (typically **2/2** AI + human multi-agree)
+- **Optional cross-chain signing** — larger Groups that secure **C3Caller** traffic (5+ nodes, **3/5** tx-check; **CTM and ETH** rewards for participating operators)
+
+**C3Caller** cross-chain messaging enables safe cross-chain activity and permissionless multi-chain dApps — all accessible from the same **AI harness** designed to be the premier fabric for controlling assets in conjunction with humans, using no Private Keys and with the cryptographic security of MPC. Cross-on-chain **DAO governance** coordinates protocol parameters and approved signers.
+
+We are committed to a permissionless and decentralized architecture: an open protocol that **users run themselves**, that anyone can contribute towards, and that is owned by the community — an unstoppable system, just like the internet on which it runs.
 
 ## Why Does Having Open Public Infrastructure Matter?
 
-A better question is why would anyone who wishes to create a multi-chain dApp rely on an infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at anytime? ContinuumDAO has sophisticated **DAO-governed** smart contracts that do not rely on a ‘team’ to administer or update them. **MPC nodes** — run by wallet owners, communities, or independent operators — are the core building blocks of **MPC Groups** that collectively sign cross-chain transactions. A dApp can choose whatever MPC Group it wishes to use, or have its own community run its own groups. The number of MPC groups is unlimited and so the capacity of the cross-chain network, which can grow as demand increases, effectively in an unlimited way.
+A better question is why would anyone who wishes to create a multi-chain dApp — or operate an **MPA wallet** for serious on-chain asset management — rely on infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at any time? ContinuumDAO has sophisticated **DAO-governed** smart contracts that do not rely on a ‘team’ to administer or update them. **MPC nodes** — installed and run by wallet owners, communities, or independent operators — are the core building blocks of **MPC Groups** that collectively sign transactions. A dApp can choose whatever MPC Group it wishes to use, or have its own community run its own groups. The number of MPC groups is unlimited and so the capacity of the network, which can grow as demand increases, effectively in an unlimited way.
 
 ## Why is the ContinuumDAO Mission Important?
 
-The existing landscape of web3 is confusing for new and even existing users. Continuum will solve some of the biggest pain points - how to utilize AI safely for on-chain trading and how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system.
+Web3 is confusing and risky for both newcomers and experienced users moving real assets on-chain. ContinuumDAO addresses the custody, AI-safety, and multi-chain access problems that block mainstream adoption — with a public MPC network whose flagship product is the **MPA wallet**.
 
-**The Multi-Party Agent (MPA) wallet** addresses a parallel pain point: **fully decentralized self-custody** without ever holding a recoverable Private Key on any device — and **without storing key shares in vendor databases**, as many other MPC wallets do. Custody lives entirely on **nodes users deploy**; wallet software is self-contained on those nodes, with only a **fee smart contract** on chain. The wallet supports **Bitcoin** (SegWit and Taproot), **Ethereum and other EVM-compatible assets**, and — as the network expands — **many Ed25519 chains** (Solana, NEAR, and others) via threshold **FROST** signing. Users run one or more **MPC nodes** that hold only threshold **shares**. Agreement to sign — including AI-proposed trades — happens **off-chain** among those nodes; the chain sees a normal single signature. There is no on-chain record of who proposed, accepted, or rejected a transaction, which preserves **private, off-chain security** for the wallet group’s decisions.
+### On-Chain Finance Needs Trustworthy Self-Custody
 
-Self-custody with an MPA wallet suits anyone who **does not trust hardware wallets** that tie recovery to vendor accounts, email addresses, or home addresses; anyone who **does not want to store a Private Key** on disk, paper, or a single device; and anyone who wants **relatives or friends to hold partial custody** — through extra Group nodes and a chosen threshold — so assets are not lost to one person’s death, device failure, or absence. Trading and DeFi run **directly** against the **most important web3 protocols** built into the wallet (no key export to a browser extension), with every on-chain action still gated by MPC threshold **Accepts**. A typical personal setup pairs an **AI-assisted node** with a **human circuit-breaker node** under **2/2** threshold control: the agent can analyze markets, propose DeFi actions, and compose trades, but cannot complete a signature alone.
+As financial assets and trading move on-chain under evolving regulatory frameworks, users need custody that matches the seriousness of the assets they hold. Vendor MPC wallets that store key shares in company databases, hardware wallets that tie recovery to email addresses and home addresses, and single-device private keys all create unacceptable risk for long-term on-chain finance. The **MPA wallet** offers **fully decentralized self-custody** without ever holding a recoverable Private Key on any device — and **without storing key shares in vendor databases**. Custody lives entirely on **nodes users deploy**; wallet software is self-contained on those nodes, with only a **fee smart contract** on chain.
 
-The same nodes can optionally join larger Groups that provide **cross-chain signing** for the Continuum network. **Wallet owners who participate in that role can earn protocol rewards** in CTM, aligning personal custody with public infrastructure.
+Users run one or more **MPC nodes** that hold only threshold **shares**. Agreement to sign — including AI-proposed trades — happens **off-chain** among those nodes; the chain sees a normal single signature. There is no on-chain record of who proposed, accepted, or rejected a transaction, which preserves **private, off-chain security** for the wallet group’s decisions. Self-custody with an MPA wallet suits anyone who **does not trust hardware wallets** that tie recovery to vendor accounts; anyone who **does not want to store a Private Key** on disk, paper, or a single device; and anyone who wants **relatives or friends to hold partial custody** — through extra Group nodes and a chosen threshold — so assets are not lost to one person’s death, device failure, or absence.
 
-### Lack of  Open Cross-Chain Fabrics
+### AI Must Not Spend Alone
 
-Existing cross-chain architectures are sometimes ‘black-boxes’, so that no one is aware of who is signing transactions on destination chains. Others are secured by nodes run by a few individuals, often team members. They do not allow anyone to contribute to cross-chain signing. They are not ‘public’ infrastructure. They are almost always run by centralized entities (companies), so that even their continued existence is in serious doubt.
+Much on-chain asset management will be driven by AI agents, but agents must not be able to spend alone. A typical personal setup pairs an **AI-assisted node** with a **human circuit-breaker node** under **2/2** threshold control: the agent can analyze markets, propose DeFi actions, and compose trades, but cannot complete a signature alone. Every on-chain action is gated by MPC threshold **Accepts** through the built-in **AI agent harness** — designed to be the **premier fabric for safe on-chain trading**, with DeFi protocol tool packs, charting, trade ideas, and human-in-the-loop approval before any signature completes.
 
-### Security Relies on ‘Staking’ Alone
+### Fragmented Chains and DeFi Silos
 
-When a cross-chain messaging system relies on node-runners staking on their nodes alone, then the issue, as the volume grows, is that the value of the staking would become low compared to the value of the traffic itself. There is not a good enough incentive to avoid foul play. Cross-chain signing must be **inherently secure** — as with the Continuum’s **CGGMP24** and **FROST** MPC protocols — not dependent on staking alone. The **MPA wallet** applies the same principle to custody: security comes from threshold cryptography and **private off-chain** agreement, with veCTM staking as a supplementary deterrent for public signers.
+Users need uniform access to the most important web3 DeFi protocols across chains — not a patchwork of browser extensions, key exports, and opaque bridges. The MPA wallet supports **Bitcoin** (SegWit and Taproot), **Ethereum and other EVM-compatible assets**, and — as the network expands — **many Ed25519 chains** (Solana, NEAR, and others) via threshold **FROST** signing. Trading and DeFi run **directly** against the **most important web3 protocols** built into the wallet (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) — no key export to a browser extension — with every action still gated by MPC threshold **Accepts**.
 
-### The Number of Chains in a Network is not Scaleable
+### Fully Decentralized MPC Custody
 
-Sometimes (and this includes some of the most popular bridges) the cross-chain signing relies on multi-signature wallets. The issue here is that multiple signatures are costly. It is hard to upgrade every node to include a new chain that they must sign on. This will prevent support for all but a few major chains and limit the scalability of web3 to the general public.
+Threshold shares and encrypted wallet state live **only on nodes deployed by users**. The wallet software is **self-contained on each node**; the sole on-chain dependency for fees is a **DAO-governed smart contract**. Operators can back up encrypted node data, share custody among family or friends via higher thresholds (2/3, 3/5), and optionally **eject** a KeyGen to reconstruct a standard private key if the Group agrees. There is no ContinuumDAO-held backup of key shares and no custodial recovery service.
 
-### Technical Challenges in Expanding the Cross-Chain Network
+### The Wallet Must Work Without ContinuumDAO
 
-Systems secured by zkProofs are difficult to expand. The zkProof is computationally expensive and requires expensive hardware, which can be challenging for most node-runners to implement. Generating a zkProof from an EVM to a non-EVM is difficult (impossible?) to achieve.
+**MPA wallet node software is installed and run by users themselves.** ContinuumDAO is not required for day-to-day custody, signing, DeFi, or AI-assisted flows — all of that runs on the operator’s nodes. ContinuumDAO provides **optional software updates** and a **DAO governance framework** to organise fee contracts, approved cross-chain signers, treasury use, and protocol parameters. **If ContinuumDAO ceased operations, existing MPA wallets would continue to function** from user-run nodes and backups.
 
-### Lack of Protocol Level Security
+The same nodes can optionally join larger Groups that provide **cross-chain signing** for the Continuum network. **Wallet owners who participate in that role can earn protocol rewards** in **CTM and ETH** (rates set by governance), aligning personal custody with public infrastructure.
 
-Systems that use zkProofs and relayers of those proofs do not have protocol level security. It is up to the dApp to choose the relayer and they can switch at any time from within their frontend to an insecure or malicious relayer, unbeknown to the users of those dApps.
+### Cross-Chain dApps Need Open, MPC-Secured Infrastructure
+
+Existing cross-chain architectures are often ‘black-boxes’ where no one knows who signs on destination chains, or they are run by a few team members behind a company that could disappear. When security relies on **staking alone**, the value at stake falls behind the value of traffic as volume grows. Systems using zkProof relayers lack **protocol-level security** — dApps can switch to malicious relayers unbeknown to users. Continuum’s **CGGMP24** and **FROST** MPC protocols provide **inherently secure** cross-chain signing; veCTM staking on public signers is a supplementary deterrent, not the primary security layer.
+
+### Cross-Chain Signing Must Scale Beyond Multi-Sig and zkProof Relayers
+
+Multi-signature bridges are costly — multiple on-chain signatures consume gas and are hard to upgrade for new chains. zkProof systems are computationally expensive, require expensive hardware, and struggle to expand from EVM to non-EVM chains. An MPC signature is a **single signature** with limited gas cost, and the number of MPC Groups is unlimited — so cross-chain signing can scale as new chains join without the bottlenecks of multi-sig or zkProof relayers.
 
 ## How is ContinuumDAO Different?
 
-- Our cross-chain network, called the Continuum, is run by a **DAO** and designed for autonomous operation. All critical operations and financial transactions depend on on-chain voting. There is no central ‘team’.
-- **The MPA wallet** is a core MPC product: an **AI-first** wallet with a **rich frontend** for complete manual operation — **fully decentralized self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** such as Solana and NEAR — **without a Private Key**, with **direct integration to the most important web3 protocols** (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading**, **AI-assisted** workflows, threshold-bound signing, and **private off-chain** agreement — secured by **CGGMP24** (ECDSA) and **FROST** (EdDSA) as maintained by Lockness under LF Decentralized Trust (Linux Foundation).
+- **The MPA wallet** is ContinuumDAO’s flagship MPC product: an **AI-first** wallet with a **rich frontend** for complete manual operation — **fully decentralized self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** such as Solana and NEAR — **without a Private Key**, with **direct integration to the most important web3 protocols** (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading**, **AI-assisted** workflows, threshold-bound signing, and **private off-chain** agreement — secured by **CGGMP24** (ECDSA) and **FROST** (EdDSA) as maintained by Lockness under LF Decentralized Trust (Linux Foundation).
+- **Users install and run MPA wallet node software themselves** — ContinuumDAO is not required for day-to-day custody, signing, or DeFi; it provides optional updates and DAO governance coordination.
 - **MPC nodes** are the fundamental unit of the network. Wallet owners install nodes, form **MPC Groups**, and create **KeyGens** (shared addresses). The same nodes can serve **personal custody** (multi-agree) and, optionally, **cross-chain Continuum signing** (tx-check Groups for C3Caller traffic).
 - Cross-chain signatures are generated by MPC, which is well recognised by institutions as being secure. MPC signatures are collectively made by an MPC Group, but the private key is never assembled on any single machine — each node holds only a share.
-- The number of nodes in a Group that collectively sign can be selected when the Group is formed. The higher the number, the more secure, but the slower will be the signatures. ContinuumDAO will soon enable ‘pre-signing’, to speed up the computation and allow larger MPC Groups.
+- The number of nodes in a Group that collectively sign can be selected when the Group is formed. The higher the number, the more secure, but the slower will be the signatures. 
+- **Wallet owners who opt in to cross-chain signing Groups receive protocol rewards** in **CTM and ETH** (rates set by governance), proportional to a Quality Factor — in addition to using the MPA wallet for their own assets and AI-assisted trading flows.
+- **veCTM attached to nodes is locked by default** — only a **DAO governance vote** can unlock or detach it, and attached veCTM cannot be liquidated or transferred while on a node. Nodes monitor each other for malpractice; misbehaving operators risk **permanent lock**, with Governance refusing to approve release. This supplements the inherent security that MPC already provides.
+- Our cross-chain network, called the Continuum, is run by a **DAO** and designed for autonomous operation. All critical operations and financial transactions depend on on-chain voting. There is no central ‘team’.
 - An MPC signature is just a single signature and consumes only limited gas on the chains it operates on. This is distinct from multi-signature solutions. This means that MPC based cross-chain signing is cost-effective.
 - Any number of blockchains can join the Continuum. There is no limit, since the number of MPC Groups is also unlimited.
 - Anyone can run an MPC node. Nodes combine into Groups; governance voting decides which Groups may sign public cross-chain traffic for C3Caller.
-- **Wallet owners who opt in to cross-chain signing Groups receive protocol rewards** in CTM, proportional to a Quality Factor set by governance — in addition to using the MPA wallet for their own assets and AI-assisted trading flows.
-- Nodes will monitor each other for malpractice. If any nodes misbehave, then Governance can lock the staked tokens (veCTM) and these cannot be sold or transferred. This is just a supplement to the inherent security that MPC already has.
 - Any blockchain with a smart contract system is accessible from the MPC network. ContinuumDAO has already connected some 30 EVM chains on testnet, as well as TON, Stellar Soroban and will soon be able to connect to Solana and NEAR. SUI and other Move based chains are in our road map to integrate.
 - An MPC network has protocol level security. It does not rely on any dApp to choose for instance a zkProof relayer. Whichever MPC Group a dApp chooses will have the same high level of inherent security that comes with the CGGMP24 and FROST threshold signature protocols (Lockness / LF Decentralized Trust).
-- ContinuumDAO’s code is open source. This includes the cross-chain messaging system callable from dApps (C3Caller) and then once it has been audited and thoroughly tested, the MPC code itself will also be open sourced.
+- ContinuumDAO publishes key protocol components as **open source**, including the cross-chain messaging system callable from dApps (**C3Caller**), the **veCTM** voting-escrow contract, and **Governance** smart contracts (see [github](https://github.com/ContinuumDAO/vectm)). The **MPC algorithms** used for threshold signing — **CGGMP24** and **FROST** via Lockness / LF Decentralized Trust — are **already open source** and **independently security-audited**. The **MPA wallet frontend** and **AI agent harness** are built on public SDKs and DeFi protocol integrations using **public npm libraries**. The node software operators install combines these audited cryptographic building blocks with ContinuumDAO protocol services (including fee settlement and the agent harness); operators receive this as the node package that powers wallet custody and optional cross-chain signing.
 - Unlike any other MPC based solution, with Continuum, each individual MPC signature can be tracked and monitored with an API. This ensures that users know which MPC Group and nodes within this group actually signed their transactions. It is easy to spot if there is any centralization - one of the biggest risk factors as we have seen with the failure of other protocols.
 - When a node runner registers their node, they can optionally identify themselves with email, Telegram and their name. Anyone using Continuum should know who is signing their transactions and should be able to contact them if they wish to, or at least they should know that they cannot, if the dApp is using an anonymous MPC Group, which it is of course their choice to so so.
 - Any dApp can permissionlessly use cross-chain services offered by ContinuumDAO. They may wish to work with the DAO to help develop their application, but there is no obligation.
@@ -70,25 +95,25 @@ Systems that use zkProofs and relayers of those proofs do not have protocol leve
 
 ## The Current Situation
 
-ContinuumDAO was formed in August 2023 by a small community. At this time a simple *non-transferable* ERC20 token called CTMDAOVOTE was airdropped to the community to allow voting. The DAO created its Constitution, that can be read [here](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution). The DAO also created its [Mission and Vision](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution?id=mission-amp-vision). The formation of and discussion on proposals happens in our  [Forum](https://forum.continuumdao.org/)  and voting on proposals happens on Snapshot [here](https://snapshot.org/#/continuumdao.eth).  We have now launched our Treasury on Ethereum mainnet and our DAO on Linea mainnet. Users have converted their CTMDAOVOTE tokens to veCTM, our voting escrow token.
+ContinuumDAO was formed in August 2023 by a small community. At this time a simple *non-transferable* ERC20 token called CTMDAOVOTE was airdropped to the community to allow voting. The DAO created its Constitution, that can be read [here](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution). The DAO also created its [Mission and Vision](https://docs.continuumdao.org/ContinuumDAO/Governance/Constitution?id=mission-amp-vision). The formation of and discussion on proposals happens in our  [Forum](https://forum.continuumdao.org/)  and voting on proposals happens on Snapshot [here](https://snapshot.org/#/continuumdao.eth).  We have now launched our Treasury on Ethereum mainnet and our DAO on Linea mainnet. Users have converted their CTMDAOVOTE tokens to **CTM locked in veCTM for 4 years**, our voting escrow token.
 
-We are currently transitioning to mainnet, following the successful completion of our audit with QuillAudit. This includes our cross-chain messaging system C3Caller, our voting-escrow contract veCTM, and the **Multi-Party Agent (MPA) wallet** — ContinuumDAO’s primary MPC product for **custody without a Private Key**, **AI-assisted trading**, and optional participation in **cross-chain signing**. The same **node software** powers personal wallet Groups and, when operators choose, larger Groups that secure C3Caller traffic. We are deploying the Relayer and Scanner cross-chain fabric; when live, **MPA wallet owners who run nodes in approved cross-chain Groups will be able to earn CTM rewards** for that service while continuing to use their wallet for everyday (and AI-assisted) on-chain activity.
+We are currently transitioning to mainnet, following the successful completion of our audit with QuillAudit. This includes the **Multi-Party Agent (MPA) wallet** — ContinuumDAO’s primary MPC product for **custody without a Private Key**, **AI-assisted trading**, and optional participation in **cross-chain signing** — our voting-escrow contract veCTM, and our cross-chain messaging system C3Caller. The same **node software** powers personal wallet Groups and, when operators choose, larger Groups that secure C3Caller traffic. We are deploying the Relayer and Scanner cross-chain fabric; when live, **MPA wallet owners who run nodes in approved cross-chain Groups will be able to earn CTM and ETH rewards** for that service while continuing to use their wallet for everyday (and AI-assisted) on-chain activity.
 
-Over the last year, the DAO has also been working on some projects that will use Continuum. This includes AssetX (which has successfully completed its audit with QuillAudit), which is a Real World Asset Tokenization factory and Lawracle, an protocol that will link law firms to web3 ventures, to provide on-chain proofs of important facts, such as ownership of property,  provenance of assets and the veracity of statements made by protocols. Both AssetX and Lawracle will give 49% of their tokens to the ContinuumDAO Treasury. This will be the model for the future of the DAO, to increase Continuum’s usage and build up the Treasury’s reserves.
+Over the last year, the DAO has also been working on projects that will use Continuum. This includes AssetX (which has successfully completed its audit with QuillAudit), a Real World Asset Tokenization factory, which will allocate **49% of its tokens** to the ContinuumDAO Treasury. This will be the model for the future of the DAO, to increase Continuum’s usage and build up the Treasury’s reserves.
 
 ### ContinuumDAO Roadmap
 
 (1) Formation of a company in RAKDAO to provide legal certainty for ContinuumDAO. Estimated incorporation date is in Q4 2026
 
-(2) Roll out of the **Multi-Party Agent (MPA) wallet** and testing with the community — MPC custody without a Private Key, **AI-assisted trading** harness, and optional opt-in to **cross-chain signing Groups** with **CTM rewards** for participating wallet operators. Estimated delivery in Q3 2026
+(2) Roll out of the **Multi-Party Agent (MPA) wallet** and testing with the community — MPC custody without a Private Key, **AI-assisted trading** harness, and optional opt-in to **cross-chain signing Groups** with **CTM and ETH rewards** for participating wallet operators. Estimated delivery in Q3 2026
 
-(3) **AI Harness development for MPA wallet** — establish the built-in agent harness as the **premier AI harness for safe on-chain trading**: DeFi protocol tool packs, charting and trade ideas, human-in-the-loop **Accept** flows, and tight coupling between agent proposals and MPC threshold signing so AI can analyze and propose but never spend alone. Estimated delivery Q4 2026
+(3) **AI Harness development for MPA wallet** — establish the built-in agent harness as the **premier AI harness for safe on-chain trading**: DeFi protocol tool packs, charting and trade ideas, human-in-the-loop **Accept** flows, and tight coupling between agent proposals and MPC threshold signing so AI can analyze and propose but never spend alone. Development of the AI harness will continue to take advantages of the rapidly evolving AI landscape. This will be on-going and will consume a high proportion of the DAO's time and effort.
 
 (4) Establishment of community-run **MPC Groups** (built from MPA wallet nodes) attached to the Relayer for C3Caller signing. Estimated delivery Q4 2026.
 
-(5) Testing of new Relayer and Scanner functionality for the C3Caller backend. This adds extra security layers and permits full control of the backend infrastructure using smart contracts and Governance voting. Estimated delivery in Q4 2026
+(5) Testing of new Relayer and Scanner functionality for the C3Caller backend. This adds extra security layers and permits full control of the backend infrastructure using smart contracts and Governance voting. Estimated initial delivery in Q4 2026. The DAO will develop AI monitoring of cross-chain traffic as part of its security plan. This work will be on-going.
 
-(6) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q2 2026
+(6) Testing Governance, combining the enhanced on-chain OpenZeppelin Governor contract and veCTM. Conduct tests for Treasury control, Committee elections, cross-chain smart contract control and proxy upgrades. Estimated completion Q3 2026
 
 (7) Establishment of a DEX trading pool for our token CTM. Possibly we will also launch on one or more CEX platforms.
 
@@ -97,6 +122,8 @@ Over the last year, the DAO has also been working on some projects that will use
 (9) Audit of Scanner, Relayer and MPC code. Estimated time Q3 2026
 
 (10) Business development will be a focus from just before mainnet and thereafter. We will work with any protocol that wishes to build using Continuum. We will actively help build these dApps if it make sense for us and the protocol team to do so. Such decisions will always be subject to DAO voting.
+
+(11) Develop a **veCTM marketplace** where humans and AI agents can easily trade veCTM to stake on nodes — supporting the **staking-as-subscription** model for free MPA wallet access. Estimated time Q3 2026
 
 ## Governance
 
@@ -144,7 +171,7 @@ There are three governance roles: Committee, Contributor, and Citizen.
 The ContinuumDAO may utilise tokens and the welfare system to boost the performance of all DAO members.
 
 - Full-time contributors and guild leaders will receive monthly payment to attract and maintain dedicated workers, as in any traditional business.
-- **MPC node runners and MPA wallet operators** who participate in cross-chain signing Groups will receive CTM rewards based on uptime, performance score, and governance-set rates — the same nodes often serve both personal wallet custody and public Continuum signing.
+- **MPC node runners and MPA wallet operators** who participate in cross-chain signing Groups will receive **CTM and ETH** rewards based on uptime, performance score, and governance-set rates — the same nodes often serve both personal wallet custody and public Continuum signing.
 - Guild members will receive payment based on contributed work and the outcome of the guild missions.
 
 ## The ContinuumDAO Token
@@ -153,23 +180,29 @@ The ContinuumDAO may utilise tokens and the welfare system to boost the performa
 
 ContinuumDAO has implemented its token model on Linea mainnet.
 
-Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on [github](https://github.com/ContinuumDAO/vectm)). There will be a buy pressure for CTM, since it is used as a payment token by dApps for cross-chain services. This will counteract any sell pressure from node-runners who are paid in CTM and DEX liquidity providers selling tokens. This increased volume should benefit LP providers and attract DEXes and CEXes to list CTM.
+Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on [github](https://github.com/ContinuumDAO/vectm)).
+
+### Staking as Subscription — the Primary Use of CTM / veCTM
+
+**Staking-as-subscription** is the **main use of CTM**. Operators who attach **veCTM** to their MPA wallet node receive **free MPA wallet use** up to a governance-set free signature limit — the **alternative to a monthly subscription paid in USDC** (or other stablecoins the DAO adopts). Heavier use, or nodes without staked veCTM, follow the paid subscription or metered model the DAO defines.
+
+Each staked veCTM NFT carries **governance voting power**. As more wallet operators stake to unlock free access, the **network of engaged DAO voters grows** — aligning people who actually run nodes and use the wallet with long-term protocol decisions. As MPA wallet adoption grows, an **increasing share of total supply** locks into veCTM on nodes, creating sustained buy-and-lock pressure.
+
+Operators who **also** opt into approved cross-chain signing Groups receive additional remuneration in **CTM and ETH** (rates and mix set by **DAO governance**). A quality score (uptime, speed) multiplies the base reward. **veCTM attached to nodes is locked by default** and requires a **DAO vote** to unlock or detach — misbehaving public signers risk **permanent lock**, with no vote to release their veCTM.
+
+Secondary token uses remain: **C3Caller** cross-chain fee payments (CTM or stablecoins), on-chain **governance** via veCTM, and the default node lock on attached veCTM as a deterrent against misbehaving public signers.
 
 The veCTM token is used for governance. It allows on-chain governance using OpenZeppelin’s Governor contract, with extensions added by ContinuumDAO to allow multiple choice, multiple selection and weighted voting. Using our cross-chain messaging system, C3Caller, the governance becomes cross-chain, as well as on-chain. This is the system that ContinuumDAO will use to maintain its smart contracts on every chain.
 
-Any multi-chain dApp deployed using C3Caller can also natively utilise this cross-on-chain governance, so that it can be used to maintain all of the admin functions, so that these can be controlled by a protocol DAO, with no central control. 
+Any multi-chain dApp deployed using C3Caller can also natively utilise this cross-on-chain governance, so that it can be used to maintain all of the admin functions, so that these can be controlled by a protocol DAO, with no central control.
 
-The veCTM token is also used to stake on MPC nodes, adding an extra security measure to the inherently secure CGGMP24 and FROST threshold signature protocols. Only the DAO can un-stake these veCTMs, allowing a bad actor’s veCTM to remain locked forever. **MPA wallet owners** who run nodes and join cross-chain signing Groups receive payment for that service in CTM; remuneration rates and quality scoring are determined by DAO governance.
+There will also be buy pressure for CTM from dApps paying for cross-chain services via C3Caller, and from cross-chain operator rewards — counteracting sell pressure from DEX liquidity providers. This increased volume should benefit LP providers and attract DEXes and CEXes to list CTM.
 
-**Subscription through staking:** veCTM staked on a node is an alternative to a **monthly MPA wallet subscription**. Operators who attach veCTM to their node receive **free use of the MPA wallet up to a governance-set free signature limit** — enough for typical personal custody and trading without a separate SaaS fee. Usage above that limit, or nodes without staked veCTM, can pay via subscription or metered fees as the DAO defines. This ties long-term protocol alignment (veCTM) to everyday wallet access and rewards node operators who secure the network.
-
-As well as being used for governance (via veCTM) and distribution of payments to node runners, CTM will also be used as a payment option for all services in cross-chain messaging system, C3Caller.
-
-The vested NFT token (veCTM) can be split into two NFT’s, so holders can sell part of their holding, or they can be added together.  It will be possible to liquidate a veCTM with the holder receiving 50% of their CTM tokens for a 4 year lock, increasing linearly to 100% for a zero time lock. The balance of the CTM tokens will be returned to the DAO treasury. The ability to split, merge and liquidate veCTM solves a long standing problem in DeFi, whereby stakers felt trapped. The new system provides a balance between only allowing staked CTM (as veCTM) to vote, so that those with the medium term interest of the protocol alone determine its actions, but still allowing an escape route, albeit with penalties. Since veCTM adheres to the ERC721 interface, it can also be sold on any NFT marketplace.
+The vested NFT token (veCTM) can be split into two NFT’s, so holders can sell part of their holding, or they can be added together.  It will be possible to liquidate a veCTM with the holder receiving 50% of their CTM tokens for a 4 year lock, increasing linearly to 100% for a zero time lock. The balance of the CTM tokens will be returned to the DAO treasury. The ability to split, merge and liquidate veCTM solves a long standing problem in DeFi, whereby stakers felt trapped. The new system provides a balance between only allowing staked CTM (as veCTM) to vote, so that those with the medium term interest of the protocol alone determine its actions, but still allowing an escape route, albeit with penalties. Since veCTM adheres to the ERC721 interface, it can also be sold on any NFT marketplace, including the one that is being built by the DAO.
 
 ## The MPC Network and the MPA Wallet
 
-ContinuumDAO’s MPC network, **Multi-Party Agent (MPA) wallet**, and staking control panel are currently being built. Through the control panel, anyone will be able to see which nodes are signing cross-chain messages and claim **CTM rewards** for qualified participation.
+ContinuumDAO’s flagship **Multi-Party Agent (MPA) wallet** and public MPC network — including the staking control panel — are currently being built. Through the control panel, anyone will be able to see which nodes are signing cross-chain messages and claim **CTM and ETH rewards** for qualified participation.
 
 ContinuumDAO is the first **public** MPC network: anyone can run an **MPC node**, operate an **MPA wallet**, and optionally contribute to **cross-chain signing** for C3Caller and future applications. Threshold signatures use **CGGMP24** (ECDSA / secp256k1) and **FROST** (EdDSA / Ed25519), following the Lockness implementations under LF Decentralized Trust (Linux Foundation). Further background on MPC is [here](https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC?id=what-is-mpc).
 
@@ -184,7 +217,7 @@ The same node installation supports **two roles**:
 | **MPA wallet (custody)** | Self-custody of BTC, EVM assets, and (future) Ed25519 chains; **direct web3 protocol trading** without a Private Key; optional **AI-assisted** flows | **2/2 multi-agree** — AI node + human Accept node; or **2/3**, **3/5** with family/friends for loss or succession planning |
 | **Continuum cross-chain signer** | MPC Group signs C3Caller messages after DAO approval | **5+ nodes, 3/5 tx-check**, ideally independent operators |
 
-Wallet owners may use **only** the custody role, or also opt into cross-chain Groups and **earn protocol rewards** for helping secure the network.
+Wallet owners may use **only** the custody role, or also opt into cross-chain Groups and **earn protocol rewards in CTM and ETH** for helping secure the network.
 
 ### The Multi-Party Agent (MPA) wallet
 
@@ -198,11 +231,11 @@ The **MPA wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/
 - **Private off-chain security** — multi-sign negotiation and agent context stay on the operators’ nodes, encrypted; the chain sees only the final transaction.
 - **State-of-the-art MPC** — CGGMP24 and FROST, with proactive key refresh, maintained under Lockness / LF Decentralized Trust.
 - **DAO-aligned operation** — protocol parameters, approved signers, rewards, and the **free signature limit** for staked nodes are governed by the DAO; the wallet itself is non-custodial and user-controlled.
-- **Subscription through staking** — attach **veCTM** to your node instead of paying a monthly subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance.
+- **Subscription through staking** — attach **veCTM** to your node instead of paying a **monthly USDC** subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance.
 
 ### Fully decentralized custody
 
-Many MPC wallets rely on **vendor-hosted databases** to store key shares. The **MPA wallet does not**: threshold shares and encrypted wallet state live **only on nodes deployed by users**. The wallet software is **self-contained on each node**; the sole on-chain dependency for fees is a **DAO-governed smart contract**. ContinuumDAO may offer a convenience UI, but day-to-day control attaches to **your** node — not a custody service.
+Many MPC wallets rely on **vendor-hosted databases** to store key shares. The **MPA wallet does not**: threshold shares and encrypted wallet state live **only on nodes deployed by users**. **Users install and run the node software themselves** — on a home machine or VPS. The wallet software is **self-contained on each node**; the sole on-chain dependency for fees is a **DAO-governed smart contract**. ContinuumDAO may offer a convenience UI, but day-to-day control attaches to **your** node — not a custody service. **ContinuumDAO is not required** for the wallet to operate: it provides optional software updates and a governance framework to organise protocol parameters — not day-to-day custody or signing.
 
 Operators can back up **encrypted node data** (with bootstrap keys) to enable **recovery**, **hardware switching**, or migration to a new machine while preserving node identity. Groups that wish to leave MPC can **eject** a KeyGen — threshold agreement reconstructs a standard private key for import into conventional wallets. **If ContinuumDAO ceased operations**, existing MPA wallets would **continue to function** from user-run nodes and backups, without further DAO updates.
 
@@ -214,11 +247,11 @@ There is no limit to the number of nodes or Groups, or to the web3 traffic the n
 
 Instructions for running a node are in our [documentation](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install). After creating a node, operators can attach veCTM and optionally identify themselves on-chain.
 
-**Subscription through staking:** anyone who **stakes veCTM on their node** qualifies for **free MPA wallet usage up to the free signature limit** — a DAO-governed alternative to a monthly subscription. Heavier use or unstaked nodes follow the paid subscription or metered model the DAO adopts.
+**Subscription through staking:** anyone who **stakes veCTM on their node** qualifies for **free MPA wallet usage up to the free signature limit** — a DAO-governed alternative to a **monthly subscription paid in USDC**. Heavier use or unstaked nodes follow the paid subscription or metered model the DAO adopts.
 
-Staking on MPC nodes will go live with the Relayer and Scanner. veCTM attachment is an additional safeguard: only a DAO vote can detach it, and attached veCTM cannot be liquidated or transferred. Misbehaving operators risk permanent lock of staked veCTM.
+Staking on MPC nodes will go live imminently. **veCTM attached to a node is locked by default** — only a **DAO governance vote** can unlock or detach it, and attached veCTM cannot be liquidated or transferred while on the node. Nodes will be monitored for malpractice using a dedicated AI engine; misbehaving operators risk **permanent lock**, with Governance refusing to approve release.
 
-**Rewards:** contributors to approved cross-chain signing Groups — including **MPA wallet owners** who choose that role — receive CTM from the protocol. A quality score (uptime, speed) set by governance multiplies the base reward. Hardware requirements for a useful node are modest (a standard VPS suffices). The staking panel is on testnet today.
+**Rewards:** contributors to approved cross-chain signing Groups — including **MPA wallet owners** who choose that role — receive **CTM and ETH** from the protocol (rates and mix set by governance). A quality score (uptime, speed) multiplies the base reward. Hardware requirements for a useful node are modest (a standard VPS suffices). The staking panel is on testnet today.
 
 Anyone can create an MPC Group; C3Caller uses Groups approved by **governance vote**. dApps may rely on several Groups for resilience. Groups with higher veCTM stake and clearer operator identity are natural choices for public traffic.
 
@@ -246,18 +279,19 @@ CTM is a multi-chain token, that can only be minted on Ethereum by Governance vo
     - 13% allocated for early core contributors. Core contributors will share this allocation as a veCTM token, with full voting rights at TGE.
     - 2% allocated for future core contributors
 - **Airdrop - 10%**
-    - 10% allocated for Airdrop for the early community who supported ContinuumDAO in its formation in 2023. The airdrop will be as a veCTM token, locked for 4 years and with full voting rights. These community members are currently claiming their veCTM, now that the DAO is live on Linea.
+    - 10% allocated for the early community who supported ContinuumDAO in its formation in 2023. The airdrop is **CTM vested into veCTM NFTs with a 4-year lock** and full voting rights. Community members are currently claiming these veCTM allocations now that the DAO is live on Linea.
 - **Investors - 15%**
     - 15% allocated for VCs: The terms of any allocation to VCs will be determined by DAO voting, including a locking period.
 
 ### Utility
 
-- **MPA wallet** — **AI-first** MPC self-custody on **user-run nodes**, with a **rich frontend** for full manual control (no vendor database of key shares), **direct web3 protocol trading** without a Private Key, encrypted backup / recovery, optional **eject** to a standard private-key wallet, and AI-assisted workflows
-- C3Caller cross-chain message payments (USD and other stable coins, CTM)
+- **Staking as subscription** — veCTM attached to your node unlocks **free MPA wallet use** up to the free signature limit (alternative to **monthly USDC** subscription); the **primary use of CTM**, locking an increasing share of total supply as adoption grows
+- **DAO voter expansion** — each staked veCTM carries governance voting power, growing the engaged voter base as wallet operators stake for free access
+- **MPA wallet subscription** — pay a **monthly subscription in CTM at a discount** (instead of a USD stablecoin), or **stake veCTM** on your node for free wallet use up to the governance-set signature limit
+- **Rewards for cross-chain signing** — **CTM and ETH** payments to MPA wallet / node operators in approved Groups (rates set by governance)
 - Governance — as veCTM
 - Staking to secure the MPC network — as veCTM
-- **Subscription through staking** — veCTM attached to your node unlocks **free MPA wallet use** up to the free signature limit (alternative to monthly subscription)
-- **Rewards for cross-chain signing** — CTM payments to MPA wallet / node operators in approved Groups
+- C3Caller cross-chain message payments (USD and other stable coins, CTM)
 
 # Ecosystem Development
 
@@ -267,8 +301,6 @@ The DAO will assist new projects that wish to use Continuum. This will be in the
 
 AssetX is the first such project to receive support from ContinuumDAO, marking ContinuumDAO’s entry into RWA tokenization. ContinuumDAO will be given 49% of the AssetX Security tokens, once these Security tokens are minted (subject to gaining a Security License) and the Continuum MPC is fully decentralized and audited.
 
-Lawracle is another project being jointly developed by ContinuumDAO. It is another service for RWA’s, to create legal certainty around asset tokenization. Lawracle will provide on-chain proofs from law firms that asset tokens are really being backed by real assets and other statements made by web3 protocols are truthful. ContinuumDAO will be allocated 49% of Lawracle’s token supply in return for technical services being provided by DAO members to build it.
-
-This will be the model for the future. Any new protocol is free to use Continuum, without the involvement of the DAO, but some projects may wish to work directly with ContinuumDAO, leveraging its talent pool and grants. If the community decides to, through voting, then ContinuumDAO will form partnerships with some of these projects and take a stake of the new protocol for its Treasury. ContinuumDAO will pro-actively work to build usage of its cross-chain infrastructure and **MPA wallet** ecosystem, use the revenue from this to improve and extend the MPC network, to maintain a security reserve and to increase its reach. **Wallet owners who run nodes** and participate in cross-chain signing share in that growth through **CTM and ETH rewards** and a stronger public MPC fabric.
+This will be the model for the future. Any new protocol is free to use Continuum, without the involvement of the DAO, but some projects may wish to work directly with ContinuumDAO, leveraging its talent pool and grants. If the community decides to, through voting, then ContinuumDAO will form partnerships with some of these projects and take a stake of the new protocol for its Treasury. ContinuumDAO will pro-actively work to build usage of its **MPA wallet ecosystem** and cross-chain infrastructure, use the revenue from this to improve and extend the MPC network, to maintain a security reserve and to increase its reach. **Wallet owners who run nodes** and participate in cross-chain signing share in that growth through **CTM and ETH rewards** and a stronger public MPC fabric.
 
 ---

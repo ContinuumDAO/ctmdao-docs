@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-17T12:41:12.024Z",
+  "generatedAt": "2026-08-17T16:36:37.098Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2624,11 +2624,13 @@
         "About ContinuumDAO",
         "Why Does Having Open Public Infrastructure Matter?",
         "Why is the ContinuumDAO Mission Important?",
-        "Lack of  Open Cross-Chain Fabrics",
-        "Security Relies on ‘Staking’ Alone",
-        "The Number of Chains in a Network is not Scaleable",
-        "Technical Challenges in Expanding the Cross-Chain Network",
-        "Lack of Protocol Level Security",
+        "On-Chain Finance Needs Trustworthy Self-Custody",
+        "AI Must Not Spend Alone",
+        "Fragmented Chains and DeFi Silos",
+        "Fully Decentralized MPC Custody",
+        "The Wallet Must Work Without ContinuumDAO",
+        "Cross-Chain dApps Need Open, MPC-Secured Infrastructure",
+        "Cross-Chain Signing Must Scale Beyond Multi-Sig and zkProof Relayers",
         "How is ContinuumDAO Different?",
         "The Current Situation",
         "ContinuumDAO Roadmap",
@@ -2638,6 +2640,7 @@
         "DAO incentive system",
         "The ContinuumDAO Token",
         "Vested Token Model",
+        "Staking as Subscription — the Primary Use of CTM / veCTM",
         "The MPC Network and the MPA Wallet",
         "Nodes — the core building block",
         "The Multi-Party Agent (MPA) wallet",
@@ -2654,67 +2657,79 @@
           "id": "continuumdao-white-paper",
           "title": "ContinuumDAO White Paper",
           "level": 1,
-          "excerpt": "15th August 2026"
+          "excerpt": "17th August 2026"
         },
         {
           "id": "welcome-to-continuum",
           "title": "Welcome to Continuum",
           "level": 1,
-          "excerpt": "An open public cross chain network secured by Multi Party Computation — and the Multi Party Agent (MPA) wallet , an AI first flagship MPC product (with a rich frontend for full manual control) for custody without a Private Key , AI assisted trading , and optional cross chain signing rewards — run as"
+          "excerpt": "An AI first Multi Party Agent (MPA) wallet for on chain asset control — without a Private Key , with a rich frontend for full manual override, built in DeFi protocol access , and a built in AI agent harness designed as the premier fabric for human–AI custody. Users install and run the node software "
         },
         {
           "id": "about-continuumdao",
           "title": "About ContinuumDAO",
           "level": 2,
-          "excerpt": "ContinuumDAO is a community that is collectively building a future in which all blockchains are linked, to enable the integration of decentralized blockchain ledgers for all dApps. We realise that the entirety of finance and other ‘trust’ based networks will transition to web3 in the next few years "
+          "excerpt": "ContinuumDAO is a community building the infrastructure for the next phase of on chain finance. Traditional financial assets, trading, and trust networks are moving on chain. Regulatory frameworks are maturing — the EU’s MiCA regime and evolving approval paths in the US are opening the door to insti"
         },
         {
           "id": "why-does-having-open-public-infrastructure-matter",
           "title": "Why Does Having Open Public Infrastructure Matter?",
           "level": 2,
-          "excerpt": "A better question is why would anyone who wishes to create a multi chain dApp rely on an infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at anytime? ContinuumDAO has sophisticated DAO governed smart contracts that do not rely on"
+          "excerpt": "A better question is why would anyone who wishes to create a multi chain dApp — or operate an MPA wallet for serious on chain asset management — rely on infrastructure that wasn’t completely decentralized, or which was owned by a company, knowing that this could disappear at any time? ContinuumDAO h"
         },
         {
           "id": "why-is-the-continuumdao-mission-important",
           "title": "Why is the ContinuumDAO Mission Important?",
           "level": 2,
-          "excerpt": "The existing landscape of web3 is confusing for new and even existing users. Continuum will solve some of the biggest pain points how to utilize AI safely for on chain trading and how decentralized applications (dApps) securely communicate between any blockchain that supports a contract based system"
+          "excerpt": "Web3 is confusing and risky for both newcomers and experienced users moving real assets on chain. ContinuumDAO addresses the custody, AI safety, and multi chain access problems that block mainstream adoption — with a public MPC network whose flagship product is the MPA wallet . As financial assets a"
         },
         {
-          "id": "lack-of-open-cross-chain-fabrics",
-          "title": "Lack of  Open Cross-Chain Fabrics",
+          "id": "on-chain-finance-needs-trustworthy-self-custody",
+          "title": "On-Chain Finance Needs Trustworthy Self-Custody",
           "level": 3,
-          "excerpt": "Existing cross chain architectures are sometimes ‘black boxes’, so that no one is aware of who is signing transactions on destination chains. Others are secured by nodes run by a few individuals, often team members. They do not allow anyone to contribute to cross chain signing. They are not ‘public’"
+          "excerpt": "As financial assets and trading move on chain under evolving regulatory frameworks, users need custody that matches the seriousness of the assets they hold. Vendor MPC wallets that store key shares in company databases, hardware wallets that tie recovery to email addresses and home addresses, and si"
         },
         {
-          "id": "security-relies-on-staking-alone",
-          "title": "Security Relies on ‘Staking’ Alone",
+          "id": "ai-must-not-spend-alone",
+          "title": "AI Must Not Spend Alone",
           "level": 3,
-          "excerpt": "When a cross chain messaging system relies on node runners staking on their nodes alone, then the issue, as the volume grows, is that the value of the staking would become low compared to the value of the traffic itself. There is not a good enough incentive to avoid foul play. Cross chain signing mu"
+          "excerpt": "Much on chain asset management will be driven by AI agents, but agents must not be able to spend alone. A typical personal setup pairs an AI assisted node with a human circuit breaker node under 2/2 threshold control: the agent can analyze markets, propose DeFi actions, and compose trades, but canno"
         },
         {
-          "id": "the-number-of-chains-in-a-network-is-not-scaleable",
-          "title": "The Number of Chains in a Network is not Scaleable",
+          "id": "fragmented-chains-and-defi-silos",
+          "title": "Fragmented Chains and DeFi Silos",
           "level": 3,
-          "excerpt": "Sometimes (and this includes some of the most popular bridges) the cross chain signing relies on multi signature wallets. The issue here is that multiple signatures are costly. It is hard to upgrade every node to include a new chain that they must sign on. This will prevent support for all but a few"
+          "excerpt": "Users need uniform access to the most important web3 DeFi protocols across chains — not a patchwork of browser extensions, key exports, and opaque bridges. The MPA wallet supports Bitcoin (SegWit and Taproot), Ethereum and other EVM compatible assets , and — as the network expands — many Ed25519 cha"
         },
         {
-          "id": "technical-challenges-in-expanding-the-cross-chain-network",
-          "title": "Technical Challenges in Expanding the Cross-Chain Network",
+          "id": "fully-decentralized-mpc-custody",
+          "title": "Fully Decentralized MPC Custody",
           "level": 3,
-          "excerpt": "Systems secured by zkProofs are difficult to expand. The zkProof is computationally expensive and requires expensive hardware, which can be challenging for most node runners to implement. Generating a zkProof from an EVM to a non EVM is difficult (impossible?) to achieve."
+          "excerpt": "Threshold shares and encrypted wallet state live only on nodes deployed by users . The wallet software is self contained on each node ; the sole on chain dependency for fees is a DAO governed smart contract . Operators can back up encrypted node data, share custody among family or friends via higher"
         },
         {
-          "id": "lack-of-protocol-level-security",
-          "title": "Lack of Protocol Level Security",
+          "id": "the-wallet-must-work-without-continuumdao",
+          "title": "The Wallet Must Work Without ContinuumDAO",
           "level": 3,
-          "excerpt": "Systems that use zkProofs and relayers of those proofs do not have protocol level security. It is up to the dApp to choose the relayer and they can switch at any time from within their frontend to an insecure or malicious relayer, unbeknown to the users of those dApps."
+          "excerpt": "MPA wallet node software is installed and run by users themselves. ContinuumDAO is not required for day to day custody, signing, DeFi, or AI assisted flows — all of that runs on the operator’s nodes. ContinuumDAO provides optional software updates and a DAO governance framework to organise fee contr"
+        },
+        {
+          "id": "cross-chain-dapps-need-open-mpc-secured-infrastructure",
+          "title": "Cross-Chain dApps Need Open, MPC-Secured Infrastructure",
+          "level": 3,
+          "excerpt": "Existing cross chain architectures are often ‘black boxes’ where no one knows who signs on destination chains, or they are run by a few team members behind a company that could disappear. When security relies on staking alone , the value at stake falls behind the value of traffic as volume grows. Sy"
+        },
+        {
+          "id": "cross-chain-signing-must-scale-beyond-multi-sig-and-zkproof-relayers",
+          "title": "Cross-Chain Signing Must Scale Beyond Multi-Sig and zkProof Relayers",
+          "level": 3,
+          "excerpt": "Multi signature bridges are costly — multiple on chain signatures consume gas and are hard to upgrade for new chains. zkProof systems are computationally expensive, require expensive hardware, and struggle to expand from EVM to non EVM chains. An MPC signature is a single signature with limited gas "
         },
         {
           "id": "how-is-continuumdao-different",
           "title": "How is ContinuumDAO Different?",
           "level": 2,
-          "excerpt": "Our cross chain network, called the Continuum, is run by a DAO and designed for autonomous operation. All critical operations and financial transactions depend on on chain voting. There is no central ‘team’. The MPA wallet is a core MPC product: an AI first wallet with a rich frontend for complete m"
+          "excerpt": "The MPA wallet is ContinuumDAO’s flagship MPC product: an AI first wallet with a rich frontend for complete manual operation — fully decentralized self custody of BTC (SegWit and Taproot), Ethereum / EVM assets , and (in rollout) Ed25519 chains such as Solana and NEAR — without a Private Key , with "
         },
         {
           "id": "the-current-situation",
@@ -2756,19 +2771,25 @@
           "id": "the-continuumdao-token",
           "title": "The ContinuumDAO Token",
           "level": 2,
-          "excerpt": "ContinuumDAO has implemented its token model on Linea mainnet. Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on github). There will be a buy pressure for CTM, since it is used as a payment token by dApps for cross chain services. This will coun"
+          "excerpt": "ContinuumDAO has implemented its token model on Linea mainnet. Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on github). Staking as subscription is the main use of CTM . Operators who attach veCTM to their MPA wallet node receive free MPA walle"
         },
         {
           "id": "vested-token-model",
           "title": "Vested Token Model",
           "level": 3,
-          "excerpt": "ContinuumDAO has implemented its token model on Linea mainnet. Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on github). There will be a buy pressure for CTM, since it is used as a payment token by dApps for cross chain services. This will coun"
+          "excerpt": "ContinuumDAO has implemented its token model on Linea mainnet. Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT called veCTM (see the code on github)."
+        },
+        {
+          "id": "staking-as-subscription-the-primary-use-of-ctm-vectm",
+          "title": "Staking as Subscription — the Primary Use of CTM / veCTM",
+          "level": 3,
+          "excerpt": "Staking as subscription is the main use of CTM . Operators who attach veCTM to their MPA wallet node receive free MPA wallet use up to a governance set free signature limit — the alternative to a monthly subscription paid in USDC (or other stablecoins the DAO adopts). Heavier use, or nodes without s"
         },
         {
           "id": "the-mpc-network-and-the-mpa-wallet",
           "title": "The MPC Network and the MPA Wallet",
           "level": 2,
-          "excerpt": "ContinuumDAO’s MPC network, Multi Party Agent (MPA) wallet , and staking control panel are currently being built. Through the control panel, anyone will be able to see which nodes are signing cross chain messages and claim CTM rewards for qualified participation. ContinuumDAO is the first public MPC"
+          "excerpt": "ContinuumDAO’s flagship Multi Party Agent (MPA) wallet and public MPC network — including the staking control panel — are currently being built. Through the control panel, anyone will be able to see which nodes are signing cross chain messages and claim CTM and ETH rewards for qualified participatio"
         },
         {
           "id": "nodes-the-core-building-block",
@@ -2786,7 +2807,7 @@
           "id": "fully-decentralized-custody",
           "title": "Fully decentralized custody",
           "level": 3,
-          "excerpt": "Many MPC wallets rely on vendor hosted databases to store key shares. The MPA wallet does not : threshold shares and encrypted wallet state live only on nodes deployed by users . The wallet software is self contained on each node ; the sole on chain dependency for fees is a DAO governed smart contra"
+          "excerpt": "Many MPC wallets rely on vendor hosted databases to store key shares. The MPA wallet does not : threshold shares and encrypted wallet state live only on nodes deployed by users . Users install and run the node software themselves — on a home machine or VPS. The wallet software is self contained on e"
         },
         {
           "id": "public-mpc-nodes-and-rewards",
@@ -2816,7 +2837,7 @@
           "id": "utility",
           "title": "Utility",
           "level": 3,
-          "excerpt": "MPA wallet — AI first MPC self custody on user run nodes , with a rich frontend for full manual control (no vendor database of key shares), direct web3 protocol trading without a Private Key, encrypted backup / recovery, optional eject to a standard private key wallet, and AI assisted workflows C3Ca"
+          "excerpt": "Staking as subscription — veCTM attached to your node unlocks free MPA wallet use up to the free signature limit (alternative to monthly USDC subscription); the primary use of CTM , locking an increasing share of total supply as adoption grows DAO voter expansion — each staked veCTM carries governan"
         },
         {
           "id": "ecosystem-development",
@@ -2825,7 +2846,7 @@
           "excerpt": "There will be a grant program for new projects using Continuum. This could be either a grant of CTM, or other tokens from the treasury, or a time limited reduction in fees for usage of Continuum. The DAO will assist new projects that wish to use Continuum. This will be in the form of coding support,"
         }
       ],
-      "excerpt": "15th August 2026 An open public cross chain network secured by Multi Party Computation — and the Multi Party Agent (MPA) wallet , an AI first flagship MPC product (with a rich frontend for full manual control) for custody without a Private Key , AI assisted trading , and optional cross chain signing",
+      "excerpt": "17th August 2026 An AI first Multi Party Agent (MPA) wallet for on chain asset control — without a Private Key , with a rich frontend for full manual override, built in DeFi protocol access , and a built in AI agent harness designed as the premier fabric for human–AI custody. Users install and run t",
       "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper"
     },
     {

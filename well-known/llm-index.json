@@ -17,7 +17,7 @@
   },
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-17T12:41:12.024Z",
+  "generatedAt": "2026-08-17T16:36:37.098Z",
   "pageCount": 51,
   "llmld:sections": [
     {
@@ -156,7 +156,7 @@
           "name": "ContinuumDAO White Paper",
           "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper.md",
-          "excerpt": "15th August 2026 An open public cross chain network secured by Multi Party Computation — and the Multi Party Agent (MPA) wallet , an AI first flagship MPC product (with a rich frontend for full manual"
+          "excerpt": "17th August 2026 An AI first Multi Party Agent (MPA) wallet for on chain asset control — without a Private Key , with a rich frontend for full manual override, built in DeFi protocol access , and a bu"
         },
         {
           "name": "Who are we?",
