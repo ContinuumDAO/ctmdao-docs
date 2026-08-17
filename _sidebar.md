@@ -22,6 +22,7 @@
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
   * [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md)
   * [Asset management](/ContinuumDAO/MPAWallet/AssetManagement.md)
+  * [Contact management](/ContinuumDAO/MPAWallet/ContactManagement.md)
   * [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
   * [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
   * [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

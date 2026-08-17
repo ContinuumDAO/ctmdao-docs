@@ -23,6 +23,8 @@ Use the node app **Compose** tab when you want to build transactions field-by-fi
 2. Choose the **blockchain** (network) for this request.
 3. Optionally set **Purpose** text and **Custom Chain config** (gas profile, RPC gateway, gas multiplier) — peers see these on **Join**; see [Creating a multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md#creating-a-multi-sign-request).
 
+For transfers and contract calls, use the **contact picker** to select a saved [contact](/ContinuumDAO/MPAWallet/ContactManagement.md) instead of pasting a raw address.
+
 #### Add one or more transaction steps
 
 Each step is one transaction (one signature) in the eventual batch.

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-17T11:26:10.874Z",
+  "generatedAt": "2026-08-17T12:17:13.622Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1118,7 +1118,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Chain management — configure networks before assets DeFi protocol support — protocol capabilities and API keys Compose transaction flow — Transfer from an asset row MPC Accept/Reject loop Configure the AI harness Overview Operator detail: API Implementation — token config"
+          "excerpt": "Contact management — named recipients for Compose transfers Chain management — configure networks before assets DeFi protocol support — protocol capabilities and API keys Compose transaction flow — Transfer from an asset row MPC Accept/Reject loop Configure the AI harness Overview Operator detail: A"
         }
       ],
       "excerpt": "After you configure chains on your node, register the tokens and NFTs you want to see and use on the Assets tab. Token config is stored on each node locally (not propagated to other Group members) — the same model as chain registry. The node app and the AI agent use the management API ( POST /addTok",
@@ -1361,7 +1361,7 @@
           "id": "select-keygen-and-chain",
           "title": "Select KeyGen and chain",
           "level": 4,
-          "excerpt": "1. Choose the KeyGen that will sign (must be multi agree for MPA custody). 2. Choose the blockchain (network) for this request. 3. Optionally set Purpose text and Custom Chain config (gas profile, RPC gateway, gas multiplier) — peers see these on Join ; see Creating a multi sign request."
+          "excerpt": "1. Choose the KeyGen that will sign (must be multi agree for MPA custody). 2. Choose the blockchain (network) for this request. 3. Optionally set Purpose text and Custom Chain config (gas profile, RPC gateway, gas multiplier) — peers see these on Join ; see Creating a multi sign request. For transfe"
         },
         {
           "id": "add-one-or-more-transaction-steps",
@@ -1468,6 +1468,59 @@
       ],
       "excerpt": "This page describes how an originator builds a multi sign request (single transaction or batch ) before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was created. How the originator creates the request Typical use Manual compose Hand built transfers, custom co",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ComposeTransactionFlow"
+    },
+    {
+      "path": "ContinuumDAO/MPAWallet/ContactManagement",
+      "title": "Contact management",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Contact management",
+        "Open Contacts (header)",
+        "Add or edit a contact",
+        "Using contacts in Compose",
+        "AI flow",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "contact-management",
+          "title": "Contact management",
+          "level": 2,
+          "excerpt": "The address book (contacts) stores named recipients and contract addresses on this node only — the same local registry model as chains and assets. Contacts are not propagated to other Group members. The node app and AI agent use the management API ( POST /addKnownAddress , GET /getKnownAddresses ). "
+        },
+        {
+          "id": "open-contacts-header",
+          "title": "Open Contacts (header)",
+          "level": 3,
+          "excerpt": "Click the body / person icon in the app header to open Contacts . From here you can: Browse saved names and addresses Add a new contact ( + ) Edit name, chain scope, or contract flag Remove an entry (node registry only — nothing on chain changes) Management signing (MetaMask EIP 191 or Ed25519 ) is "
+        },
+        {
+          "id": "add-or-edit-a-contact",
+          "title": "Add or edit a contact",
+          "level": 3,
+          "excerpt": "When adding a contact, set: Field Purpose Name Label shown in Contacts and in Compose pickers (for example Tom , Treasury , USDC contract ) Address EVM address ( 0x… ) — wallet (EOA) or smart contract Chain scope Which networks this entry applies to (see below) Is contract Enable when the address is"
+        },
+        {
+          "id": "using-contacts-in-compose",
+          "title": "Using contacts in Compose",
+          "level": 3,
+          "excerpt": "After contacts exist, they surface in the Compose transaction flow: 1. Open Compose , select KeyGen and chain. 2. Add a step (for example ERC 20 transfer or a custom contract call). 3. In recipient or to fields, open the contact picker (or type to filter) — saved names appear alongside raw address e"
+        },
+        {
+          "id": "ai-flow",
+          "title": "AI flow",
+          "level": 3,
+          "excerpt": "With the AI harness and continuum MCP server enabled, manage contacts from Agent chat . List contacts: What contacts do I have? The agent calls get address book registry and returns names, addresses, chain scope, and contract flags. Add a contact: Add a new contact called Tom with address 0x563751cE"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "Compose transaction flow — pick contacts as recipients Asset management — tokens for transfers Chain management — networks must be configured first MPC Accept/Reject loop Backup and restoration — contacts are included in node backups Configure the AI harness Overview Operator detail: API Implementat"
+        }
+      ],
+      "excerpt": "The address book (contacts) stores named recipients and contract addresses on this node only — the same local registry model as chains and assets. Contacts are not propagated to other Group members. The node app and AI agent use the management API ( POST /addKnownAddress , GET /getKnownAddresses ). ",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ContactManagement"
     },
     {
       "path": "ContinuumDAO/MPAWallet/DeFiProtocolSupport",
@@ -1886,7 +1939,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Attach your node Chain management Asset management MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
+          "excerpt": "Attach your node Chain management Asset management Contact management MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
         }
       ],
       "excerpt": "The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built in AI agent harness — the natural way to propose trades, run analysis, and drive DeFi flows — while a rich frontend (mpa.continuumdao.",

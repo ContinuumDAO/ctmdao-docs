@@ -107,6 +107,7 @@ Configure [chains](/ContinuumDAO/MPAWallet/ChainManagement.md) before adding tok
 
 ### Related
 
+- [Contact management](/ContinuumDAO/MPAWallet/ContactManagement.md) — named recipients for Compose transfers
 - [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md) — configure networks before assets
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) — protocol capabilities and API keys
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) — Transfer from an asset row
