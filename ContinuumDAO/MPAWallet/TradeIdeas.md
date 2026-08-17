@@ -119,6 +119,7 @@ When the fast path does not apply, **`trade-defaults`** still decides — for ex
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
+- [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — 2/2 human-in-the-loop Accept

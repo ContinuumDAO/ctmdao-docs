@@ -58,7 +58,7 @@ After contacts exist, they surface in the [Compose transaction flow](/ContinuumD
 4. Only contacts **valid for the current chain** are listed (global contacts plus any scoped to this chain id).
 5. Select a contact; the node fills the address. Complete amount, Purpose, and the rest of the flow as usual → **Join** → **Execute**.
 
-Using named contacts reduces copy-paste errors and makes **Purpose** text on **Join** easier for peers to review (“100 USDC to Tom” vs an bare `0x5637…` address).
+Using named contacts reduces copy-paste errors and makes **Purpose** text on **Join** easier for peers to review (“100 USDC to Tom” vs a bare `0x5637…` address). The same applies to **Bitcoin** sends — choosing a saved contact instead of pasting **bc1…** from the clipboard helps avoid mistakes and **copy-paste intercept** attacks (malware that replaces an address you copied elsewhere).
 
 The same address book is available to the **AI agent** when building transfers or compose actions (see [AI flow](#ai-flow)).
 

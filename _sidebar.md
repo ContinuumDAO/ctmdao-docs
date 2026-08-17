@@ -29,6 +29,7 @@
   * [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
   * [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
   * [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
+  * [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md)
   * [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
 
 * AI harness

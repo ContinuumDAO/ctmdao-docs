@@ -64,14 +64,14 @@ Hard-coded **base fee** / **priority fee** in the chain registry are for operato
 
 ### Bitcoin (SegWit and Taproot)
 
-Bitcoin custody uses **KeyGen type**, not the EVM chain registry:
+Bitcoin custody is documented in [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md). Summary:
 
-| Style | KeyGen type | Address | Chain config |
-|-------|-------------|---------|--------------|
-| **SegWit (P2WPKH)** | **secp256k1** (same family as EVM) | **bc1q…** mainnet (also testnet / signet variants derived from the same public key) | Select the Bitcoin network in **Compose** / Assets when your node build exposes it; SegWit addresses are derived automatically from the KeyGen |
-| **Taproot (P2TR)** | **bitcoin-taproot** (separate KeyGen) | **bc1p…** mainnet | Create a dedicated **multi-agree** KeyGen with `keyType: "bitcoin-taproot"` — see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md). Taproot compose is separate from **ed25519** (Solana-style) keys |
+| Style | KeyGen type | Address |
+|-------|-------------|---------|
+| **SegWit (P2WPKH)** | **secp256k1** | **bc1q…** |
+| **Taproot (P2TR)** | **bitcoin-taproot** (not ed25519) | **bc1p…** |
 
-You cannot spend Bitcoin from an **ed25519** KeyGen or EVM **Compose** steps meant for ERC-20 transfers. Match KeyGen type to the chain family before adding networks or building sign requests.
+You cannot spend Bitcoin from an **ed25519** KeyGen or EVM **Compose** steps meant for ERC-20 transfers.
 
 ---
 
@@ -110,6 +110,7 @@ For gas behaviour when the agent creates sign requests, it should call **`get_mu
 ### Related
 
 - [Asset management](/ContinuumDAO/MPAWallet/AssetManagement.md) — register tokens after chains are configured
+- [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md) — SegWit and Taproot custody
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) — **Use Custom Gas** on create and fee override on **Execute**
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) — chain must exist before compose / Foundry import
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) — secp256k1, ed25519, bitcoin-taproot

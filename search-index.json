@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-17T12:17:13.622Z",
+  "generatedAt": "2026-08-17T12:41:12.024Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1252,6 +1252,66 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/Bitcoin",
+      "title": "Bitcoin",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Bitcoin",
+        "SegWit and Taproot — two KeyGen types",
+        "Why MPC for BTC",
+        "Storing and receiving BTC",
+        "Sending BTC (Compose)",
+        "AI flow",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "bitcoin",
+          "title": "Bitcoin",
+          "level": 2,
+          "excerpt": "The MPA wallet supports fully decentralized self custody of BTC without a single recoverable private key on any device — the same MPC model as EVM assets in Overview. You run your own nodes ; ContinuumDAO does not hold shares in a vendor database and there is no hardware wallet registration (no name"
+        },
+        {
+          "id": "segwit-and-taproot-two-keygen-types",
+          "title": "SegWit and Taproot — two KeyGen types",
+          "level": 3,
+          "excerpt": "Bitcoin uses KeyGen type , not the EVM chain registry. Pick the KeyGen that matches the address format you want to receive and spend from: Style KeyGen type MPC protocol Typical address Notes SegWit (P2WPKH) secp256k1 CGGMP24 (threshold ECDSA) bc1q… mainnet Same KeyGen family as Ethereum / EVM. SegW"
+        },
+        {
+          "id": "why-mpc-for-btc",
+          "title": "Why MPC for BTC",
+          "level": 3,
+          "excerpt": "No hardware wallet vendor dependency — custody is threshold shares on nodes you deploy, not a USB device tied to one person’s recovery seed in a manufacturer cloud. No registration gate — unlike some institutional or hardware flows, you are not required to submit personal information to a third part"
+        },
+        {
+          "id": "storing-and-receiving-btc",
+          "title": "Storing and receiving BTC",
+          "level": 3,
+          "excerpt": "1. Create a multi agree KeyGen ( secp256k1 for SegWit, or bitcoin taproot for Taproot) in your Group — KeyGens. 2. After KeyGen completes, open Keys (or KeyGen details) and copy the Bitcoin address : SegWit: bc1q… ( bitcoinp2wpkhmainnet on the KeyGen result) Taproot: bc1p… ( bitcoinp2trmainnet on a "
+        },
+        {
+          "id": "sending-btc-compose",
+          "title": "Sending BTC (Compose)",
+          "level": 3,
+          "excerpt": "1. Open Compose , select the Bitcoin KeyGen (secp256k1 for SegWit or bitcoin taproot for Taproot) and the Bitcoin network (mainnet / testnet / signet as exposed in the app). 2. Build a Bitcoin transfer step: recipient address (or pick a saved contact), amount in BTC. 3. Set Purpose text so peers on "
+        },
+        {
+          "id": "ai-flow",
+          "title": "AI flow",
+          "level": 3,
+          "excerpt": "With the AI harness and continuum MCP server enabled: Send Tom 0.1 BTC The agent: 1. Resolves Tom from the address book ( get address book registry ) — or asks you for a bc1… address if Tom is not saved. 2. Selects the correct Bitcoin KeyGen (SegWit secp256k1 or bitcoin taproot , matching how you cu"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "KeyGens — create secp256k1 or bitcoin taproot keys Chain management — Bitcoin network selection Contact management — named recipients for sends Compose transaction flow MPC Accept/Reject loop Eject to Private Key — export after threshold eject Overview What is MPC? — CGGMP24 and FROST (Lockness)"
+        }
+      ],
+      "excerpt": "The MPA wallet supports fully decentralized self custody of BTC without a single recoverable private key on any device — the same MPC model as EVM assets in Overview. You run your own nodes ; ContinuumDAO does not hold shares in a vendor database and there is no hardware wallet registration (no name",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Bitcoin"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/ChainManagement",
       "title": "Chain management",
       "section": "Using an MPA wallet",
@@ -1294,7 +1354,7 @@
           "id": "bitcoin-segwit-and-taproot",
           "title": "Bitcoin (SegWit and Taproot)",
           "level": 3,
-          "excerpt": "Bitcoin custody uses KeyGen type , not the EVM chain registry: Style KeyGen type Address Chain config SegWit (P2WPKH) secp256k1 (same family as EVM) bc1q… mainnet (also testnet / signet variants derived from the same public key) Select the Bitcoin network in Compose / Assets when your node build exp"
+          "excerpt": "Bitcoin custody is documented in Bitcoin. Summary: Style KeyGen type Address SegWit (P2WPKH) secp256k1 bc1q… Taproot (P2TR) bitcoin taproot (not ed25519) bc1p… You cannot spend Bitcoin from an ed25519 KeyGen or EVM Compose steps meant for ERC 20 transfers."
         },
         {
           "id": "solana-and-other-non-evm-chains",
@@ -1312,7 +1372,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Asset management — register tokens after chains are configured MPC Accept/Reject loop — Use Custom Gas on create and fee override on Execute Compose transaction flow — chain must exist before compose / Foundry import KeyGens — secp256k1, ed25519, bitcoin taproot Configure the AI harness Overview Ope"
+          "excerpt": "Asset management — register tokens after chains are configured Bitcoin — SegWit and Taproot custody MPC Accept/Reject loop — Use Custom Gas on create and fee override on Execute Compose transaction flow — chain must exist before compose / Foundry import KeyGens — secp256k1, ed25519, bitcoin taproot "
         }
       ],
       "excerpt": "Before you can compose transactions, import Foundry batches, or run DeFi protocol flows, your node needs chain configuration : RPC endpoints, explorers, and optional gas defaults. Chain config is stored on each node locally (not propagated to other Group members). Every node that will simulate, sign",
@@ -1939,7 +1999,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Attach your node Chain management Asset management Contact management MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
+          "excerpt": "Attach your node Chain management Asset management Contact management Bitcoin MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
         }
       ],
       "excerpt": "The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built in AI agent harness — the natural way to propose trades, run analysis, and drive DeFi flows — while a rich frontend (mpa.continuumdao.",
@@ -2073,7 +2133,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Technical analysis AI charting DeFi protocol support MPC Accept/Reject loop Configure the AI harness Overview — 2/2 human in the loop Accept Telegram Mini App"
+          "excerpt": "Technical analysis AI charting DeFi protocol support Bitcoin MPC Accept/Reject loop Configure the AI harness Overview — 2/2 human in the loop Accept Telegram Mini App"
         }
       ],
       "excerpt": "Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into one or more trade ideas — concrete long/short (or spot) levels the AI agent can use to build a real multi sign request for agreement by the other nodes in your KeyGen. 1. Load OHLCV ",
