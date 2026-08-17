@@ -2,13 +2,16 @@
 #
 # ctmdao-docs — run before every git push
 #
-# Regenerates search-index.json at the repo root. That file is published to
-# https://docs.continuumdao.org/search-index.json and is fetched live by Continuum
-# node AI agents (search_continuum_docs / get_continuum_doc on the built-in MCP server).
+# Regenerates search-index.json and AI discovery files (llm-index.json, llms.txt,
+# sitemap.xml, robots.txt), then stages them with git add. Published to
+# docs.continuumdao.org and fetched live by Continuum node AI agents
+# (search_continuum_docs / get_continuum_doc).
 #
 # Usage (from repo root):
 #   ./scripts/before-git-push.sh
 #   npm run before-git-push
+#
+# Also runs automatically via the pre-push git hook (see install-git-hooks.sh).
 #
 # If this script exits non-zero, fix the reported issue before pushing.
 #
@@ -17,63 +20,52 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+GENERATED_FILES=(
+	search-index.json
+	well-known/llm-index.json
+	llms.txt
+	sitemap.xml
+	robots.txt
+)
+
 echo "============================================================"
 echo " ctmdao-docs: before-git-push"
 echo "============================================================"
 echo ""
-echo "This step is REQUIRED before git push."
-echo "It rebuilds search-index.json for docs.continuumdao.org and node AI doc tools."
+echo "This step runs automatically on git push (pre-push hook)."
+echo "It rebuilds the search index and AI discovery files, then stages them."
 echo ""
 
 node scripts/build-search-index.mjs
+node scripts/build-ai-discovery.mjs
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 	echo ""
-	echo "OK: search-index.json regenerated (not a git repo — skipping commit check)."
+	echo "OK: generated files rebuilt (not a git repo — skipping git add)."
 	exit 0
 fi
 
-INDEX="search-index.json"
-if [[ ! -f "$INDEX" ]]; then
-	echo ""
-	echo "ERROR: $INDEX was not produced. Fix build-search-index.mjs before pushing."
-	exit 1
-fi
-
-# Untracked index must be added when pushing doc changes.
-if ! git ls-files --error-unmatch "$INDEX" >/dev/null 2>&1; then
-	echo ""
-	echo "ERROR: $INDEX is not tracked yet."
-	echo ""
-	echo "  git add $INDEX"
-	echo "  git commit -m \"Update docs search index\""
-	echo "  git push"
-	exit 1
-fi
-
-# Regenerated index differs from the index — commit before push.
-if ! git diff --quiet -- "$INDEX"; then
-	echo ""
-	echo "ERROR: $INDEX is out of date (rebuilt above but not committed)."
-	echo ""
-	echo "  git add $INDEX"
-	echo "  git commit -m \"Update docs search index\""
-	echo "  git push"
-	exit 1
-fi
-
-# Staged index differs from working tree (forgot to rebuild after staging old index).
-if ! git diff --cached --quiet -- "$INDEX" 2>/dev/null; then
-	if git diff --quiet -- "$INDEX"; then
+for INDEX in "${GENERATED_FILES[@]}"; do
+	if [[ ! -f "$INDEX" ]]; then
 		echo ""
-		echo "ERROR: staged $INDEX does not match the file on disk."
-		echo "       Re-run this script, then stage the fresh index:"
-		echo ""
-		echo "  npm run before-git-push"
-		echo "  git add $INDEX"
+		echo "ERROR: $INDEX was not produced. Fix the build scripts before pushing."
 		exit 1
 	fi
+done
+
+git add -- "${GENERATED_FILES[@]}"
+echo ""
+echo "Staged: ${GENERATED_FILES[*]}"
+
+if git diff --cached --quiet -- "${GENERATED_FILES[@]}"; then
+	echo ""
+	echo "OK: all generated files are up to date and ready to push."
+	exit 0
 fi
 
 echo ""
-echo "OK: $INDEX is up to date and ready to push."
+echo "Index files were updated and staged. Commit before push:"
+echo ""
+echo "  git commit -m \"Update docs indexes and AI discovery files\""
+echo "  git push"
+exit 1

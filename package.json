@@ -4,6 +4,9 @@
 	"description": "ContinuumDAO documentation (Docsify) for docs.continuumdao.org",
 	"scripts": {
 		"build:search-index": "node scripts/build-search-index.mjs",
-		"before-git-push": "bash scripts/before-git-push.sh"
+		"build:ai-discovery": "node scripts/build-ai-discovery.mjs",
+		"build:all": "npm run build:search-index && npm run build:ai-discovery",
+		"before-git-push": "bash scripts/before-git-push.sh",
+		"prepare": "bash scripts/install-git-hooks.sh"
 	}
 }

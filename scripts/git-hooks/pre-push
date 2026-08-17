@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Git pre-push hook — installed by scripts/install-git-hooks.sh
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+exec "$ROOT/scripts/before-git-push.sh"
