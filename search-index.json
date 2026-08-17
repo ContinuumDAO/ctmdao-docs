@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-17T09:50:22.934Z",
+  "generatedAt": "2026-08-17T11:26:10.874Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1065,6 +1065,66 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/AssetManagement",
+      "title": "Asset management",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Asset management",
+        "Asset rows (Assets tab)",
+        "Protocol modals — unified experience",
+        "Tokens dialog (add / remove assets)",
+        "Example — add USDT on Ethereum",
+        "AI flow",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "asset-management",
+          "title": "Asset management",
+          "level": 2,
+          "excerpt": "After you configure chains on your node, register the tokens and NFTs you want to see and use on the Assets tab. Token config is stored on each node locally (not propagated to other Group members) — the same model as chain registry. The node app and the AI agent use the management API ( POST /addTok"
+        },
+        {
+          "id": "asset-rows-assets-tab",
+          "title": "Asset rows (Assets tab)",
+          "level": 3,
+          "excerpt": "Open the Assets tab and select a chain in the chain selector. Each asset row shows balance, symbol, and actions you can take with that token on this node. Action What it does Transfer Opens the Compose transaction flow with this token pre selected — build an ERC 20 transfer (or equivalent) and submi"
+        },
+        {
+          "id": "protocol-modals-unified-experience",
+          "title": "Protocol modals — unified experience",
+          "level": 3,
+          "excerpt": "Click a protocol shortcut on an asset row (for example Aave on a USDC row) to open that protocol’s modal. Every supported protocol uses the same interaction pattern : 1. Choose action (supply, withdraw, swap, bridge, stake, and so on — depends on the pack) 2. Review amounts, slippage, and health fac"
+        },
+        {
+          "id": "tokens-dialog-add-remove-assets",
+          "title": "Tokens dialog (add / remove assets)",
+          "level": 3,
+          "excerpt": "To manage the token registry without starting from an asset row, open the Tokens dialog from the icon to the right of the Assets heading . Tabs by token type — ERC20 , ERC721 , CTMERC20 , CTMRWA1 each have their own tab Configured tokens for the selected chain appear in the active tab Add — click th"
+        },
+        {
+          "id": "example-add-usdt-on-ethereum",
+          "title": "Example — add USDT on Ethereum",
+          "level": 3,
+          "excerpt": "1. Select Ethereum in the Assets chain selector (chain must exist — see Chain management). 2. Open Tokens (icon beside Assets ). 3. Open the ERC20 tab and click + . 4. Enter contract details: Contract address — USDT on Ethereum mainnet: 0xdAC17F958D2ee523a2206206994597C13D831ec7 Name / symbol — e.g."
+        },
+        {
+          "id": "ai-flow",
+          "title": "AI flow",
+          "level": 3,
+          "excerpt": "With the AI harness and continuum MCP server enabled, you can manage tokens from Agent chat instead of the Tokens dialog. List assets on a chain: What assets do I have configured on Ethereum? The agent calls get token registry (optionally filtered by chainType / chain id ) and lists symbols, contrac"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "Chain management — configure networks before assets DeFi protocol support — protocol capabilities and API keys Compose transaction flow — Transfer from an asset row MPC Accept/Reject loop Configure the AI harness Overview Operator detail: API Implementation — token config"
+        }
+      ],
+      "excerpt": "After you configure chains on your node, register the tokens and NFTs you want to see and use on the Assets tab. Token config is stored on each node locally (not propagated to other Group members) — the same model as chain registry. The node app and the AI agent use the management API ( POST /addTok",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AssetManagement"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/AttachYourNode",
       "title": "Attach your node",
       "section": "Using an MPA wallet",
@@ -1216,13 +1276,13 @@
           "id": "view-configured-chains-assets-tab",
           "title": "View configured chains (Assets tab)",
           "level": 3,
-          "excerpt": "Open the Assets tab and use the chain selector at the top. It lists every network already configured on this node. Balances, token lists, and compose chain pickers all draw from this registry. <! Screenshot placeholder: replace media/chain management assets chain selector.png <img src=\"/ media/chain"
+          "excerpt": "Open the Assets tab and use the chain selector at the top. It lists every network already configured on this node. Balances, token lists, and compose chain pickers all draw from this registry. <img src=\"/ media/chain management assets chain selector.png\" alt=\"\" /"
         },
         {
           "id": "configure-blockchains-add-edit-remove",
           "title": "Configure blockchains (add, edit, remove)",
           "level": 3,
-          "excerpt": "1. From Assets , open the chain selector and click Configure blockchains . 2. The modal shows configured chains on this node and presets you can add with one click (most popular EVM mainnets and testnets ship in the app — Arbitrum, Base, Polygon, Linea, and many others). 3. To add a preset: select i"
+          "excerpt": "1. From the header, click Configure blockchains using the icon to the right of the wallet connect box. 2. The modal shows configured chains on this node and presets you can add with one click (most popular EVM mainnets and testnets ship in the app — Arbitrum, Base, Polygon, Linea, and many others). "
         },
         {
           "id": "evm-chains-gas-fields-optional",
@@ -1246,13 +1306,13 @@
           "id": "ai-agent-flow",
           "title": "AI agent flow",
           "level": 3,
-          "excerpt": "With the AI harness and continuum MCP server enabled, you can manage chains from Agent chat instead of the modal. List what is configured: What chains do I have configured on my node? The agent calls get chain registry and returns name, chain id, RPC, and gas defaults for each EVM entry (and can lis"
+          "excerpt": "With the AI harness you can manage chains from Agent chat instead of the modal. List what is configured: What chains do I have configured on my node? The agent calls get chain registry and returns name, chain id, RPC, and gas defaults for each EVM entry (and can list non EVM configs when your build "
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop — Use Custom Gas on create and fee override on Execute Compose transaction flow — chain must exist before compose / Foundry import KeyGens — secp256k1, ed25519, bitcoin taproot Configure the AI harness Overview Operator detail: API Implementation — chain config"
+          "excerpt": "Asset management — register tokens after chains are configured MPC Accept/Reject loop — Use Custom Gas on create and fee override on Execute Compose transaction flow — chain must exist before compose / Foundry import KeyGens — secp256k1, ed25519, bitcoin taproot Configure the AI harness Overview Ope"
         }
       ],
       "excerpt": "Before you can compose transactions, import Foundry batches, or run DeFi protocol flows, your node needs chain configuration : RPC endpoints, explorers, and optional gas defaults. Chain config is stored on each node locally (not propagated to other Group members). Every node that will simulate, sign",
@@ -1415,6 +1475,7 @@
       "section": "Using an MPA wallet",
       "headings": [
         "DeFi protocol support",
+        "Protocol modals — unified experience",
         "Supported protocols",
         "Notes",
         "Related"
@@ -1427,6 +1488,12 @@
           "excerpt": "MPA wallet can interact with selected web3 / DeFi protocols directly — through the node app multi sign UI and through the built in AI agent (continuum MCP: load a protocol pack, then use that protocol’s tools). On chain actions still go through your Group’s MPC KeyGen and multi agree threshold — the"
         },
         {
+          "id": "protocol-modals-unified-experience",
+          "title": "Protocol modals — unified experience",
+          "level": 3,
+          "excerpt": "Every supported protocol opens in the same modal pattern in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, and perps all follow one wallet native flow. How to open a protocol Assets tab — click a protocol shortcut o"
+        },
+        {
           "id": "supported-protocols",
           "title": "Supported protocols",
           "level": 3,
@@ -1436,13 +1503,13 @@
           "id": "notes",
           "title": "Notes",
           "level": 3,
-          "excerpt": "AI agent: load a protocol with continuum MCP ( list defi protocols / load defi protocol ), then use that pack’s tools. Preferred KeyGen and default Ed25519 signer still apply for management signed steps — see Configure the AI harness. Node app: open the multi sign / protocol UI for the same packs (n"
+          "excerpt": "Unified UI first: prefer protocol shortcuts on the Assets tab or the shared modal flow above — the table below is the capability reference, not a separate product surface per protocol. AI agent: load a protocol with continuum MCP ( list defi protocols / load defi protocol ), then use that pack’s too"
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop Compose transaction flow Overview Install a node AI harness overview Configure the AI harness Trade ideas KeyGens"
+          "excerpt": "Asset management — protocol shortcuts from the Assets tab MPC Accept/Reject loop Compose transaction flow Overview Install a node AI harness overview Configure the AI harness Trade ideas KeyGens"
         }
       ],
       "excerpt": "MPA wallet can interact with selected web3 / DeFi protocols directly — through the node app multi sign UI and through the built in AI agent (continuum MCP: load a protocol pack, then use that protocol’s tools). On chain actions still go through your Group’s MPC KeyGen and multi agree threshold — the",
@@ -1819,7 +1886,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Attach your node MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
+          "excerpt": "Attach your node Chain management Asset management MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer role"
         }
       ],
       "excerpt": "The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built in AI agent harness — the natural way to propose trades, run analysis, and drive DeFi flows — while a rich frontend (mpa.continuumdao.",

@@ -6,6 +6,30 @@ On-chain actions still go through your Group’s **MPC KeyGen** and multi-agree 
 
 Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP servers) are **not** listed below — those are chart / price sources, not execution protocols.
 
+### Protocol modals — unified experience
+
+Every supported protocol opens in the **same modal pattern** in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, and perps all follow one wallet-native flow.
+
+**How to open a protocol**
+
+- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Aave** on supply/borrow markets for that asset)
+- **Multi-sign / protocol UI** — browse available packs for the selected chain and KeyGen when you are not starting from a specific token row
+
+**Shared steps (every pack)**
+
+1. **Choose action** — supply, withdraw, swap, bridge, stake, open/close perp, and so on (depends on the protocol)
+2. **Review** — amounts, slippage, routes, health-factor or fee previews where the node provides them
+3. **Confirm** — the node builds unsigned transaction(s), often as a **batch**, and creates a multi-sign request
+4. **Join → Execute** — peers **Accept** or **Reject** on **Join**; the originator runs MPC signing and broadcast on **Execute** after threshold agreement
+
+Layout, step order, and review screens stay **consistent across protocols**. Moving from **Aave** to **Uniswap** to **Circle CCTP** to **GMX** uses the same mental model: pick action, review, confirm, then the usual MPC custody loop. That unified DeFi surface — direct protocol access under threshold signing, without a browser extension holding a full private key — is a core strength of the MPA wallet.
+
+The agent path mirrors the same packs: load a protocol via continuum MCP (`list_defi_protocols` / `load_defi_protocol`), then call that pack’s tools; built transactions still enter the same [Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+
+See [Asset management — protocol modals](/ContinuumDAO/MPAWallet/AssetManagement.md#protocol-modals--unified-experience) for screenshots and the Assets-tab entry point.
+
+---
+
 ### Supported protocols
 
 | Protocol | Capabilities | Permissions / requirements |
@@ -27,12 +51,14 @@ Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP s
 
 ### Notes
 
+- **Unified UI first:** prefer protocol shortcuts on the [Assets tab](/ContinuumDAO/MPAWallet/AssetManagement.md) or the shared modal flow above — the table below is the capability reference, not a separate product surface per protocol.
 - **AI agent:** load a protocol with continuum MCP (`list_defi_protocols` / `load_defi_protocol`), then use that pack’s tools. Preferred KeyGen and default Ed25519 signer still apply for management-signed steps — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 - **Node app:** open the multi-sign / protocol UI for the same packs (no agent required).
 - Support and chains evolve with releases; if a chain or action is missing in the UI or skill, it is not available on your node build yet.
 
 ### Related
 
+- [Asset management](/ContinuumDAO/MPAWallet/AssetManagement.md) — protocol shortcuts from the Assets tab
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)

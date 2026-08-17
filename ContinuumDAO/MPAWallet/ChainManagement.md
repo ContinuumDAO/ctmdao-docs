@@ -109,6 +109,7 @@ For gas behaviour when the agent creates sign requests, it should call **`get_mu
 
 ### Related
 
+- [Asset management](/ContinuumDAO/MPAWallet/AssetManagement.md) — register tokens after chains are configured
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) — **Use Custom Gas** on create and fee override on **Execute**
 - [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md) — chain must exist before compose / Foundry import
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) — secp256k1, ed25519, bitcoin-taproot
