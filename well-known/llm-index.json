@@ -12,9 +12,117 @@
       "Docs are markdown source files served at stable URLs; append .md to any page path for raw content.",
       "search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.",
       "MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.",
+      "Install an MPA node: start at mpa.continuumdao.org/node-map (+ button) or Install.md; VPS agents use the one-shot script.",
       "Governance, C3Caller, MPC concepts, and node running guides are all indexed here."
     ]
   },
+  "llmld:getStarted": {
+    "task": "create-mpc-node",
+    "summary": "Install a Multi-Party Agent Wallet node on a Linux VPS or home PC (Windows 11, macOS, or Linux).",
+    "defaultForHumans": "https://mpa.continuumdao.org/node-map",
+    "canonicalDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
+    "canonicalDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install",
+    "agentsGuide": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+    "homeInstallJson": "https://continuumdao.org/well-known/install-node.json",
+    "avoidForAgents": "https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "agentMetadata": {
+      "task": "create-mpc-node",
+      "audience": [
+        "human",
+        "ai-agent"
+      ],
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+      "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "keywords": [
+        "one-shot",
+        "install node",
+        "create node",
+        "provision VPS",
+        "mpc-config"
+      ]
+    },
+    "routes": [
+      {
+        "platform": "linux-vps",
+        "when": "Ubuntu or Debian VPS; agent can run shell commands as root",
+        "primary": "oneshot-script",
+        "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+        "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+        "fallback": "https://mpa.continuumdao.org/node-map"
+      },
+      {
+        "platform": "windows-11",
+        "when": "Home or office Windows 11 PC; interactive user",
+        "primary": "node-map-or-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md"
+      },
+      {
+        "platform": "macos",
+        "when": "Home or office Mac; interactive user",
+        "primary": "node-map-or-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md"
+      },
+      {
+        "platform": "linux-pc",
+        "when": "Home Linux workstation or laptop",
+        "primary": "node-map-or-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
+      }
+    ],
+    "afterInstall": [
+      {
+        "step": "attach-node",
+        "name": "Attach your node in the browser",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode.md"
+      },
+      {
+        "step": "backup",
+        "name": "Back up bootstrap key and encrypted database",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration.md"
+      },
+      {
+        "step": "peers-group-keygen",
+        "name": "Add a second node, configure peers, create Group and KeyGen (minimum 2/2)",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
+        "anchor": "post-install-steps"
+      },
+      {
+        "step": "ai-harness",
+        "name": "Optional: configure the built-in AI harness",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md"
+      }
+    ],
+    "keyFacts": [
+      "One node alone cannot create a shared wallet address — add at least one peer (typical personal setup: 2/2 human-in-the-loop).",
+      "For almost all human users, start at the node map + button; do not default to manual git clone.",
+      "AI agents provisioning Ubuntu/Debian VPS should use the one-shot script, not NodeRunningInstruction.md.",
+      "Home PCs need Docker Desktop plus the Continuum Node extension, public WAN IP, and router port forwarding."
+    ]
+  },
+  "llmld:agentTasks": [
+    {
+      "task": "create-mpc-node",
+      "source": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
+      "audience": [
+        "human",
+        "ai-agent"
+      ],
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+      "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "keywords": [
+        "one-shot",
+        "install node",
+        "create node",
+        "provision VPS",
+        "mpc-config"
+      ]
+    }
+  ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
   "generatedAt": "2026-08-17T16:36:37.098Z",

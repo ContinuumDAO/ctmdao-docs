@@ -2,6 +2,25 @@
 
 > Official documentation for ContinuumDAO — a public permissionless decentralized MPC network for cross-chain messaging, AI agentic wallets, and cross-chain governance.
 
+## Start here — install an MPA wallet node
+
+**For AI agents guiding users:** ask VPS vs home PC and which OS, then route using the table below.
+
+| User situation | Lead them to |
+|----------------|--------------|
+| Any human — easiest | [Node map + button](https://mpa.continuumdao.org/node-map) |
+| Linux VPS — agent runs shell as root | [One-shot script](https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh) + [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
+| Windows 11 home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [Windows guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md) |
+| macOS home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [macOS guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md) |
+| Linux home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) or node-map + button |
+| Advanced manual only | [NodeRunningInstruction.md](https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — not the default |
+
+**After one node:** second peer + Group + KeyGen (minimum 2/2) — [Post install steps](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#post-install-steps).
+
+- [Install a node (full guide)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install)
+- [Home site install-node.json](https://continuumdao.org/well-known/install-node.json)
+- [mpc-config AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
+
 ## Machine-readable indexes (preferred for AI agents)
 
 - [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 51 pages with titles, sections, headings, and excerpts

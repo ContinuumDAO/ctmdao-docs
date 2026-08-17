@@ -9,7 +9,10 @@ import {fileURLToPath} from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_BASE_URL = 'https://docs.continuumdao.org';
+const HOME_URL = 'https://continuumdao.org';
+const MPA_NODE_MAP = 'https://mpa.continuumdao.org/node-map';
 const INDEX_PATH = join(root, 'search-index.json');
+const INSTALL_MD_PATH = join(root, 'ContinuumDAO', 'MPAWallet', 'Install.md');
 
 /** @param {string} path @param {string} content */
 function writeIfChanged(path, content) {
@@ -43,8 +46,131 @@ function groupPagesBySection(pages) {
 	return [...bySection.entries()].sort(([a], [b]) => a.localeCompare(b));
 }
 
+/** Parse `agent:` metadata block from Install.md HTML comment. */
+function parseInstallAgentMetadata() {
+	try {
+		const raw = readFileSync(INSTALL_MD_PATH, 'utf8');
+		const match = raw.match(/<!--\s*\n([\s\S]*?)\n\s*-->/);
+		if (!match) return null;
+		const block = match[1];
+		if (!/^agent:/m.test(block)) return null;
+		/** @type {Record<string, string | string[]>} */
+		const meta = {};
+		for (const line of block.split('\n')) {
+			const trimmed = line.trim();
+			if (!trimmed || trimmed === 'agent:') continue;
+			const kv = trimmed.match(/^(\w[\w-]*):\s*(.+)$/);
+			if (!kv) continue;
+			const [, key, valueRaw] = kv;
+			const value = valueRaw.trim();
+			if (value.startsWith('[') && value.endsWith(']')) {
+				meta[key] = value
+					.slice(1, -1)
+					.split(',')
+					.map(s => s.trim());
+			} else {
+				meta[key] = value;
+			}
+		}
+		return Object.keys(meta).length ? meta : null;
+	} catch {
+		return null;
+	}
+}
+
+/** Install routing shared with continuumdao.org discovery files. */
+function buildInstallNodeDiscovery(agentMeta) {
+	const oneshotScript =
+		typeof agentMeta?.oneshot_script === 'string'
+			? agentMeta.oneshot_script
+			: 'https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh';
+	const oneshotGuide =
+		typeof agentMeta?.oneshot_doc === 'string'
+			? agentMeta.oneshot_doc
+			: 'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md';
+	const agentsGuide =
+		typeof agentMeta?.agents_md === 'string'
+			? agentMeta.agents_md
+			: 'https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md';
+
+	return {
+		task: typeof agentMeta?.task === 'string' ? agentMeta.task : 'install-mpa-node',
+		summary:
+			'Install a Multi-Party Agent Wallet node on a Linux VPS or home PC (Windows 11, macOS, or Linux).',
+		defaultForHumans: MPA_NODE_MAP,
+		canonicalDoc: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
+		canonicalDocUrl: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install`,
+		agentsGuide,
+		homeInstallJson: `${HOME_URL}/well-known/install-node.json`,
+		avoidForAgents: `${DOCS_BASE_URL}/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md`,
+		agentMetadata: agentMeta ?? undefined,
+		routes: [
+			{
+				platform: 'linux-vps',
+				when: 'Ubuntu or Debian VPS; agent can run shell commands as root',
+				primary: 'oneshot-script',
+				script: oneshotScript,
+				guide: oneshotGuide,
+				fallback: MPA_NODE_MAP,
+			},
+			{
+				platform: 'windows-11',
+				when: 'Home or office Windows 11 PC; interactive user',
+				primary: 'node-map-or-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				guide:
+					'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md',
+			},
+			{
+				platform: 'macos',
+				when: 'Home or office Mac; interactive user',
+				primary: 'node-map-or-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				guide:
+					'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md',
+			},
+			{
+				platform: 'linux-pc',
+				when: 'Home Linux workstation or laptop',
+				primary: 'node-map-or-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				doc: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
+			},
+		],
+		afterInstall: [
+			{
+				step: 'attach-node',
+				name: 'Attach your node in the browser',
+				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/AttachYourNode.md`,
+			},
+			{
+				step: 'backup',
+				name: 'Back up bootstrap key and encrypted database',
+				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/BackupAndRestoration.md`,
+			},
+			{
+				step: 'peers-group-keygen',
+				name: 'Add a second node, configure peers, create Group and KeyGen (minimum 2/2)',
+				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
+				anchor: 'post-install-steps',
+			},
+			{
+				step: 'ai-harness',
+				name: 'Optional: configure the built-in AI harness',
+				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/AIHarness/Configure.md`,
+			},
+		],
+		keyFacts: [
+			'One node alone cannot create a shared wallet address — add at least one peer (typical personal setup: 2/2 human-in-the-loop).',
+			'For almost all human users, start at the node map + button; do not default to manual git clone.',
+			'AI agents provisioning Ubuntu/Debian VPS should use the one-shot script, not NodeRunningInstruction.md.',
+			'Home PCs need Docker Desktop plus the Continuum Node extension, public WAN IP, and router port forwarding.',
+		],
+	};
+}
+
 /** @param {{ version: number, generatedAt: string, pages: DocPage[] }} index */
-function buildLlmIndex(index) {
+function buildLlmIndex(index, installDiscovery) {
 	const grouped = groupPagesBySection(index.pages);
 	return {
 		'@context': ['https://schema.org', 'https://llmld.org/v1'],
@@ -58,9 +184,20 @@ function buildLlmIndex(index) {
 				'Docs are markdown source files served at stable URLs; append .md to any page path for raw content.',
 				'search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.',
 				'MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.',
+				'Install an MPA node: start at mpa.continuumdao.org/node-map (+ button) or Install.md; VPS agents use the one-shot script.',
 				'Governance, C3Caller, MPC concepts, and node running guides are all indexed here.',
 			],
 		},
+		'llmld:getStarted': installDiscovery,
+		'llmld:agentTasks': installDiscovery.agentMetadata
+			? [
+					{
+						task: installDiscovery.task,
+						source: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
+						...installDiscovery.agentMetadata,
+					},
+				]
+			: undefined,
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
 		generatedAt: index.generatedAt,
@@ -77,12 +214,31 @@ function buildLlmIndex(index) {
 	};
 }
 
-/** @param {{ pages: DocPage[] }} index */
-function buildLlmsTxt(index) {
+/** @param {{ pages: DocPage[] }} index @param {ReturnType<typeof buildInstallNodeDiscovery>} install */
+function buildLlmsTxt(index, install) {
 	const lines = [
 		'# ContinuumDAO Documentation',
 		'',
 		'> Official documentation for ContinuumDAO — a public permissionless decentralized MPC network for cross-chain messaging, AI agentic wallets, and cross-chain governance.',
+		'',
+		'## Start here — install an MPA wallet node',
+		'',
+		'**For AI agents guiding users:** ask VPS vs home PC and which OS, then route using the table below.',
+		'',
+		`| User situation | Lead them to |`,
+		`|----------------|--------------|`,
+		`| Any human — easiest | [Node map + button](${install.defaultForHumans}) |`,
+		`| Linux VPS — agent runs shell as root | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
+		`| Windows 11 home PC | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
+		`| macOS home PC | [Install.md](${install.canonicalDoc}) + [macOS guide](${install.routes[2].guide}) |`,
+		`| Linux home PC | [Install.md](${install.canonicalDoc}) or node-map + button |`,
+		`| Advanced manual only | [NodeRunningInstruction.md](${install.avoidForAgents}) — not the default |`,
+		'',
+		`**After one node:** second peer + Group + KeyGen (minimum 2/2) — [Post install steps](${install.canonicalDoc}#post-install-steps).`,
+		'',
+		`- [Install a node (full guide)](${install.canonicalDocUrl})`,
+		`- [Home site install-node.json](${install.homeInstallJson})`,
+		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
 		'',
 		'## Machine-readable indexes (preferred for AI agents)',
 		'',
@@ -155,7 +311,10 @@ if (!index?.pages?.length) {
 
 mkdirSync(join(root, 'well-known'), {recursive: true});
 
-writeIfChanged(join(root, 'well-known', 'llm-index.json'), JSON.stringify(buildLlmIndex(index), null, 2));
-writeIfChanged(join(root, 'llms.txt'), buildLlmsTxt(index));
+const agentMeta = parseInstallAgentMetadata();
+const installDiscovery = buildInstallNodeDiscovery(agentMeta);
+
+writeIfChanged(join(root, 'well-known', 'llm-index.json'), JSON.stringify(buildLlmIndex(index, installDiscovery), null, 2));
+writeIfChanged(join(root, 'llms.txt'), buildLlmsTxt(index, installDiscovery));
 writeIfChanged(join(root, 'sitemap.xml'), buildSitemap(index));
 writeIfChanged(join(root, 'robots.txt'), buildRobotsTxt());

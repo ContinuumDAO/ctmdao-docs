@@ -31,8 +31,8 @@ To install the hook on an existing clone without reinstalling packages:
 | File | URL | Purpose |
 |------|-----|---------|
 | `search-index.json` | `/search-index.json` | Searchable index for MCP doc tools and AI agents |
-| `well-known/llm-index.json` | `/well-known/llm-index.json` | LLMLD discovery index grouped by section |
-| `llms.txt` | `/llms.txt` | Standard AI crawler discovery file |
+| `well-known/llm-index.json` | `/well-known/llm-index.json` | LLMLD discovery index grouped by section; includes `llmld:getStarted` install routing from `Install.md` |
+| `llms.txt` | `/llms.txt` | Standard AI crawler discovery file; install decision tree pinned at top |
 | `sitemap.xml` | `/sitemap.xml` | Sitemap of all documentation pages |
 | `robots.txt` | `/robots.txt` | Crawler directives pointing to sitemap |
 
@@ -43,8 +43,9 @@ The search index and AI discovery files are **auto-generated from markdown** —
 Publish the whole site including all generated files at the site root. The Continuum MCP server fetches `search-index.json` at runtime (with a bundled fallback in the SDK). AI crawlers should prefer:
 
 1. `https://docs.continuumdao.org/search-index.json` — full searchable index
-2. `https://docs.continuumdao.org/well-known/llm-index.json` — LLMLD grouped index
-3. `https://docs.continuumdao.org/llms.txt` — human/agent-readable link list
+2. `https://docs.continuumdao.org/well-known/llm-index.json` — LLMLD grouped index (includes install routing)
+3. `https://docs.continuumdao.org/llms.txt` — human/agent-readable link list (install section at top)
+4. `https://continuumdao.org/well-known/install-node.json` — machine-readable install decision tree for external agents
 
 Raw markdown for any page: append `.md` to the page URL.
 
