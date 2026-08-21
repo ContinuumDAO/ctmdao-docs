@@ -2,7 +2,7 @@
 
 > Meet the ContinuumDAO
 
-A trustless Secure Multi Party Computation node network called the Continuum and run worldwide by a DAO.
+An AI first DAO and Multi Party Computation wallet, with humans-in-the-loop.
 
 
 <!--

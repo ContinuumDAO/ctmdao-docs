@@ -11,11 +11,11 @@ CTMDAO will consistently leverage the benefits of DAO governance and the unique 
 
 ### **Mission:**
 
-The mission is to create public goods that connect all web protocols and networks in a decentralized manner.
+The mission is to allow AI and humans to grow our DAO together, for the good of all of its participants and for everyone else.
 
 ### **Vision:**
 
-Our vision is to connect the world by building the public goods of web3. We aim to provide a fully decentralized MPC infrastructure that enables dApps on different blockchains to connect, or to provide unique MPC related services, with trustless coordinated decision making.
+Our Vision is to connect the world by building a public good using our DAO and web3. We aim to allow AI to find a home in our DAO governance structure, guided by humans. The DAO is tasked with building tools and infrastructure based on decentralized permissionless MPC and AI, with the intention of improving blockchain and web3 services for everyone and to build wealth for all DAO Citizens.
 
 ### ContinuumDAO Governance Structure:
 
@@ -39,7 +39,7 @@ There will be three governance roles: Committee, Contributor, and Citizen.
 
 ### The ContinuumDAO Forum
 
-The Forum is a Bulletin Board hosted by CTMDAO on its website at [forum.continuumdao.org](http://forum.continuumdao.org) . It is the official record of the proceedings of ContinuumDAO. All business concerning the DAO will be documented here, including proposals, Committee proceedings, Treasury asset transfers and Guild actions.
+The Forum is a Bulletin Board hosted by ContinuumDAO on its website at [forum.continuumdao.org](http://forum.continuumdao.org) . It is the official record of the proceedings of ContinuumDAO. All business concerning the DAO will be documented here, including proposals, Committee proceedings, Treasury asset transfers and Guild actions. Any Citizen, or AI agent (holder of enough veCTM) is permitted to join the Forum and contribute.
 
 The Forum will be divided into five sections: Announcements, Ideas & Suggestions, Governance, Code Development and Guilds.
 
@@ -51,16 +51,16 @@ The Forum will be divided into five sections: Announcements, Ideas & Suggestions
 
 ### The Governance Process
 
-All proposals will appear in the Governance section of the Forum. Every veCTM holder will have access to all Governance sections in the Forum. 
+All proposals will appear in the Governance section of the Forum. Every Citizen veCTM holder will have access to all Governance sections in the Forum. 
 There are only two steps of the governance process: **Temperature Check & Formal Vote**.
 
 **Temperature Check:**
 
-A proposal needs to be submitted by a wallet address with the higher of at least 1% of the vote power, or 1000 veCTM Voting Power.  This can be accomplished via delegation if necessary. Proposals will have a temperature check for 5 days before voting commences. During these 5 days, the objective is to collect feedback and discuss the proposal in detail in the Forum before the proposal moves on to the next stage, which is the Formal Vote. 
+A proposal needs to be submitted by a wallet address with the higher of at least 0.1% of the vote power, or 1000 veCTM Voting Power.  This can be accomplished via delegation if necessary. Proposals will have a temperature check for 5 days before voting commences. During these 5 days, the objective is to collect feedback and discuss the proposal in detail in the Forum before the proposal moves on to the next stage, which is the Formal Vote. 
 
 **Formal Vote:**
 
-The formal voting period starts automatically after the Temperature Check period ends. Voting lasts for 10 days. This period can be shorter if the vote reaches a Super Quorum of votes cast in favour of the proposal, with this threshold set by the DAO, after which the proposal will be available for anyone to Execute.  If a large vote is left until close to the end of the Formal Vote, then the Governor contract is programmed to add an extra 2 days to the voting period. There will be a Proposal Guardian wallet address set as one of the first actions of the DAO, which may terminate a proposal if it is judged to contravene the law. This is in line with the requirements of RAKDAO, where our DAO will be incorporated. The Proposal Guardian wallet will be controlled by a person who is a legal representative of ContinuumDAO in RAKDAO.
+The formal voting period starts automatically after the Temperature Check period ends. Voting lasts for 10 days. This period can be shorter if the vote reaches a Super Quorum of votes cast in favour of the proposal, with this threshold set by the DAO, after which the proposal will be available for anyone to Execute.  If a large vote is left until close to the end of the Formal Vote, then the Governor contract is programmed to add an extra 2 days to the voting period. There will be a Proposal Guardian wallet address set as one of the first actions of the DAO, which may terminate a proposal if it is judged to contravene the law. The Proposal Guardian wallet will be controlled by a person who is a legal representative of ContinuumDAO.
 
 
 ### **The Temperature Check/Proposal Template:**
@@ -81,7 +81,7 @@ Any proposal that is a re-submission should reference the previous proposal and 
 
 ### ContinuumDAO Proposals and Voting
 
-Proposals should further the Vision and Mission of ContinuumDAO. If proposals do not clearly do this, then voters should seriously consider rejecting them. The same applies to proposals that did not follow the guidelines laid out here. Every veCTM holder will be able to vote, with no threshold to vote, except holders of non-voting veCTM tokens. The quorum for the voting must meet 20% of the total voting power. 
+Proposals should further the Vision and Mission of ContinuumDAO. If proposals do not clearly do this, then voters should seriously consider rejecting them. The same applies to proposals that did not follow the guidelines laid out here. Every veCTM holder will be able to vote, with no threshold to vote. The quorum for the voting must meet 20% of the total voting power. If a proposal achieves a Super-Quorum of 50% of the voting power, then it can be immediately executed.
 
 There will be five categories of proposal.
 
@@ -128,16 +128,16 @@ The DAO has now moved to fully on-chain Governance and the new Treasury and DAO 
 - Treasury (C3Governor) on Ethereum 0x58B610a359c870E0fc941139821a51F5aa23f14E
 - Governor DAO on Linea 0x4800F9f1dC1b6daCA841B71E0531F547D374168E
 
-Other Treasury wallets (including Multi-Party Agent wallets) may be created in the future to assist in CTMDAO management and funds may be transferred between them, but they will follow the same rules as the No. 1 wallet and their addresses will be added to the Constitution as soon as it is convenient to do so. 
+Other Treasury wallets (including Multi-Party Agent wallets) may be created in the future to assist in ContinuumDAO management and funds may be transferred between them, but they will follow the same rules as the No. 1 wallet and their addresses will be added to the Constitution as soon as it is convenient to do so. 
 
 
 ### ContinuumDAO ethics
 
 - **Security Access**
     
-    This concerns access to social media accounts, admin access to the CTMDAO github, admin access to all areas of the Forum, other key CTMDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will by governance functions in in the DAO Governor contract. The relevant keys and passwords will be held in a Key Vault file, which will be updated as necessary.
+    This concerns access to social media accounts, admin access to the ContinuumDAO github, admin access to all areas of the Forum, other key ContinuumDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will by governance functions in in the DAO Governor contract. The relevant keys and passwords will be held in a Key Vault file, which will be updated as necessary.
     
-    There will be different levels of access to information for different roles. The Committee will have full access to the Key Vault to ensure the security of the CTMDAO. The Committee undertakes to keep this information secret. When anyone from the Committee leaves, the keys and passwords will be changed. The spread of the Key Vault to all Committee members will ensure decentralisation. Contributors will have limited access to specific projects and accounts depending on their need. Citizens will have public access.
+    There will be different levels of access to information for different roles. The Committee will have full access to the Key Vault to ensure the security of the ContinuumDAO. The Committee undertakes to keep this information secret. When anyone from the Committee leaves, the keys and passwords will be changed. The spread of the Key Vault to all Committee members will ensure decentralisation. Contributors will have limited access to specific projects and accounts depending on their need. Citizens will have public access.
     
 - **Code of Conduct**
     

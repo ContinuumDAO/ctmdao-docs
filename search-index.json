@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-21T10:18:08.704Z",
+  "generatedAt": "2026-08-21T12:18:43.077Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -536,19 +536,19 @@
           "id": "mission-amp-vision",
           "title": "Mission & Vision",
           "level": 2,
-          "excerpt": "The mission is to create public goods that connect all web protocols and networks in a decentralized manner. Our vision is to connect the world by building the public goods of web3. We aim to provide a fully decentralized MPC infrastructure that enables dApps on different blockchains to connect, or "
+          "excerpt": "The mission is to allow AI and humans to grow our DAO together, for the good of all of its participants and for everyone else. Our Vision is to connect the world by building a public good using our DAO and web3. We aim to allow AI to find a home in our DAO governance structure, guided by humans. The"
         },
         {
           "id": "mission",
           "title": "Mission:",
           "level": 3,
-          "excerpt": "The mission is to create public goods that connect all web protocols and networks in a decentralized manner."
+          "excerpt": "The mission is to allow AI and humans to grow our DAO together, for the good of all of its participants and for everyone else."
         },
         {
           "id": "vision",
           "title": "Vision:",
           "level": 3,
-          "excerpt": "Our vision is to connect the world by building the public goods of web3. We aim to provide a fully decentralized MPC infrastructure that enables dApps on different blockchains to connect, or to provide unique MPC related services, with trustless coordinated decision making."
+          "excerpt": "Our Vision is to connect the world by building a public good using our DAO and web3. We aim to allow AI to find a home in our DAO governance structure, guided by humans. The DAO is tasked with building tools and infrastructure based on decentralized permissionless MPC and AI, with the intention of i"
         },
         {
           "id": "continuumdao-governance-structure",
@@ -560,13 +560,13 @@
           "id": "the-continuumdao-forum",
           "title": "The ContinuumDAO Forum",
           "level": 3,
-          "excerpt": "The Forum is a Bulletin Board hosted by CTMDAO on its website at forum.continuumdao.org . It is the official record of the proceedings of ContinuumDAO. All business concerning the DAO will be documented here, including proposals, Committee proceedings, Treasury asset transfers and Guild actions. The"
+          "excerpt": "The Forum is a Bulletin Board hosted by ContinuumDAO on its website at forum.continuumdao.org . It is the official record of the proceedings of ContinuumDAO. All business concerning the DAO will be documented here, including proposals, Committee proceedings, Treasury asset transfers and Guild action"
         },
         {
           "id": "the-governance-process",
           "title": "The Governance Process",
           "level": 3,
-          "excerpt": "All proposals will appear in the Governance section of the Forum. Every veCTM holder will have access to all Governance sections in the Forum. There are only two steps of the governance process: Temperature Check & Formal Vote . Temperature Check: A proposal needs to be submitted by a wallet address"
+          "excerpt": "All proposals will appear in the Governance section of the Forum. Every Citizen veCTM holder will have access to all Governance sections in the Forum. There are only two steps of the governance process: Temperature Check & Formal Vote . Temperature Check: A proposal needs to be submitted by a wallet"
         },
         {
           "id": "the-temperature-check-proposal-template",
@@ -596,7 +596,7 @@
           "id": "continuumdao-ethics",
           "title": "ContinuumDAO ethics",
           "level": 3,
-          "excerpt": "Security Access This concerns access to social media accounts, admin access to the CTMDAO github, admin access to all areas of the Forum, other key CTMDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will by governance functions in in the DAO Governor co"
+          "excerpt": "Security Access This concerns access to social media accounts, admin access to the ContinuumDAO github, admin access to all areas of the Forum, other key ContinuumDAO related websites and root access to VPS machines. Admin signing rights for smart contracts will by governance functions in in the DAO"
         }
       ],
       "excerpt": "Created time: 5th March 2026 This document is the Constitution of ContinuumDAO (CTMDAO). CTMDAO will consistently leverage the benefits of DAO governance and the unique features of MPC to ensure the stability and security of our network called the Continuum. Some of the rules and procedures in the C",
