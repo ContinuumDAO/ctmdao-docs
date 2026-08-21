@@ -59,8 +59,8 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [ConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/ContinuumDAO/MPCSigner/ConfiguredNodes): 
 - [MPCSignerConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/ContinuumDAO/MPCSignerConfiguredNodes): 
 - [MPCSignerConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/MPCSignerConfiguredNodes): 
-- [ContinuumDAO White Paper](https://docs.continuumdao.org/ContinuumDAO/WhitePaper): 17th August 2026 An AI first Multi Party Agent (MPA) wallet for on chain asset control — without a Private Key , with a
-- [Who are we?](https://docs.continuumdao.org/README): <h1 ContinuumDAO</h1 Meet the ContinuumDAO A trustless Secure Multi Party Computation node network called the Continuum
+- [ContinuumDAO White Paper](https://docs.continuumdao.org/ContinuumDAO/WhitePaper): 17th August 2026 An AI first DAO and wallet, with humans in the loop . ContinuumDAO’s Multi Party Agent (MPA) wallet ext
+- [Who are we?](https://docs.continuumdao.org/README): <h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop.
 
 ## Get Started
 

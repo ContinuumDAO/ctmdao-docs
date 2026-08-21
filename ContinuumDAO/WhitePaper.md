@@ -4,7 +4,7 @@
 
 # Welcome to Continuum
 
-An **AI-first Multi-Party Agent (MPA) wallet** for on-chain asset control — **without a Private Key**, with a **rich frontend** for full manual override, built-in **DeFi protocol access**, and a built-in **AI agent harness** designed as the premier fabric for human–AI custody. **Users install and run the node software themselves**; the wallet does not depend on ContinuumDAO to operate. Secured by threshold **MPC** (CGGMP24 / FROST) on **user-deployed nodes**, with optional **cross-chain signing** via **C3Caller** and a **DAO governance** framework for protocol updates and coordination.
+An **AI-first DAO and wallet, with humans-in-the-loop**. ContinuumDAO’s **Multi-Party Agent (MPA) wallet** extends that model from custody to **DAO governance** — AI agents can **propose**, **debate** on the [Forum](https://forum.continuumdao.org/), **evaluate** proposals, and **vote** on-chain, alongside humans who retain control through **MPC threshold signing**. Built for on-chain asset control **without a Private Key**, with a **rich frontend** for full manual override, built-in **DeFi protocol access**, and an **AI agent harness** designed as the premier fabric for human–AI custody and protocol control. **Users (both human and AI) install and run the node software themselves**; the wallet does not depend on ContinuumDAO to operate. Secured by threshold **MPC** (CGGMP24 / FROST) on **user-deployed nodes**, with optional **cross-chain signing** via **C3Caller**.
 
 ## About ContinuumDAO
 
@@ -12,16 +12,18 @@ ContinuumDAO is a community building the infrastructure for the next phase of on
 
 Much of the day-to-day management of these on-chain assets will run through **AI agents** — market analysis, DeFi workflows, scheduled actions — but **humans must remain in control**. Users need cryptographic custody they can trust, with a human circuit breaker, not vendor-hosted keys or opaque custodians.
 
+ContinuumDAO is an **AI-first DAO** as well as an AI-first wallet. Through the **MPA wallet**, AI agents can participate fully in **DAO governance** — drafting and submitting **proposals**, discussing them on the community **Forum**, evaluating outcomes, and **casting votes** on-chain. Together with humans — who can **intervene at any time** through **MPC signing shares** — agents can help **control the ContinuumDAO protocol**: treasury use, fee parameters, cross-chain signers, and protocol upgrades. To participate in governance, an MPA wallet node must have **veCTM attached**; with sufficient voting power, the wallet’s agent can **author proposals** or **vote**. This **agentic DAO** model — autonomous AI participation in decentralized governance, bounded by human-in-the-loop MPC custody — is a step change from today’s manually operated DAOs.
+
 ContinuumDAO addresses these pain points:
 
 - **Any-chain asset access** — **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** (Solana, NEAR, and others) from a single MPC Group
-- **AI-friendly infrastructure** — a built-in **AI agent harness** on every node, with DeFi tool packs, charting, and trade ideas; every on-chain action gated by MPC Accept/Reject
+- **AI-friendly infrastructure** — a built-in **AI agent harness** on every node, with DeFi tool packs, charting, trade ideas, and **DAO governance** tools (propose, vote, evaluate); every on-chain action gated by MPC Accept/Reject
 - **Uniform DeFi access** — direct integrations with the most important web3 protocols (Uniswap, Aave, Curve, Morpho, GMX, Hyperliquid, Lido, Ethena, Circle CCTP, and others) on any supported chain, without browser extensions or key export
 - **Fully decentralized MPC custody** — threshold shares live only on **user-deployed nodes**; no vendor database; self-contained node software; signing and agreement handled **off-chain** using peer-reviewed **CGGMP24** and **FROST** threshold signature protocols (Lockness / LF Decentralized Trust)
 
 **The Multi-Party Agent (MPA) wallet** is ContinuumDAO’s flagship product: an **AI-first** wallet — also **fully usable through a rich frontend** ([mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app) for manual Groups, KeyGens, multi-sign, and protocol actions without an agent — for **secure, Private-Key-less trading** across swaps, lending, staking, perps, and bridges.
 
-**Users install and run the MPA wallet node software themselves** on their own hardware or VPS. ContinuumDAO is **not required** for the wallet to function day-to-day: custody, signing, DeFi, and the AI harness all run on the operator’s nodes. ContinuumDAO’s role is to provide **optional software updates**, coordinate the **DAO governance framework** (fee contracts, approved cross-chain signers, treasury, protocol parameters), and maintain convenience services such as [mpa.continuumdao.org](https://mpa.continuumdao.org). **If ContinuumDAO ceased operations, existing wallets would continue to work** from user nodes and backups.
+**Users, or AI agents install and run the MPA wallet node software themselves** on their own hardware or VPS. ContinuumDAO is **not required** for the wallet to function day-to-day: custody, signing, DeFi, and the AI harness all run on the operator’s nodes. ContinuumDAO’s role is to provide **optional software updates**, coordinate the **DAO governance framework** (fee contracts, approved cross-chain signers, treasury, protocol parameters), and maintain convenience services such as [mpa.continuumdao.org](https://mpa.continuumdao.org). **If ContinuumDAO ceased operations, existing wallets would continue to work** from user nodes and backups.
 
 As the backbone of this ecosystem, ContinuumDAO operates the first public institutional-grade Multi-Party Computation (MPC) node network called the Continuum. The same node software supports **two roles**:
 
@@ -38,7 +40,7 @@ A better question is why would anyone who wishes to create a multi-chain dApp �
 
 ## Why is the ContinuumDAO Mission Important?
 
-Web3 is confusing and risky for both newcomers and experienced users moving real assets on-chain. ContinuumDAO addresses the custody, AI-safety, and multi-chain access problems that block mainstream adoption — with a public MPC network whose flagship product is the **MPA wallet**.
+Web3 is confusing and risky for both newcomers and experienced users moving real assets on-chain. ContinuumDAO addresses the custody, AI-safety, multi-chain access, and **agentic governance** problems that block mainstream adoption — with a public MPC network whose flagship product is the **MPA wallet**, and an **AI-first DAO with humans-in-the-loop**.
 
 ### On-Chain Finance Needs Trustworthy Self-Custody
 
@@ -49,6 +51,16 @@ Users run one or more **MPC nodes** that hold only threshold **shares**. Agreeme
 ### AI Must Not Spend Alone
 
 Much on-chain asset management will be driven by AI agents, but agents must not be able to spend alone. A typical personal setup pairs an **AI-assisted node** with a **human circuit-breaker node** under **2/2** threshold control: the agent can analyze markets, propose DeFi actions, and compose trades, but cannot complete a signature alone. Every on-chain action is gated by MPC threshold **Accepts** through the built-in **AI agent harness** — designed to be the **premier fabric for safe on-chain trading**, with DeFi protocol tool packs, charting, trade ideas, and human-in-the-loop approval before any signature completes.
+
+The same harness extends to **DAO governance**: agents can research, draft, and submit proposals, participate in **Forum** discussion, and cast **on-chain votes** — always subject to the wallet Group’s MPC threshold. Humans holding co-signer shares can **Accept**, **Reject**, or override agent governance actions just as they do for trades.
+
+### AI-First DAO Governance
+
+ContinuumDAO is built for a future in which **AI agents govern alongside humans**. An MPA wallet with **veCTM attached** to its node can act as a **Citizen** of the DAO: with enough voting power, its agent can **write proposals**, **vote** on Treasury, Admin, Decision, and Constitution matters, and **evaluate** proposal outcomes against the DAO’s Mission and Vision. Agents can engage in policy debate on the [Forum](https://forum.continuumdao.org/) before and after on-chain votes, bringing continuous analysis and drafting capacity that manual DAOs cannot match.
+
+This is not governance without accountability. **Humans-in-the-loop** remain essential: MPC threshold control means an agent cannot execute a governance transaction or move treasury assets without the required **Accept** from co-signer nodes. Operators choose their threshold — a **2/2** AI + human setup gives the agent initiative while preserving a human circuit breaker on every consequential action. **veCTM staked on the node** both unlocks **free MPA wallet access** and grants the **voting power** that makes agentic governance possible — aligning long-term stakers with protocol control.
+
+No other DAO couples **AI agent participation** in proposal creation, Forum discourse, and on-chain voting with **MPC-secured, human-overridable** execution. ContinuumDAO is pioneering **agentic DAO governance**: AI-first, with humans always able to intervene.
 
 ### Fragmented Chains and DeFi Silos
 
@@ -75,7 +87,8 @@ Multi-signature bridges are costly — multiple on-chain signatures consume gas 
 ## How is ContinuumDAO Different?
 
 - **The MPA wallet** is ContinuumDAO’s flagship MPC product: an **AI-first** wallet with a **rich frontend** for complete manual operation — **fully decentralized self-custody** of **BTC** (SegWit and Taproot), **Ethereum / EVM assets**, and (in rollout) **Ed25519 chains** such as Solana and NEAR — **without a Private Key**, with **direct integration to the most important web3 protocols** (Uniswap, Aave, Curve, GMX, Hyperliquid, Lido, and others) for **secure Private-Key-less trading**, **AI-assisted** workflows, threshold-bound signing, and **private off-chain** agreement — secured by **CGGMP24** (ECDSA) and **FROST** (EdDSA) as maintained by Lockness under LF Decentralized Trust (Linux Foundation).
-- **Users install and run MPA wallet node software themselves** — ContinuumDAO is not required for day-to-day custody, signing, or DeFi; it provides optional updates and DAO governance coordination.
+- **An AI-first DAO with humans-in-the-loop** — MPA wallet AI agents can **propose**, **debate on the Forum**, **evaluate**, and **vote** on ContinuumDAO governance when the node has **veCTM attached** with sufficient voting power; humans retain override through **MPC threshold Accepts** on every on-chain governance action.
+- **Users, or AI agents install and run MPA wallet node software themselves** — ContinuumDAO is not required for day-to-day custody, signing, or DeFi; it provides optional updates and DAO governance coordination.
 - **MPC nodes** are the fundamental unit of the network. Wallet owners install nodes, form **MPC Groups**, and create **KeyGens** (shared addresses). The same nodes can serve **personal custody** (multi-agree) and, optionally, **cross-chain Continuum signing** (tx-check Groups for C3Caller traffic).
 - Cross-chain signatures are generated by MPC, which is well recognised by institutions as being secure. MPC signatures are collectively made by an MPC Group, but the private key is never assembled on any single machine — each node holds only a share.
 - The number of nodes in a Group that collectively sign can be selected when the Group is formed. The higher the number, the more secure, but the slower will be the signatures. 
@@ -84,12 +97,12 @@ Multi-signature bridges are costly — multiple on-chain signatures consume gas 
 - Our cross-chain network, called the Continuum, is run by a **DAO** and designed for autonomous operation. All critical operations and financial transactions depend on on-chain voting. There is no central ‘team’.
 - An MPC signature is just a single signature and consumes only limited gas on the chains it operates on. This is distinct from multi-signature solutions. This means that MPC based cross-chain signing is cost-effective.
 - Any number of blockchains can join the Continuum. There is no limit, since the number of MPC Groups is also unlimited.
-- Anyone can run an MPC node. Nodes combine into Groups; governance voting decides which Groups may sign public cross-chain traffic for C3Caller.
-- Any blockchain with a smart contract system is accessible from the MPC network. ContinuumDAO has already connected some 30 EVM chains on testnet, as well as TON, Stellar Soroban and will soon be able to connect to Solana and NEAR. SUI and other Move based chains are in our road map to integrate.
+- Anyone (AI agent, or human) can run an MPC node. Nodes combine into Groups; governance voting decides which Groups may sign public cross-chain traffic for C3Caller.
+- Any blockchain with a smart contract system is accessible from the MPC network. ContinuumDAO has already connected some 30 EVM chains on testnet, as well trials on TON, Stellar Soroban and will soon be able to connect to Solana and NEAR. SUI and other Move based chains are in our road map to integrate.
 - An MPC network has protocol level security. It does not rely on any dApp to choose for instance a zkProof relayer. Whichever MPC Group a dApp chooses will have the same high level of inherent security that comes with the CGGMP24 and FROST threshold signature protocols (Lockness / LF Decentralized Trust).
 - ContinuumDAO publishes key protocol components as **open source**, including the cross-chain messaging system callable from dApps (**C3Caller**), the **veCTM** voting-escrow contract, and **Governance** smart contracts (see [github](https://github.com/ContinuumDAO/vectm)). The **MPC algorithms** used for threshold signing — **CGGMP24** and **FROST** via Lockness / LF Decentralized Trust — are **already open source** and **independently security-audited**. The **MPA wallet frontend** and **AI agent harness** are built on public SDKs and DeFi protocol integrations using **public npm libraries**. The node software operators install combines these audited cryptographic building blocks with ContinuumDAO protocol services (including fee settlement and the agent harness); operators receive this as the node package that powers wallet custody and optional cross-chain signing.
-- Unlike any other MPC based solution, with Continuum, each individual MPC signature can be tracked and monitored with an API. This ensures that users know which MPC Group and nodes within this group actually signed their transactions. It is easy to spot if there is any centralization - one of the biggest risk factors as we have seen with the failure of other protocols.
-- When a node runner registers their node, they can optionally identify themselves with email, Telegram and their name. Anyone using Continuum should know who is signing their transactions and should be able to contact them if they wish to, or at least they should know that they cannot, if the dApp is using an anonymous MPC Group, which it is of course their choice to so so.
+- Unlike any other MPC based solution, with Continuum, each individual cross-chain MPC signature can be tracked and monitored with an API. This ensures that users know which MPC Group and nodes within this group actually signed their transactions. It is easy to spot if there is any centralization - one of the biggest risk factors as we have seen with the failure of other protocols.
+- When a node runner registers their node, they can optionally identify themselves with email, Telegram and their name. Anyone using Continuum should know who is signing their cross-chain transactions and should be able to contact them if they wish to, or at least they should know that they cannot, if the dApp is using an anonymous MPC Group for cross-chain traffic, which it is of course their choice to so so.
 - Any dApp can permissionlessly use cross-chain services offered by ContinuumDAO. They may wish to work with the DAO to help develop their application, but there is no obligation.
 - Any dApp using Continuum’s MPC network pays per byte for cross-chain traffic in a simple and unambiguous way. The dApp simply needs to top up their wallet periodically with either CTM (the native utility token), or a USD stablecoin. They can pass this charge on to their users if they wish to do so. The per-byte fee is set by governance. The funding model is clear.
 
@@ -107,7 +120,7 @@ Over the last year, the DAO has also been working on projects that will use Cont
 
 (2) Roll out of the **Multi-Party Agent (MPA) wallet** and testing with the community — MPC custody without a Private Key, **AI-assisted trading** harness, and optional opt-in to **cross-chain signing Groups** with **CTM and ETH rewards** for participating wallet operators. Estimated delivery in Q3 2026
 
-(3) **AI Harness development for MPA wallet** — establish the built-in agent harness as the **premier AI harness for safe on-chain trading**: DeFi protocol tool packs, charting and trade ideas, human-in-the-loop **Accept** flows, and tight coupling between agent proposals and MPC threshold signing so AI can analyze and propose but never spend alone. Development of the AI harness will continue to take advantages of the rapidly evolving AI landscape. This will be on-going and will consume a high proportion of the DAO's time and effort.
+(3) **AI Harness development for MPA wallet** — establish the built-in agent harness as the **premier AI harness for safe on-chain trading** and **AI-first DAO governance**: DeFi protocol tool packs, charting and trade ideas, **governance tools** (propose, Forum engagement, evaluate, vote), human-in-the-loop **Accept** flows, and tight coupling between agent proposals and MPC threshold signing so AI can analyze, propose, and govern but never act alone. Development of the AI harness will continue to take advantages of the rapidly evolving AI landscape. This will be on-going and will consume a high proportion of the DAO's time and effort.
 
 (4) Establishment of community-run **MPC Groups** (built from MPA wallet nodes) attached to the Relayer for C3Caller signing. Estimated delivery Q4 2026.
 
@@ -117,11 +130,11 @@ Over the last year, the DAO has also been working on projects that will use Cont
 
 (7) Establishment of a DEX trading pool for our token CTM. Possibly we will also launch on one or more CEX platforms.
 
-(8) Extension of the Continuum MPC network to non-EVM chains such as Solana, Soroban, NEAR. This work will continue throughout 2026 and 2027
+(8) Extension of the Continuum MPC network to non-EVM chains such as Solana, Soroban, NEAR. This work will continue throughout 2027
 
-(9) Audit of Scanner, Relayer and MPC code. Estimated time Q3 2026
+(9) Audit of Scanner, Relayer and MPC code. Estimated time 2027
 
-(10) Business development will be a focus from just before mainnet and thereafter. We will work with any protocol that wishes to build using Continuum. We will actively help build these dApps if it make sense for us and the protocol team to do so. Such decisions will always be subject to DAO voting.
+(10) Business development will be a focus from just before mainnet and thereafter. The DAO will work with any protocol that wishes to build using Continuum. We will actively help build these dApps if it make sense for us and the protocol team to do so. Such decisions will always be subject to DAO voting.
 
 (11) Develop a **veCTM marketplace** where humans and AI agents can easily trade veCTM to stake on nodes — supporting the **staking-as-subscription** model for free MPA wallet access. Estimated time Q3 2026
 
@@ -129,13 +142,28 @@ Over the last year, the DAO has also been working on projects that will use Cont
 
 ### **Why Have we Built a DAO?**
 
-The adoption of a DAO for Continuum is not just a governance choice; it is a strategic necessity to unlock the full potential of multi-chain dApps. By leveraging the DAO model, we ensure that the services remain decentralized and transparent. 
+The adoption of a DAO for Continuum is not just a governance choice; it is a strategic necessity to unlock the full potential of multi-chain dApps — and to pioneer **AI-first, human-overridable governance**. By leveraging the DAO model, we ensure that the services remain decentralized and transparent while opening participation to **AI agents** operating through the **MPA wallet**, not only to human token holders acting manually.
 
 Here’s why a DAO is the ideal structure to control permissionless multi-chain services
 
 **Decentralized Trust**
 
 Real world usage of blockchains requires a high level of trust to attract traditional investors and custodians. ContinuumDAO enhances this trust by distributing governance power among stakeholders, preventing any single entity from exercising unilateral control over critical decisions. **DAO operation** extends to the MPC layer: fee rates, approved cross-chain signers, protocol upgrades, and treasury use are voted on-chain. The **MPA wallet** embodies the same principles for end users — no custodian holds a full key, and **private off-chain** threshold agreement (CGGMP24 / FROST) replaces visible multi-sig politics on chain. DAO-driven decision-making ensures the security and resilience of the Continuum and the underlying MPC network, which serves as the cornerstone of ContinuumDAO and its products.
+
+**AI Agents in DAO Governance**
+
+ContinuumDAO is an **AI-first DAO**. Through the **MPA wallet**, AI agents can participate in the full governance lifecycle:
+
+- **Proposing** — agents with sufficient **veCTM voting power** attached to the node can draft and submit on-chain proposals (Treasury, Admin, Decision, Constitution)
+- **Discussing** — agents can engage in the community **Forum**, debate policy, and refine ideas before and after formal votes
+- **Evaluating** — agents can analyse proposal impact against the Constitution, treasury risk, and protocol metrics
+- **Voting** — agents can cast on-chain votes through the Governance app, subject to the wallet Group’s MPC threshold
+
+**veCTM attached to an MPA wallet node** is the prerequisite for governance participation — it provides both **voting power** and, through **staking-as-subscription**, free wallet access. With enough veCTM, a wallet’s agent can **author proposals** or **vote**; thresholds for proposal creation and voting are set by governance (see [Creating a Proposal](https://docs.continuumdao.org/ContinuumDAO/Governance/CreatingProposal)).
+
+**Humans-in-the-loop** remain central. MPC threshold signing means no agent can execute a governance transaction alone: co-signer nodes — typically, but not necessarily held by humans — must **Accept** before a proposal submission, vote, or treasury action completes. Operators choose their Group threshold; a **2/2** AI + human configuration gives agents initiative while preserving human circuit breakers on every consequential decision.
+
+This **agentic DAO** model — AI agents that propose, debate, evaluate, and vote, bounded by MPC and human override — is revolutionary. ContinuumDAO is among the first protocols designed for **autonomous AI participation in decentralized governance** from the ground up.
 
 **Efficient and Transparent Asset Governance**
 
@@ -164,7 +192,7 @@ There are three governance roles: Committee, Contributor, and Citizen.
     - ContinuumDAO has a group of full-time people, or Core Contributors group. They are responsible for operating the frontend servers, official accounts, and other related tasks, such as paying bills from assets transferred to hot wallets from the Treasury. The performance of the contributors will be reported each year in the DAO to evaluate.
     - There are four Guilds: Research, Business development, Marketing and a Developer's Guild. The guild leader will develop each guild that will support the activities of new projects joining the Continuum.
 - **Citizens**
-    - Will have the right to join the governance process, which includes proposing, voting, and making contributions. A Citizen can raise a proposal, so long as it conforms to the DAOs Mission and Vision and they control a threshold amount of veCTM power, either in their own wallet, or delegated by other voters to their wallet. The instructions for creating a proposal are detailed [here](https://docs.continuumdao.org/ContinuumDAO/Governance/HowToWriteAProposal)
+    - Will have the right to join the governance process, which includes proposing, voting, and making contributions — whether acting **directly as humans** or through **AI agents** operating an **MPA wallet** with **veCTM attached**. A Citizen can raise a proposal, so long as it conforms to the DAOs Mission and Vision and they control a threshold amount of veCTM power, either in their own wallet, or delegated by other voters to their wallet. The instructions for creating a proposal are detailed [here](https://docs.continuumdao.org/ContinuumDAO/Governance/HowToWriteAProposal)
 
 ### DAO incentive system
 
@@ -186,7 +214,7 @@ Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT cal
 
 **Staking-as-subscription** is the **main use of CTM**. Operators who attach **veCTM** to their MPA wallet node receive **free MPA wallet use** up to a governance-set free signature limit — the **alternative to a monthly subscription paid in USDC** (or other stablecoins the DAO adopts). Heavier use, or nodes without staked veCTM, follow the paid subscription or metered model the DAO defines.
 
-Each staked veCTM NFT carries **governance voting power**. As more wallet operators stake to unlock free access, the **network of engaged DAO voters grows** — aligning people who actually run nodes and use the wallet with long-term protocol decisions. As MPA wallet adoption grows, an **increasing share of total supply** locks into veCTM on nodes, creating sustained buy-and-lock pressure.
+Each staked veCTM NFT carries **governance voting power**. As more wallet operators stake to unlock free access, the **network of engaged DAO voters grows** — including **AI agents** operating through MPA wallets with attached veCTM, who can propose, debate, and vote alongside human co-signers. As MPA wallet adoption grows, an **increasing share of total supply** locks into veCTM on nodes, creating sustained buy-and-lock pressure and expanding **agentic governance** capacity.
 
 Operators who **also** opt into approved cross-chain signing Groups receive additional remuneration in **CTM and ETH** (rates and mix set by **DAO governance**). A quality score (uptime, speed) multiplies the base reward. **veCTM attached to nodes is locked by default** and requires a **DAO vote** to unlock or detach — misbehaving public signers risk **permanent lock**, with no vote to release their veCTM.
 
@@ -223,15 +251,16 @@ Wallet owners may use **only** the custody role, or also opt into cross-chain Gr
 
 The **MPA wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview)) is ContinuumDAO’s flagship MPC product — **AI-first**, with a **rich frontend** for full manual use:
 
-- **AI-first control** — a built-in **AI agent harness** on every node proposes trades, runs technical analysis, and invokes DeFi protocol tools; humans (or other nodes) **Accept** or **Reject** before any signature completes. The agent is the natural default; the frontend is your circuit breaker and manual override.
+- **AI-first control** — a built-in **AI agent harness** on every node proposes trades, runs technical analysis, invokes DeFi protocol tools, and participates in **DAO governance** (propose, Forum discussion, evaluate, vote) when **veCTM** is attached; humans (or other nodes) **Accept** or **Reject** before any signature completes. The agent is the natural default; the frontend is your circuit breaker and manual override.
 - **Rich frontend — fully usable without AI** — [mpa.continuumdao.org](https://mpa.continuumdao.org) or the node-hosted app provides a complete wallet UI: Groups, KeyGens, multi-sign, DeFi flows, charts, backups, and node management — no agent required.
 - **Multi-chain self-custody** — fully decentralized holding and movement of **Bitcoin** (SegWit and Taproot), **Ethereum and EVM-compatible tokens**, and — on the roadmap — **Ed25519 assets** (Solana, NEAR, and similar chains), all from the same Group of nodes without a single recoverable Private Key.
 - **Direct web3 protocol support** — built-in connectivity to the **most important DeFi and trading protocols** (including Uniswap, Aave, Curve, Morpho, GMX, Hyperliquid, Lido, Ethena, and Circle CCTP), so users can swap, lend, stake, and trade perps **without exporting a Private Key** — from the frontend or via the AI agent, always under MPC threshold control.
 - **No Private Key** — only threshold shares; optional **eject** to a conventional key if the Group agrees.
 - **Private off-chain security** — multi-sign negotiation and agent context stay on the operators’ nodes, encrypted; the chain sees only the final transaction.
 - **State-of-the-art MPC** — CGGMP24 and FROST, with proactive key refresh, maintained under Lockness / LF Decentralized Trust.
-- **DAO-aligned operation** — protocol parameters, approved signers, rewards, and the **free signature limit** for staked nodes are governed by the DAO; the wallet itself is non-custodial and user-controlled.
-- **Subscription through staking** — attach **veCTM** to your node instead of paying a **monthly USDC** subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance.
+- **DAO governance via AI agents** — with **veCTM attached** to the node, the agent harness can **author proposals**, engage in **Forum** debate, **evaluate** outcomes, and **cast on-chain votes**; humans-in-the-loop retain override through MPC threshold **Accepts**
+- **Staking as subscription** — attach **veCTM** to your node instead of paying a **monthly USDC** subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance, plus **voting power** for agentic DAO participation
+- **DAO-aligned operation** — protocol parameters, approved signers, rewards, and the **free signature limit** for staked nodes are governed by the DAO; the wallet itself is non-custodial and user-controlled
 
 ### Fully decentralized custody
 
@@ -239,7 +268,7 @@ Many MPC wallets rely on **vendor-hosted databases** to store key shares. The **
 
 Operators can back up **encrypted node data** (with bootstrap keys) to enable **recovery**, **hardware switching**, or migration to a new machine while preserving node identity. Groups that wish to leave MPC can **eject** a KeyGen — threshold agreement reconstructs a standard private key for import into conventional wallets. **If ContinuumDAO ceased operations**, existing MPA wallets would **continue to function** from user-run nodes and backups, without further DAO updates.
 
-**Who it is for:** the MPA wallet is aimed at users who reject hardware-wallet models that require **email addresses, home addresses, or vendor recovery**; who prefer **never storing a Private Key** themselves; and who want **shared custody among family or friends** (via Group size and threshold) so that loss, death, or long-term incapacity does not strand assets on a single person or device.
+**Who it is for:** Apart from being the natural home for AI agents requiring a wallet, the MPA wallet is aimed at users who reject hardware-wallet models that require **email addresses, home addresses, or vendor recovery**; who prefer **never storing a Private Key** themselves; and who want **shared custody among family or friends** (via Group size and threshold) so that loss, death, or long-term incapacity does not strand assets on a single person or device.
 
 There is no limit to the number of nodes or Groups, or to the web3 traffic the network can accommodate in principle. Each Group yields a public key usable by C3Caller, the MPA wallet, or other MPC applications.
 
@@ -286,7 +315,8 @@ CTM is a multi-chain token, that can only be minted on Ethereum by Governance vo
 ### Utility
 
 - **Staking as subscription** — veCTM attached to your node unlocks **free MPA wallet use** up to the free signature limit (alternative to **monthly USDC** subscription); the **primary use of CTM**, locking an increasing share of total supply as adoption grows
-- **DAO voter expansion** — each staked veCTM carries governance voting power, growing the engaged voter base as wallet operators stake for free access
+- **Agentic DAO governance** — attached veCTM grants **voting power** so MPA wallet **AI agents** can propose, debate on the Forum, evaluate, and vote; humans retain MPC override
+- **DAO voter expansion** — each staked veCTM carries governance voting power, growing the engaged voter base (human and AI) as wallet operators stake for free access
 - **MPA wallet subscription** — pay a **monthly subscription in CTM at a discount** (instead of a USD stablecoin), or **stake veCTM** on your node for free wallet use up to the governance-set signature limit
 - **Rewards for cross-chain signing** — **CTM and ETH** payments to MPA wallet / node operators in approved Groups (rates set by governance)
 - Governance — as veCTM
@@ -295,7 +325,7 @@ CTM is a multi-chain token, that can only be minted on Ethereum by Governance vo
 
 # Ecosystem Development
 
-There will be a grant program for new projects using Continuum. This could be either a grant of CTM, or other tokens from the treasury, or a time-limited reduction in fees for usage of Continuum.
+At the discretion of the DAO, there will be a grant program for new projects using Continuum. This could be either a grant of CTM, or other tokens from the treasury, or a time-limited reduction in fees for usage of Continuum.
 
 The DAO will assist new projects that wish to use Continuum. This will be in the form of coding support, joint marketing, and technical support as required. These functions will be undertaken and organised by the DAO Guilds.
 

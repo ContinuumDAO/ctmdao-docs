@@ -125,7 +125,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-17T16:36:37.098Z",
+  "generatedAt": "2026-08-21T10:18:08.704Z",
   "pageCount": 51,
   "llmld:sections": [
     {
@@ -264,13 +264,13 @@
           "name": "ContinuumDAO White Paper",
           "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper.md",
-          "excerpt": "17th August 2026 An AI first Multi Party Agent (MPA) wallet for on chain asset control — without a Private Key , with a rich frontend for full manual override, built in DeFi protocol access , and a bu"
+          "excerpt": "17th August 2026 An AI first DAO and wallet, with humans in the loop . ContinuumDAO’s Multi Party Agent (MPA) wallet extends that model from custody to DAO governance — AI agents can propose , debate "
         },
         {
           "name": "Who are we?",
           "url": "https://docs.continuumdao.org/README",
           "markdown": "https://docs.continuumdao.org/README.md",
-          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO A trustless Secure Multi Party Computation node network called the Continuum and run worldwide by a DAO. <! <span style=\"color:green;font weight:700;font siz"
+          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop. <! <span style=\"color:green;font weight:700;font size:20px\" markdown color font "
         }
       ]
     },
