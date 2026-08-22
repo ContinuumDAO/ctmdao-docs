@@ -1,8 +1,9 @@
 For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPAWallet/Install.md)** (node-map **`+`** button at [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map)). You can create a node on a laptop or PC, or on a remote VPS (Linux / Windows 11 / macOS). This page is the **advanced / manual** path.
 
-**AI agents creating a greenfield Ubuntu/Debian VPS node:** do **not** start here. Use the **one-shot** script and guide first:
+**AI agents creating or configuring a greenfield Ubuntu/Debian VPS node:** do **not** start here. Use the **agent playbook** first:
 
-- [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
+- [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — topology, oneshot, Path A MCP, hand-off
+- [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — install script flags
 - Script: [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh)
 - Repo: [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 
@@ -300,6 +301,7 @@ Once you are in MPA wallet, if you ran the automated provision-node.sh above in 
 ### Related
 
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md) — preferred node-map installer (humans) + AI one-shot links
+- [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — AI agent full VPS provision + mesh
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent VPS one-shot
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)

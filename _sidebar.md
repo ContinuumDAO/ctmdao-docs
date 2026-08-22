@@ -17,6 +17,7 @@
 
   * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
   * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+  * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
   * [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
   * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
@@ -64,6 +65,7 @@
 
 * Further reading (operators / APIs)
 
+  * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
   * [Create a node (one-shot, AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
   * [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)

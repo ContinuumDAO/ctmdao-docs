@@ -12,20 +12,45 @@
       "Docs are markdown source files served at stable URLs; append .md to any page path for raw content.",
       "search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.",
       "MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.",
-      "Install an MPA node: start at mpa.continuumdao.org/node-map (+ button) or Install.md; VPS agents use the one-shot script.",
+      "AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.",
       "Governance, C3Caller, MPC concepts, and node running guides are all indexed here."
     ]
   },
   "llmld:getStarted": {
-    "task": "create-mpc-node",
-    "summary": "Install a Multi-Party Agent Wallet node on a Linux VPS or home PC (Windows 11, macOS, or Linux).",
+    "task": "provision-and-configure-mpc-node",
+    "summary": "Provision and configure a Multi-Party Agent Wallet node: topology first, then VPS oneshot (or human node-map / home PC), Path A MCP mesh, Group, and KeyGen.",
     "defaultForHumans": "https://mpa.continuumdao.org/node-map",
     "canonicalDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
     "canonicalDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install",
+    "canonicalAgentDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
+    "canonicalAgentDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
     "agentsGuide": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
     "homeInstallJson": "https://continuumdao.org/well-known/install-node.json",
     "avoidForAgents": "https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
     "agentMetadata": {
+      "task": "provision-and-configure-mpc-node",
+      "audience": [
+        "ai-agent"
+      ],
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+      "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
+      "keywords": [
+        "provision node",
+        "configure node",
+        "Path A",
+        "continuum-mcp",
+        "8446",
+        "topology",
+        "2-of-3",
+        "MQTT",
+        "node_config",
+        "oneshot",
+        "create mpc node"
+      ]
+    },
+    "installMetadata": {
       "task": "create-mpc-node",
       "audience": [
         "human",
@@ -34,6 +59,7 @@
       "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "agent_playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
       "keywords": [
         "one-shot",
         "install node",
@@ -45,8 +71,9 @@
     "routes": [
       {
         "platform": "linux-vps",
-        "when": "Ubuntu or Debian VPS; agent can run shell commands as root",
-        "primary": "oneshot-script",
+        "when": "Ubuntu or Debian VPS; AI agent provisions and configures (Path A MCP)",
+        "primary": "agent-provision-playbook",
+        "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
         "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
         "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
         "fallback": "https://mpa.continuumdao.org/node-map"
@@ -86,9 +113,8 @@
       },
       {
         "step": "peers-group-keygen",
-        "name": "Add a second node, configure peers, create Group and KeyGen (minimum 2/2)",
-        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
-        "anchor": "post-install-steps"
+        "name": "Configure peers / MQTT, create Group and KeyGen (prefer 2-of-3 across regions and providers)",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md"
       },
       {
         "step": "ai-harness",
@@ -97,13 +123,39 @@
       }
     ],
     "keyFacts": [
-      "One node alone cannot create a shared wallet address — add at least one peer (typical personal setup: 2/2 human-in-the-loop).",
-      "For almost all human users, start at the node map + button; do not default to manual git clone.",
-      "AI agents provisioning Ubuntu/Debian VPS should use the one-shot script, not NodeRunningInstruction.md.",
-      "Home PCs need Docker Desktop plus the Continuum Node extension, public WAN IP, and router port forwarding."
+      "AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). Do not start from NodeRunningInstruction.md.",
+      "Ask topology before renting: standalone 2-of-3 (recommend), join existing relay, or become relay and invite. Prefer different regions and VPS providers.",
+      "The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.",
+      "One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.",
+      "For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.",
+      "LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool."
     ]
   },
   "llmld:agentTasks": [
+    {
+      "task": "provision-and-configure-mpc-node",
+      "source": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
+      "audience": [
+        "ai-agent"
+      ],
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+      "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
+      "keywords": [
+        "provision node",
+        "configure node",
+        "Path A",
+        "continuum-mcp",
+        "8446",
+        "topology",
+        "2-of-3",
+        "MQTT",
+        "node_config",
+        "oneshot",
+        "create mpc node"
+      ]
+    },
     {
       "task": "create-mpc-node",
       "source": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
@@ -114,6 +166,7 @@
       "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
+      "agent_playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
       "keywords": [
         "one-shot",
         "install node",
@@ -125,8 +178,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-21T12:18:43.077Z",
-  "pageCount": 51,
+  "generatedAt": "2026-08-22T11:28:11.406Z",
+  "pageCount": 52,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -236,6 +289,17 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/KeyGens",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/KeyGens.md",
           "excerpt": "A key (or KeyGen) contains the information that each node needs to take part in the joint creation of the Private Key to collectively sign transactions. A KeyGen has a public key but NO PRIVATE KEY . "
+        }
+      ]
+    },
+    {
+      "name": "Further reading (operators / APIs)",
+      "pages": [
+        {
+          "name": "Agent provision and configure",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
+          "excerpt": "<! agent: task: provision and configure mpc node audience: [ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh oneshot doc: "
         }
       ]
     },

@@ -13,6 +13,13 @@ const HOME_URL = 'https://continuumdao.org';
 const MPA_NODE_MAP = 'https://mpa.continuumdao.org/node-map';
 const INDEX_PATH = join(root, 'search-index.json');
 const INSTALL_MD_PATH = join(root, 'ContinuumDAO', 'MPAWallet', 'Install.md');
+const AGENT_PROVISION_MD_PATH = join(
+	root,
+	'ContinuumDAO',
+	'MPAWallet',
+	'AgentProvision.md',
+);
+const AGENT_PROVISION_PATH = 'ContinuumDAO/MPAWallet/AgentProvision';
 
 /** @param {string} path @param {string} content */
 function writeIfChanged(path, content) {
@@ -46,10 +53,10 @@ function groupPagesBySection(pages) {
 	return [...bySection.entries()].sort(([a], [b]) => a.localeCompare(b));
 }
 
-/** Parse `agent:` metadata block from Install.md HTML comment. */
-function parseInstallAgentMetadata() {
+/** Parse `agent:` metadata block from an HTML comment. */
+function parseAgentMetadata(filePath) {
 	try {
-		const raw = readFileSync(INSTALL_MD_PATH, 'utf8');
+		const raw = readFileSync(filePath, 'utf8');
 		const match = raw.match(/<!--\s*\n([\s\S]*?)\n\s*-->/);
 		if (!match) return null;
 		const block = match[1];
@@ -79,36 +86,53 @@ function parseInstallAgentMetadata() {
 }
 
 /** Install routing shared with continuumdao.org discovery files. */
-function buildInstallNodeDiscovery(agentMeta) {
+function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 	const oneshotScript =
-		typeof agentMeta?.oneshot_script === 'string'
-			? agentMeta.oneshot_script
-			: 'https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh';
+		typeof provisionMeta?.oneshot_script === 'string'
+			? provisionMeta.oneshot_script
+			: typeof installMeta?.oneshot_script === 'string'
+				? installMeta.oneshot_script
+				: 'https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh';
 	const oneshotGuide =
-		typeof agentMeta?.oneshot_doc === 'string'
-			? agentMeta.oneshot_doc
-			: 'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md';
+		typeof provisionMeta?.oneshot_doc === 'string'
+			? provisionMeta.oneshot_doc
+			: typeof installMeta?.oneshot_doc === 'string'
+				? installMeta.oneshot_doc
+				: 'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md';
 	const agentsGuide =
-		typeof agentMeta?.agents_md === 'string'
-			? agentMeta.agents_md
-			: 'https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md';
+		typeof provisionMeta?.agents_md === 'string'
+			? provisionMeta.agents_md
+			: typeof installMeta?.agents_md === 'string'
+				? installMeta.agents_md
+				: 'https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md';
+	const agentPlaybook = `${DOCS_BASE_URL}/${AGENT_PROVISION_PATH}`;
+	const agentPlaybookMd = `${agentPlaybook}.md`;
 
 	return {
-		task: typeof agentMeta?.task === 'string' ? agentMeta.task : 'install-mpa-node',
+		task:
+			typeof provisionMeta?.task === 'string'
+				? provisionMeta.task
+				: typeof installMeta?.task === 'string'
+					? installMeta.task
+					: 'install-mpa-node',
 		summary:
-			'Install a Multi-Party Agent Wallet node on a Linux VPS or home PC (Windows 11, macOS, or Linux).',
+			'Provision and configure a Multi-Party Agent Wallet node: topology first, then VPS oneshot (or human node-map / home PC), Path A MCP mesh, Group, and KeyGen.',
 		defaultForHumans: MPA_NODE_MAP,
 		canonicalDoc: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
 		canonicalDocUrl: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install`,
+		canonicalAgentDoc: agentPlaybookMd,
+		canonicalAgentDocUrl: agentPlaybook,
 		agentsGuide,
 		homeInstallJson: `${HOME_URL}/well-known/install-node.json`,
 		avoidForAgents: `${DOCS_BASE_URL}/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md`,
-		agentMetadata: agentMeta ?? undefined,
+		agentMetadata: provisionMeta ?? installMeta ?? undefined,
+		installMetadata: installMeta ?? undefined,
 		routes: [
 			{
 				platform: 'linux-vps',
-				when: 'Ubuntu or Debian VPS; agent can run shell commands as root',
-				primary: 'oneshot-script',
+				when: 'Ubuntu or Debian VPS; AI agent provisions and configures (Path A MCP)',
+				primary: 'agent-provision-playbook',
+				playbook: agentPlaybookMd,
 				script: oneshotScript,
 				guide: oneshotGuide,
 				fallback: MPA_NODE_MAP,
@@ -150,9 +174,8 @@ function buildInstallNodeDiscovery(agentMeta) {
 			},
 			{
 				step: 'peers-group-keygen',
-				name: 'Add a second node, configure peers, create Group and KeyGen (minimum 2/2)',
-				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
-				anchor: 'post-install-steps',
+				name: 'Configure peers / MQTT, create Group and KeyGen (prefer 2-of-3 across regions and providers)',
+				url: agentPlaybookMd,
 			},
 			{
 				step: 'ai-harness',
@@ -161,10 +184,12 @@ function buildInstallNodeDiscovery(agentMeta) {
 			},
 		],
 		keyFacts: [
-			'One node alone cannot create a shared wallet address — add at least one peer (typical personal setup: 2/2 human-in-the-loop).',
-			'For almost all human users, start at the node map + button; do not default to manual git clone.',
-			'AI agents provisioning Ubuntu/Debian VPS should use the one-shot script, not NodeRunningInstruction.md.',
-			'Home PCs need Docker Desktop plus the Continuum Node extension, public WAN IP, and router port forwarding.',
+			'AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). Do not start from NodeRunningInstruction.md.',
+			'Ask topology before renting: standalone 2-of-3 (recommend), join existing relay, or become relay and invite. Prefer different regions and VPS providers.',
+			'The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.',
+			'One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.',
+			'For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.',
+			'LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.',
 		],
 	};
 }
@@ -184,20 +209,31 @@ function buildLlmIndex(index, installDiscovery) {
 				'Docs are markdown source files served at stable URLs; append .md to any page path for raw content.',
 				'search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.',
 				'MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.',
-				'Install an MPA node: start at mpa.continuumdao.org/node-map (+ button) or Install.md; VPS agents use the one-shot script.',
+				'AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.',
 				'Governance, C3Caller, MPC concepts, and node running guides are all indexed here.',
 			],
 		},
 		'llmld:getStarted': installDiscovery,
-		'llmld:agentTasks': installDiscovery.agentMetadata
-			? [
-					{
-						task: installDiscovery.task,
-						source: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
-						...installDiscovery.agentMetadata,
-					},
-				]
-			: undefined,
+		'llmld:agentTasks': [
+			...(installDiscovery.agentMetadata
+				? [
+						{
+							task: installDiscovery.task,
+							source: installDiscovery.canonicalAgentDoc,
+							...installDiscovery.agentMetadata,
+						},
+					]
+				: []),
+			...(installDiscovery.installMetadata
+				? [
+						{
+							task: installDiscovery.installMetadata.task ?? 'create-mpc-node',
+							source: installDiscovery.canonicalDoc,
+							...installDiscovery.installMetadata,
+						},
+					]
+				: []),
+		],
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
 		generatedAt: index.generatedAt,
@@ -223,20 +259,24 @@ function buildLlmsTxt(index, install) {
 		'',
 		'## Start here — install an MPA wallet node',
 		'',
-		'**For AI agents guiding users:** ask VPS vs home PC and which OS, then route using the table below.',
+		'**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](' +
+			install.canonicalAgentDocUrl +
+			') first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only.',
 		'',
 		`| User situation | Lead them to |`,
 		`|----------------|--------------|`,
+		`| AI agent — full VPS provision + configure | [Agent provision and configure](${install.canonicalAgentDocUrl}) |`,
 		`| Any human — easiest | [Node map + button](${install.defaultForHumans}) |`,
-		`| Linux VPS — agent runs shell as root | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
+		`| Linux VPS — install containers only | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
 		`| Windows 11 home PC | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
 		`| macOS home PC | [Install.md](${install.canonicalDoc}) + [macOS guide](${install.routes[2].guide}) |`,
 		`| Linux home PC | [Install.md](${install.canonicalDoc}) or node-map + button |`,
 		`| Advanced manual only | [NodeRunningInstruction.md](${install.avoidForAgents}) — not the default |`,
 		'',
-		`**After one node:** second peer + Group + KeyGen (minimum 2/2) — [Post install steps](${install.canonicalDoc}#post-install-steps).`,
+		`**After install:** topology, peers, MQTT, Group, KeyGen (prefer 2-of-3) — [Agent provision and configure](${install.canonicalAgentDocUrl}). Humans: [Post install steps](${install.canonicalDocUrl}#post-install-steps).`,
 		'',
-		`- [Install a node (full guide)](${install.canonicalDocUrl})`,
+		`- [Agent provision and configure](${install.canonicalAgentDocUrl})`,
+		`- [Install a node (human guide)](${install.canonicalDocUrl})`,
 		`- [Home site install-node.json](${install.homeInstallJson})`,
 		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
 		'',
@@ -311,8 +351,9 @@ if (!index?.pages?.length) {
 
 mkdirSync(join(root, 'well-known'), {recursive: true});
 
-const agentMeta = parseInstallAgentMetadata();
-const installDiscovery = buildInstallNodeDiscovery(agentMeta);
+const provisionMeta = parseAgentMetadata(AGENT_PROVISION_MD_PATH);
+const installMeta = parseAgentMetadata(INSTALL_MD_PATH);
+const installDiscovery = buildInstallNodeDiscovery(installMeta, provisionMeta);
 
 writeIfChanged(join(root, 'well-known', 'llm-index.json'), JSON.stringify(buildLlmIndex(index, installDiscovery), null, 2));
 writeIfChanged(join(root, 'llms.txt'), buildLlmsTxt(index, installDiscovery));
