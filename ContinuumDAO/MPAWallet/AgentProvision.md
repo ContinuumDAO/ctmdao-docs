@@ -67,21 +67,56 @@ curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scrip
 | Secret | Oneshot | After install |
 |--------|---------|---------------|
 | Root password or root SSH key | Needed to run the script | Do not keep in the agent after install |
-| `mpcnode` password | Created after oneshot (`passwd mpcnode`) | User-only (SSH / SPA attach). Not needed for MCP |
+| `mpcnode` login password | **Not set by oneshot** — you must give `passwd` next | User-only (SSH / SPA attach). Not needed for MCP |
 | LLM API key | — | User sets **AI Agent → Provider** later. Not your first action. There is no MCP tool for it. |
 
 Prefer: the user runs oneshot, or you use a **root SSH key**. Putting the root password in chat is last resort.
 
 Local Windows / macOS PCs are **not** this flow — send humans to [Install a node](/ContinuumDAO/MPAWallet/Install.md#your-own-pc).
 
+### 1b. Set the `mpcnode` login password (required before the tunnel)
+
+Oneshot **creates** OS user `mpcnode` (`adduser --disabled-password`, sudo + docker group). It does **not** set a login password (passwords must not go through curl|bash). Until the user sets one, `ssh mpcnode@…` will fail.
+
+**Immediately after oneshot succeeds**, give this copy-paste line (substitute the VPS IPv4). The user runs it on **this PC**; `passwd` prompts them twice. Do **not** ask them to type the password in chat.
+
+```bash
+ssh root@YOUR_VPS_PUBLIC_IP 'passwd mpcnode'
+```
+
+Tell them: pick a password they will remember; they will need it for the SSH tunnel and later attach. Only after this succeeds, give the `mpcnode@` tunnel command.
+
 ### 2. User opens an SSH tunnel (Path A)
 
 You talk to **`http://127.0.0.1:8446/mcp`** after the operator opens a tunnel. You do **not** use the node’s built-in AI harness. MCP HTTP has **no auth** — keep **8446** on loopback.
 
+**Always give a single copy-paste OpenSSH line** (same style as the hosted SPA **Node hosted app (SSH tunnel)** box). Substitute the VPS public IPv4 you already have. Run it on **this PC**, not on the node. Leave the process running (`-N`). User is **`mpcnode`**, not `root` — only after §1b (`passwd mpcnode`) succeeded.
+
+The SPA’s default three-port command (**3333** node-app, **8080** management, **18080** discovery) does **not** include MCP. Path A needs **8446**. Prefer one command that forwards all four so attach later works without a second tunnel:
+
+```bash
+ssh -4 -N \
+  -L 127.0.0.1:8446:127.0.0.1:8446 \
+  -L 127.0.0.1:3333:127.0.0.1:3333 \
+  -L 127.0.0.1:8080:127.0.0.1:8080 \
+  -L 127.0.0.1:18080:127.0.0.1:18080 \
+  mpcnode@YOUR_NODE_PUBLIC_IP
+```
+
+MCP-only (if they will not attach in the browser this session):
+
+```bash
+ssh -4 -N -L 127.0.0.1:8446:127.0.0.1:8446 mpcnode@YOUR_NODE_PUBLIC_IP
+```
+
+Do **not** bind `0.0.0.0`, invent extra ports, or use `root@` for this tunnel. Bind `127.0.0.1` on both sides. Windows: Terminal or Command Prompt (OpenSSH). macOS/Linux: Terminal. If `ssh` is missing on Windows, tell them to add the OpenSSH Client optional feature.
+
 | Local port | Remote | Who |
 |------------|--------|-----|
-| **8446** | `continuum-mcp` `/mcp` | User opens; you use |
+| **8446** | `continuum-mcp` `/mcp` | You use (`http://127.0.0.1:8446/mcp`) |
 | **3333** | node-app | User attach (hand-off) |
+| **8080** | management HTTP | SPA attach |
+| **18080** | public discovery | SPA attach |
 
 First MCP calls after connect: `get_health` or `node_id`.
 
@@ -111,7 +146,7 @@ Activate tool group **`node_config`** (`activate_tool_group`). Read peers with *
 When the mesh (or a single node) is configured:
 
 1. Tell the user to attach at [https://mpa.continuumdao.org](https://mpa.continuumdao.org) ([Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md); SSH tunnel to **3333** if needed).
-2. They set the **`mpcnode`** password if they have not.
+2. They already set the **`mpcnode`** password in §1b. If they skipped it, give `ssh root@IP 'passwd mpcnode'` now.
 3. Optional: **AI Agent → Provider** with **their** LLM API key. Path A does not need this.
 
 ### Related
