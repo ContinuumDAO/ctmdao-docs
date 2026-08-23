@@ -55,7 +55,7 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 - **Skills** — steer agent behaviour (**AI Agent → Skills**).
 - **Cron** — scheduled agent turns (**AI Agent → Cron**).
 - **Other webhooks** — GitHub, Stripe, and similar (**AI Agent → Webhooks**).
-- **Workspace** — upload or edit scripts and data on the node (**AI Agent → Workspace**); useful for [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script) batches and JSON inputs.
+- **Workspace** — upload or edit files on the node (**AI Agent → Workspace**); Foundry projects live under **`evm/`** — see [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script).
 
 ### Related
 

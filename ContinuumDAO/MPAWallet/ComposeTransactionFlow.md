@@ -81,24 +81,31 @@ Every MPC node ships with **Foundry** (`forge`, `cast`, `anvil`) in the app imag
 
 #### Upload scripts and data (Workspace tab)
 
-**Node → AI Agent → Workspace** manages the node’s writable **`user_folder`** (on the host this is the `user_folder/` directory beside your node config; in the container it is `/app/user_folder`). Use it to add or edit **scripts** and **data** on the node without SSH:
+**Node → AI Agent → Workspace** manages the node’s writable **`user_folder`** (on the host this is the `user_folder/` directory beside your node config; in the container it is `/app/user_folder`). Use it to add or edit files on the node without SSH. **Do not** put loose files at the `user_folder` root — writes must land in a subtree below.
 
-- **Browse** — `skills/`, `scripts/`, `data/`, `plans/`, and other workspace paths
-- **Mkdir** / **New file** — create directories and files (for example `scripts/Deploy.s.sol`, `data/recipients.json`)
-- **Edit and Save** — paste or type content in the editor; **Save** writes to the node (requires **management signature**, same as other node control actions)
-- **Download** — copy a file back to your PC (for example `broadcast/.../dry-run/run-latest.json` after running `forge script` on the node)
+- **Browse** — agent workspace (`skills/`, `scripts/`, `plans/`, `data/`), chain roots (`evm/`, `solana/`, `near/`, …), and toolchain folders
+- **Mkdir** / **New file** — create directories and files **inside** a subtree (for example `evm/script/Deploy.s.sol`, `evm/data/recipients.json`)
+- **Edit and Save** — paste or type content in the editor; **Save** writes to the node (requires **management signature**, same as other node control actions). Layout folders and their index `README.md` files are protected (inactive trash).
+- **Download** — copy a file back to your PC (for example `evm/broadcast/.../dry-run/run-latest.json` after running `forge script` on the node)
 
-Typical layout for Foundry workflows:
+Typical layout:
 
 | Path under `user_folder` | Use |
 |--------------------------|-----|
-| **`scripts/`** | Cross-cutting `.s.sol` scripts and small helpers |
-| **`data/`** | JSON or CSV inputs your script reads with `vm.readFile` / `stdJson` |
-| **`skills/<name>/scripts/`** | Scripts tied to a workspace skill (optional organisation) |
+| **`evm/`** | Foundry / Solidity project (`foundry.toml` is seeded here). Run `forge` with **cwd** `evm/` |
+| **`evm/src/`**, **`evm/script/`**, **`evm/test/`** | Contract sources (`.sol`), deployment scripts (`.s.sol`), tests (`.t.sol`) |
+| **`evm/lib/`** | Foundry dependencies (`forge install`) |
+| **`evm/out/`** | Compiled artifacts (ABI, bytecode) |
+| **`evm/broadcast/`** | `forge script` logs, including dry-run `run-latest.json` |
+| **`data/`** | Offloads, artifacts, cron state, VPN client configs (`data/vpn/`) |
+| **`scripts/`**, **`skills/<name>/scripts/`** | Cross-cutting shell helpers (not Solidity) |
+| **`solana/`**, **`near/`**, **`stellar/`**, **`ton/`**, **`sui/`** | Other chain projects (placeholders until those toolchains land) |
+| **`.foundry/`**, **`.svm/`** | Foundry toolchain binaries and solc cache (`HOME` is `user_folder`) |
+| **`.mcp-foundry-workspace/`** | Foundry MCP’s own project when that server is enabled |
 
-Foundry MCP (when enabled) also uses **`user_folder`** as its working **`HOME`**, so agent-driven `forge` runs persist project output there. You can upload files yourself on **Workspace**, or have the agent create them in chat.
+Foundry MCP (when enabled) uses **`user_folder`** as **`HOME`**, so agent-driven `foundry__forge_script` persists under **`.mcp-foundry-workspace/broadcast/`**. Native `forge` (agent bash or a shell on the node) belongs under **`evm/`**. You can upload files yourself on **Workspace**, or have the agent create them in chat.
 
-Operator catalog skills stay under **AI Agent → Skills** — **Workspace** is for your node-local scripts, data, and plans, not the bundled skill library.
+Operator catalog skills stay under **AI Agent → Skills** — **Workspace** is for your node-local files, not the bundled skill library.
 
 #### 1. Write the script
 
@@ -124,7 +131,7 @@ contract DeployAndConfigure is Script {
 
 Each transaction emitted between `vm.startBroadcast` / `vm.stopBroadcast` becomes **one step** in the imported batch, in order. A two-step fee deposit (approve + deposit) is a real pattern in the node codebase — multiple `CALL`s in one `run()`.
 
-For JSON-driven batches, place the JSON under **`data/`** on **Workspace**, then read it in `run()` (for example `vm.readFile` with the path relative to the project, or `stdJson`) and loop — the dry-run file will contain one entry per broadcasted transaction.
+For JSON-driven batches, place the JSON under **`evm/`** (for example `evm/data/recipients.json`) so `vm.readFile` paths are relative to the Foundry project root, then loop — the dry-run file will contain one entry per broadcasted transaction.
 
 #### 2. Dry-run with forge (no broadcast)
 
@@ -133,6 +140,8 @@ Run the script against a **live RPC** for the target chain. Set **`--sender`** t
 ```bash
 export MPC_ADDRESS=0xYourKeyGenEthereumAddress
 
+# From user_folder/evm/ (or: forge script … with cwd evm/)
+cd evm
 forge script script/DeployAndConfigure.s.sol:DeployAndConfigure \
   --rpc-url https://your-chain-rpc.example \
   --sender "$MPC_ADDRESS"
@@ -140,7 +149,9 @@ forge script script/DeployAndConfigure.s.sol:DeployAndConfigure \
 
 Foundry writes the simulation output to:
 
-`broadcast/<ScriptFile>/<chainId>/dry-run/run-latest.json`
+`evm/broadcast/<ScriptFile>/<chainId>/dry-run/run-latest.json`
+
+(Foundry MCP writes the same shape under `.mcp-foundry-workspace/broadcast/...`.)
 
 Requirements checked by the node app on import:
 
@@ -167,16 +178,16 @@ The imported batch then follows the normal [Accept/Reject loop](/ContinuumDAO/MP
 
 #### Agent / API path (no file upload)
 
-The AI agent can skip the upload dialog and call the continuum MCP tool **`create_forge_multi_sign_request`** with the parsed **`broadcast`** JSON, KeyGen id, purpose, and optional **`overrideSender`** / **`startingNonce`**. Longer sequences can be merged with **`create_joined_multi_sign_request`** (chain Foundry output with manual compose or prior batches on the same chain and KeyGen).
+The AI agent can skip the upload dialog and call the continuum MCP tool **`import_forge_dry_run_multi_sign_request`** with `dryRunFilePath` under `evm/broadcast/.../dry-run/run-latest.json` (or `.mcp-foundry-workspace/broadcast/...` when Foundry MCP ran the script). Prefer that file-import tool over **`create_forge_multi_sign_request`**. Longer sequences can be merged with **`create_joined_multi_sign_request`** (chain Foundry output with manual compose or prior batches on the same chain and KeyGen).
 
 #### Example command summary
 
 ```bash
-# KeyGen address from Compose tab; RPC from Configure blockchains
+# From user_folder/evm/ — KeyGen address from Compose tab; RPC from Configure blockchains
 forge script script/MyScript.s.sol:MyScript \
   --rpc-url <RPC> \
   --sender <KeyGen Eth address>
-# No --broadcast → import broadcast/.../dry-run/run-latest.json in the node app
+# No --broadcast → import evm/broadcast/.../dry-run/run-latest.json in the node app
 ```
 
 In this example, the script sends USDC to 94 addresses. The script has been used before, so the initial nonce and those that follow must be set to the new nonce value:

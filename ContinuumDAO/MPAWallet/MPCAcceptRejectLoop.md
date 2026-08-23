@@ -15,7 +15,7 @@ The **originator** is whichever node (or attached user / AI agent on that node) 
 | **[Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)** | Manual node-app UI, or [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script) dry-run import |
 | **[DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)** | Protocol UI or agent MCP builds the unsigned transaction(s) — often a multi-step batch (approve + swap, bridge legs, and similar) |
 | **[Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md) / AI agent** | Agent proposes or builds from chart analysis, cron, or chat |
-| **Foundry script** | [`forge script`](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script) dry-run → import `run-latest.json`, or agent **`create_forge_multi_sign_request`** |
+| **Foundry script** | [`forge script`](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script) with cwd `evm/` → import `evm/broadcast/.../dry-run/run-latest.json`, or agent **`import_forge_dry_run_multi_sign_request`** |
 
 Regardless of path, the originator can usually attach:
 
