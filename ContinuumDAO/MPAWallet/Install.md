@@ -144,7 +144,7 @@ Install **Docker Desktop for Linux** yourself if you use the Desktop extension p
 
 ### Attach your node
 
-Your browser talks to **your** node. ContinuumDAO does not relay that control path. Three attach options on the hosted SPA: **Browser HTTPS**, **Node hosted app (local PC)**, and **Node hosted app (SSH tunnel)**. Geo-restricted users see only the two node-hosted options.
+Your browser talks to **your** node. ContinuumDAO does not relay that control path. Three attach options on the wallet website ([mpa.continuumdao.org](https://mpa.continuumdao.org)): **Browser HTTPS**, **Node hosted app (local PC)**, and **Node hosted app (SSH tunnel)**. Geo-restricted users see only the two node-hosted options.
 
 Full walkthrough with screenshots: [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md). See also [Overview](/ContinuumDAO/MPAWallet/Overview.md) and [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md).
 

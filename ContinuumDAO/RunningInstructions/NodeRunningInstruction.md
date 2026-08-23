@@ -284,11 +284,11 @@ You will need to ensure that your browser will trust your self-signed SSL certif
 
 If you got this far, congratulations! Your node is running. You may now attach to your node at [mpa.continuumdao.org](https://mpa.continuumdao.org) or via the node-hosted app on your machine. See [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md) for the three transport options.
 
-**Node on the same PC:** at the hosted SPA choose **Node hosted app (local PC)** — your browser opens `http://127.0.0.1:3333` on the same path with no SSH step. Or start the local node app with `./local-node-app/install-or-update-node-app.sh` and attach there directly.
+**Node on the same PC:** on [mpa.continuumdao.org](https://mpa.continuumdao.org), choose **Node hosted app (local PC)** — your browser opens `http://127.0.0.1:3333` on the same path with no SSH step. Or start the local node app with `./local-node-app/install-or-update-node-app.sh` and attach there directly.
 
-**Remote VPS:** choose **Node hosted app (SSH tunnel)** on the hosted SPA, enter your public IPv4, run the three-port SSH command on your PC, then continue to the local node app and attach.
+**Remote VPS:** choose **Node hosted app (SSH tunnel)** on [mpa.continuumdao.org](https://mpa.continuumdao.org), enter your public IPv4, run the three-port SSH command on your PC, then continue to the local node app and attach.
 
-**Browser HTTPS:** attach via a Node hosted app option first, use **Fetch Self-Signed Web Cert** to download **`browser.crt`**, import it into your browser, then reconnect on the hosted SPA with **Browser HTTPS** and a read JWT. The old “SSH tunnel to ContinuumDAO hosted app” option is no longer offered.
+**Browser HTTPS:** attach via a Node hosted app option first, use **Fetch Self-Signed Web Cert** to download **`browser.crt`**, import it into your browser, then reconnect on [mpa.continuumdao.org](https://mpa.continuumdao.org) with **Browser HTTPS** and a read JWT. The old “SSH tunnel to ContinuumDAO hosted app” option is no longer offered.
 
 To run the node-hosted frontend on the node itself, read `local-node-app/README.md`, set the required environment variables, then:
 

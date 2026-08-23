@@ -67,7 +67,7 @@ curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scrip
 | Secret | Oneshot | After install |
 |--------|---------|---------------|
 | Root password or root SSH key | Needed to run the script | Do not keep in the agent after install |
-| `mpcnode` login password | **Not set by oneshot** — you must give `passwd` next | User-only (SSH / SPA attach). Not needed for MCP |
+| `mpcnode` login password | **Not set by oneshot** — you must give `passwd` next | User-only (SSH / wallet website attach). Not needed for MCP |
 | LLM API key | — | User sets **AI Agent → Provider** later. Not your first action. There is no MCP tool for it. |
 
 Prefer: the user runs oneshot, or you use a **root SSH key**. Putting the root password in chat is last resort.
@@ -95,15 +95,15 @@ You may MCP **each node you provisioned**, but only for **host mesh setup**. Do 
 | Peers (`set_configured_nodes`) | `create_group_request` / `accept_group_request` |
 | MQTT export / import | `create_key_gen_request` / `accept_key_gen_request` |
 | New preferred Ed25519 signer (silent) | `post_preferred_key_gen`, compose, Agree/Reject sign |
-| Health / `node_id` / restart gate | MCP into a node you did **not** provision (invitees run their own Path A or the SPA) |
+| Health / `node_id` / restart gate | MCP into a node you did **not** provision (invitees run their own Path A or the wallet website) |
 
 Default: **one tunnel at a time** on `127.0.0.1:8446`. Give a new copy-paste `ssh` line for the next VPS IPv4; the user stops the previous `-N` session. Do not invent extra local ports unless they ask. After mesh setup, leave the tunnel on **one home node** (prefer the **relay**) for Group/KeyGen origin and later work.
 
 You talk to **`http://127.0.0.1:8446/mcp`**. You do **not** use the node’s built-in AI harness. MCP HTTP has **no auth** — keep **8446** on loopback.
 
-**Always give a single copy-paste OpenSSH line** (same style as the hosted SPA **Node hosted app (SSH tunnel)** box). Substitute the VPS you are configuring **now**. Run it on **this PC**, not on the node. Leave the process running (`-N`). User is **`mpcnode`**, not `root` — only after §1b (`passwd mpcnode`) succeeded.
+**Always give a single copy-paste OpenSSH line** (same style as the **Node hosted app (SSH tunnel)** box on [mpa.continuumdao.org](https://mpa.continuumdao.org)). Substitute the VPS you are configuring **now**. Run it on **this PC**, not on the node. Leave the process running (`-N`). User is **`mpcnode`**, not `root` — only after §1b (`passwd mpcnode`) succeeded.
 
-The SPA’s default three-port command (**3333** node-app, **8080** management, **18080** discovery) does **not** include MCP. Path A needs **8446**. Prefer one command that forwards all four so attach later works without a second tunnel:
+The wallet website’s default three-port command (**3333** node-app, **8080** management, **18080** discovery) does **not** include MCP. Path A needs **8446**. Prefer one command that forwards all four so attach later works without a second tunnel:
 
 ```bash
 ssh -4 -N \
@@ -126,8 +126,8 @@ Do **not** bind `0.0.0.0`, invent extra ports, or use `root@` for this tunnel. B
 |------------|--------|-----|
 | **8446** | `continuum-mcp` `/mcp` | You use (`http://127.0.0.1:8446/mcp`) |
 | **3333** | node-app | User attach (hand-off) |
-| **8080** | management HTTP | SPA attach |
-| **18080** | public discovery | SPA attach |
+| **8080** | management HTTP | wallet website attach |
+| **18080** | public discovery | wallet website attach |
 
 First MCP calls after connect: `get_health` or `node_id`.
 
@@ -148,7 +148,7 @@ Do **not** call `create_group_request`, `accept_group_request`, `create_key_gen_
 
 ### 4. Topology playbooks (after oneshot)
 
-**A1 — 2/2** (only if they accept no spare): oneshot on two VPS in **different regions**, ideally **different providers**. Sequential tunnels: peers + MQTT + new signer on **both**. Then stay on the **relay**. Originate Group both `node_id`s and KeyGen `gate: 2`. User **Accepts** on the other node in the SPA.
+**A1 — 2/2** (only if they accept no spare): oneshot on two VPS in **different regions**, ideally **different providers**. Sequential tunnels: peers + MQTT + new signer on **both**. Then stay on the **relay**. Originate Group both `node_id`s and KeyGen `gate: 2`. User **Accepts** on the other node in the wallet website.
 
 **A2 — 2-of-3** (recommended): three VPS — **different regions**, **at least two providers**. Sequential tunnels for peers/MQTT/signer on all three. Stay on the relay. Group all three IDs. KeyGen `gate: 2`. User Accepts on the other two.
 
@@ -158,7 +158,7 @@ Do **not** call `create_group_request`, `accept_group_request`, `create_key_gen_
 
 ### 5. Hand-off to the user
 
-Do **not** stop after peers / MQTT / restart and point them at the long docs. **Say the remaining wallet steps out loud** (a short checklist). After §3, leave the tunnel on the **home** node (relay). Originate Group and KeyGen **there only**. The user Accepts on every other node in the SPA.
+Do **not** stop after peers / MQTT / restart and point them at the long docs. **Say the remaining wallet steps out loud** (a short checklist). After §3, leave the tunnel on the **home** node (relay). Originate Group and KeyGen **there only**. The user Accepts on every other node in the wallet website.
 
 When the home node’s mesh view looks healthy (`get_connectivity_health`):
 

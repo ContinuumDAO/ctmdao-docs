@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-23T15:00:27.266Z",
+  "generatedAt": "2026-08-23T15:49:01.862Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1335,13 +1335,13 @@
           "id": "4-topology-playbooks-after-oneshot",
           "title": "4. Topology playbooks (after oneshot)",
           "level": 3,
-          "excerpt": "A1 — 2/2 (only if they accept no spare): oneshot on two VPS in different regions , ideally different providers . Sequential tunnels: peers + MQTT + new signer on both . Then stay on the relay . Originate Group both node id s and KeyGen gate: 2 . User Accepts on the other node in the SPA. A2 — 2 of 3"
+          "excerpt": "A1 — 2/2 (only if they accept no spare): oneshot on two VPS in different regions , ideally different providers . Sequential tunnels: peers + MQTT + new signer on both . Then stay on the relay . Originate Group both node id s and KeyGen gate: 2 . User Accepts on the other node in the wallet website. "
         },
         {
           "id": "5-hand-off-to-the-user",
           "title": "5. Hand-off to the user",
           "level": 3,
-          "excerpt": "Do not stop after peers / MQTT / restart and point them at the long docs. Say the remaining wallet steps out loud (a short checklist). After §3, leave the tunnel on the home node (relay). Originate Group and KeyGen there only . The user Accepts on every other node in the SPA. When the home node’s me"
+          "excerpt": "Do not stop after peers / MQTT / restart and point them at the long docs. Say the remaining wallet steps out loud (a short checklist). After §3, leave the tunnel on the home node (relay). Originate Group and KeyGen there only . The user Accepts on every other node in the wallet website. When the hom"
         },
         {
           "id": "related",
@@ -2181,7 +2181,7 @@
           "id": "attach-your-node",
           "title": "Attach your node",
           "level": 3,
-          "excerpt": "Your browser talks to your node. ContinuumDAO does not relay that control path. Three attach options on the hosted SPA: Browser HTTPS , Node hosted app (local PC) , and Node hosted app (SSH tunnel) . Geo restricted users see only the two node hosted options. Full walkthrough with screenshots: Attach"
+          "excerpt": "Your browser talks to your node. ContinuumDAO does not relay that control path. Three attach options on the wallet website (mpa.continuumdao.org): Browser HTTPS , Node hosted app (local PC) , and Node hosted app (SSH tunnel) . Geo restricted users see only the two node hosted options. Full walkthrou"
         },
         {
           "id": "post-install-steps",
@@ -2426,7 +2426,7 @@
           "id": "subscription-through-staking",
           "title": "Subscription through staking",
           "level": 3,
-          "excerpt": "MPA wallet access can be paid via a monthly subscription , or — for node operators who attach veCTM to their node — through subscription through staking : free use of the wallet up to a governance set free signature limit . Limits and any overage fees are set by DAO voting. Why attach, how to lock a"
+          "excerpt": "MPA wallet access can be paid via a monthly subscription , or — for node operators who attach veCTM to their node — through subscription through staking : free use of the wallet up to a generous governance set free signature limit . Limits and any overage fees are set by DAO voting. Why attach, how "
         },
         {
           "id": "related",
