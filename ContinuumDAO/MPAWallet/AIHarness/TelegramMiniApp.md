@@ -48,7 +48,7 @@ Besides **inbound** bot chat, your node can **send Telegram messages to you**:
 |-----------|-----|
 | **`send_telegram_message`** (continuum MCP) | Agent sends a proactive DM from chat (e.g. alert, summary) |
 | **Cron `telegramNotify: true`** | After a successful cron turn, the host DMs the **final assistant message** to your operator chat |
-| **`notify-forum-replies`** cron | Forum reply watch — formatted post when someone replies to **your** threads ([Agent governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#forum-reply-telegram-cron)) |
+| **`notify-forum-replies`** cron | Forum reply watch — formatted post when someone replies to **your** threads ([Optional automation](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#optional-automation-cron)) |
 
 **Setup**
 
@@ -69,7 +69,7 @@ Operator API: **`POST /sendTelegramMessage`** (management-signed). See [mpc-conf
 
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)

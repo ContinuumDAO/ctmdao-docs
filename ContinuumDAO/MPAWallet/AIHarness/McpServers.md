@@ -74,6 +74,26 @@ Operator detail for agents: [continuum-node-sdk `mpc.md`](https://github.com/Con
 
 ---
 
+### Forum and governance on **`continuum`**
+
+ContinuumDAO protocol tools load through **`load_defi_protocol`** with **`continuum-dao`** (the agent does this automatically when you ask about governance). They cover [forum.continuumdao.org](https://forum.continuumdao.org/) and Linea governance — same MPC loop as DeFi.
+
+Operator guide (plain language): [AI-managed governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
+
+| Area | Capabilities (via agent) |
+|------|---------------------------|
+| **Forum — read** | Resolve URLs; fetch threads and individual posts; search; recent posts; reply counts; list a user’s posts |
+| **Forum — write** | Sign in / sign out (EIP-712); create **Ideas** or **Governance** topics; reply; emoji react; unread inbox (interactive) |
+| **Proposals — read** | Live proposals; explain/deconstruct on-chain actions; proposal state |
+| **Proposals — write** | Propose (Bravo/Delta); register with Governance app; cast vote; execute; cancel |
+| **Docs** | **`search_continuum_docs`** / **`get_continuum_doc`** — Constitution, how-to, operator pages (used by **`continuum-dao-proposal-standards`**) |
+
+Pair with **skills** under **AI Agent → Skills** — see [Governance skills](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#governance-skills-ai-agent--skills) in the governance page.
+
+Protocol reference (tool names): [ctm-mpc-defi continuum-dao skill](https://github.com/ContinuumDAO/ctm-mpc-defi/blob/main/src/agent/skills/continuum-dao/SKILL.md).
+
+---
+
 ### Repository servers on **continuum-mcp**
 
 These MCP servers are **implemented in [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk)** and run in the **`continuum-mcp`** sidecar inside the node app image (`http://continuum-mcp:8446/...`). Catalog ids match **`MCP_servers.json`** / **`MCP_default_servers.json`**.
@@ -125,5 +145,5 @@ Catalog maintenance for operators adding new servers: [mpc-config `CATALOG.md`](
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - Agent-facing server reference: [continuum-node-sdk `agent-mcp-servers.md`](https://github.com/ContinuumDAO/continuum-node-sdk/blob/main/src/mcp/resources/agent-mcp-servers.md)

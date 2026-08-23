@@ -25,13 +25,13 @@ Both channels use the same tools, preferred KeyGen, and default Ed25519 manageme
 
 Interactive chat for questions and actions. **Plan mode** lets the agent propose multi-step work, then execute when you approve. See [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md).
 
-#### Agent governance (ContinuumDAO)
+#### AI-managed governance (ContinuumDAO)
 
-With **veCTM** attached to the node, the agent can participate in Forum discussion and on-chain governance (propose, vote, execute) under your MPC threshold when you ask in chat. Attach, detach, and voting power: [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md). Forum and proposal flows: [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
+With **veCTM** voting power, your agent can **list new and live proposals**, **read the Forum**, post Ideas and Governance threads, **draft and check proposals** against the Constitution, **explain** what is on-chain, and **recommend votes** from your policy — then prepare propose/vote sign requests under your MPC threshold. Staking and delegation: [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md). Full guide: [AI-managed governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 #### Built-in MCP (wallet)
 
-The built-in **continuum** MCP server exposes wallet and node tools: groups, KeyGens, sign requests, messaging, and related management actions.
+The built-in **continuum** MCP server exposes wallet and node tools: groups, KeyGens, sign requests, messaging, **Forum and governance**, and related management actions. See [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
 
 #### Built-in DeFi / web3 protocols
 
@@ -75,7 +75,7 @@ Inbound HTTP hooks wake the same agent. Telegram is the usual phone path — see
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)

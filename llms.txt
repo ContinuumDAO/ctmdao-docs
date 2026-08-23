@@ -33,7 +33,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 
 ## AI harness
 
-- [Agent governance and Forum](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance): ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who
+- [AI-managed governance](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance): ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who
 - [Configure the AI harness](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure): This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without
 - [MCP servers](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers): Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, char
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): The MPA wallet is AI first , and every node includes a dedicated AI agent harness . You do not install a separate agent

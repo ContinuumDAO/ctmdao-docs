@@ -11,13 +11,13 @@ We are delighted to welcome all veCTM holders to participate in shaping Continuu
 
 The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel or a Guild, but please initiate discussion in the [Forum](https://forum.continuumdao.org/). This should be in the [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) section in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal.
 
-**MPA wallet operators:** an AI agent on your node can post Ideas (`forum_create_idea`) or formal Governance threads and drive on-chain propose/vote flows under your MPC threshold — see [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md). Ideas threads are **not** valid `forumKey` values for on-chain propose. 
+**MPA wallet operators:** an AI agent on your node can post **Ideas**, open formal **Governance** threads, draft proposals with Constitution checks, and drive on-chain propose/vote flows under your MPC threshold — see [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md). Ideas threads are **not** valid links for on-chain proposals. 
 
 ### Phase 2: Submission of the Proposal to On-Chain Governance
 
 After the discussion period, which could take a few days or a week or two you can proceed to the Formal Vote.
 
-The proposer will need to verify that their wallet address has at least 1% of the Vote Power, or 1000 veCTM Vote Power, whichever is higher. This can be their own voting power, or can include voting power delegated to it via the veCTM contract.
+The proposer will need to verify that their wallet address has at least **0.1%** of the Vote Power, or **1000 veCTM** Vote Power, whichever is higher. This can be their own voting power, or can include voting power delegated to it via the veCTM contract.
 
 The proposer submits the proposal on chain via **[Create Proposal](https://app.continuumdao.org/governance/create-proposal)** in the [Governance app](https://app.continuumdao.org/governance). Choose the **proposal type** (Decision, Election, Treasury, Constitution, or Admin) and **configuration** (Bravo or Delta) as described in [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md).
 

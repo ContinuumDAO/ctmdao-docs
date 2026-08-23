@@ -2,7 +2,7 @@
 
 **veCTM** is ContinuumDAO’s voting-escrow token: you lock **CTM** for a chosen period and receive an **veCTM NFT** that carries **governance voting power**. When you **attach** that NFT to your MPA wallet node, you unlock two practical benefits — **DAO participation** and **free wallet use** — while accepting that **removing it requires a governance vote**.
 
-This page is for node operators. Governance background: [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md). Agent-assisted Forum and voting: [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
+This page is for node operators. Governance background: [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md). Agent-assisted Forum and voting: [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 ---
 
@@ -49,7 +49,7 @@ Misbehaving operators on those public cross-chain roles risk governance **refusi
 
 1. [Install](/ContinuumDAO/MPAWallet/Install.md) and [attach](/ContinuumDAO/MPAWallet/AttachYourNode.md) to your node in the browser.
 2. Create a **Group** and a **secp256k1 KeyGen** → [Groups](/ContinuumDAO/MPCSigner/Groups.md), [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md).
-3. Add **Linea** (mainnet or Sepolia) in [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md).
+3. Add **Linea**  in [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md).
 4. Complete **MPA billing setup** for that KeyGen on Linea — including [withdraw authority](/ContinuumDAO/MPAWallet/MpaBilling.md#withdraw-authority) before the first registration.
 5. Hold a **veCTM NFT** at the KeyGen address that will act as the node’s billing **authority** for that Group.
 
@@ -99,16 +99,16 @@ If a detach request is already open, the UI shows that governance must decide �
 
 ### Managing voting power
 
-| Goal | What to do |
-|------|------------|
-| Vote or propose from this KeyGen | Ensure enough **voting power** at the KeyGen address — from the attached NFT, from **delegation sent to the KeyGen**, or both. Proposers need at least **1000 veCTM** or **1% of total power**, whichever is higher (delegation counts). |
-| Add power without locking more CTM in the KeyGen | From an **external wallet**, delegate veCTM voting power **to the KeyGen address**. Each member of a shared Group can delegate independently. |
-| Reduce delegated power you control | **Undelegate** from the wallet that delegated — no DAO vote required. |
-| Let another address vote for you | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent). |
-| Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote. |
-| Qualify for **C3Caller** cross-chain signing | Meet the DAO’s minimum on the KeyGen’s **attached veCTM only** — delegated power does **not** count toward that bar. |
-| Pay node bills without USDC | Keep veCTM **attached** and stay within the monthly free signature limit; top up or sync billing month in Multi-Sign if you also use paid registration paths. |
-| Move veCTM off the node | **Request detach** and follow the governance process — there is no instant self-service detach. |
+| Goal                                              | What to do                                                                                                                                                                                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Vote or propose from this KeyGen                  | Ensure enough **voting power** at the KeyGen address — from the attached NFT, from **delegation sent to the KeyGen**, or both. Proposers need at least **1000 veCTM** or **0.1% of total power**, whichever is higher (delegation counts). |
+| Add power without locking more CTM in the KeyGen  | From an **external wallet**, delegate veCTM voting power **to the KeyGen address**. Each member of a shared Group can delegate independently.                                                                                              |
+| Reduce delegated power you control                | **Undelegate** from the wallet that delegated — no DAO vote required.                                                                                                                                                                      |
+| Let another address vote for you                  | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent).                                                                                                                                                                     |
+| Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote.                                                                                                                                                                        |
+| Qualify for **C3Caller** cross-chain signing      | Meet the DAO’s minimum on the KeyGen’s **attached veCTM only** — delegated power does **not** count toward that bar.                                                                                                                       |
+| Pay node bills without USDC                       | Keep veCTM **attached** and stay within the monthly free signature limit; top up or sync billing month in Multi-Sign if you also use paid registration paths.                                                                              |
+| Move veCTM off the node                           | **Request detach** and follow the governance process — there is no instant self-service detach.                                                                                                                                            |
 
 ---
 
@@ -116,6 +116,6 @@ If a detach request is already open, the UI shows that governance must decide �
 
 - [Overview — Subscription through staking](/ContinuumDAO/MPAWallet/Overview.md#subscription-through-staking)
 - [Install — MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [White Paper — Staking as subscription](/ContinuumDAO/WhitePaper.md)

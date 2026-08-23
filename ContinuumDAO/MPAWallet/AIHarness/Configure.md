@@ -52,12 +52,12 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 
 ### 5. Optional next
 
-- **Skills** — steer agent behaviour (**AI Agent → Skills**).
-- **Cron** — scheduled agent turns (**AI Agent → Cron**). Enable **`telegramNotify`** on a job to DM the final assistant message to Telegram after each successful run (requires **`TELEGRAM_OPERATOR_CHAT_ID`** — see [Telegram Mini App — Operator notifications](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#operator-notifications-and-cron)).
+- **Skills** — steer agent behaviour (**AI Agent → Skills**). For DAO: proposal drafting, standards checks, vote policy, Forum inbox — see [Governance skills](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#governance-skills-ai-agent--skills).
+- **Cron** — scheduled agent turns (**AI Agent → Cron**). Governance jobs (vote appraisal, governor Join Accept/Reject, Forum reply Telegram) — [Optional automation](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#optional-automation-cron). Enable **`telegramNotify`** on a job to DM the final assistant message to Telegram after each successful run (requires **`TELEGRAM_OPERATOR_CHAT_ID`** — see [Telegram Mini App — Operator notifications](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#operator-notifications-and-cron)).
 - **Other webhooks** — GitHub, Stripe, and similar (**AI Agent → Webhooks**).
 - **Workspace** — upload or edit files on the node (**AI Agent → Workspace**); Foundry projects live under **`evm/`** — see [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script).
 - **Plan mode** — multi-step research / trade / **`dao`** plans → [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md).
-- **Agent governance** — Forum + on-chain propose/vote via agent — [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
+- **AI-managed governance** — Forum, draft proposals, vote recommendations, on-chain flows — [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 ### Related
 
@@ -65,7 +65,7 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)

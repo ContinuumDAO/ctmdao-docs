@@ -198,7 +198,7 @@ Before the first **register on Linea** for a KeyGen, claim **withdraw authority*
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
 - [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — AI agent full VPS provision + mesh
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent one-shot VPS install

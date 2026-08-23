@@ -178,14 +178,14 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-23T15:49:01.862Z",
+  "generatedAt": "2026-08-23T16:24:20.097Z",
   "pageCount": 57,
   "llmld:sections": [
     {
       "name": "AI harness",
       "pages": [
         {
-          "name": "Agent governance and Forum",
+          "name": "AI-managed governance",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md",
           "excerpt": "ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who attach voting power to their node — govern the protocol through the Forum, on c"

@@ -65,7 +65,7 @@ Delta proposals use the same `propose` interface; the first slot carries **metad
 
 <img src="/_media/governance-create-proposal-page.png" alt=""/>
 
-2. **Connect your wallet** — the address must hold at least **1% of total vote power** or **1000 veCTM vote power**, whichever is higher (including delegation).
+2. **Connect your wallet** — the address must hold at least **0.1% of total vote power** or **1000 veCTM vote power**, whichever is higher (including delegation).
 
 3. **Title** (up to **128** characters) — accurate summary; **do not** include the proposal number (the app assigns enumeration).
 
@@ -73,7 +73,7 @@ Delta proposals use the same `propose` interface; the first slot carries **metad
 
 5. **Proposal type** — Decision, Election, Treasury, Constitution, or Admin (see table above).
 
-6. **Forum link** — URL to the Forum discussion for this proposal (required). Start discussion in [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) before submitting. For agent-driven flows, create a **Governance** thread first (`forum_create_topic`) — not an Ideas URL — then use that link here and in **`register_proposal`**. See [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
+6. **Forum link** — URL to the Forum discussion for this proposal (required). Start discussion in [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) before submitting. For **agent-assisted** flows, open a **Governance** thread first (not an Ideas URL), then use that link on-chain. See [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 7. **Proposal configuration** — **Bravo** or **Delta** (see above).
 

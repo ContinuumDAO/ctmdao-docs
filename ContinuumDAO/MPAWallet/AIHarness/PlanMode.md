@@ -52,7 +52,7 @@ Any on-chain step still goes through the normal [MPC Accept/Reject loop](/Contin
 - **Plan follow-on** — start a **new** plan that builds on an earlier run without re-explaining everything from scratch.
 - **Find past runs** — **AI Agent → Conversations** lists orchestrator threads titled **`[Orchestrator] …`**.
 
-For DAO-related plans, see [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md). For charts and data sources during research plans, see [AI charting](/ContinuumDAO/MPAWallet/AICharting.md).
+For DAO-related plans, see [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md). For charts and data sources during research plans, see [AI charting](/ContinuumDAO/MPAWallet/AICharting.md).
 
 ---
 
@@ -61,5 +61,5 @@ For DAO-related plans, see [Agent governance and Forum](/ContinuumDAO/MPAWallet/
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
-- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
