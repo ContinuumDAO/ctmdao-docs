@@ -9,7 +9,9 @@ We are delighted to welcome all veCTM holders to participate in shaping Continuu
 
 ### Phase 1: Discussion
 
-The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel or a Guild, but please initiate discussion in the [Forum](https://forum.continuumdao.org/). This should be in the [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) section in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal. 
+The genesis of your proposal idea could be in ContinuumDAO’s Telegram channel or a Guild, but please initiate discussion in the [Forum](https://forum.continuumdao.org/). This should be in the [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) section in the Forum. From there, you should collect feedback from the community and then use this to create your draft proposal. You may get some feedback from the Committee also - all designed to help you create a good proposal.
+
+**MPA wallet operators:** an AI agent on your node can post Ideas (`forum_create_idea`) or formal Governance threads and drive on-chain propose/vote flows under your MPC threshold — see [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md). Ideas threads are **not** valid `forumKey` values for on-chain propose. 
 
 ### Phase 2: Submission of the Proposal to On-Chain Governance
 

@@ -23,7 +23,11 @@ Both channels use the same tools, preferred KeyGen, and default Ed25519 manageme
 
 #### Chat and Plan modes
 
-Interactive chat for questions and actions. **Plan mode** lets the agent propose multi-step work, then execute when you approve.
+Interactive chat for questions and actions. **Plan mode** lets the agent propose multi-step work, then execute when you approve. See [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md).
+
+#### Agent governance (ContinuumDAO)
+
+With **veCTM** attached to the node, the agent can participate in Forum discussion and on-chain governance (propose, vote, execute) under your MPC threshold when you ask in chat. Attach, detach, and voting power: [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md). Forum and proposal flows: [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 #### Built-in MCP (wallet)
 
@@ -41,13 +45,15 @@ Candlestick charts with live updates, interactive overlays, analysis menus, and 
 
 Add other MCP servers under **Node → AI Agent → MCP Servers** (catalog or custom). Store their API keys in **Variables**.
 
+ContinuumDAO **repository MCP servers** (built-in **`continuum`**, **continuum-mcp** OHLCV/news/TA/VPN, and the full catalog) are documented in [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
+
 #### Skill files
 
 Bundled and custom skills steer how the agent behaves for common tasks.
 
 #### Workspace (scripts and data)
 
-**Node → AI Agent → Workspace** lets you browse and manage the node **`user_folder`**: create directories, add or edit files, and download copies locally. Writes must go in a subtree (not the folder root). Put Foundry / Solidity work under **`evm/`** (`foundry.toml`, `src/`, `script/`, `lib/`, `out/`, `broadcast/`). Other chain roots (`solana/`, `near/`, `stellar/`, `ton/`, `sui/`) are reserved for those toolchains. Foundry MCP still uses **`.mcp-foundry-workspace/`** when `HOME` is `user_folder`. See [Foundry script — Workspace tab](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#upload-scripts-and-data-workspace-tab).
+**Node → AI Agent → Workspace** lets you browse and manage the node **`user_folder`**: create directories, add or edit files, and download copies locally. Writes must go in a subtree (not the folder root). Put Foundry / Solidity work under **`evm/`** (`foundry.toml`, `src/`, `script/`, `lib/`, `out/`, `broadcast/`). Other chain roots (`solana/`, `near/`, `stellar/`, `ton/`, `sui/`) are reserved for those toolchains. Foundry MCP still uses **`.mcp-foundry-workspace/`** when `HOME` is `user_folder`. Plan drafts live under **`plans/`**. See [Foundry script — Workspace tab](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#upload-scripts-and-data-workspace-tab) and [Workspace rules](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#workspace-rules).
 
 #### Cron (scheduled jobs)
 
@@ -67,6 +73,9 @@ Inbound HTTP hooks wake the same agent. Telegram is the usual phone path — see
 
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
+- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)

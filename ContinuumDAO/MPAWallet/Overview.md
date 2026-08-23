@@ -81,11 +81,15 @@ This complements [backup storage separation](/ContinuumDAO/MPAWallet/BackupAndRe
 
 ### Subscription through staking
 
-MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **stake veCTM on their node** — through **subscription through staking**: **free use of the wallet up to a governance-set free signature limit**. Attach veCTM from the staking panel after your node is running; limits and any overage fees are set by DAO voting. This rewards long-term participants who help secure the network while keeping personal custody affordable.
+MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **attach veCTM to their node** — through **subscription through staking**: **free use of the wallet up to a governance-set free signature limit**. Limits and any overage fees are set by DAO voting.
+
+Why attach, how to lock and attach veCTM, how detach works through governance, and day-to-day management: **[veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)**. Withdraw authority, register on Linea, and monthly billing: **[MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)**.
 
 ### Related
 
 - [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
+- [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)
+- [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
 - [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md)
 - [Asset management](/ContinuumDAO/MPAWallet/AssetManagement.md)
 - [Contact management](/ContinuumDAO/MPAWallet/ContactManagement.md)

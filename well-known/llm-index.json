@@ -178,12 +178,18 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-23T13:47:09.932Z",
-  "pageCount": 52,
+  "generatedAt": "2026-08-23T15:00:27.266Z",
+  "pageCount": 57,
   "llmld:sections": [
     {
       "name": "AI harness",
       "pages": [
+        {
+          "name": "Agent governance and Forum",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md",
+          "excerpt": "ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who attach voting power to their node — govern the protocol through the Forum, on c"
+        },
         {
           "name": "Configure the AI harness",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure",
@@ -191,10 +197,22 @@
           "excerpt": "This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without an AI agent. The MPA wallet is AI first , though, so most users will want to com"
         },
         {
+          "name": "MCP servers",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers.md",
+          "excerpt": "Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, charts, research, Foundry, and more. This page covers ContinuumDAO repository MCP se"
+        },
+        {
           "name": "Overview",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md",
           "excerpt": "The MPA wallet is AI first , and every node includes a dedicated AI agent harness . You do not install a separate agent product — the harness is part of the node. Configuring it is optional . You can "
+        },
+        {
+          "name": "Plan mode",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md",
+          "excerpt": "Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, review a portfolio, or explore a governance topic — before anything runs on your wallet."
         },
         {
           "name": "Telegram Mini App",
@@ -524,6 +542,12 @@
           "excerpt": "Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator ) proposes one or more transactions; the other KeyGen nodes Accept or Reject unti"
         },
         {
+          "name": "MPA billing",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling.md",
+          "excerpt": "MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be registered there before billable signatures count against your balance. You either"
+        },
+        {
           "name": "Overview",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview.md",
@@ -540,6 +564,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas.md",
           "excerpt": "Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into one or more trade ideas — concrete long/short (or spot) levels the AI agent can us"
+        },
+        {
+          "name": "veCTM on your node",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md",
+          "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlo"
         }
       ]
     }

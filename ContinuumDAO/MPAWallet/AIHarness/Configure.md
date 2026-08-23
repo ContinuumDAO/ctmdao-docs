@@ -34,7 +34,7 @@ Preferred KeyGen and preferred signer are different: one selects the shared wall
 
 1. Open **AI Agent → MCP Servers**.
 2. Ensure the built-in **continuum** (wallet) server is enabled.
-3. Add catalog or third-party MCP servers as needed (market data, DeFi, browser / search tools, and so on).
+3. Add catalog or third-party MCP servers as needed (market data, DeFi, browser / search tools, and so on). Repository-hosted servers (**coinmarketcap-public**, **coinbase-public**, **business-latest**, **world-affairs**, **technical-indicators**, **vpn**, and the rest of the catalog) are summarized in [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
 4. Open **AI Agent → Variables** and enter API keys and secrets for those servers (and the LLM if prompted). Listings show names and “configured” flags — not secret values.
 5. For research or Plan mode flows that need the web, pick a default search engine: add a search / browser MCP from the catalog (for example **`duckduckgo`**, **`brave-search`**, or **`google-search`**), mark it AI Ready, then set **`AGENT_DEFAULT_SEARCH_MCP`** in **Variables** to that server’s catalog id (example: `duckduckgo`). Without this, Plan research can block on a missing search path even if other MCPs are enabled.
 
@@ -53,14 +53,19 @@ Full steps, free vs paid ngrok, and Mini App charts: [Telegram Mini App](/Contin
 ### 5. Optional next
 
 - **Skills** — steer agent behaviour (**AI Agent → Skills**).
-- **Cron** — scheduled agent turns (**AI Agent → Cron**).
+- **Cron** — scheduled agent turns (**AI Agent → Cron**). Enable **`telegramNotify`** on a job to DM the final assistant message to Telegram after each successful run (requires **`TELEGRAM_OPERATOR_CHAT_ID`** — see [Telegram Mini App — Operator notifications](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#operator-notifications-and-cron)).
 - **Other webhooks** — GitHub, Stripe, and similar (**AI Agent → Webhooks**).
 - **Workspace** — upload or edit files on the node (**AI Agent → Workspace**); Foundry projects live under **`evm/`** — see [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script).
+- **Plan mode** — multi-step research / trade / **`dao`** plans → [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md).
+- **Agent governance** — Forum + on-chain propose/vote via agent — [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 ### Related
 
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
+- [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
+- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)

@@ -12,6 +12,8 @@ MPA wallet can plot **candlestick (OHLCV)** charts from the built-in [AI agent](
 
 Charts are driven by the agent’s continuum MCP tools (`prepare_chart_from_rows` and related). You choose the OHLCV source; the agent should not silently pick one for you.
 
+Ask **“what OHLCV sources are available?”** — the agent calls **`list_ohlcv_sources`**, which lists **active** providers on your node and **repository** catalog entries you can add. That is narrower than **`list_mcp_servers`** (full MCP catalog). See [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
+
 ### OHLCV data sources
 
 | Source | Kind | How it is loaded | Notes / keys |
@@ -26,8 +28,12 @@ Charts are driven by the agent’s continuum MCP tools (`prepare_chart_from_rows
 | **CoinMarketCap (public)** | Spot / DEX klines | MCP server `coinmarketcap-public` | Keyless klines; historical CEX OHLCV with volume may need **`COINMARKETCAP_API_KEY`**. |
 | **Coinbase Advanced Trade (public)** | Spot CEX | MCP server `coinbase-public` | Keyless candles by default; optional Coinbase CDP keys for higher limits. Live product ticker when enabled. |
 | **Binance (public)** | Spot CEX | MCP server `binance` | Public klines. Live ticker when enabled. |
+| **Financial Modeling Prep** | Equities / EOD / intraday | MCP server `financial-modeling-prep` | **`FMP_API_KEY`** in Variables. Keep vendor **`date`** fields when charting. Live quote via **`fmp.quote`**. |
+| **Alpaca (v2)** | US equities / crypto bars | MCP server `alpaca` | **`ALPACA_API_KEY`** + **`ALPACA_SECRET_KEY`**. Pin v2 server. Live via **`alpaca.latestTrade`**. |
+| **Equibles** | US equities (daily OHLCV) | MCP server `equibles` | **`EQUIBLES_API_KEY`**. Pass full **`GetStockPrices`** result to the chart tool. No live tick poller. |
+| **Alpha Vantage** | Stocks / forex / crypto | MCP server `alphavantage` | **`ALPHA_VANTAGE_API_KEY`**. |
 
-DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded under **AI Agent → MCP Servers** / Variables as needed. Execution protocols (swaps, perps, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded under **AI Agent → MCP Servers** / Variables as needed — see [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). Execution protocols (swaps, perps, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
 
 ### Default chart
 
@@ -115,5 +121,6 @@ Running [technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md) does 
 - [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 - [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

@@ -73,7 +73,7 @@ Delta proposals use the same `propose` interface; the first slot carries **metad
 
 5. **Proposal type** — Decision, Election, Treasury, Constitution, or Admin (see table above).
 
-6. **Forum link** — URL to the Forum discussion for this proposal (required). Start discussion in [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) before submitting.
+6. **Forum link** — URL to the Forum discussion for this proposal (required). Start discussion in [Ideas & Suggestions](https://forum.continuumdao.org/category/2/ideas-suggestions) before submitting. For agent-driven flows, create a **Governance** thread first (`forum_create_topic`) — not an Ideas URL — then use that link here and in **`register_proposal`**. See [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
 7. **Proposal configuration** — **Bravo** or **Delta** (see above).
 

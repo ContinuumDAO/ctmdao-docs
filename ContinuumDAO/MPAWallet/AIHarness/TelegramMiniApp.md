@@ -40,6 +40,26 @@ For interactive charts in Telegram:
 
 Otherwise, view interactive charts in the node app Agent chat.
 
+### Operator notifications and cron
+
+Besides **inbound** bot chat, your node can **send Telegram messages to you**:
+
+| Mechanism | Use |
+|-----------|-----|
+| **`send_telegram_message`** (continuum MCP) | Agent sends a proactive DM from chat (e.g. alert, summary) |
+| **Cron `telegramNotify: true`** | After a successful cron turn, the host DMs the **final assistant message** to your operator chat |
+| **`notify-forum-replies`** cron | Forum reply watch — formatted post when someone replies to **your** threads ([Agent governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#forum-reply-telegram-cron)) |
+
+**Setup**
+
+1. Complete [Setup (high level)](#setup-high-level) so the **`telegram_updates`** webhook works.
+2. Message your bot **`/start`** once in a **private** chat — the node stores **`TELEGRAM_OPERATOR_CHAT_ID`** in **Variables** (or set it manually).
+3. Optional: set **`TELEGRAM_OPERATOR_CHAT_ID`** explicitly if auto-capture fails.
+
+For cron notify, enable **`telegramNotify`** on the job in **AI Agent → Cron** (catalog examples: trade analysis, **`notify-forum-replies`**). The agent should **not** call **`send_telegram_message`** inside jobs that already use **`telegramNotify: true`** — the host delivers the final text.
+
+Operator API: **`POST /sendTelegramMessage`** (management-signed). See [mpc-config AGENT_HOOKS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md).
+
 ### Using the Mini App
 
 - After a plot / “show chart” with a compatible tunnel, tap **Open chart** to scroll and zoom (live ticks where supported).
@@ -49,6 +69,8 @@ Otherwise, view interactive charts in the node app Agent chat.
 
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
 - [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
 - [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)

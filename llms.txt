@@ -25,7 +25,7 @@
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 52 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 57 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -33,8 +33,11 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 
 ## AI harness
 
+- [Agent governance and Forum](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance): ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who
 - [Configure the AI harness](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure): This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without
+- [MCP servers](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers): Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, char
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): The MPA wallet is AI first , and every node includes a dedicated AI agent harness . You do not install a separate agent
+- [Plan mode](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode): Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, review a
 - [Telegram Mini App](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp): Talk to your node’s built in AI agent from Telegram on your phone. This is the same harness as Agent chat in the node ap
 
 ## C3Caller
@@ -109,6 +112,8 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [Eject to Private Key](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/EjectConversion): An MPA KeyGen is an MPC wallet: each Group node holds only a share . There is no single private key on any machine until
 - [Install a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install): <! agent: task: create mpc node audience: [human, ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumD
 - [MPC Accept/Reject loop](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop): Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator )
+- [MPA billing](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling): MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be re
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview): The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Com
 - [Technical analysis](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TechnicalAnalysis): Once you have candlestick OHLCV on a chart (see AI charting), the AI agent can run chart analysis from a fixed menu — in
 - [Trade ideas](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas): Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into on
+- [veCTM on your node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode): veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries gove

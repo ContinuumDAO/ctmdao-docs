@@ -12,10 +12,13 @@
   * [Constitution](/ContinuumDAO/Governance/Constitution.md)
   * [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md)
   * [Creating an on-chain Proposal](/ContinuumDAO/Governance/CreatingProposal.md)
+  * [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 
 * Using an MPA wallet
 
   * [Overview](/ContinuumDAO/MPAWallet/Overview.md)
+  * [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)
+  * [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
   * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
   * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
   * [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
@@ -37,6 +40,9 @@
 
   * [Overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
   * [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+  * [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+  * [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
+  * [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
   * [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
 
 * MPC (Multi Party Computation)

@@ -185,6 +185,10 @@ Each peer needs a running node with a matching understanding of who the relay is
 
 You can keep using the wallet from the node app alone. The MPA wallet is **AI-first**, so most users will also want the optional [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) steps after the KeyGen exists.
 
+### MPA billing
+
+Before the first **register on Linea** for a KeyGen, claim **withdraw authority** on that node. Full setup — withdraw authority, register, top-up, month activation, and veCTM waiver: **[MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)**.
+
 ### Related
 
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
@@ -192,7 +196,10 @@ You can keep using the wallet from the node app alone. The MPA wallet is **AI-fi
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 - [Groups](/ContinuumDAO/MPCSigner/Groups.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
+- [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Agent governance and Forum](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
+- [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — AI agent full VPS provision + mesh
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent one-shot VPS install
 - [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — advanced / manual path
