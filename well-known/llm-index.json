@@ -178,7 +178,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-22T12:29:47.002Z",
+  "generatedAt": "2026-08-23T13:47:09.932Z",
   "pageCount": 52,
   "llmld:sections": [
     {
@@ -482,7 +482,7 @@
           "excerpt": "Before you can compose transactions, import Foundry batches, or run DeFi protocol flows, your node needs chain configuration : RPC endpoints, explorers, and optional gas defaults. Chain config is stor"
         },
         {
-          "name": "KeyGen address from Compose tab; RPC from Configure blockchains",
+          "name": "From user_folder/evm/ (or: forge script … with cwd evm/)",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ComposeTransactionFlow",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md",
           "excerpt": "This page describes how an originator builds a multi sign request (single transaction or batch ) before it enters the MPC Accept/Reject loop. The same loop applies no matter how the request was create"
