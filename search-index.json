@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-27T17:34:52.348Z",
+  "generatedAt": "2026-08-27T20:50:26.732Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2721,7 +2721,7 @@
           "id": "how-much-vectm-do-i-need-to-lock",
           "title": "How much veCTM do I need to lock?",
           "level": 3,
-          "excerpt": "Currently, the attached veCTM NFT must carry at least 200 voting power to qualify for monthly free wallet signatures and Private VPN — both gated by the same on chain minimum. Voting power depends on how much CTM you lock and for how long — longer lock periods generally yield more power for the same"
+          "excerpt": "Currently, the attached veCTM NFT must carry at least 200 CTM in the lock to qualify for monthly free wallet signatures and Private VPN — both gated by the same on chain minimum. After that, the veCTM must have 200 Voting power on the 1st day of the month . Voting power depends on how much CTM you l"
         },
         {
           "id": "attach-vectm-to-your-node",
