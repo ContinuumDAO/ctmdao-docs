@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-27T17:09:19.997Z",
+  "generatedAt": "2026-08-27T17:19:23.293Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3186,6 +3186,8 @@
         "Connect your own machine to your node",
         "Share your node with peer operators",
         "Use another peer’s node as your exit",
+        "AI agent steps",
+        "External agents and client setup",
         "Related"
       ],
       "sections": [
@@ -3236,6 +3238,18 @@
           "title": "Use another peer’s node as your exit",
           "level": 4,
           "excerpt": "1. On your node app VPN page, open available peer exits . 2. Pick an exit (check country, speed cap, and obfuscation). 3. Download client config for that exit and import into WireGuard on the machine whose traffic should use that route."
+        },
+        {
+          "id": "ai-agent-steps",
+          "title": "AI agent steps",
+          "level": 4,
+          "excerpt": "With the AI harness configured, you can run Private VPN from Agent chat (or Telegram) instead of the node app Node → VPN panel. The agent uses the vpn MCP server on continuum mcp for WireGuard admin and peer exits, and the built in continuum server to confirm veCTM privilege before enabling anything"
+        },
+        {
+          "id": "external-agents-and-client-setup",
+          "title": "External agents and client setup",
+          "level": 4,
+          "excerpt": "Built in Agent chat (above) runs against your node and can enable VPN and write configs in one place. Claude Desktop, Cursor, Claude Code, or another external harness on your laptop is a different shape: it usually operates on your local machine , while VPN admin and config generation happen on the "
         },
         {
           "id": "related",
