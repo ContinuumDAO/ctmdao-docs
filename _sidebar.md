@@ -69,14 +69,9 @@
   * [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
   * [Joining the Network](/ContinuumDAO/MPCSigner/JoinNetwork.md)
 
-* Further reading (operators / APIs)
+* Private VPN
 
-  * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
-  * [Create a node (one-shot, AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
-  * [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
-  * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)
-  * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)
-  * [Ed25519 management keys (technical)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)
+  * [Overview](/ContinuumDAO/PrivateVPN.md)
 
 * C3Caller
 
@@ -88,3 +83,12 @@
   * [Simple Demo](/ContinuumDAO/C3Caller/C3CallerDemo.md)
   * [Contracts](/ContinuumDAO/C3Caller/Contracts.md)
   * [Contract Addresses](/ContinuumDAO/C3Caller/ContractAddresses.md)
+
+* Further reading (operators / APIs)
+
+  * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
+  * [Create a node (one-shot, AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
+  * [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
+  * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)
+  * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)
+  * [Ed25519 management keys (technical)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CONFIGURING_ED25519_KEYS.md)

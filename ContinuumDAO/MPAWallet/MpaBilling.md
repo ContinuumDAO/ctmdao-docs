@@ -2,7 +2,7 @@
 
 MPA wallet usage is metered on **Linea** through a DAO-governed **fee contract**. Each **KeyGen** you use for multi-sign must be **registered** there before billable signatures count against your balance. You either **pay monthly** (stablecoin or CTM credits) or qualify for a **veCTM subscription waiver** — see [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md).
 
-Billing status appears in **Multi-Sign** when a **secp256k1 KeyGen** is selected. VPN billing is separate and is **never** waived by veCTM.
+Billing status appears in **Multi-Sign** when a **secp256k1 KeyGen** is selected. **Private VPN** is not billed here — it is gated by **attached veCTM** meeting the fee contract’s voting-power threshold; see [Private VPN](/ContinuumDAO/PrivateVPN.md) and [How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock).
 
 ---
 
@@ -76,6 +76,7 @@ The status strip shows **remaining signatures**, registration state, veCTM waive
 ### Related
 
 - [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)
+- [Private VPN](/ContinuumDAO/PrivateVPN.md)
 - [Overview — Subscription through staking](/ContinuumDAO/MPAWallet/Overview.md#subscription-through-staking)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
 - [Compose transaction flow — EIP-712](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#eip-712-typed-data-signatures)

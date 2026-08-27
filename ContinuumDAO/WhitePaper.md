@@ -212,7 +212,7 @@ Any holder of ContinuumDAO’s token (called CTM) can stake them into an NFT cal
 
 ### Staking as Subscription — the Primary Use of CTM / veCTM
 
-**Staking-as-subscription** is the **main use of CTM**. Operators who attach **veCTM** to their MPA wallet node receive **free MPA wallet use** up to a governance-set free signature limit — the **alternative to a monthly subscription paid in USDC** (or other stablecoins the DAO adopts). Heavier use, or nodes without staked veCTM, follow the paid subscription or metered model the DAO defines.
+**Staking-as-subscription** is the **main use of CTM**. Operators who attach **veCTM** to their MPA wallet node receive **free MPA wallet use** up to a governance-set free signature limit — the **alternative to a monthly subscription paid in USDC** (or other stablecoins the DAO adopts). At the same voting-power threshold, attached veCTM unlocks **Private VPN** on the node (WireGuard tunnel and optional peer sharing) — a veCTM privilege, not a separate paid subscription. Heavier use, or nodes without staked veCTM, follow the paid subscription or metered model the DAO defines.
 
 Each staked veCTM NFT carries **governance voting power**. As more wallet operators stake to unlock free access, the **network of engaged DAO voters grows** — including **AI agents** operating through MPA wallets with attached veCTM, who can propose, debate, and vote alongside human co-signers. As MPA wallet adoption grows, an **increasing share of total supply** locks into veCTM on nodes, creating sustained buy-and-lock pressure and expanding **agentic governance** capacity.
 
@@ -259,7 +259,7 @@ The **MPA wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/
 - **Private off-chain security** — multi-sign negotiation and agent context stay on the operators’ nodes, encrypted; the chain sees only the final transaction.
 - **State-of-the-art MPC** — CGGMP24 and FROST, with proactive key refresh, maintained under Lockness / LF Decentralized Trust.
 - **DAO governance via AI agents** — with **veCTM attached** to the node, the agent harness can **author proposals**, engage in **Forum** debate, **evaluate** outcomes, and **cast on-chain votes**; humans-in-the-loop retain override through MPC threshold **Accepts**
-- **Staking as subscription** — attach **veCTM** to your node instead of paying a **monthly USDC** subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance, plus **voting power** for agentic DAO participation
+- **Staking as subscription** — attach **veCTM** to your node instead of paying a **monthly USDC** subscription; stakers get **free MPA wallet use** up to the free signature limit set by governance, **Private VPN** at the same voting-power threshold, plus **voting power** for agentic DAO participation
 - **DAO-aligned operation** — protocol parameters, approved signers, rewards, and the **free signature limit** for staked nodes are governed by the DAO; the wallet itself is non-custodial and user-controlled
 
 ### Fully decentralized custody
@@ -276,7 +276,7 @@ There is no limit to the number of nodes or Groups, or to the web3 traffic the n
 
 Instructions for running a node are in our [documentation](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install). After creating a node, operators can attach veCTM and optionally identify themselves on-chain.
 
-**Subscription through staking:** anyone who **stakes veCTM on their node** qualifies for **free MPA wallet usage up to the free signature limit** — a DAO-governed alternative to a **monthly subscription paid in USDC**. Heavier use or unstaked nodes follow the paid subscription or metered model the DAO adopts.
+**Subscription through staking:** anyone who **stakes veCTM on their node** qualifies for **free MPA wallet usage up to the free signature limit** — a DAO-governed alternative to a **monthly subscription paid in USDC**. At the same voting-power threshold, attached veCTM unlocks **Private VPN** on the node. Heavier use or unstaked nodes follow the paid subscription or metered model the DAO adopts.
 
 Staking on MPC nodes will go live imminently. **veCTM attached to a node is locked by default** — only a **DAO governance vote** can unlock or detach it, and attached veCTM cannot be liquidated or transferred while on the node. Nodes will be monitored for malpractice using a dedicated AI engine; misbehaving operators risk **permanent lock**, with Governance refusing to approve release.
 
@@ -314,7 +314,7 @@ CTM is a multi-chain token, that can only be minted on Ethereum by Governance vo
 
 ### Utility
 
-- **Staking as subscription** — veCTM attached to your node unlocks **free MPA wallet use** up to the free signature limit (alternative to **monthly USDC** subscription); the **primary use of CTM**, locking an increasing share of total supply as adoption grows
+- **Staking as subscription** — veCTM attached to your node unlocks **free MPA wallet use** up to the free signature limit (alternative to **monthly USDC** subscription) and **Private VPN** at the same voting-power threshold; the **primary use of CTM**, locking an increasing share of total supply as adoption grows
 - **Agentic DAO governance** — attached veCTM grants **voting power** so MPA wallet **AI agents** can propose, debate on the Forum, evaluate, and vote; humans retain MPC override
 - **DAO voter expansion** — each staked veCTM carries governance voting power, growing the engaged voter base (human and AI) as wallet operators stake for free access
 - **MPA wallet subscription** — pay a **monthly subscription in CTM at a discount** (instead of a USD stablecoin), or **stake veCTM** on your node for free wallet use up to the governance-set signature limit

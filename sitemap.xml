@@ -276,6 +276,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/PrivateVPN</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

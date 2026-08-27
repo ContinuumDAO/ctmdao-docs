@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-27T16:23:04.955Z",
+  "generatedAt": "2026-08-27T17:09:19.997Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1102,7 +1102,7 @@
           "id": "repository-servers-on-continuum-mcp",
           "title": "Repository servers on continuum-mcp",
           "level": 3,
-          "excerpt": "These MCP servers are implemented in continuum node sdk and run in the continuum mcp sidecar inside the node app image ( http://continuum mcp:8446/... ). Catalog ids match MCP servers.json / MCP default servers.json . Catalog id Endpoint API key Typical use coinmarketcap public /mcp/cmc public None "
+          "excerpt": "Catalog id Endpoint API key Typical use coinmarketcap public /mcp/cmc public None for keyless tools; optional COINMARKETCAP API KEY unlocks CEX historical OHLCV on the same server DEX pool klines, market snapshots, Fear & Greed; default when operator picks CoinMarketCap for charts coinbase public /m"
         },
         {
           "id": "other-repository-catalog-entries-third-party-runtimes",
@@ -2302,7 +2302,7 @@
           "id": "mpa-billing",
           "title": "MPA billing",
           "level": 3,
-          "excerpt": "Before the first register on Linea for a KeyGen, claim withdraw authority on that node. Full setup — withdraw authority, register, top up, month activation, and veCTM waiver: MPA billing ."
+          "excerpt": "Before the first register on Linea for a KeyGen, claim withdraw authority on that node. Full setup — withdraw authority, register, top up, month activation, and veCTM waiver: MPA billing . Attach veCTM at the governance voting power minimum to waive wallet signature fees and unlock Private VPN on th"
         },
         {
           "id": "related",
@@ -2449,7 +2449,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "veCTM on your node Overview — Subscription through staking Install a node Compose transaction flow — EIP 712 MPC Accept/Reject loop"
+          "excerpt": "veCTM on your node Private VPN Overview — Subscription through staking Install a node Compose transaction flow — EIP 712 MPC Accept/Reject loop"
         }
       ],
       "excerpt": "MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be registered there before billable signatures count against your balance. You either pay monthly (stablecoin or CTM credits) or qualify for a veCTM subscription waiver — see veCTM on y",
@@ -2517,13 +2517,13 @@
           "id": "subscription-through-staking",
           "title": "Subscription through staking",
           "level": 3,
-          "excerpt": "MPA wallet access can be paid via a monthly subscription , or — for node operators who attach veCTM to their node — through subscription through staking : free use of the wallet up to a generous governance set free signature limit . Limits and any overage fees are set by DAO voting. Why attach, how "
+          "excerpt": "MPA wallet access can be paid via a monthly subscription , or — for node operators who attach veCTM to their node — through subscription through staking : free use of the wallet up to a generous governance set free signature limit . Limits and any overage fees are set by DAO voting. The same attache"
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Attach your node veCTM on your node MPA billing Chain management Asset management Contact management Bitcoin MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross chain signer"
+          "excerpt": "Attach your node veCTM on your node Private VPN MPA billing Chain management Asset management Contact management Bitcoin MPC Accept/Reject loop Compose transaction flow Install a node Backup and restoration Configure the AI harness KeyGens Eject to Private Key Joining the Continuum — optional cross "
         }
       ],
       "excerpt": "The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Computation (MPC). Every node ships with a built in AI agent harness — the natural way to propose trades, run analysis, and drive DeFi flows — while a rich frontend (mpa.continuumdao.",
@@ -2674,6 +2674,7 @@
         "Attach is yours — detach needs governance",
         "Before you attach",
         "Get veCTM (lock CTM)",
+        "How much veCTM do I need to lock?",
         "Attach veCTM to your node",
         "Request detach",
         "Managing voting power",
@@ -2684,7 +2685,7 @@
           "id": "vectm-on-your-node",
           "title": "veCTM on your node",
           "level": 2,
-          "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlock two practical benefits — DAO participation and free wallet use — while accepting that removing it"
+          "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlock practical benefits — DAO participation , free wallet signatures (subscription through staking), a"
         },
         {
           "id": "why-attach-vectm",
@@ -2717,6 +2718,12 @@
           "excerpt": "If you already hold veCTM elsewhere, you can transfer it to your KeyGen first (only while it is not attached to any node). To create a new lock from the node app: 1. Open Multi Sign , select your KeyGen, and open the Assets tab on Linea . 2. Add CTM and veCTM if they are not listed — see Asset manag"
         },
         {
+          "id": "how-much-vectm-do-i-need-to-lock",
+          "title": "How much veCTM do I need to lock?",
+          "level": 3,
+          "excerpt": "Currently, the attached veCTM NFT must carry at least 200 voting power to qualify for monthly free wallet signatures and Private VPN — both gated by the same on chain minimum. Voting power depends on how much CTM you lock and for how long — longer lock periods generally yield more power for the same"
+        },
+        {
           "id": "attach-vectm-to-your-node",
           "title": "Attach veCTM to your node",
           "level": 3,
@@ -2738,10 +2745,10 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Overview — Subscription through staking Install — MPA billing AI managed governance MPC Accept/Reject loop White Paper — Staking as subscription"
+          "excerpt": "Overview — Subscription through staking Install — MPA billing Private VPN AI managed governance MPC Accept/Reject loop White Paper — Staking as subscription"
         }
       ],
-      "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlock two practical benefits — DAO participation and free wallet use — while accepting that removing it",
+      "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlock practical benefits — DAO participation , free wallet signatures (subscription through staking), a",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode"
     },
     {
@@ -3167,6 +3174,80 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSignerConfiguredNodes"
     },
     {
+      "path": "ContinuumDAO/PrivateVPN",
+      "title": "Overview",
+      "section": "Private VPN",
+      "headings": [
+        "Private VPN",
+        "What you can do",
+        "Transport options",
+        "Sharing your connection with peers (rate limiting)",
+        "How to use the service",
+        "Connect your own machine to your node",
+        "Share your node with peer operators",
+        "Use another peer’s node as your exit",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "private-vpn",
+          "title": "Private VPN",
+          "level": 2,
+          "excerpt": "Most VPN providers have public servers in different countries that users can route traffic through. The VPN service here is different, since anyone can set up a node and then offer VPN service to any other node in their configured peer group, as well as to themselves. This means that users only have"
+        },
+        {
+          "id": "what-you-can-do",
+          "title": "What you can do",
+          "level": 3,
+          "excerpt": "Use case Plain language description Connect your devices to your node Your PC or phone sends traffic through the VPS (or home machine) that runs the node — same control path you already use for wallet management, extended to general browsing or tooling. Share your node with peer operators Other node"
+        },
+        {
+          "id": "transport-options",
+          "title": "Transport options",
+          "level": 3,
+          "excerpt": "All paths use WireGuard for the core encrypted tunnel. On restrictive networks you can add an obfuscation layer so traffic is less likely to be blocked: Option When to use WireGuard (standard) Default — import the .conf file into any WireGuard app. Best when VPN protocols are allowed. Shadowsocks Co"
+        },
+        {
+          "id": "sharing-your-connection-with-peers-rate-limiting",
+          "title": "Sharing your connection with peers (rate limiting)",
+          "level": 3,
+          "excerpt": "When you offer your node so peer operators can route traffic through it, you choose a default speed limit (megabits per second). That cap applies per shared connection so one consumer cannot saturate your VPS link. You can revoke a peer’s access at any time from the node VPN controls. Consumers see "
+        },
+        {
+          "id": "how-to-use-the-service",
+          "title": "How to use the service",
+          "level": 3,
+          "excerpt": "1. Confirm veCTM is attached and meets the voting power minimum → veCTM on your node. 2. Open the node app → Node → VPN (or the Private VPN panel). 3. Enable VPN, choose full or split routing, and pick WireGuard (standard) or an obfuscation option if needed. 4. Download client config — saves a WireG"
+        },
+        {
+          "id": "connect-your-own-machine-to-your-node",
+          "title": "Connect your own machine to your node",
+          "level": 4,
+          "excerpt": "1. Confirm veCTM is attached and meets the voting power minimum → veCTM on your node. 2. Open the node app → Node → VPN (or the Private VPN panel). 3. Enable VPN, choose full or split routing, and pick WireGuard (standard) or an obfuscation option if needed. 4. Download client config — saves a WireG"
+        },
+        {
+          "id": "share-your-node-with-peer-operators",
+          "title": "Share your node with peer operators",
+          "level": 4,
+          "excerpt": "1. Meet the same veCTM threshold and enable VPN on your node. 2. Turn on share connection with peers (wording may vary in the UI). 3. Set the speed limit (Mbps) you are willing to offer. 4. Optionally choose an obfuscation mode peers must use. 5. Revoke individual peers when access should end."
+        },
+        {
+          "id": "use-another-peer-s-node-as-your-exit",
+          "title": "Use another peer’s node as your exit",
+          "level": 4,
+          "excerpt": "1. On your node app VPN page, open available peer exits . 2. Pick an exit (check country, speed cap, and obfuscation). 3. Download client config for that exit and import into WireGuard on the machine whose traffic should use that route."
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "veCTM on your node — lock, attach, and voting power minimum Attach your node MCP servers — VPN — agent and vpn MCP tools MPA billing — wallet signature metering on Linea (separate from VPN access)"
+        }
+      ],
+      "excerpt": "Most VPN providers have public servers in different countries that users can route traffic through. The VPN service here is different, since anyone can set up a node and then offer VPN service to any other node in their configured peer group, as well as to themselves. This means that users only have",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN"
+    },
+    {
       "path": "ContinuumDAO/RunningInstructions/NodeRunningInstruction",
       "title": "Add this line at the end of the file (replace 'mpcnode' with your username):",
       "section": "Running an MPC Node (advanced / manual/ AI provisioning)",
@@ -3402,7 +3483,7 @@
           "id": "staking-as-subscription-the-primary-use-of-ctm-vectm",
           "title": "Staking as Subscription — the Primary Use of CTM / veCTM",
           "level": 3,
-          "excerpt": "Staking as subscription is the main use of CTM . Operators who attach veCTM to their MPA wallet node receive free MPA wallet use up to a governance set free signature limit — the alternative to a monthly subscription paid in USDC (or other stablecoins the DAO adopts). Heavier use, or nodes without s"
+          "excerpt": "Staking as subscription is the main use of CTM . Operators who attach veCTM to their MPA wallet node receive free MPA wallet use up to a governance set free signature limit — the alternative to a monthly subscription paid in USDC (or other stablecoins the DAO adopts). At the same voting power thresh"
         },
         {
           "id": "the-mpc-network-and-the-mpa-wallet",
@@ -3456,7 +3537,7 @@
           "id": "utility",
           "title": "Utility",
           "level": 3,
-          "excerpt": "Staking as subscription — veCTM attached to your node unlocks free MPA wallet use up to the free signature limit (alternative to monthly USDC subscription); the primary use of CTM , locking an increasing share of total supply as adoption grows Agentic DAO governance — attached veCTM grants voting po"
+          "excerpt": "Staking as subscription — veCTM attached to your node unlocks free MPA wallet use up to the free signature limit (alternative to monthly USDC subscription) and Private VPN at the same voting power threshold; the primary use of CTM , locking an increasing share of total supply as adoption grows Agent"
         },
         {
           "id": "ecosystem-development",

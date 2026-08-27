@@ -178,8 +178,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-27T16:23:04.955Z",
-  "pageCount": 57,
+  "generatedAt": "2026-08-27T17:09:19.997Z",
+  "pageCount": 58,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -446,6 +446,17 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC.md",
           "excerpt": "MPC is an innovative cryptographic technology that utilizes distributed computing and cryptographic algorithms to securely perform collaborative calculations without the need for any trusted third par"
+        }
+      ]
+    },
+    {
+      "name": "Private VPN",
+      "pages": [
+        {
+          "name": "Overview",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md",
+          "excerpt": "Most VPN providers have public servers in different countries that users can route traffic through. The VPN service here is different, since anyone can set up a node and then offer VPN service to any "
         }
       ]
     },

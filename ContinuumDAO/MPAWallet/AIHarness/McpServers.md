@@ -55,7 +55,7 @@ The **`continuum`** server is the agent’s primary wallet interface. It is **no
 - Multi-sign lifecycle: list / agree / Get Sig / Execute / History
 - DeFi protocol packs (`list_defi_protocols`, `load_defi_protocol`, protocol-specific build tools)
 - Charting and analysis (`prepare_chart_from_rows`, liquidity depth, trade ideas)
-- MPA billing, veCTM attach, VPN billing multisign (**`claim_node_withdraw_authority`** before first Linea register — see [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md#withdraw-authority); register / deposit / sync — not WireGuard admin; see **`vpn`** below)
+- MPA billing, veCTM attach, privileged services (**`claim_node_withdraw_authority`** before first Linea register — see [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md#withdraw-authority); register / deposit / sync — not WireGuard admin; see **`vpn`** below)
 - Social channel search (Telegram, Discord, Reddit — deferred tool group; see [Social media search](#social-media-search-on-continuum) below)
 
 **Compose-related tools** (same custody loop as the node app — see [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)):
@@ -119,8 +119,6 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 
 ### Repository servers on **continuum-mcp**
 
-These MCP servers are **implemented in [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk)** and run in the **`continuum-mcp`** sidecar inside the node app image (`http://continuum-mcp:8446/...`). Catalog ids match **`MCP_servers.json`** / **`MCP_default_servers.json`**.
-
 | Catalog id | Endpoint | API key | Typical use |
 |------------|----------|---------|-------------|
 | **`coinmarketcap-public`** | `/mcp/cmc-public` | None for keyless tools; optional **`COINMARKETCAP_API_KEY`** unlocks CEX historical OHLCV on the **same** server | DEX pool klines, market snapshots, Fear & Greed; default when operator picks CoinMarketCap for charts |
@@ -128,7 +126,7 @@ These MCP servers are **implemented in [continuum-node-sdk](https://github.com/C
 | **`business-latest`** | `/mcp/business-latest` | None | Free business RSS (BBC, CNBC, MarketWatch, Forbes, Reuters via Google News, RT Business) |
 | **`world-affairs`** | `/mcp/world-affairs` | None | Free world-news RSS (BBC, Al Jazeera, Guardian, DW, France 24, NPR, CNN, RT) |
 | **`technical-indicators`** | `/mcp/ta` | None | SMA, RSI, MACD, Bollinger, Fibonacci, and 100+ indicators over OHLCV series ( **`initialLoad: false`**, **`aiReady: false`** in catalog — enable Initial load or load per chat) |
-| **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and egress client configs; MPA VPN **billing** stays on **`continuum`** |
+| **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and peer exit configs; requires **veCTM privilege** on the node — see [Private VPN](/ContinuumDAO/PrivateVPN.md) |
 
 **Chart sources:** **`coinmarketcap-public`**, **`coinbase-public`**, FMP, Alpaca, Equibles, and other OHLCV MCPs are listed in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
 
@@ -136,7 +134,7 @@ These MCP servers are **implemented in [continuum-node-sdk](https://github.com/C
 
 **Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
-**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. Register and pay VPN billing months through **`continuum`** (`register_vpn_on_linea`, deposit / sync tools).
+**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. Enable only when **`get_node_privilege_status`** / attached veCTM shows VPN entitlement — no Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
 ---
 

@@ -25,7 +25,7 @@
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 57 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 58 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -92,6 +92,10 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [Main Features](https://docs.continuumdao.org/ContinuumDAO/MPC/MainFeatures): The implementation and security of the MPC protocol are ensured by peer reviewed threshold signature schemes — CGGMP24 f
 - [Typical Use Cases](https://docs.continuumdao.org/ContinuumDAO/MPC/TypicalUseCases): We provide versatile options for developers, allowing them to either operate their own nodes or select nodes with strong
 - [What is MPC?](https://docs.continuumdao.org/ContinuumDAO/MPC/WhatIsMPC): MPC is an innovative cryptographic technology that utilizes distributed computing and cryptographic algorithms to secure
+
+## Private VPN
+
+- [Overview](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN): Most VPN providers have public servers in different countries that users can route traffic through. The VPN service here
 
 ## Running an MPC Node (advanced / manual/ AI provisioning)
 
