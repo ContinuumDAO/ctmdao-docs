@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-27T17:19:23.293Z",
+  "generatedAt": "2026-08-27T17:34:52.348Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3187,7 +3187,7 @@
         "Share your node with peer operators",
         "Use another peer’s node as your exit",
         "AI agent steps",
-        "External agents and client setup",
+        "External AI agent (SSH tunnel + MCP)",
         "Related"
       ],
       "sections": [
@@ -3243,13 +3243,13 @@
           "id": "ai-agent-steps",
           "title": "AI agent steps",
           "level": 4,
-          "excerpt": "With the AI harness configured, you can run Private VPN from Agent chat (or Telegram) instead of the node app Node → VPN panel. The agent uses the vpn MCP server on continuum mcp for WireGuard admin and peer exits, and the built in continuum server to confirm veCTM privilege before enabling anything"
+          "excerpt": "For the built in Agent chat / Telegram harness on the node. External agents (Claude with SSH tunnel + MCP, same as Agent provision) should follow External AI agent (SSH tunnel + MCP) below — that subsection is written for agents, not humans. With the AI harness configured, you can run Private VPN fr"
         },
         {
-          "id": "external-agents-and-client-setup",
-          "title": "External agents and client setup",
+          "id": "external-ai-agent-ssh-tunnel-mcp",
+          "title": "External AI agent (SSH tunnel + MCP)",
           "level": 4,
-          "excerpt": "Built in Agent chat (above) runs against your node and can enable VPN and write configs in one place. Claude Desktop, Cursor, Claude Code, or another external harness on your laptop is a different shape: it usually operates on your local machine , while VPN admin and config generation happen on the "
+          "excerpt": "Audience: external AI agents only (Claude, Cursor, Claude Code, etc.) — not human how to steps. This assumes the same Path A attachment as Agent provision and configure: the operator runs an SSH tunnel from their PC to the node, forwards 127.0.0.1:8446 to continuum mcp , and you call http://127.0.0."
         },
         {
           "id": "related",
