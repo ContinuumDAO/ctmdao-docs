@@ -13,14 +13,20 @@ const HOME_URL = 'https://continuumdao.org';
 const MPA_NODE_MAP = 'https://mpa.continuumdao.org/node-map';
 const PRIVATE_VPN_DOC = `${DOCS_BASE_URL}/ContinuumDAO/PrivateVPN.md`;
 const PRIVATE_VPN_URL = `${DOCS_BASE_URL}/ContinuumDAO/PrivateVPN`;
+const PRIVATE_VPN_EXTERNAL_SECTION = 'external-ai-agent-ssh-tunnel--mcp';
+const PRIVATE_VPN_EXTERNAL_DOC = `${PRIVATE_VPN_DOC}#${PRIVATE_VPN_EXTERNAL_SECTION}`;
+const PRIVATE_VPN_EXTERNAL_URL = `${PRIVATE_VPN_URL}#${PRIVATE_VPN_EXTERNAL_SECTION}`;
 
 /** veCTM-gated WireGuard VPN — canonical doc task for AI crawlers. */
 const privateVpnAgentTask = {
 	task: 'private-vpn',
 	summary:
-		'Enable Private VPN on an MPA node: attach veCTM at the governance voting-power threshold, enable WireGuard on the node, download client configs (optional obfuscation). Not a separate paid subscription.',
-	canonicalDoc: PRIVATE_VPN_DOC,
-	canonicalDocUrl: PRIVATE_VPN_URL,
+		'External AI agents (SSH tunnel to 127.0.0.1:8446, Path A MCP): enable Private VPN via continuum + vpn MCP — load the External AI agent (SSH tunnel + MCP) section in PrivateVPN.md. Requires veCTM privilege; not a Linea subscription.',
+	canonicalDoc: PRIVATE_VPN_EXTERNAL_DOC,
+	canonicalDocUrl: PRIVATE_VPN_EXTERNAL_URL,
+	overviewDoc: PRIVATE_VPN_DOC,
+	overviewDocUrl: PRIVATE_VPN_URL,
+	externalAgentSection: PRIVATE_VPN_EXTERNAL_SECTION,
 	keywords: [
 		'private vpn',
 		'wireguard',
@@ -29,6 +35,10 @@ const privateVpnAgentTask = {
 		'shadowsocks',
 		'egress',
 		'vpn mcp',
+		'ssh tunnel',
+		'8446',
+		'path a',
+		'external ai agent',
 	],
 };
 const INDEX_PATH = join(root, 'search-index.json');
@@ -215,7 +225,7 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			'One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.',
 			'For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.',
 			'LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.',
-			`Private VPN (WireGuard through your node): ${PRIVATE_VPN_URL} — veCTM privilege, not a Linea subscription; MCP \`vpn\` server on continuum-mcp.`,
+			`Private VPN (WireGuard through your node): ${PRIVATE_VPN_URL} — veCTM privilege, not a Linea subscription; MCP \`vpn\` server on continuum-mcp. External AI agents (Path A): ${PRIVATE_VPN_EXTERNAL_URL}`,
 		],
 	};
 }
@@ -237,7 +247,7 @@ function buildLlmIndex(index, installDiscovery) {
 				'MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.',
 				'AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.',
 				'Governance, C3Caller, MPC concepts, and node running guides are all indexed here.',
-				`Private VPN on MPA nodes: ${PRIVATE_VPN_URL} — veCTM-gated WireGuard; see AI agent steps and external client setup in that doc.`,
+				`Private VPN on MPA nodes: ${PRIVATE_VPN_URL} — veCTM-gated WireGuard. External AI agents (SSH tunnel + MCP, Path A): ${PRIVATE_VPN_EXTERNAL_URL}`,
 			],
 		},
 		'llmld:getStarted': installDiscovery,
@@ -289,24 +299,28 @@ function buildLlmsTxt(index, install) {
 		'',
 		'**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](' +
 			install.canonicalAgentDocUrl +
-			') first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only.',
+			') first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only. **Private VPN (external agent, SSH tunnel to :8446):** [External AI agent (SSH tunnel + MCP)](' +
+			PRIVATE_VPN_EXTERNAL_URL +
+			') — agent-facing playbook; not human steps.',
 		'',
 		`| User situation | Lead them to |`,
 		`|----------------|--------------|`,
 		`| AI agent — full VPS provision + configure | [Agent provision and configure](${install.canonicalAgentDocUrl}) |`,
+		`| External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](${PRIVATE_VPN_EXTERNAL_URL}) |`,
 		`| Any human — easiest | [Node map + button](${install.defaultForHumans}) |`,
 		`| Linux VPS — install containers only | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
 		`| Windows 11 home PC | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
 		`| macOS home PC | [Install.md](${install.canonicalDoc}) + [macOS guide](${install.routes[2].guide}) |`,
 		`| Linux home PC | [Install.md](${install.canonicalDoc}) or node-map + button |`,
 		`| Advanced manual only | [NodeRunningInstruction.md](${install.avoidForAgents}) — not the default |`,
-		`| Private VPN on your node (veCTM required) | [Private VPN](${PRIVATE_VPN_URL}) |`,
+		`| Private VPN on your node (veCTM required, overview) | [Private VPN](${PRIVATE_VPN_URL}) |`,
 		'',
 		`**After install:** topology, peers, MQTT, Group, KeyGen (prefer 2-of-3) — [Agent provision and configure](${install.canonicalAgentDocUrl}). Humans: [Post install steps](${install.canonicalDocUrl}#post-install-steps).`,
 		'',
 		`- [Agent provision and configure](${install.canonicalAgentDocUrl})`,
 		`- [Install a node (human guide)](${install.canonicalDocUrl})`,
-		`- [Private VPN](${PRIVATE_VPN_URL}) — WireGuard through your node; veCTM-gated; AI agent steps and client setup`,
+		`- [Private VPN — external AI agent (SSH tunnel + MCP)](${PRIVATE_VPN_EXTERNAL_URL}) — Path A; \`continuum\` + \`vpn\` MCP; agent playbook only`,
+		`- [Private VPN (overview)](${PRIVATE_VPN_URL}) — veCTM-gated WireGuard; built-in Agent chat steps for node harness`,
 		`- [Home site install-node.json](${install.homeInstallJson})`,
 		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
 		'',

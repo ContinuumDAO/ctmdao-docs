@@ -4,24 +4,26 @@
 
 ## Start here — install an MPA wallet node
 
-**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only.
+**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only. **Private VPN (external agent, SSH tunnel to :8446):** [External AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — agent-facing playbook; not human steps.
 
 | User situation | Lead them to |
 |----------------|--------------|
 | AI agent — full VPS provision + configure | [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) |
+| External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) |
 | Any human — easiest | [Node map + button](https://mpa.continuumdao.org/node-map) |
 | Linux VPS — install containers only | [One-shot script](https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh) + [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
 | Windows 11 home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [Windows guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md) |
 | macOS home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [macOS guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md) |
 | Linux home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) or node-map + button |
 | Advanced manual only | [NodeRunningInstruction.md](https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — not the default |
-| Private VPN on your node (veCTM required) | [Private VPN](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) |
+| Private VPN on your node (veCTM required, overview) | [Private VPN](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) |
 
 **After install:** topology, peers, MQTT, Group, KeyGen (prefer 2-of-3) — [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision). Humans: [Post install steps](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install#post-install-steps).
 
 - [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision)
 - [Install a node (human guide)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install)
-- [Private VPN](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) — WireGuard through your node; veCTM-gated; AI agent steps and client setup
+- [Private VPN — external AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — Path A; `continuum` + `vpn` MCP; agent playbook only
+- [Private VPN (overview)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) — veCTM-gated WireGuard; built-in Agent chat steps for node harness
 - [Home site install-node.json](https://continuumdao.org/well-known/install-node.json)
 - [mpc-config AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 
