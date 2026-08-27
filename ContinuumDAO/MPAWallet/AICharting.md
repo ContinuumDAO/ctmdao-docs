@@ -16,6 +16,12 @@ Ask **“what OHLCV sources are available?”** — the agent calls **`list_ohlc
 
 ### OHLCV data sources
 
+Chartable sources are what **`list_ohlcv_sources`** returns — **active** (on your node or a loaded DeFi pack) vs **repository** (catalog MCP you still need to **Add from repository**). That list is narrower than **`list_mcp_servers`** (search, news, social, and other non-OHLCV tools). See [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
+
+New nodes seed **`coinmarketcap-public`** and **`coinbase-public`** in the catalog ( **`initialLoad: false`** ) — add or enable them when you want those providers; the agent should still ask which source to use.
+
+#### DeFi protocol packs (via `load_defi_protocol`)
+
 | Source | Kind | How it is loaded | Notes / keys |
 |--------|------|------------------|--------------|
 | **Hyperliquid** | Perp | DeFi protocol pack (`hyperliquid`) | Live mid prices when chart live-binding is enabled. No API key for read/chart. |
@@ -23,17 +29,64 @@ Ask **“what OHLCV sources are available?”** — the agent calls **`list_ohlc
 | **Arcus spot (stock tokens)** | Spot | Same `arcus` pack (spot OHLCV tools) | Spot RFQ markets on Arcus. |
 | **GMX** | Perp / index-style | DeFi protocol pack (`gmx`) | Live mark price when enabled. Volume may be absent on rows. |
 | **Uniswap v4** | DEX pool spot | DeFi protocol pack (`uniswap-v4`) | Pool OHLCV via pool list / presets. Optional **`THE_GRAPH_API_KEY`**; some Robinhood-chain paths need **`BITQUERY_API_KEY`**. |
-| **CoinGecko (public)** | Spot index | MCP server `coingecko` | No key. Live simple price when enabled; Mini App live ticks may be limited. |
-| **CoinGecko Pro** | Spot | MCP server `coingecko-pro` | **`COINGECKO_API_KEY`** in Variables. Finer intervals (e.g. hourly) where supported. |
-| **CoinMarketCap (public)** | Spot / DEX klines | MCP server `coinmarketcap-public` | Keyless klines; historical CEX OHLCV with volume may need **`COINMARKETCAP_API_KEY`**. |
-| **Coinbase Advanced Trade (public)** | Spot CEX | MCP server `coinbase-public` | Keyless candles by default; optional Coinbase CDP keys for higher limits. Live product ticker when enabled. |
-| **Binance (public)** | Spot CEX | MCP server `binance` | Public klines. Live ticker when enabled. |
-| **Financial Modeling Prep** | Equities / EOD / intraday | MCP server `financial-modeling-prep` | **`FMP_API_KEY`** in Variables. Keep vendor **`date`** fields when charting. Live quote via **`fmp.quote`**. |
-| **Alpaca (v2)** | US equities / crypto bars | MCP server `alpaca` | **`ALPACA_API_KEY`** + **`ALPACA_SECRET_KEY`**. Pin v2 server. Live via **`alpaca.latestTrade`**. |
-| **Equibles** | US equities (daily OHLCV) | MCP server `equibles` | **`EQUIBLES_API_KEY`**. Pass full **`GetStockPrices`** result to the chart tool. No live tick poller. |
-| **Alpha Vantage** | Stocks / forex / crypto | MCP server `alphavantage` | **`ALPHA_VANTAGE_API_KEY`**. |
 
-DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded under **AI Agent → MCP Servers** / Variables as needed — see [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). Execution protocols (swaps, perps, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+#### Built-in **continuum-mcp** catalog servers
+
+These run in the node image sidecar. Activate with **Add from repository** (or use the default seed for **`coinmarketcap-public`** / **`coinbase-public`**), set **Variables** if noted, then **`agent_load_mcp_server`** after you pick a provider.
+
+| Source | Kind | Catalog id | Notes / keys |
+|--------|------|------------|--------------|
+| **CoinMarketCap (public)** | Spot index, **DEX pool** klines, sentiment | `coinmarketcap-public` | **Keyless:** DEX **`get_kline_candles`**, global metrics, Fear & Greed, CMC100, altcoin season, DEX token/pool search. **With `COINMARKETCAP_API_KEY`:** CEX aggregate **`get_crypto_ohlcv_historical`** (hourly/daily + volume) on the **same** server. Prefer this over catalog **`coinmarketcap`** for charts — call **`resolve_coinmarketcap_mcp_server`** first. |
+| **Coinbase Advanced Trade (public)** | Spot CEX | `coinbase-public` | Keyless **`get_product_candles`** (`BTC-USD`-style products). Optional **`COINBASE_CDP_API_KEY_NAME`** + **`COINBASE_CDP_API_PRIVATE_KEY`** for authenticated routes. **`get_product_book`** feeds [liquidity depth](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md) analysis. Live product ticker when enabled. |
+| **Business Latest RSS** | Headlines (not candles) | `business-latest` | Free business RSS — research only, not OHLCV. |
+| **World Affairs RSS** | Headlines (not candles) | `world-affairs` | Free world-news RSS — research only, not OHLCV. |
+| **Technical indicators** | Indicators on fetched series | `technical-indicators` | SMA, RSI, MACD, Bollinger, Fibonacci, 100+ indicators — **after** you have OHLCV bars. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md). Not a candle source. |
+
+#### Other catalog MCP servers (chartable OHLCV)
+
+Load under **AI Agent → MCP Servers** / **Variables** as needed.
+
+| Source | Kind | Catalog id | Notes / keys |
+|--------|------|------------|--------------|
+| **CoinGecko (public)** | Spot index | `coingecko` | No key. Live simple price when enabled; Mini App live ticks may be limited. Volume often absent on public spot feeds. |
+| **CoinGecko Pro** | Spot | `coingecko-pro` | **`COINGECKO_API_KEY`**. Finer intervals (e.g. hourly) where supported. |
+| **Binance (public)** | Spot CEX | `binance` | Public klines (`binance_get_klines`, **`response_format: "json"`**). Live ticker when enabled. |
+| **Financial Modeling Prep** | Equities EOD / intraday | `financial-modeling-prep` | **`FMP_API_KEY`**. Keep vendor **`date`** fields when charting. Live quote via **`fmp.quote`**. |
+| **Alpaca (v2)** | US equities / crypto bars | `alpaca` | **`ALPACA_API_KEY`** + **`ALPACA_SECRET_KEY`**. Pin v2 server. Live via **`alpaca.latestTrade`**. |
+| **Equibles** | US equities (daily OHLCV) | `equibles` | **`EQUIBLES_API_KEY`**. Pass full **`GetStockPrices`** result to the chart tool. No live tick poller — use **`GetLatestPrices`** for snapshots. |
+| **Alpha Vantage** | Stocks / forex / crypto | `alphavantage` | **`ALPHA_VANTAGE_API_KEY`**. Time-series via MCP **`TOOL_CALL`**. Static chart — no live tick poller. |
+
+#### Related market data (not primary OHLCV chart sources)
+
+These catalog MCPs add context the agent can load for research, TA, or macro — but they are **not** in **`list_ohlcv_sources`** and do not replace a candle fetch:
+
+| Catalog id | Typical use |
+|------------|-------------|
+| **`coinmarketcap`** (full official MCP) | TA, news, narratives, on-chain metrics — requires **`COINMARKETCAP_API_KEY`**. Optional alongside **`coinmarketcap-public`**; not the default for DEX/Uniswap pool charts. |
+| **`messari`** | Crypto intelligence (**`MESSARI_SDK_API_KEY`**) |
+| **`altfins`** | Crypto analytics (**`ALTFINS_API_KEY`**) |
+| **`dune`** | On-chain analytics queries (**`DUNE_API_KEY`**) |
+| **`whale-tracker`** | Large transfer alerts (**`WHALE_ALERT_API_KEY`**) |
+| **`gdelt-cloud`** | Macro / world-event search (**`GDELT_API_KEY`**) |
+
+For Telegram, Discord, and Reddit channel search (sentiment, not candles), use built-in **`continuum`** social tools — [MCP servers — Social media search](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md#social-media-search-on-continuum).
+
+DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded with **`agent_load_mcp_server`** after you choose a provider — see [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). Execution protocols (swaps, perps, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+
+#### Live chart updates
+
+When the OHLCV source supports it, the interactive chart can refresh the last price on a short poll without refetching full history:
+
+| Source | Live binding |
+|--------|----------------|
+| **CoinGecko** / **CoinGecko Pro** | **`coinId`** + bucket from execute output |
+| **Binance** | Full klines JSON → **`binance.tickerPrice`** |
+| **Coinbase (public)** | Full candles JSON → **`coinbase.productTicker`** |
+| **Financial Modeling Prep** | Full chart JSON → **`fmp.quote`** |
+| **Alpaca** | Full bars JSON → **`alpaca.latestTrade`** |
+| **Hyperliquid**, **Arcus**, **GMX**, other DeFi | Full fetch JSON; node may bind perp live |
+| **Equibles**, **Alpha Vantage** | Static series — snapshots via provider tools, no chart poller |
+| **CoinMarketCap (public)** DEX klines | Often static; Pro CEX historical may lag — offer another source if stale |
 
 ### Default chart
 

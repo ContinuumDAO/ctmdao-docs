@@ -178,7 +178,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-23T16:24:20.097Z",
+  "generatedAt": "2026-08-27T16:23:04.955Z",
   "pageCount": 57,
   "llmld:sections": [
     {
@@ -200,7 +200,7 @@
           "name": "MCP servers",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers.md",
-          "excerpt": "Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, charts, research, Foundry, and more. This page covers ContinuumDAO repository MCP se"
+          "excerpt": "Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, charts, research, social channel search, Foundry, and more. This page covers Continu"
         },
         {
           "name": "Overview",

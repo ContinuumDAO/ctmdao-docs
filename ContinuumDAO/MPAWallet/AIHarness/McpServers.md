@@ -1,6 +1,6 @@
 ## MCP servers
 
-Every MPC node ships an **AI agent harness** that can call **MCP servers** — tool packs the agent loads for wallet actions, charts, research, Foundry, and more.
+Every MPC node ships an **AI agent harness** that can call **MCP servers** — tool packs the agent loads for wallet actions, charts, research, social channel search, Foundry, and more.
 
 This page covers **ContinuumDAO repository MCP servers** (built into the node image). Third-party catalog entries (Brave Search, Tavily, Alpaca, and similar) use the same UI pattern; see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#3-variables-mcp-servers-and-default-search).
 
@@ -20,7 +20,7 @@ All settings are under **Node → AI Agent → MCP Servers** and **Variables** u
 **Typical workflow**
 
 1. Open **AI Agent → MCP Servers** — confirm **`continuum`** is enabled.
-2. **Add from repository** for optional servers (Foundry, CoinGecko, business news, and so on).
+2. **Add from repository** for optional servers (Foundry, CoinGecko, Blockscout, business news, and so on). Social channel search (Telegram, Discord, Reddit) is built into **`continuum`** — configure under **Continuum → Social search**, not the catalog.
 3. Set **Variables** for any `apiKeyEnvVar` / `envVars` the listing shows.
 4. Toggle **Initial load** if you want that server’s tools in **every new chat**; otherwise the agent loads them per conversation with **`agent_load_mcp_server`** (or you enable Initial load and start a fresh chat).
 
@@ -56,6 +56,7 @@ The **`continuum`** server is the agent’s primary wallet interface. It is **no
 - DeFi protocol packs (`list_defi_protocols`, `load_defi_protocol`, protocol-specific build tools)
 - Charting and analysis (`prepare_chart_from_rows`, liquidity depth, trade ideas)
 - MPA billing, veCTM attach, VPN billing multisign (**`claim_node_withdraw_authority`** before first Linea register — see [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md#withdraw-authority); register / deposit / sync — not WireGuard admin; see **`vpn`** below)
+- Social channel search (Telegram, Discord, Reddit — deferred tool group; see [Social media search](#social-media-search-on-continuum) below)
 
 **Compose-related tools** (same custody loop as the node app — see [Compose transaction flow](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md)):
 
@@ -94,6 +95,28 @@ Protocol reference (tool names): [ctm-mpc-defi continuum-dao skill](https://gith
 
 ---
 
+### Social media search on **`continuum`**
+
+Search **public Telegram channels**, **Discord guild channels**, and **Reddit subreddits** from Agent chat — text queries, ticker scans ($ETH, #UNI, bare caps), and (on Reddit) full thread context. These tools live on the built-in **`continuum`** server in deferred tool groups — not separate catalog MCP rows.
+
+**Enable:** the agent calls **`activate_tool_group`** with **`social_search`** (aliases **`social`**, or per-platform **`social:telegram`**, **`social:discord`**, **`social:reddit`**). In the node app: **AI Agent → MCP Servers → Continuum → Social search** — configure each platform and set **Variables**.
+
+**Shared config:** bundled **`social-search.yaml`** (tickers allowlist, ticker-detection rules, default channel/subreddit/guild lists). Edit on the node under **AI Agent → Workspace** or the Social search UI. Empty **`tickers: []`** on ticker-scan tools means open detection (any matched symbol).
+
+| Platform | Variables | Typical tools |
+|----------|-----------|---------------|
+| **Telegram** | **`TELEGRAM_API_ID`**, **`TELEGRAM_API_HASH`**, **`TELEGRAM_SESSION_PATH`** (phone login wizard in **Social search → Telegram**) | **`search_telegram_messages`**, **`search_telegram_tickers`** |
+| **Discord** | **`DISCORD_BOT_TOKEN`** (bot needs **MESSAGE_CONTENT** intent + **Read Message History**) | **`search_discord_messages`**, **`search_discord_tickers`** |
+| **Reddit** | **`REDDIT_CLIENT_ID`**, **`REDDIT_CLIENT_SECRET`**, **`REDDIT_USER_AGENT`** (script app at [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps)) | **`search_reddit_posts`**, **`search_reddit_tickers`**, **`get_reddit_thread`** |
+
+Telegram search uses Telethon (Python 3 on the node). Reddit uses PRAW. Discord uses the guild message-search REST API.
+
+**Example agent prompts:** *"Search Telegram for mentions of ETH in the last week"*, *"Scan Discord for $UNI ticker chatter"*, *"What is Reddit saying about this proposal?"*, *"Fetch the full Reddit thread for this permalink"*.
+
+Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.com/ContinuumDAO/continuum-node-sdk/blob/master/src/mcp/resources/agent-social-search.md). Telegram bot notify/DM (separate from channel search) uses **`agent-telegram.md`** on the same server.
+
+---
+
 ### Repository servers on **continuum-mcp**
 
 These MCP servers are **implemented in [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk)** and run in the **`continuum-mcp`** sidecar inside the node app image (`http://continuum-mcp:8446/...`). Catalog ids match **`MCP_servers.json`** / **`MCP_default_servers.json`**.
@@ -109,7 +132,7 @@ These MCP servers are **implemented in [continuum-node-sdk](https://github.com/C
 
 **Chart sources:** **`coinmarketcap-public`**, **`coinbase-public`**, FMP, Alpaca, Equibles, and other OHLCV MCPs are listed in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
 
-**News / research:** **`business-latest`** and **`world-affairs`** are not OHLCV sources. Load per chat when you want headline scans or RSS search.
+**News / research:** **`business-latest`** and **`world-affairs`** are not OHLCV sources. Load per chat when you want headline scans or RSS search. **`gdelt-cloud`** adds macro/event search (optional **`GDELT_API_KEY`**). For Telegram, Discord, and Reddit channel search, use the built-in **`continuum`** social tools — see [Social media search](#social-media-search-on-continuum) above.
 
 **Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
@@ -124,10 +147,11 @@ The same **Add from repository** flow activates servers defined in **`MCP_server
 | Category | Example catalog ids |
 |----------|---------------------|
 | Search / browser | **`duckduckgo`**, **`brave-search`**, **`google-search`**, **`exa`**, **`tavily`**, **`kagi`**, **`serpapi`**, **`perplexity`**, **`mullvad-browser`**, **`gecko`**, **`firefox`** |
-| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`** |
-| On-chain / dev | **`foundry`**, **`etherscan`** |
-| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`edgartools`** |
-| Other | **`venice`**, **`x`** (Twitter) |
+| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`coinmarketcap-public`**, **`coinbase-public`**, **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`** |
+| On-chain / dev | **`foundry`**, **`etherscan`** (official HTTP), **`etherscan-community`** (stdio — not official), **`blockscout`** (official HTTP) |
+| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`business-latest`**, **`world-affairs`**, **`edgartools`** |
+| Social (third-party API) | **`x`** (Twitter — **`TWITTER_*`** env vars) |
+| Other | **`venice`** |
 
 Each row may require **Variables** (API keys, OAuth tokens, or **`EDGAR_IDENTITY`**). The UI shows env var **names** and configured flags — never secret values.
 

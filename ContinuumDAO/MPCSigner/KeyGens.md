@@ -26,11 +26,17 @@ For **EIP-191 (MetaMask)**: use a **newly created software wallet address** dedi
 
 Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*, but other nodes can choose their own signature type, so that for instance, two nodes in a KeyGen can have MetaMask for a human from one node and Ed25519 for an AI agent from the other.
 
-(3) The Client Key is automatically selected based on the auth chosen. For EIP-191 (MetaMask) it is the Ethereum address of your node's NodeMgtKey in the configs.yaml file on the node. For Ed25519, it can either be the *bootstrap* 128 hex public key in PublicMgtKey in configs.yaml, or one of the other public keys added by the user later (for security), which are stored in the node's database. See the Node Running Instructions for how to create an ed25519 key pair.
+(3) The Client Key is automatically selected based on the auth chosen. For **EIP-191 (MetaMask)** it is your node's **Ethereum management address** (the one you use when the app prompts for a management signature). For **Ed25519**, choose from keys listed under **Node → Ed25519 Management Keys** — typically **Bootstrap (config)** from install, or an added key you created there. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
+
+**With an AI agent:** ask for example *"Add a new Ed25519 management signer and set it as preferred"* or *"Show my management keys"* — see [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) if you need mesh setup first.
 
 (4) GroupID
 
 Each KeyGen applies to a single Group that has previously been created, This defines which nodes can partake in the Sign Requests. All nodes in the Group must be in a healthy state before the KeyGen can start. A check is run to make sure this is the case.
+
+If the KeyGen request is blocked, confirm every Group member is healthy on the [Groups](/ContinuumDAO/MPCSigner/Groups.md) page (**Health** section and peer list). Fix peer/MQTT setup or restart from the **Node** page as described there.
+
+**With an AI agent:** ask for example *"Check why I can't create a KeyGen"*, *"Are all nodes in my Group healthy?"*, or follow [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) for mesh fixes.
 
 (5) Threshold
 
@@ -46,19 +52,26 @@ So long as **threshold** nodes have agreed to a Sign Request, that signature may
 
 (6) Key type
 
-This is the cryptographic key type for which a signature is being sought. We currently support two key types:
+This is the cryptographic key type for which a signature is being sought. We currently support three key types:
 
-- **secp256k1** — ECDSA, threshold signing via **CGGMP24**; used by Ethereum, EVMs, and some other chains
+- **secp256k1** — ECDSA, threshold signing via **CGGMP24**; used by Ethereum, EVMs, and **Bitcoin SegWit (P2WPKH)** (**bc1q…**). One multi-agree secp256k1 KeyGen can custody EVM assets and SegWit BTC together.
 - **ed25519** — EdDSA, threshold signing via **FROST**; used by many non-EVM chains (e.g. Solana, NEAR, TON, SUI, APTOS, Algorand, Stellar)
+- **bitcoin-taproot** — Schnorr (BIP-340 key-path), threshold signing via **FROST** (via **givre**); used for **Bitcoin Taproot (P2TR)** (**bc1p…**). This is a **separate** KeyGen from secp256k1 and from ed25519 — create a dedicated **multi-agree** KeyGen when you want Taproot custody. See [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md).
 
-Both protocols are maintained by the Lockness project under LF Decentralized Trust (Linux Foundation). 
+**CGGMP24** and **FROST** are maintained by the Lockness project under LF Decentralized Trust (Linux Foundation).
 
-NOTE *don't confuse the management signature type Ed25519 with the MPC signature ed25519*
+NOTE *don't confuse the management signature type Ed25519 with the MPC signature types **ed25519** or **bitcoin-taproot***
 
 
 Any number of KeyGens can be created for a Group, of both types "multi-agree", or "tx-check", with different management signatures, different thresholds, or different Key types. Each Group can have its own set of KeyGens.
 
-Each KeyGen will have different public addresses derived from its *public key* depending on the Key type and the target blockchain. A KeyGen of type secp256k1 will have a single Ethereum address, but a KeyGen of type ed25519 will have separate unique public addresses depending on the blockchain. All of these addresses are derived in different ways from the single *public address* of the KeyGen.
+Each KeyGen will have different public addresses derived from its *public key* depending on the Key type and the target blockchain:
+
+- **secp256k1** — a single Ethereum address, plus SegWit **bc1q…** addresses derived automatically for Bitcoin mainnet, testnet, and signet
+- **ed25519** — separate unique public addresses per blockchain (e.g. Solana, NEAR)
+- **bitcoin-taproot** — Taproot **bc1p…** addresses for Bitcoin mainnet, testnet, and signet
+
+SegWit and Taproot are **different addresses** — funds sent to one are not spendable with the other KeyGen type.
 
 
 ### KeyGen Agreement 
@@ -99,4 +112,6 @@ If the Group later wants to leave MPC for this key and hold a normal private key
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Eject to Private Key](/ContinuumDAO/MPAWallet/EjectConversion.md)
 - [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) — tx-check KeyGens for C3Caller
+- [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
+- [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md) — SegWit (secp256k1) vs Taproot (bitcoin-taproot)
 

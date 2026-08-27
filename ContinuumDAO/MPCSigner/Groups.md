@@ -15,7 +15,13 @@ Any node can request Group creation by clicking the Add group button and selecti
 
 If all nodes that have been requested to do so, agree, then the new Group is created.
 
-If this button is deactivated, it likely means that either your configs.yaml has errors (run ./process_config.sh on your node to check), or that your node has not initialized the inter-node network (try restarting your node with sudo docker-compose down && sudo docker-compose up -d). The health of your node is shown in the Health section. If some other Configured Nodes have health issues, then this is shown in the Add group selection e.g.
+If this button is deactivated, it likely means that either your node configuration has errors, or that your node has not initialized the inter-node network. The health of your node is shown in the **Health** section on this page.
+
+**In the node app:** open **Node → Node Peer IP Editing** to confirm relay and peer IPs match your collaborators, complete **Inter Node Communication** (MQTT) as the UI guides, and use **Restart Node Service** on the Node page if connectivity still looks stuck after you save changes.
+
+**With an AI agent:** attach via [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) and ask in plain language — for example *"Check why Add group is disabled"*, *"Check my node health and peer connectivity"*, *"Set up my configured nodes with relay … and peers …"*, *"Configure inter-node MQTT from the relay"*, or *"Restart my node if it needs a reload after these changes"*.
+
+If some other Configured Nodes have health issues, then this is shown in the Add group selection e.g.
 
 <img src="/_media/Health_and_connectivity.png"  alt=""/>
 
@@ -39,7 +45,7 @@ Note that if your node is not a member of a Group, you will not see it. A list o
 
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
-- [Install a node](/ContinuumDAO/MPAWallet/Install.md) — Post install steps
+- [Install a node — Post install steps](/ContinuumDAO/MPAWallet/Install.md#post-install-steps)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Creating an MPC Signer](/ContinuumDAO/MPCSigner/CreateMPCSigner.md)
 
