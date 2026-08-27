@@ -11,6 +11,26 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_BASE_URL = 'https://docs.continuumdao.org';
 const HOME_URL = 'https://continuumdao.org';
 const MPA_NODE_MAP = 'https://mpa.continuumdao.org/node-map';
+const PRIVATE_VPN_DOC = `${DOCS_BASE_URL}/ContinuumDAO/PrivateVPN.md`;
+const PRIVATE_VPN_URL = `${DOCS_BASE_URL}/ContinuumDAO/PrivateVPN`;
+
+/** veCTM-gated WireGuard VPN — canonical doc task for AI crawlers. */
+const privateVpnAgentTask = {
+	task: 'private-vpn',
+	summary:
+		'Enable Private VPN on an MPA node: attach veCTM at the governance voting-power threshold, enable WireGuard on the node, download client configs (optional obfuscation). Not a separate paid subscription.',
+	canonicalDoc: PRIVATE_VPN_DOC,
+	canonicalDocUrl: PRIVATE_VPN_URL,
+	keywords: [
+		'private vpn',
+		'wireguard',
+		'veCTM',
+		'vpn',
+		'shadowsocks',
+		'egress',
+		'vpn mcp',
+	],
+};
 const INDEX_PATH = join(root, 'search-index.json');
 const INSTALL_MD_PATH = join(root, 'ContinuumDAO', 'MPAWallet', 'Install.md');
 const AGENT_PROVISION_MD_PATH = join(
@@ -182,6 +202,11 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 				name: 'Optional: configure the built-in AI harness',
 				url: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/AIHarness/Configure.md`,
 			},
+			{
+				step: 'private-vpn',
+				name: 'Optional: Private VPN (requires attached veCTM at voting-power threshold)',
+				url: PRIVATE_VPN_DOC,
+			},
 		],
 		keyFacts: [
 			'AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). Do not start from NodeRunningInstruction.md.',
@@ -190,6 +215,7 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			'One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.',
 			'For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.',
 			'LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.',
+			`Private VPN (WireGuard through your node): ${PRIVATE_VPN_URL} — veCTM privilege, not a Linea subscription; MCP \`vpn\` server on continuum-mcp.`,
 		],
 	};
 }
@@ -211,6 +237,7 @@ function buildLlmIndex(index, installDiscovery) {
 				'MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.',
 				'AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.',
 				'Governance, C3Caller, MPC concepts, and node running guides are all indexed here.',
+				`Private VPN on MPA nodes: ${PRIVATE_VPN_URL} — veCTM-gated WireGuard; see AI agent steps and external client setup in that doc.`,
 			],
 		},
 		'llmld:getStarted': installDiscovery,
@@ -233,6 +260,7 @@ function buildLlmIndex(index, installDiscovery) {
 						},
 					]
 				: []),
+			privateVpnAgentTask,
 		],
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
@@ -272,11 +300,13 @@ function buildLlmsTxt(index, install) {
 		`| macOS home PC | [Install.md](${install.canonicalDoc}) + [macOS guide](${install.routes[2].guide}) |`,
 		`| Linux home PC | [Install.md](${install.canonicalDoc}) or node-map + button |`,
 		`| Advanced manual only | [NodeRunningInstruction.md](${install.avoidForAgents}) — not the default |`,
+		`| Private VPN on your node (veCTM required) | [Private VPN](${PRIVATE_VPN_URL}) |`,
 		'',
 		`**After install:** topology, peers, MQTT, Group, KeyGen (prefer 2-of-3) — [Agent provision and configure](${install.canonicalAgentDocUrl}). Humans: [Post install steps](${install.canonicalDocUrl}#post-install-steps).`,
 		'',
 		`- [Agent provision and configure](${install.canonicalAgentDocUrl})`,
 		`- [Install a node (human guide)](${install.canonicalDocUrl})`,
+		`- [Private VPN](${PRIVATE_VPN_URL}) — WireGuard through your node; veCTM-gated; AI agent steps and client setup`,
 		`- [Home site install-node.json](${install.homeInstallJson})`,
 		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
 		'',

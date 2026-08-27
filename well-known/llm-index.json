@@ -13,7 +13,8 @@
       "search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.",
       "MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.",
       "AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.",
-      "Governance, C3Caller, MPC concepts, and node running guides are all indexed here."
+      "Governance, C3Caller, MPC concepts, and node running guides are all indexed here.",
+      "Private VPN on MPA nodes: https://docs.continuumdao.org/ContinuumDAO/PrivateVPN — veCTM-gated WireGuard; see AI agent steps and external client setup in that doc."
     ]
   },
   "llmld:getStarted": {
@@ -120,6 +121,11 @@
         "step": "ai-harness",
         "name": "Optional: configure the built-in AI harness",
         "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md"
+      },
+      {
+        "step": "private-vpn",
+        "name": "Optional: Private VPN (requires attached veCTM at voting-power threshold)",
+        "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md"
       }
     ],
     "keyFacts": [
@@ -128,7 +134,8 @@
       "The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.",
       "One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.",
       "For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.",
-      "LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool."
+      "LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.",
+      "Private VPN (WireGuard through your node): https://docs.continuumdao.org/ContinuumDAO/PrivateVPN — veCTM privilege, not a Linea subscription; MCP `vpn` server on continuum-mcp."
     ]
   },
   "llmld:agentTasks": [
@@ -173,6 +180,21 @@
         "create node",
         "provision VPS",
         "mpc-config"
+      ]
+    },
+    {
+      "task": "private-vpn",
+      "summary": "Enable Private VPN on an MPA node: attach veCTM at the governance voting-power threshold, enable WireGuard on the node, download client configs (optional obfuscation). Not a separate paid subscription.",
+      "canonicalDoc": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md",
+      "canonicalDocUrl": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN",
+      "keywords": [
+        "private vpn",
+        "wireguard",
+        "veCTM",
+        "vpn",
+        "shadowsocks",
+        "egress",
+        "vpn mcp"
       ]
     }
   ],
