@@ -22,7 +22,8 @@ Protocol buttons are **asset-specific**: the wallet only shows integrations that
 
 - **ETH** — **Lido** (stake native ETH; stETH / wstETH flows)
 - **USDC** — **Circle CCTP** (cross-chain native USDC burn → mint)
-- Other ERC-20 rows may expose **Aave**, **Euler**, **Morpho**, **Uniswap**, **Curve**, and similar packs when that asset is supported in the protocol UI
+- On **Base**, rows may also expose **Aerodrome** (spot swaps, LP, gauges, Coinbase B20 stocks)
+- Other ERC-20 rows may expose **Aave**, **Compound III**, **Euler**, **Morpho**, **Uniswap**, **Curve**, and similar packs when that asset is supported in the protocol UI
 
 That keeps the Assets tab uncluttered: you do not see Lido on USDC or CCTP on ETH.
 

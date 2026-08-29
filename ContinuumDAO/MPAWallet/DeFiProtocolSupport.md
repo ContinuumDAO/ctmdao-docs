@@ -12,7 +12,7 @@ Every supported protocol opens in the **same modal pattern** in the node app. Yo
 
 **How to open a protocol**
 
-- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Aave** on supply/borrow markets for that asset)
+- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Aerodrome** on **Base**, **Aave** / **Compound III** on supply/borrow markets for that asset)
 - **Multi-sign / protocol UI** — browse available packs for the selected chain and KeyGen when you are not starting from a specific token row
 
 **Shared steps (every pack)**
@@ -32,11 +32,15 @@ See [Asset management — protocol modals](/ContinuumDAO/MPAWallet/AssetManageme
 
 ### Supported protocols
 
+Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Arcus**, **Circle CCTP**, **Venice**.
+
 | Protocol | Capabilities | Permissions / requirements |
 |----------|--------------|----------------------------|
 | **Uniswap v4** | Spot swaps; UniswapX limit orders (Ethereum mainnet); LP mint / increase / decrease / collect; pool OHLCV; agent TP/SL-style monitoring via cron (not a native Uniswap order type) | **`UNISWAP_API_KEY`** in **AI Agent → Variables** (and for agent quotes). Some **tokenized / permissioned** pools require issuer **KYC** (check permissions in-app; KYC apply link when shown). Optional **`BITQUERY_API_KEY`** / **`THE_GRAPH_API_KEY`** for some OHLCV / indexing paths. |
 | **Curve** | Spot swaps (Router NG quote → multi-sign) | Node RPC and pool routing; no Curve API key. |
+| **Aerodrome** | Spot swaps (v2 + Slipstream); basic vAMM/sAMM LP add / remove; Slipstream CL mint / increase / decrease / burn; gauge stake / unstake; claim pool fees and AERO emissions; Coinbase B20 tokenized stocks (e.g. AAPLc) | **Base (8453)** only. Node RPC; no Aerodrome API key. **No** veNFT lock / vote, Velodrome Superchain, or Pool Launcher. |
 | **Aave v4** | Supply / withdraw, borrow / repay; health-factor previews | Collateral before borrow; chain / market must be supported. |
+| **Compound III** | Isolated Comet markets: supply collateral / base (earn), withdraw / borrow, repay, claim COMP rewards; optional Bulker combined actions; native ETH wrap / unwrap | Ethereum, Base, Arbitrum, Optimism, Polygon, Mantle, Unichain, Linea. Chain must be in the node registry with RPC. Collateral before borrow. No Compound API key. |
 | **Euler v2** | Isolated lend / borrow; vault and collateral deposit / withdraw; repay; related claim / unlock flows in UI | Vault and asset addresses; supported chains only. |
 | **Morpho** | Earn vault deposit / withdraw (incl. Robinhood Earn-style USDG where supported); Blue collateral / borrow / repay; Midnight fixed-rate lend / borrow / repay (take-only); Merkl claim | Morpho APIs as used by the node; Midnight: take-only (no maker posting from this wallet). |
 | **Lido** | ETH stake; withdrawal request / claim; stETH ↔ wstETH wrap / unwrap | Primary stake / redeem on Ethereum mainnet; other chains may only recognize bridged assets. |
