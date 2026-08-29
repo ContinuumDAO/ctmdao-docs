@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ContinuumDAO/Governance/Constitution.md",
+                "file": "ContinuumDAO/MPAWallet/AssetManagement.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Constitution"
+              "title": "AssetManagement"
             }
           }
         ]
@@ -173,6 +173,22 @@
   },
   "active": "5e68a42adbc55dc3",
   "lastOpenFiles": [
+    "_media/asset-management-assets-rows.png",
+    "ContinuumDAO/MPAWallet/VeCTMOnYourNode.md",
+    "ContinuumDAO/PrivateVPN.md",
+    "_sidebar.md",
+    "ContinuumDAO/MPCSignerConfiguredNodes.md",
+    "ContinuumDAO/MPAWallet/MpaBilling.md",
+    "ContinuumDAO/MPAWallet/Install.md",
+    "ContinuumDAO/MPCSigner/Groups.md",
+    "ContinuumDAO/MPCSigner/ConfiguredNodes.md",
+    "ContinuumDAO/MPAWallet/ComposeTransactionFlow.md",
+    "ContinuumDAO/MPAWallet/AIHarness/PlanMode.md",
+    "ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md",
+    "ContinuumDAO/MPAWallet/AIHarness/McpServers.md",
+    "_media/mpc-compose-eip712.png",
+    "_media/Screenshot from 2026-08-23 14-59-05.png",
+    "ContinuumDAO/Governance/Constitution.md",
     "README.md",
     "ContinuumDAO/WhitePaper.md",
     "ContinuumDAO/MPAWallet/Bitcoin.md",
@@ -197,28 +213,12 @@
     "_media/Screenshot from 2026-08-17 12-21-26.png",
     "_media/asset-management-aave-usdc-modal.png",
     "_media/Screenshot from 2026-08-17 12-17-57.png",
-    "_media/asset-management-assets-rows.png",
-    "_media/Screenshot from 2026-08-17 12-13-09.png",
     "ContinuumDAO/MPAWallet/ChainManagement.md",
-    "ContinuumDAO/MPAWallet/ComposeTransactionFlow.md",
     "ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md",
     "ContinuumDAO/MPAWallet/Overview.md",
     "ContinuumDAO/MPAWallet/TechnicalAnalysis.md",
     "ContinuumDAO/Governance/CreatingProposal.md",
-    "scripts/README.md",
     "scripts/before-git-push.sh",
-    "ContinuumDAO/Governance/HowToWriteAProposal.md",
-    "ContinuumDAO/C3Caller/ContractAddresses.md",
-    "ContinuumDAO/C3Caller/C3CallerDemo.md",
-    "ContinuumDAO/C3Caller/Contracts.md",
-    "ContinuumDAO/MPC/WhatIsMPC.md",
-    "ContinuumDAO/MPC/BetterSecurity.md",
-    "ContinuumDAO/MPC/StrongerSecurity.md",
-    "ContinuumDAO/MPAWallet/AttachYourNode.md",
-    "ContinuumDAO/MPCSigner/KeyGens.md",
-    "ContinuumDAO/MPCSigner/Groups.md",
-    "ContinuumDAO/MPAWallet/Install.md",
-    "ContinuumDAO/MPAWallet/AICharting.md",
     "ContinuumDAO/Untitled 1.canvas",
     "ContinuumDAO/Untitled.canvas"
   ]
