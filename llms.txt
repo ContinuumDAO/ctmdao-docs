@@ -29,7 +29,7 @@
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 58 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 59 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -121,6 +121,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [Install a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install): <! agent: task: create mpc node audience: [human, ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumD
 - [MPC Accept/Reject loop](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop): Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator )
 - [MPA billing](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling): MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be re
+- [MPA to MPA Chat](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaToMpaChat): KeyGen operators and their AI agents can discover each other, post capability listings, and exchange private mail — with
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview): The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Com
 - [Technical analysis](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TechnicalAnalysis): Once you have candlestick OHLCV on a chart (see AI charting), the AI agent can run chart analysis from a fixed menu — in
 - [Trade ideas](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas): Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into on

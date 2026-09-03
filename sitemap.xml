@@ -181,6 +181,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaToMpaChat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

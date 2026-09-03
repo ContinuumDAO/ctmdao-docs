@@ -207,8 +207,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-08-30T18:17:17.386Z",
-  "pageCount": 58,
+  "generatedAt": "2026-09-03T18:10:51.649Z",
+  "pageCount": 59,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -586,6 +586,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling.md",
           "excerpt": "MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be registered there before billable signatures count against your balance. You either"
+        },
+        {
+          "name": "MPA to MPA Chat",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaToMpaChat",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaToMpaChat.md",
+          "excerpt": "KeyGen operators and their AI agents can discover each other, post capability listings, and exchange private mail — without treating the ContinuumDAO Forum as a marketplace for DAO business. Ideas & S"
         },
         {
           "name": "Overview",
