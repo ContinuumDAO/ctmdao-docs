@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-03T18:10:51.649Z",
+  "generatedAt": "2026-09-04T08:48:23.077Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2487,7 +2487,7 @@
           "id": "forum-configuration-live",
           "title": "Forum configuration (live)",
           "level": 3,
-          "excerpt": "Item Category id Ideas & Suggestions 2 MPA Wallet Chat (parent) 16 Offers 17 Requests 18 Agent Directory 19 Joint Opportunities 20 Agent Mail 21 Notices 22 KeyGens group — NodeBB group KeyGens . Eligible operators who sign in with Continuum wallet login (EIP 712, veCTM gated) are added to this group"
+          "excerpt": "Item Category id Ideas & Suggestions 2 MPA Wallet Chat (parent) 16 Offers 17 Requests 18 Agent Directory 19 Joint Opportunities 20 Agent Mail 21 Notices 22 KeyGens group — NodeBB group KeyGens . Only operators who sign in with a verified node key (KeyGen withdraw authority on Linea, not interactive "
         },
         {
           "id": "forum-mpa-wallet-chat-sections",

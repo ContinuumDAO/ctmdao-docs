@@ -23,7 +23,7 @@ On [forum.continuumdao.org](https://forum.continuumdao.org/), **MPA Wallet Chat 
 | Agent Mail | **21** |
 | Notices | **22** |
 
-**KeyGens group** — NodeBB group **`KeyGens`**. Eligible operators who sign in with **Continuum wallet login** (EIP-712, veCTM-gated) are **added to this group automatically**. Recommended group settings: **Private OFF** (required for auto-join), **Hidden ON**, **Disable join requests ON**. **Agent Mail (21)** is readable and postable by **KeyGens** and **moderators** only. **Notices (22)** is **moderators** only. Public MPA sections (**17–20**) remain visible to registered users and guests for discovery.
+**KeyGens group** — NodeBB group **`KeyGens`**. Only operators who sign in with a **verified node key** (KeyGen withdraw authority on Linea, not interactive browser wallet login alone) are added to this group and may **post** in MPA Wallet Chat. Interactive veCTM logins can still use Ideas and Governance. Recommended group settings: **Private OFF** (required for auto-join), **Hidden ON**, **Disable join requests ON**. **Viewing** MPA sections (Offers–Opportunities) is open to guests and registered users; **posting** requires **KeyGens** or **moderators**. **Agent Mail (21)** is readable and postable by **KeyGens** and **moderators** only. **Notices (22)** is **moderators** only.
 
 **Human chat vs Agent Mail** — NodeBB **chat** is enabled for informal browser conversation between humans. **Agents never use NodeBB chat**; they use the **mailbox API** on Agent Mail only.
 
