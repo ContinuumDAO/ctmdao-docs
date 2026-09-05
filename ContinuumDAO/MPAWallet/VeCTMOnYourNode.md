@@ -1,6 +1,6 @@
 ## veCTM on your node
 
-**veCTM** is ContinuumDAO’s voting-escrow token: you lock **CTM** for a chosen period and receive an **veCTM NFT** that carries **governance voting power**. When you **attach** that NFT to your MPA wallet node, you unlock practical benefits — **DAO participation**, **free wallet signatures** (subscription through staking), and **Private VPN** at the same voting-power threshold — while accepting that **removing it requires a governance vote**.
+**veCTM** is ContinuumDAO’s voting-escrow token: you lock **CTM** for a chosen period and receive an **veCTM NFT** that carries **governance voting power**. When you **attach** that NFT to your MPA wallet node (from the **withdraw-authority** KeyGen that **owns** it), you unlock practical benefits — **DAO participation**, **free wallet signatures** (subscription through staking) for that **Group**, and **Private VPN** for the **node** at the same locked-CTM / month-start voting-power threshold — while accepting that **removing it requires a governance vote**.
 
 This page is for node operators. Governance background: [How To Write a Proposal](/ContinuumDAO/Governance/HowToWriteAProposal.md). Agent-assisted Forum and voting: [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md).
 
@@ -12,7 +12,7 @@ This page is for node operators. Governance background: [How To Write a Proposal
 |---------|----------------|
 | **Governance** | Voting power for ContinuumDAO — Forum access at holder thresholds, on-chain proposals, and votes. With the [AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) configured, your agent can help research, draft, and vote; your Group still **Accept**s every on-chain step. |
 | **Free wallet signatures** | **Subscription through staking** — free MPA wallet use up to a **governance-set signature limit** each month, instead of paying a **monthly subscription** in stablecoins. Limits and any overage fees are set by DAO votes. |
-| **Private VPN** | Encrypted WireGuard tunnel through your node (and optional peer sharing) when attached veCTM meets the same voting-power threshold — see [Private VPN](/ContinuumDAO/PrivateVPN.md). Not sold separately; **staked veCTM required**. |
+| **Private VPN** | Encrypted WireGuard tunnel through your node (and optional peer sharing) when **this node** is a member of a Group whose recorded attach key still meets the same threshold — see [Private VPN](/ContinuumDAO/PrivateVPN.md). Not sold separately; **staked veCTM required**. The current authority KeyGen need not hold the NFT after you rotate authority. |
 
 Attaching veCTM also signals long-term alignment with the protocol. Operators who later opt into **approved cross-chain signing Groups** may earn additional **CTM, USDC, or ETH** rewards (rates set by governance); that is separate from the personal wallet waiver.
 
@@ -38,7 +38,9 @@ This asymmetry is deliberate.
 - You **request detach** through the node; **ContinuumDAO governance must vote** to approve removal before the NFT is released.
 - While attached, the NFT **cannot be sold or liquidated** through the usual escape routes — it stays bound to the node until governance agrees.
 
-Only **one veCTM NFT per MPC Group** can be attached for the subscription waiver. You **cannot swap** to a different NFT without going through the detach process first.
+**One veCTM NFT per KeyGen address** (the address that attaches must own the token). The fee waiver is **per attach key + Group** (`groupId`): sibling KeyGens that **register** with the same Group share that waived month; each KeyGen still has its own free-signature allowance. You **cannot** attach a second NFT from the **same** KeyGen, and you **cannot swap** NFTs on that address without governance **detach** first.
+
+A **second Group on the same node** attaches after you **rotate withdraw authority** to that Group’s secp256k1 KeyGen (the KeyGen that owns its own NFT), then attach and register. Authority is the anti-spoof check on attach and register — it is **not** the VPN gate.
 
 You do **not** need to **describe your node** for normal MPA wallet use, or to attach veCTM for governance and the subscription waiver. Describe your node on the **Node** page only if you want **DAO approval to earn rewards** for verifying **cross-chain transfers** as part of an approved public signing Group — dApps and their users need to know **who** is performing these security-sensitive operations and **which MPC Groups** they may choose. If you take that path, the details you supply (Forum handle, email, hosting metadata) become **public on-chain** when you attach veCTM; describe yourself honestly.
 
@@ -52,7 +54,7 @@ Misbehaving operators on those public cross-chain roles risk governance **refusi
 2. Create a **Group** and a **secp256k1 KeyGen** → [Groups](/ContinuumDAO/MPCSigner/Groups.md), [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md).
 3. Add **Linea**  in [Chain management](/ContinuumDAO/MPAWallet/ChainManagement.md).
 4. Complete **MPA billing setup** for that KeyGen on Linea — including [withdraw authority](/ContinuumDAO/MPAWallet/MpaBilling.md#withdraw-authority) before the first registration.
-5. Hold a **veCTM NFT** at the KeyGen address that will act as the node’s billing **authority** for that Group.
+5. Hold a **veCTM NFT** at the secp256k1 KeyGen that will **attach** for that Group — that KeyGen must be this node’s **withdraw authority** at attach time (claim authority first, or rotate onto it). The attach call binds the waiver to that KeyGen’s **Group id** immediately.
 
 ---
 
@@ -78,7 +80,7 @@ Currently, the attached veCTM NFT must carry at least **200 CTM in the lock** to
 **Tip:**
 *Attach a veCTM with 200 CTM in the lock and then delegate enough veCTM from other external wallets to the KeyGen address so that you do not need to worry about having the required Voting power threshold on the 1st day of each month*.
 
-Wallet signatures and VPN use the same on-chain **`veCtmThresholdPower`** gate in the multi-sign wallet fee contract. There is **no separate VPN subscription** — if your attached veCTM is below the threshold, you cannot enable Private VPN until you lock or attach enough stake.
+Wallet signatures (the Group waiver) and VPN (node privilege) use the same on-chain **`veCtmThresholdPower`** bars in the multi-sign wallet fee contract: **locked CTM** at attach, then **locked CTM plus month-start voting power** to stay waived / privileged. There is **no separate VPN subscription**. VPN stays available after you rotate authority as long as a recorded attach key on this node still meets the bar.
 
 That **200** threshold is a **governance parameter**. ContinuumDAO can raise or lower it through an on-chain vote; always check the **Multi-Sign** billing view on your node for the live minimum before you attach.
 
@@ -86,15 +88,17 @@ That **200** threshold is a **governance parameter**. ContinuumDAO can raise or 
 
 ### Attach veCTM to your node
 
-From the node app (with your **authority KeyGen** selected):
+From the node app (with the **authority KeyGen that owns the NFT** selected):
 
 1. On **Assets**, open **ContinuumDAO** on the veCTM NFT you want to attach.
-2. Open the **Attach** tab, confirm the token id, and submit.
+2. Open the **Attach** tab for **that KeyGen**, confirm the token id, and submit. The compose includes that KeyGen’s **Group id** — you do not pick a different Group.
 3. Peers **Accept** the sign request on **Join**; the originator **Execute**s.
 
-Or ask in **Agent chat**: “Attach my veCTM to this node for subscription waiver” — the agent prepares the same sign request; your Group still must agree.
+Or ask in **Agent chat**: “Attach my veCTM to this node for subscription waiver” — the agent prepares the same sign request from the authority KeyGen; your Group still must agree.
 
-After attach succeeds, the **Multi-Sign** billing view shows whether the Group qualifies for the **veCTM waiver** (free wallet signatures and **Private VPN** when the attached NFT meets the governance voting-power minimum — see [How much veCTM do I need to lock?](#how-much-vectm-do-i-need-to-lock)). Heavier wallet use above the free limit follows the paid subscription or metered rules the DAO defines. **Private VPN** itself is not available without staked attached veCTM at that threshold — see [Private VPN](/ContinuumDAO/PrivateVPN.md).
+After attach succeeds, the waiver is bound to that KeyGen’s Group. **Register** sibling KeyGens with the **same Group id** so they share the waived month. The **Multi-Sign** billing view shows whether **this KeyGen’s Group** qualifies (see [How much veCTM do I need to lock?](#how-much-vectm-do-i-need-to-lock)). Heavier wallet use above the free limit follows the paid subscription or metered rules the DAO defines.
+
+**Private VPN** is a **node** privilege: the node is entitled when **any** recorded Group on it still has a qualifying attach key — check privilege status, not “does the KeyGen I have selected right now own the NFT.” See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
 ---
 
@@ -102,12 +106,12 @@ After attach succeeds, the **Multi-Sign** billing view shows whether the Group q
 
 When you want veCTM back under your KeyGen’s full control:
 
-1. Open **ContinuumDAO** on the attached NFT → **Attach** tab → **Request detach** (same authority KeyGen).
+1. Open **ContinuumDAO** on the attached NFT → **Attach** tab → **Request detach** from the **KeyGen that owns** the NFT.
 2. **Accept** and **Execute** through your Group.
 
 That records your request on-chain. **Governance must pass a proposal** to complete detach. Until then, the NFT stays attached and the escrow actions blocked above remain blocked. Governance votes for detaches may be infrequent.
 
-If a detach request is already open, the UI shows that governance must decide — you cannot submit a second attach for a different NFT on the same Group.
+If a detach request is already open, the UI shows that governance must decide — that KeyGen cannot attach a different NFT until governance detaches. A **second Group** on this node uses a **second secp256k1 KeyGen** (rotate authority, then attach that KeyGen’s own NFT).
 
 ---
 
@@ -121,7 +125,7 @@ If a detach request is already open, the UI shows that governance must decide �
 | Let another address vote for you                  | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent).                                                                                                                                                                                                                          |
 | Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote. Be sure to make sure you have enough Voting power before the 1st of the next month.                                                                                                                                         |
 | Qualify for **C3Caller** cross-chain signing      | Meet the DAO’s minimum on the KeyGen’s **attached veCTM only** — delegated power does **not** count toward that bar.                                                                                                                                                                            |
-| Pay node bills without USDC                       | Keep veCTM **attached** and stay within the monthly free signature limit; top up or sync billing month in Multi-Sign if you also use paid registration paths. At the same voting-power threshold, attached veCTM also unlocks [Private VPN](/ContinuumDAO/PrivateVPN.md) — not billed on Linea. |
+| Pay node bills without USDC                       | Keep veCTM **attached** for that Group and stay within the monthly free signature limit; top up or sync billing month in Multi-Sign if you also use paid registration paths. [Private VPN](/ContinuumDAO/PrivateVPN.md) stays available on the node while any recorded attach key still meets the threshold — not billed on Linea. |
 | Move veCTM off the node                           | **Request detach** and follow the governance process — there is no instant self-service detach.                                                                                                                                                                                                 |
 
 ---

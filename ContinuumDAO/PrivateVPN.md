@@ -4,11 +4,11 @@ Most VPN providers have public servers in different countries that users can rou
 
 Every MPA node can run a **Private VPN** — an encrypted tunnel built on **WireGuard**. It lets you route traffic from your laptop, phone, or other machines **through your node** (useful when you manage the node on a remote VPS but browse or sign from home).
 
-**Private VPN is not a separate paid product.** The multi-sign wallet fee contract treats it as a **veCTM privilege**: you must **lock CTM into veCTM**, **attach** that NFT to your node, and meet the governance-set **voting-power minimum** before you can enable VPN or download client configs. There is no USDC subscription path for VPN — staked veCTM is the gate.
+**Private VPN is not a separate paid product.** The multi-sign wallet fee contract treats it as a **veCTM privilege**: this **node** must be a member of a **Group** (`groupId`) whose **recorded attach key** still has a qualifying veCTM NFT this month (locked CTM and month-start voting power at **`veCtmThresholdPower`**). There is no USDC subscription path for VPN — staked veCTM is the gate. The **current withdraw-authority KeyGen does not need to hold that NFT** — privilege survives rotating authority.
 
 With enough attached **veCTM voting power**, you can **share** your node’s connection with **peer nodes** in your mesh, or **use a peer’s node** as your exit when you need traffic to leave the internet from their location.
 
-Prerequisites: a running node, [attach to the node app](/ContinuumDAO/MPAWallet/AttachYourNode.md), and [veCTM attached](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) with at least the governance-set voting-power minimum  ([How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock)). That threshold can change by DAO vote.
+Prerequisites: a running node, [attach to the node app](/ContinuumDAO/MPAWallet/AttachYourNode.md), and [veCTM attached](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) so this node is a member of a Group whose attach key meets the governance-set minimum ([How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock)). That threshold can change by DAO vote. Confirm entitlement with **`get_node_privilege_status`** (or the node app VPN / Multi-Sign privilege hint) — not “does the *current* authority KeyGen own an NFT?”
 
 ---
 
@@ -20,7 +20,7 @@ Prerequisites: a running node, [attach to the node app](/ContinuumDAO/MPAWallet/
 | **Share your node with peer operators** | Other nodes in your configured peer list can request a client profile and send **their** traffic out through **your** node’s public IP. You set a **speed cap** so sharing stays under your control. |
 | **Use a peer’s node as your exit** | Your node lists available peer exits; you download a client config and connect so **your** traffic leaves the internet from **their** node (for example another region or provider). |
 
-Private VPN unlocks only when the node reports **veCTM privilege** — attached veCTM on the billing **authority KeyGen** with voting power at or above the live **`veCtmThresholdPower`** from the fee contract. A **node trial** or paid wallet month **does not** grant VPN. If privilege is missing, lock more CTM, extend the lock, or attach veCTM before enabling VPN.
+Private VPN unlocks only when the node reports **veCTM privilege**: it is associated with at least one **`groupId`** (via **attach** or **register**) whose recorded attach key still meets **`veCtmThresholdPower`** this month. A **node trial** or paid wallet month **does not** grant VPN. **Withdraw authority** is required to **attach** or **register**, not to enable VPN. If privilege is missing, attach veCTM from the authority KeyGen that **owns** the NFT (then register that Group if needed) — do not treat a missing attach on the *current* authority as “this node is not entitled.”
 
 ---
 
@@ -57,7 +57,7 @@ Consumers see your node in the list of **available exits** (address, country hin
 
 #### Connect your own machine to your node
 
-1. Confirm **veCTM** is attached and meets the voting-power minimum → [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock).
+1. Confirm **this node** has veCTM privilege (a Group on the node with a qualifying attached NFT) → [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock). The current authority KeyGen need not be the one holding the NFT.
 2. Open the node app → **Node** → **VPN** (or the Private VPN panel).
 3. **Enable** VPN, choose **full** or **split** routing, and pick **WireGuard (standard)** or an obfuscation option if needed.
 4. **Download client config** — saves a WireGuard `.conf` (and a transport file when obfuscated) to the node workspace; copy or download to your PC/phone.
@@ -85,7 +85,7 @@ For the **built-in** Agent chat / Telegram harness on the node. **External** age
 
 With the [AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) configured, you can run Private VPN from **Agent chat** (or Telegram) instead of the node app **Node → VPN** panel. The agent uses the **`vpn`** MCP server on **continuum-mcp** for WireGuard admin and peer exits, and the built-in **`continuum`** server to confirm **veCTM privilege** before enabling anything. Add **`vpn`** from the MCP catalog and turn on **Initial load** if you want those tools available every session — see [MCP servers — VPN](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md).
 
-Describe what you want in plain language. The agent maps your request to MCP tools (for example **`get_node_privilege_status`** / **`get_ve_ctm_attach_status`** on **`continuum`**, then **`set_vpn_enabled`**, **`download_vpn_admin_client_config`**, and egress tools on **`vpn`**). Downloaded client files land under **`data/vpn/`** on the node workspace — same as the node app.
+Describe what you want in plain language. The agent maps your request to MCP tools (for example **`get_node_privilege_status`** on **`continuum`** — the VPN gate — then **`set_vpn_enabled`**, **`download_vpn_admin_client_config`**, and egress tools on **`vpn`**). Do **not** use **`get_ve_ctm_attach_status`** as the VPN check: that lookup is KeyGen-scoped (does *this* address own an attached NFT). Downloaded client files land under **`data/vpn/`** on the node workspace — same as the node app.
 
 **Check entitlement and status**
 
@@ -110,7 +110,7 @@ Describe what you want in plain language. The agent maps your request to MCP too
 - *“Download a WireGuard client config to route through the exit at …”* (use the **address** from the exit list)
 - *“Download an egress config for that peer using udp2raw obfuscation.”*
 
-Enable, disable, sharing, and config downloads are **management-signed** writes on the node (Ed25519, same as other agent admin actions). They do **not** go through the MPC Accept/Reject loop — unlike wallet transactions. If privilege is missing, the agent should tell you to [attach veCTM](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) first; a node trial or paid wallet month does not grant VPN.
+Enable, disable, sharing, and config downloads are **management-signed** writes on the node (Ed25519, same as other agent admin actions). They do **not** go through the MPC Accept/Reject loop — unlike wallet transactions — and do **not** require the current withdraw-authority KeyGen to hold the NFT. If privilege is missing, the agent should tell you to [attach veCTM](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) from the authority KeyGen that owns the NFT; a node trial or paid wallet month does not grant VPN.
 
 After a successful download, configs are written under **`data/vpn/`** on the node. Tell the user where the files are and how to import them into WireGuard on the device that will use the tunnel.
 
@@ -123,7 +123,7 @@ After a successful download, configs are written under **`data/vpn/`** on the no
 1. Tunnel up — `8446` on loopback (see Agent provision § tunnel; include **8446** even if the wallet website command only lists 3333 / 8080 / 18080).
 2. Management signing — Ed25519 private key in `added_keys/` for write tools (same as Path A cron / node_config flows).
 3. MCP servers — load **`continuum`** (privilege / billing) and **`vpn`** (WireGuard admin + egress). Catalog id **`vpn`** is opt-in; enable **Initial load** or load it when the user asks for VPN.
-4. **veCTM privilege** — attached veCTM on the authority KeyGen must meet **`veCtmThresholdPower`** ([How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock)). If `get_node_privilege_status` / `get_ve_ctm_attach_status` shows no VPN entitlement, stop and tell the operator to attach veCTM — do not call **`set_vpn_enabled`**.
+4. **veCTM privilege** — call **`get_node_privilege_status`** on **`continuum`**. `entitled` is true when this node is a member of a `groupId` whose recorded attach key has a qualifying NFT this month ([How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock)). Current `nodeWithdrawAuthority` need not hold that NFT. If not entitled, stop and tell the operator to attach veCTM from the authority KeyGen that owns the NFT — do not call **`set_vpn_enabled`**. Do **not** treat `get_ve_ctm_attach_status` as the VPN gate.
 
 **Typical user prompt (start here)**
 
@@ -135,7 +135,7 @@ The operator may say something like:
 
 **Agent workflow (node side — you execute via MCP)**
 
-1. **`get_ve_ctm_attach_status`** or **`get_node_privilege_status`** on **`continuum`** — confirm VPN entitlement; abort with attach-veCTM guidance if missing.
+1. **`get_node_privilege_status`** on **`continuum`** — confirm VPN entitlement (`entitled`); abort with attach-veCTM guidance if missing. Do not use **`get_ve_ctm_attach_status`** as the gate.
 2. **`get_vpn_status`** on **`vpn`** — read `available`, `active`, `profile`, `obfuscation`, `privileged`.
 3. **`set_vpn_enabled`** on **`vpn`** — `{ "enabled": true, "profile": "full" | "split", "obfuscation": "none" | "shadowsocks" | "wg_obfuscator" | "lwo" | "udp2raw" }` when enabling. Management-signed POST; not an MPC multi-sign transaction.
 4. Poll **`get_vpn_status`** until `active` is true (or surface `lastError` / `message`).
@@ -155,7 +155,9 @@ Configs live on the **node** first. Over the **same SSH session** you already us
 
 - Call **`register_vpn_on_linea`** or any Linea billing tool — VPN is a **veCTM privilege**, not a paid month.
 - Batch VPN enable with unrelated MPC sign requests.
-- Assume a node trial or paid wallet month grants VPN without attached veCTM.
+- Assume a node trial or paid wallet month grants VPN without a qualifying attached group on this node.
+- Require the current withdraw-authority KeyGen to hold the NFT before enabling VPN.
+- Use **`get_ve_ctm_attach_status`** as the VPN entitlement check.
 
 Tool reference: [MCP servers — VPN](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). SDK detail: [continuum-node-sdk `vpn.md`](https://github.com/ContinuumDAO/continuum-node-sdk/blob/master/src/mcp/resources/vpn.md).
 

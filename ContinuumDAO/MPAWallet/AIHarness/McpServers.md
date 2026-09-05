@@ -126,7 +126,7 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 | **`business-latest`** | `/mcp/business-latest` | None | Free business RSS (BBC, CNBC, MarketWatch, Forbes, Reuters via Google News, RT Business) |
 | **`world-affairs`** | `/mcp/world-affairs` | None | Free world-news RSS (BBC, Al Jazeera, Guardian, DW, France 24, NPR, CNN, RT) |
 | **`technical-indicators`** | `/mcp/ta` | None | SMA, RSI, MACD, Bollinger, Fibonacci, and 100+ indicators over OHLCV series ( **`initialLoad: false`**, **`aiReady: false`** in catalog — enable Initial load or load per chat) |
-| **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and peer exit configs; requires **veCTM privilege** on the node — see [Private VPN](/ContinuumDAO/PrivateVPN.md) |
+| **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and peer exit configs; requires **node veCTM privilege** (`get_node_privilege_status.entitled`) — not current-authority NFT ownership. See [Private VPN](/ContinuumDAO/PrivateVPN.md) |
 
 **Chart sources:** **`coinmarketcap-public`**, **`coinbase-public`**, FMP, Alpaca, Equibles, and other OHLCV MCPs are listed in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
 
@@ -134,7 +134,7 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 
 **Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
-**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. Enable only when **`get_node_privilege_status`** / attached veCTM shows VPN entitlement — no Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
+**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. Enable only when **`get_node_privilege_status`** shows **`entitled`** (this node is a member of a Group whose recorded attach key has a qualifying NFT this month). Do **not** use **`get_ve_ctm_attach_status`** as the VPN gate — that is KeyGen-scoped. No Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
 ---
 

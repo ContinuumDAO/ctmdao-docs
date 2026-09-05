@@ -187,7 +187,7 @@ You can keep using the wallet from the node app alone. The MPA wallet is **AI-fi
 
 ### MPA billing
 
-Before the first **register on Linea** for a KeyGen, claim **withdraw authority** on that node. Full setup — withdraw authority, register, top-up, month activation, and veCTM waiver: **[MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)**. [Attach veCTM](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) at the governance voting-power minimum to waive wallet signature fees and unlock **[Private VPN](/ContinuumDAO/PrivateVPN.md)** on the node.
+Before the first **register on Linea** for a KeyGen, claim **withdraw authority** on that node. Full setup — withdraw authority, register, top-up, month activation, and veCTM waiver: **[MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)**. [Attach veCTM](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md) from the authority KeyGen that owns the NFT (at the governance locked-CTM / month-start voting-power minimum) to waive that **Group’s** wallet signature fees and unlock **[Private VPN](/ContinuumDAO/PrivateVPN.md)** on the node. Authority is required to attach and register, not to enable VPN.
 
 ### Related
 

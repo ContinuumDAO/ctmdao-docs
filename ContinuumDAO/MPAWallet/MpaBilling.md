@@ -2,7 +2,7 @@
 
 MPA wallet usage is metered on **Linea** through a DAO-governed **fee contract**. Each **KeyGen** you use for multi-sign must be **registered** there before billable signatures count against your balance. You either **pay monthly** (stablecoin or CTM credits) or qualify for a **veCTM subscription waiver** — see [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md).
 
-Billing status appears in **Multi-Sign** when a **secp256k1 KeyGen** is selected. **Private VPN** is not billed here — it is gated by **attached veCTM** meeting the fee contract’s voting-power threshold; see [Private VPN](/ContinuumDAO/PrivateVPN.md) and [How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock).
+Billing status appears in **Multi-Sign** when a **secp256k1 KeyGen** is selected. **Private VPN** is not billed here — it is a **node** privilege when this node is a member of a Group whose recorded attach key meets the fee contract’s threshold (the current authority KeyGen need not hold the NFT); see [Private VPN](/ContinuumDAO/PrivateVPN.md) and [How much veCTM do I need to lock?](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock).
 
 ---
 
@@ -20,9 +20,9 @@ New nodes may get a **free trial until the end of the current UTC month** on fir
 
 ### Withdraw authority
 
-**Withdraw authority** answers one question: **which KeyGen address may operate billing for this node?** — register, deposit, sync the month, attach veCTM, and related fee-contract actions for that KeyGen.
+**Withdraw authority** answers one question: **which KeyGen address may operate billing for this node?** — register, deposit, sync the month, attach veCTM, and related fee-contract actions. A node has **one** current authority at a time; you can **rotate** it (two-step transfer, or a new node-key claim).
 
-You must **claim withdraw authority** on this node **before** the first **register on Linea** for that KeyGen. It is a one-time binding per KeyGen on this node.
+You must **claim withdraw authority** on this node **before** the first **register on Linea**. Attach and register always require the **current** authority (anti-spoof). Enabling [Private VPN](/ContinuumDAO/PrivateVPN.md) does **not**.
 
 #### What it is
 
@@ -30,7 +30,7 @@ You must **claim withdraw authority** on this node **before** the first **regist
 - **Non-billable** — it does not consume signature credits.
 - The node proves control with its **P-256 node key**; the result is recorded on Linea as **`claimNodeWithdrawAuthority`** for the chosen KeyGen address.
 
-After authority is claimed, that KeyGen is the **authority KeyGen** for billing on this node. Other KeyGens in your wallet may still exist, but **register and month activation** for that billing account must be composed from the **authority KeyGen** (Multi-Sign will prompt you to switch if needed).
+After authority is claimed, that KeyGen is the **authority KeyGen** for billing on this node. Other KeyGens may still exist, but **register, attach veCTM, and month activation** must be composed from the **current authority KeyGen** (Multi-Sign will prompt you to switch if needed). Sibling KeyGens **register** with the same **Group id** to share a veCTM waiver.
 
 #### How to claim (node app)
 
@@ -45,7 +45,7 @@ Or ask in **Agent chat**: “Claim withdraw authority for this KeyGen on this no
 
 - **Claim before register** — complete withdraw authority **before** the first register on Linea for that KeyGen.
 - **Do not batch claim and register** in one multi-sign request — run claim first, then register in a separate request after claim succeeds.
-- **One authority per KeyGen on this node** — veCTM attach and detach also require the **authority KeyGen**; see [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md).
+- **One authority per node** — rotate onto another secp256k1 KeyGen to attach a **second Group’s** veCTM; attach and register still require the current authority. See [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md).
 
 ---
 

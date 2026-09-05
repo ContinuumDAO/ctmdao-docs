@@ -85,7 +85,7 @@ This complements [backup storage separation](/ContinuumDAO/MPAWallet/BackupAndRe
 
 ### Subscription through staking
 
-MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **attach veCTM to their node** — through **subscription through staking**: **free use of the wallet up to a generous governance-set free signature limit**. Limits and any overage fees are set by DAO voting. The same attached veCTM at the governance voting-power minimum also unlocks **[Private VPN](/ContinuumDAO/PrivateVPN.md)** on your node — a veCTM privilege, not a separate Linea subscription.
+MPA wallet access can be paid via a **monthly subscription**, or — for node operators who **attach veCTM to their node** — through **subscription through staking**: **free use of the wallet up to a generous governance-set free signature limit** for KeyGens registered in that **Group**. Limits and any overage fees are set by DAO voting. The same qualifying attach also unlocks **[Private VPN](/ContinuumDAO/PrivateVPN.md)** on the **node** — a veCTM privilege (not a separate Linea subscription). Privilege follows the node’s recorded attach groups, not “whoever is withdraw authority right now.”
 
 Why attach, how to lock and attach veCTM, how detach works through governance, and day-to-day management: **[veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)**. Withdraw authority, register on Linea, and monthly billing: **[MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)**.
 
