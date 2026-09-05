@@ -20,17 +20,19 @@ The user selects either "multi-agree", or "tx-check". The **multi-agree** option
 
 (2) Multi-sign client auth
 
-This is how **this node** authorizes posts to the multi-sign service — from the browser or from the built-in AI agent. When this node creates a Sign Request, or Accepts or Rejects one, it supplies a management signature. Choose **EIP-191 (Ethereum signatures, e.g. MetaMask)** or **Ed25519** (a key from **Node → Ed25519 Management Keys**).
+When **creating** or **joining** this KeyGen, choose how **your node** registers its client identity for multi-sign rounds. The dialog offers **EIP-191 (Ethereum signatures, e.g. MetaMask)** or **Ed25519** (a key from **Node → Ed25519 Management Keys**). This choice is stored in the KeyGen’s **`ClientKeys`** map for your node — it mainly drives **browser** Compose and Accept/Reject (MetaMask prompts vs an Ed25519 sign-and-paste panel). It is **not** how the built-in AI agent authenticates; the agent uses the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) on node API calls regardless.
 
-**Recommendation:** Choose **EIP-191** for most setups. Browser users then approve with their injected software wallet when the app prompts for a management signature. The built-in AI agent does **not** need Ed25519 here — it authenticates node API calls with the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) separately. Reserve **Ed25519** client auth for nodes that will take part in multi-sign rounds without a browser wallet (for example headless automation on that node only).
+**Recommendation:** Choose **EIP-191** for most setups. Browser users then approve with their injected software wallet when the app prompts for a management signature. Reserve **Ed25519** client auth for nodes that will take part in multi-sign rounds **without** a browser wallet (for example headless automation on that node only).
 
 For **EIP-191 (MetaMask)**: use a **newly created software wallet address** dedicated to management — **not** a hardware wallet (insufficient memory for large management signatures) and **not** an address used for custody or DeFi. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 
-Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*. Other nodes choose their own type when they Join — for example one node can use MetaMask for a human operator and another can use Ed25519 on a headless node.
+Other nodes choose their own auth when they Join — for example one node can use MetaMask for a human operator and another can use Ed25519 on a headless node.
 
-(3) The Client Key is automatically selected based on the auth chosen. For **EIP-191 (MetaMask)** it is your node's **Ethereum management address** (the one you use when the app prompts for a management signature). For **Ed25519**, choose from keys listed under **Node → Ed25519 Management Keys** — typically **Bootstrap (config)** from install, or an added key you created there. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
+(3) Client Key
 
-**With an AI agent:** configure the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) (for example *"Add a new Ed25519 management signer and set it as preferred"* or *"Show my management keys"*) — independent of the EIP-191 vs Ed25519 choice above. See [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) if you need mesh setup first.
+At create/join time, the **Client Key** is the value stored in **`ClientKeys`** for your node (visible when you expand the key under **Existing keys**). For **EIP-191 (MetaMask)** it is your node’s **Ethereum management address** (`NodeMgtKey` — the address the app uses when it prompts for a management signature). For **Ed25519**, pick a key from **Node → Ed25519 Management Keys** — typically **Bootstrap (config)** from install, or an added key you created there. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
+
+**With an AI agent:** set the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) under **Node → Ed25519 Management Keys** (or ask the agent to add one and set it preferred) — see [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) if you need mesh setup first. That is separate from the EIP-191 vs Ed25519 choice in this dialog.
 
 (4) GroupID
 
@@ -65,7 +67,7 @@ This is the cryptographic key type for which a signature is being sought. We cur
 NOTE *don't confuse the management signature type Ed25519 with the MPC signature types **ed25519** or **bitcoin-taproot***
 
 
-Any number of KeyGens can be created for a Group, of both types "multi-agree", or "tx-check", with different management signatures, different thresholds, or different Key types. Each Group can have its own set of KeyGens.
+Any number of KeyGens can be created for a Group, of both types "multi-agree", or "tx-check", with different client-auth choices per node, different thresholds, or different Key types. Each Group can have its own set of KeyGens.
 
 Each KeyGen will have different public addresses derived from its *public key* depending on the Key type and the target blockchain:
 
@@ -84,7 +86,7 @@ Once the KeyGen Request has been submitted the originator sees their request in 
 
 Their own Node Key has a green tick (they agree automatically) and other nodes show 'waiting' whilst these other nodes decide if they want to agree or not to the request.
 
-On one of the other nodes, they will see a Join button. If they click it, they can choose their own management signature type (EIP-191 MetaMask, or Ed25519)
+On one of the other nodes, they will see a Join button. If they click it, they can choose their own client auth (EIP-191 MetaMask, or Ed25519). Human-operated nodes usually pick **EIP-191**; headless or agent-only nodes may pick **Ed25519**.
 
 <img src="/_media/KeyGen_pending_client.png"  alt=""/>
 
@@ -97,7 +99,7 @@ Once EVERY node in the Group has Joined, the KeyGen will disappear from the Pend
 
 <img src="/_media/KeyGen_existing_signing.png"  alt=""/>
 
-You can see when the record is expanded that it shows the management signature on this node (MetaMask EIP-191 in this case), that it is of type secp256k1 and multi-agree, with threshold 2 (2 nodes must agree) and you see its public key and its Ethereum address.
+You can see when the record is expanded that it shows the **client auth** recorded for this node (MetaMask EIP-191 in this example), that it is of type secp256k1 and multi-agree, with threshold 2 (2 nodes must agree), and you see its public key and its Ethereum address.
 
 You can now use your KeyGen for either use in the Multi-Sign page (for "multi-agree" KeyGens), or you use it to sign C3Caller Relayer traffic (for "tx-check" KeyGens).
 
