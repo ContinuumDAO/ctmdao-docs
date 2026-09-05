@@ -20,15 +20,17 @@ The user selects either "multi-agree", or "tx-check". The **multi-agree** option
 
 (2) Multi-sign client auth
 
-This is how  THIS node requires authorization to post information to, either from a web browser user , or an AI agent . When a node generates, for instance, a Sign Request, or when a node is asked to Accept or Reject a Sign Request, they provide a management signature to confirm their choice. This can either be an EIP-191 signature (e.g. MetaMask), or an Ed25519 signature using a keypair. The MetaMask type signature is often preferred by humans, but the Ed25519 signature is more suitable for automated traffic (e.g. AI agents).
+This is how **this node** authorizes posts to the multi-sign service — from the browser or from the built-in AI agent. When this node creates a Sign Request, or Accepts or Rejects one, it supplies a management signature. Choose **EIP-191 (Ethereum signatures, e.g. MetaMask)** or **Ed25519** (a key from **Node → Ed25519 Management Keys**).
+
+**Recommendation:** Choose **EIP-191** for most setups. Browser users then approve with their injected software wallet when the app prompts for a management signature. The built-in AI agent does **not** need Ed25519 here — it authenticates node API calls with the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) separately. Reserve **Ed25519** client auth for nodes that will take part in multi-sign rounds without a browser wallet (for example headless automation on that node only).
 
 For **EIP-191 (MetaMask)**: use a **newly created software wallet address** dedicated to management — **not** a hardware wallet (insufficient memory for large management signatures) and **not** an address used for custody or DeFi. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 
-Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*, but other nodes can choose their own signature type, so that for instance, two nodes in a KeyGen can have MetaMask for a human from one node and Ed25519 for an AI agent from the other.
+Once the management signature type has been chosen, it must always be used for this KeyGen afterwards *from this node*. Other nodes choose their own type when they Join — for example one node can use MetaMask for a human operator and another can use Ed25519 on a headless node.
 
 (3) The Client Key is automatically selected based on the auth chosen. For **EIP-191 (MetaMask)** it is your node's **Ethereum management address** (the one you use when the app prompts for a management signature). For **Ed25519**, choose from keys listed under **Node → Ed25519 Management Keys** — typically **Bootstrap (config)** from install, or an added key you created there. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 
-**With an AI agent:** ask for example *"Add a new Ed25519 management signer and set it as preferred"* or *"Show my management keys"* — see [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) if you need mesh setup first.
+**With an AI agent:** configure the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) (for example *"Add a new Ed25519 management signer and set it as preferred"* or *"Show my management keys"*) — independent of the EIP-191 vs Ed25519 choice above. See [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) if you need mesh setup first.
 
 (4) GroupID
 
