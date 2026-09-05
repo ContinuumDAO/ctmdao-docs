@@ -4,7 +4,7 @@ Most VPN providers have public servers in different countries that users can rou
 
 Every MPA node can run a **Private VPN** — an encrypted tunnel built on **WireGuard**. It lets you route traffic from your laptop, phone, or other machines **through your node** (useful when you manage the node on a remote VPS but browse or sign from home).
 
-**Private VPN is not a separate paid product.** The multi-sign wallet fee contract treats it as a **veCTM privilege**: this **node** must be a member of a **Group** (`groupId`) whose **recorded attach key** still has a qualifying veCTM NFT this month (locked CTM and month-start voting power at **`veCtmThresholdPower`**). There is no USDC subscription path for VPN — staked veCTM is the gate. The **current withdraw-authority KeyGen does not need to hold that NFT** — privilege survives rotating authority.
+**Private VPN is not a separate paid product.** The multi-sign wallet fee contract treats it as a **veCTM privilege**: this **node** must be a member of a **Group** (`groupId`) whose **recorded attach key** still has a qualifying veCTM NFT this month (locked CTM at attach, then that NFT’s month-start `balanceOfNFTAt` at **`veCtmThresholdPower`**). Votes delegated to the KeyGen do **not** count. There is no USDC subscription path for VPN — staked veCTM is the gate. The **current withdraw-authority KeyGen does not need to hold that NFT** — privilege survives rotating authority.
 
 With enough attached **veCTM voting power**, you can **share** your node’s connection with **peer nodes** in your mesh, or **use a peer’s node** as your exit when you need traffic to leave the internet from their location.
 

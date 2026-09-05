@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-05T15:55:01.922Z",
+  "generatedAt": "2026-09-05T16:31:58.866Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2862,7 +2862,7 @@
           "id": "how-much-vectm-do-i-need-to-lock",
           "title": "How much veCTM do I need to lock?",
           "level": 3,
-          "excerpt": "Currently, the attached veCTM NFT must carry at least 200 CTM in the lock to qualify for monthly free wallet signatures and Private VPN — both gated by the same on chain minimum. After that, the veCTM must have 200 Voting power on the 1st day of the month . Voting power depends on how much CTM you l"
+          "excerpt": "Currently, the attached veCTM NFT must carry at least 200 CTM in the lock to qualify for monthly free wallet signatures and Private VPN — both gated by the same on chain minimum. After that, that NFT must still have 200 voting power on the 1st day of the UTC month ( balanceOfNFTAt on the attached to"
         },
         {
           "id": "attach-vectm-to-your-node",
@@ -2880,7 +2880,7 @@
           "id": "managing-voting-power",
           "title": "Managing voting power",
           "level": 3,
-          "excerpt": "Goal What to do Vote or propose from this KeyGen Ensure enough voting power at the KeyGen address — from the attached NFT, from delegation sent to the KeyGen , or both. Proposers need at least 1000 veCTM or 0.1% of total power , whichever is higher (delegation counts). Add power without locking more"
+          "excerpt": "Goal What to do Vote or propose from this KeyGen Ensure enough governor voting power ( getVotes ) at the KeyGen address — from the attached NFT, from delegation sent to the KeyGen , or both. Proposers need at least 1000 veCTM or 0.1% of total power , whichever is higher (delegation counts for propos"
         },
         {
           "id": "related",
