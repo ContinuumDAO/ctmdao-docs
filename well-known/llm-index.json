@@ -207,7 +207,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-04T08:48:23.077Z",
+  "generatedAt": "2026-09-05T11:35:04.309Z",
   "pageCount": 59,
   "llmld:sections": [
     {
@@ -615,7 +615,7 @@
           "name": "veCTM on your node",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md",
-          "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node, you unlo"
+          "excerpt": "veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries governance voting power . When you attach that NFT to your MPA wallet node (from the"
         }
       ]
     }
