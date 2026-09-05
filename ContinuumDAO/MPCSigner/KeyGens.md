@@ -10,7 +10,7 @@ A key (or KeyGen) contains the information that each node needs to take part in 
 
 Here is the dialogue to request a new KeyGen on the **Keys** page of the [MPA wallet](https://mpa.continuumdao.org):
 
-<img src="/_media/keygen_request.png" alt="KeyGen request dialog in the MPA wallet Keys page"/>
+<img src="/_media/keygen_add_key_request.png" alt="KeyGen request dialog in the MPA wallet Keys page"/>
 
 The inputs are explained below.
 
