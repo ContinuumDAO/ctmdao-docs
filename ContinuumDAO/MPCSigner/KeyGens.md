@@ -102,7 +102,7 @@ On one of the other nodes, they will see a **Join** button. If they click it, th
 
 Once **every** node in the Group has Joined, the KeyGen will disappear from the **Pending** table. **After a few minutes**, the KeyGen will appear in the **Existing keys** table on each node in the Group.
 
-<img src="/_media/KeyGen_existing_signing.png" alt="KeyGen in the Existing keys table with details expanded"/>
+<img src="/_media/keygen_existing_signing.png" alt="KeyGen in the Existing keys table with details expanded"/>
 
 When the record is expanded, it shows the **client auth** recorded for this node (MetaMask EIP-191 in this example), that it is of type secp256k1 and multi-agree, with threshold 2 (2 nodes must agree), and its public key and Ethereum address.
 
