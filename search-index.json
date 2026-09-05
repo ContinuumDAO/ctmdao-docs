@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-05T18:27:12.216Z",
+  "generatedAt": "2026-09-05T18:30:00.889Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3335,7 +3335,7 @@
           "id": "keygen-agreement",
           "title": "KeyGen Agreement",
           "level": 3,
-          "excerpt": "Once the KeyGen request has been submitted, the originator sees their request in the Pending table: <img src=\"/ media/keygen pending creator.png\" alt=\"KeyGen pending table on the originator node\"/ Their own Node Key has a green tick (they agree automatically) and other nodes show waiting whilst thos"
+          "excerpt": "Once the KeyGen request has been submitted, the originator sees their request in the Pending table: <img src=\"/ media/keygen pending originator.png\" alt=\"KeyGen pending table on the originator node\"/ Their own Node Key has a green tick (they agree automatically) and other nodes show waiting whilst t"
         },
         {
           "id": "related",
