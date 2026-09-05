@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-05T16:31:58.866Z",
+  "generatedAt": "2026-09-05T16:52:38.096Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2811,7 +2811,7 @@
       "headings": [
         "veCTM on your node",
         "Why attach veCTM?",
-        "Governance without locking a huge balance",
+        "Delegation does not qualify the node",
         "Attach is yours — detach needs governance",
         "Before you attach",
         "Get veCTM (lock CTM)",
@@ -2835,10 +2835,10 @@
           "excerpt": "Benefit What you get Governance Voting power for ContinuumDAO — Forum access at holder thresholds, on chain proposals, and votes. With the AI harness configured, your agent can help research, draft, and vote; your Group still Accept s every on chain step. Free wallet signatures Subscription through "
         },
         {
-          "id": "governance-without-locking-a-huge-balance",
-          "title": "Governance without locking a huge balance",
+          "id": "delegation-does-not-qualify-the-node",
+          "title": "Delegation does not qualify the node",
           "level": 4,
-          "excerpt": "You do not need to lock an enormous CTM balance into the KeyGen’s own veCTM NFT for DAO governance . Holders with veCTM in other wallets can delegate voting power to the KeyGen address — the same address that holds the attached NFT — so Forum access, proposals, and votes can use delegated power as w"
+          "excerpt": "Do not delegate veCTM to this KeyGen to meet a node threshold. The monthly fee waiver, Private VPN , and C3Caller cross chain minimum all look at the attached NFT only ( balanceOfNFTAt at UTC month start vs veCtmThresholdPower ). Votes delegated to the KeyGen do not count. To stay waived, lock enoug"
         },
         {
           "id": "attach-is-yours-detach-needs-governance",
@@ -2880,7 +2880,7 @@
           "id": "managing-voting-power",
           "title": "Managing voting power",
           "level": 3,
-          "excerpt": "Goal What to do Vote or propose from this KeyGen Ensure enough governor voting power ( getVotes ) at the KeyGen address — from the attached NFT, from delegation sent to the KeyGen , or both. Proposers need at least 1000 veCTM or 0.1% of total power , whichever is higher (delegation counts for propos"
+          "excerpt": "Goal What to do Vote or propose from this KeyGen Propose/vote read governor getVotes at the KeyGen. That is not the fee waiver or VPN bar. Proposers need at least 1000 veCTM or 0.1% of total power , whichever is higher. Reduce delegated power you control Undelegate from the wallet that delegated — n"
         },
         {
           "id": "related",
