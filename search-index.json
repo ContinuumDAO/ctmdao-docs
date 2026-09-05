@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-05T16:52:38.096Z",
+  "generatedAt": "2026-09-05T17:25:20.030Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2856,7 +2856,7 @@
           "id": "get-vectm-lock-ctm",
           "title": "Get veCTM (lock CTM)",
           "level": 3,
-          "excerpt": "If you already hold veCTM elsewhere, you can transfer it to your KeyGen first (only while it is not attached to any node). To create a new lock from the node app: 1. Open Multi Sign , select your KeyGen, and open the Assets tab on Linea . 2. Add CTM and veCTM if they are not listed — see Asset manag"
+          "excerpt": "If you already hold veCTM elsewhere, you can transfer it to your KeyGen Ethereum address first. Click the ContinuumDAO icon here <img src=\"/ media/add vectm link.png\" alt=\"\"/ This will find any veCTM tokens that you transferred to your Ethereum address <img src=\"/ media/add vectm dialogue.png\" alt=\""
         },
         {
           "id": "how-much-vectm-do-i-need-to-lock",
@@ -2868,7 +2868,7 @@
           "id": "attach-vectm-to-your-node",
           "title": "Attach veCTM to your node",
           "level": 3,
-          "excerpt": "From the node app (with the authority KeyGen that owns the NFT selected): 1. On Assets , open ContinuumDAO on the veCTM NFT you want to attach. 2. Open the Attach tab for that KeyGen , confirm the token id, and submit. The compose includes that KeyGen’s Group id — you do not pick a different Group. "
+          "excerpt": "From the node app (with the authority KeyGen that owns the NFT selected): 1. On Assets , in the ERC721 tab, open ContinuumDAO on the veCTM NFT you want to attach. <img src=\"/ media/vectm dialogue.png\" alt=\"\"/ 2. Open the Attach tab for that KeyGen , confirm the token id, and submit. The compose auto"
         },
         {
           "id": "request-detach",

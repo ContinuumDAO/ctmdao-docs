@@ -58,7 +58,19 @@ Misbehaving operators on those public cross-chain roles risk governance **refusi
 
 ### Get veCTM (lock CTM)
 
-If you already hold veCTM elsewhere, you can transfer it to your KeyGen first (only while it is **not** attached to any node).
+If you already hold veCTM elsewhere, you can transfer it to your KeyGen Ethereum address first.
+
+Click the ContinuumDAO icon here 
+
+<img src="/_media/add_vectm_link.png"  alt=""/>
+
+This will find any veCTM tokens that you transferred to your Ethereum address
+
+<img src="/_media/add_vectm_dialogue.png"  alt=""/>
+
+Then you should see the veCTM in the ERC721 tab in Assets
+
+<img src="/_media/vectm-in asset-row.png"  alt=""/>
 
 To **create a new lock** from the node app:
 
@@ -88,15 +100,23 @@ That **200** threshold is a **governance parameter**. ContinuumDAO can raise or 
 
 From the node app (with the **authority KeyGen that owns the NFT** selected):
 
-1. On **Assets**, open **ContinuumDAO** on the veCTM NFT you want to attach.
-2. Open the **Attach** tab for **that KeyGen**, confirm the token id, and submit. The compose includes that KeyGen’s **Group id** — you do not pick a different Group.
+1. On **Assets**, in the ERC721 tab, open **ContinuumDAO** on the veCTM NFT you want to attach.
+
+<img src="/_media/vectm_dialogue.png"  alt=""/>
+
+2. Open the **Attach** tab for **that KeyGen**, confirm the token id, and submit. The compose automatically includes that KeyGen’s **Group ID** so that any KeyGen with this Group ID will benefit for the free allowances each month.
+
+<img src="/_media/vectm_dialogue_attach.png"  alt=""/>
+
+Click **Attach veCTM** and review the question about personal Node Data and then after **OK** 
+
 3. Peers **Accept** the sign request on **Join**; the originator **Execute**s.
 
 Or ask in **Agent chat**: “Attach my veCTM to this node for subscription waiver” — the agent prepares the same sign request from the authority KeyGen; your Group still must agree.
 
 After attach succeeds, the waiver is bound to that KeyGen’s Group. **Register** sibling KeyGens with the **same Group id** so they share the waived month. The **Multi-Sign** billing view shows whether **this KeyGen’s Group** qualifies (see [How much veCTM do I need to lock?](#how-much-vectm-do-i-need-to-lock)). Heavier wallet use above the free limit follows the paid subscription or metered rules the DAO defines.
 
-**Private VPN** is a **node** privilege: the node is entitled when **any** recorded Group on it still has a qualifying attach key — check privilege status, not “does the KeyGen I have selected right now own the NFT.” See [Private VPN](/ContinuumDAO/PrivateVPN.md).
+**Private VPN** is a **node** privilege: the node is entitled when **any** recorded Group on it still has a qualifying attached veCTM. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
 ---
 
@@ -115,16 +135,16 @@ If a detach request is already open, the UI shows that governance must decide �
 
 ### Managing voting power
 
-| Goal                                              | What to do                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote or propose from this KeyGen                  | Propose/vote read governor `getVotes` at the KeyGen. That is **not** the fee-waiver or VPN bar. Proposers need at least **1000 veCTM** or **0.1% of total power**, whichever is higher.                                                                                                          |
-| Reduce delegated power you control                | **Undelegate** from the wallet that delegated — no DAO vote required.                                                                                                                                                                                                                           |
-| Let another address vote for you                  | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent). The attached NFT’s month-start power (and the fee waiver) stay with the NFT.                                                                                                                                              |
-| Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote. Delegating away does **not** by itself drop the fee waiver; decaying **attached NFT** power below the 1st-of-month bar does.                                                                                                 |
-| Keep the **free allowance** / **VPN**             | Keep the **attached NFT** at or above **`veCtmThresholdPower`** at UTC month start (`balanceOfNFTAt`). Delegation to the KeyGen does **not** count.                                                                                                                                              |
-| Qualify for **C3Caller** cross-chain signing      | Meet the DAO’s minimum on the KeyGen’s **attached veCTM only** — delegated power does **not** count toward that bar.                                                                                                                                                                            |
+| Goal                                              | What to do                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vote or propose from this KeyGen                  | Propose/vote read governor `getVotes` at the KeyGen. That is **not** the fee-waiver or VPN bar. Proposers need at least **1000 veCTM** or **0.1% of total power**, whichever is higher.                                                                                                                                            |
+| Reduce delegated power you control                | **Undelegate** from the wallet that delegated — no DAO vote required.                                                                                                                                                                                                                                                              |
+| Let another address vote for you                  | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent). The attached NFT’s month-start power (and the fee waiver) stay with the NFT.                                                                                                                                                                                |
+| Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote. Delegating away does **not** by itself drop the fee waiver; decaying **attached NFT** power below the 1st-of-month bar does.                                                                                                                                   |
+| Keep the **free allowance** / **VPN**             | Keep the **attached NFT** at or above **`veCtmThresholdPower`** at UTC month start (`balanceOfNFTAt`). Delegation to the KeyGen does **not** count.                                                                                                                                                                                |
+| Qualify for **C3Caller** cross-chain signing      | Meet the DAO’s minimum on the KeyGen’s **attached veCTM only** — delegated power does **not** count toward that bar. The threshold for cross-chain signing rewards is considerably higher than for free signature allowances.                                                                                                      |
 | Pay node bills without USDC                       | Keep veCTM **attached** for that Group and stay within the monthly free signature limit; top up or sync billing month in Multi-Sign if you also use paid registration paths. [Private VPN](/ContinuumDAO/PrivateVPN.md) stays available on the node while any recorded attach key still meets the threshold — not billed on Linea. |
-| Move veCTM off the node                           | **Request detach** and follow the governance process — there is no instant self-service detach.                                                                                                                                                                                                 |
+| Move veCTM off the node                           | **Request detach** and follow the governance process — there is no instant self-service detach.                                                                                                                                                                                                                                    |
 
 ---
 
