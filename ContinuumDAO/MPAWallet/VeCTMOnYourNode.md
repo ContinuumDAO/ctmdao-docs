@@ -16,13 +16,11 @@ This page is for node operators. Governance background: [How To Write a Proposal
 
 Attaching veCTM also signals long-term alignment with the protocol. Operators who later opt into **approved cross-chain signing Groups** may earn additional **CTM, USDC, or ETH** rewards (rates set by governance); that is separate from the personal wallet waiver.
 
-#### Governance without locking a huge balance
+#### Delegation does not qualify the node
 
-You do **not** need to lock an enormous **CTM** balance into the KeyGen’s own veCTM NFT for **DAO governance**. Holders with veCTM in **other wallets** can **delegate voting power to the KeyGen address** — the same address that holds the attached NFT — so Forum access, proposals, and votes can use **delegated power** as well as power from the attached lock.
+Do **not** delegate veCTM to this KeyGen to meet a node threshold. The monthly fee waiver, **Private VPN**, and **[C3Caller](/ContinuumDAO/C3Caller/Overview.md)** cross-chain minimum all look at the **attached NFT only** (`balanceOfNFTAt` at UTC month start vs `veCtmThresholdPower`). Votes delegated **to** the KeyGen do **not** count. To stay waived, lock enough **CTM** for long enough on **that** NFT, or extend its lock time.
 
-That is especially useful for a **shared KeyGen** across several nodes: each operator can lock and delegate **only what they choose** from their own wallet, without forcing one person to fund the whole Group. **Undelegating** is under the delegator’s control — it does **not** need a DAO vote (unlike **detaching** veCTM from the node).
-
-**The monthly fee waiver and Private VPN are different.** Those gates look at the **attached NFT only** (`balanceOfNFTAt` at UTC month start vs `veCtmThresholdPower`). Votes delegated **to** the KeyGen do **not** count. Same rule as **cross-chain signing**: if your Group secures public **[C3Caller](/ContinuumDAO/C3Caller/Overview.md)** traffic, the KeyGen must meet the DAO’s **minimum veCTM voting power on its own attached stake** — **without counting delegated power**. Delegation still helps with Forum and on-chain governance votes; it does **not** substitute for the attached NFT required to waive fees, unlock VPN, or back cross-chain verification.
+Forum proposals and votes use governor `getVotes` at the address that acts — that path is separate from attach, waiver, and VPN.
 
 ---
 
@@ -119,8 +117,7 @@ If a detach request is already open, the UI shows that governance must decide �
 
 | Goal                                              | What to do                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vote or propose from this KeyGen                  | Ensure enough **governor voting power** (`getVotes`) at the KeyGen address — from the attached NFT, from **delegation sent to the KeyGen**, or both. Proposers need at least **1000 veCTM** or **0.1% of total power**, whichever is higher (delegation counts for propose/vote only).             |
-| Add governance power without locking more CTM     | From an **external wallet**, delegate veCTM voting power **to the KeyGen address**. Each member of a shared Group can delegate independently. This helps Forum / propose / vote — **not** the monthly fee waiver or VPN.                                                                          |
+| Vote or propose from this KeyGen                  | Propose/vote read governor `getVotes` at the KeyGen. That is **not** the fee-waiver or VPN bar. Proposers need at least **1000 veCTM** or **0.1% of total power**, whichever is higher.                                                                                                          |
 | Reduce delegated power you control                | **Undelegate** from the wallet that delegated — no DAO vote required.                                                                                                                                                                                                                           |
 | Let another address vote for you                  | **Delegate** from the Escrow tab on your veCTM NFT (or ask the agent). The attached NFT’s month-start power (and the fee waiver) stay with the NFT.                                                                                                                                              |
 | Vote from this KeyGen again after delegating away | **Undelegate** / return power to the KeyGen before propose or vote. Delegating away does **not** by itself drop the fee waiver; decaying **attached NFT** power below the 1st-of-month bar does.                                                                                                 |
