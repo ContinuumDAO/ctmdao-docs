@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-05T17:25:20.030Z",
+  "generatedAt": "2026-09-05T17:37:48.716Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2114,7 +2114,7 @@
           "id": "how-to-set-the-default-signer",
           "title": "How to set the default signer",
           "level": 3,
-          "excerpt": "1. Open Node → Ed25519 Management Keys . 2. Find the preferred / crown indicator on the signer table. 3. Set preferred on an active allowed key. Common choices: Keep or select bootstrap if you want the install time key. Create an added key and prefer that if you want a dedicated agent management key"
+          "excerpt": "1. Open Node → Ed25519 Management Keys . 2. Find the preferred / crown indicator on the signer table. 3. Set preferred on an active allowed key. <img src=\"/ media/preferred signer selection.png\" alt=\"\"/ Common choices: Keep or select bootstrap if you want the install time key. Create an added key (s"
         },
         {
           "id": "how-the-ai-agent-uses-it",

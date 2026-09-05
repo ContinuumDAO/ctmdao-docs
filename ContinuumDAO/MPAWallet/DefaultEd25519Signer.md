@@ -23,10 +23,13 @@ Agent chat and Telegram use the **same** default signer.
 2. Find the preferred / crown indicator on the signer table.
 3. Set preferred on an **active** allowed key.
 
+<img src="/_media/preferred_signer_selection.png"  alt=""/>
+
+
 Common choices:
 
 - Keep or select **bootstrap** if you want the install-time key.
-- Create an added key and prefer that if you want a dedicated agent management key.
+- Create an added key (see the **+** icon above) and prefer that if you want a dedicated agent management key.
 
 You can also set preferred signer from the **Agent chat** window when the UI offers it.
 
