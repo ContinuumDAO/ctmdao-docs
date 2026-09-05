@@ -20,6 +20,7 @@
   * [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md)
   * [MPA billing](/ContinuumDAO/MPAWallet/MpaBilling.md)
   * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+  * [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md)
   * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
   * [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
   * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
@@ -89,6 +90,7 @@
 
   * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
   * [Create a node (one-shot, AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md)
+  * [Uninstall a node (AI agents)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/UNINSTALL_NODE.md)
   * [Agent hooks](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/AGENT_HOOKS.md)
   * [API Implementation](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md)
   * [Text Messaging](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_KEYGEN_MESSAGING.md)

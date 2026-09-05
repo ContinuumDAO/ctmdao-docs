@@ -176,6 +176,7 @@ Point at [Groups](/ContinuumDAO/MPCSigner/Groups.md) and [KeyGens](/ContinuumDAO
 
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md) — humans (node map) + short agent pointer
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — VPS install script only
+- [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md) — decommission; [UNINSTALL_NODE.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/UNINSTALL_NODE.md)
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)
 - [Groups](/ContinuumDAO/MPCSigner/Groups.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)

@@ -207,8 +207,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-05T11:35:04.309Z",
-  "pageCount": 59,
+  "generatedAt": "2026-09-05T15:55:01.922Z",
+  "pageCount": 60,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -610,6 +610,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas.md",
           "excerpt": "Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into one or more trade ideas — concrete long/short (or spot) levels the AI agent can us"
+        },
+        {
+          "name": "Uninstall a node",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall.md",
+          "excerpt": "<! agent: task: uninstall mpc node audience: [human, ai agent] linux script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/uninstall node debian ubuntu.sh windows script: http"
         },
         {
           "name": "veCTM on your node",

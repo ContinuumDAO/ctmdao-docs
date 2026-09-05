@@ -17,11 +17,13 @@
 | Linux home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) or node-map + button |
 | Advanced manual only | [NodeRunningInstruction.md](https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — not the default |
 | Private VPN on your node (veCTM required, overview) | [Private VPN](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) |
+| Uninstall / decommission a node | [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall) |
 
 **After install:** topology, peers, MQTT, Group, KeyGen (prefer 2-of-3) — [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision). Humans: [Post install steps](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install#post-install-steps).
 
 - [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision)
 - [Install a node (human guide)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install)
+- [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall) — backup or eject first; TSS threshold risk
 - [Private VPN — external AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — Path A; `continuum` + `vpn` MCP; agent playbook only
 - [Private VPN (overview)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) — veCTM-gated WireGuard; built-in Agent chat steps for node harness
 - [Home site install-node.json](https://continuumdao.org/well-known/install-node.json)
@@ -29,7 +31,7 @@
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 59 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 60 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -125,4 +127,5 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview): The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Com
 - [Technical analysis](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TechnicalAnalysis): Once you have candlestick OHLCV on a chart (see AI charting), the AI agent can run chart analysis from a fixed menu — in
 - [Trade ideas](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas): Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into on
+- [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall): <! agent: task: uninstall mpc node audience: [human, ai agent] linux script: https://raw.githubusercontent.com/Continuum
 - [veCTM on your node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode): veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries gove

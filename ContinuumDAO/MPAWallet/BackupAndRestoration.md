@@ -124,6 +124,7 @@ Again: compromising this recovery bundle is serious for **your node’s privacy 
 
 - [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md)
+- [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md)
 - [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md) — TSS roles and spare nodes
 - [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)

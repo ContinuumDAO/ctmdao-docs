@@ -49,4 +49,5 @@ For **Ethereum / MetaMask**: use the exported **Ethereum private key** (64 hex, 
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) — creating multi-agree keys and thresholds
 - [Overview](/ContinuumDAO/MPAWallet/Overview.md)
 - [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
+- [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md)
 - Operator / API detail: [API Implementation — key eject](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#post-keygenejectrequest)
