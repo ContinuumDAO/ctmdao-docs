@@ -10,7 +10,7 @@ A key (or KeyGen) contains the information that each node needs to take part in 
 
 Here is the dialogue to request a new KeyGen on the **Keys** page of the [MPA wallet](https://mpa.continuumdao.org):
 
-<img src="/_media/keygen_new_key_dialog.png" alt="KeyGen request dialog in the MPA wallet Keys page"/>
+<img src="/_media/keygen_new_keygen_dialog.png" alt="KeyGen request dialog in the MPA wallet Keys page"/>
 
 The inputs are explained below.
 
@@ -90,19 +90,19 @@ SegWit and Taproot are **different addresses** — funds sent to one are not spe
 
 Once the KeyGen request has been submitted, the originator sees their request in the **Pending** table:
 
-<img src="/_media/keygen_pending_originator.png" alt="KeyGen pending table on the originator node"/>
+<img src="/_media/keygen_pending_from_originator.png" alt="KeyGen pending table on the originator node"/>
 
 Their own Node Key has a green tick (they agree automatically) and other nodes show **waiting** whilst those nodes decide whether to agree.
 
 On one of the other nodes, they will see a **Join** button. If they click it, they can choose their own client auth (EIP-191 MetaMask, or Ed25519). Human-operated nodes usually pick **EIP-191**; headless or agent-only nodes may pick **Ed25519**.
 
-<img src="/_media/keygen_pending_peer.png" alt="KeyGen Join button on a peer node"/>
+<img src="/_media/keygen_pending_from_peer.png" alt="KeyGen Join button on a peer node"/>
 
-<img src="/_media/KeyGen_join_select_signature.png" alt="KeyGen Join dialog with client auth selection"/>
+<img src="/_media/keygen_join_select_signature.png" alt="KeyGen Join dialog with client auth selection"/>
 
 Once **every** node in the Group has Joined, the KeyGen will disappear from the **Pending** table. **After a few minutes**, the KeyGen will appear in the **Existing keys** table on each node in the Group.
 
-<img src="/_media/keygen_existing.png" alt="KeyGen in the Existing keys table with details expanded"/>
+<img src="/_media/keygen_existing_key.png" alt="KeyGen in the Existing keys table with details expanded"/>
 
 When the record is expanded, it shows the **client auth** recorded for this node (MetaMask EIP-191 in this example), that it is of type secp256k1 and multi-agree, with threshold 2 (2 nodes must agree), and its public key and Ethereum address.
 
