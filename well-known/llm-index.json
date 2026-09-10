@@ -207,7 +207,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-10T09:02:30.937Z",
+  "generatedAt": "2026-09-10T09:56:13.993Z",
   "pageCount": 60,
   "llmld:sections": [
     {
@@ -235,7 +235,7 @@
           "name": "Overview",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md",
-          "excerpt": "The MPA wallet is AI first , and every node includes a dedicated AI agent harness . You do not install a separate agent product — the harness is part of the node. Configuring it is optional . You can "
+          "excerpt": ""
         },
         {
           "name": "Plan mode",
