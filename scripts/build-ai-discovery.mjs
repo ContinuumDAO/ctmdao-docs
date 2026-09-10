@@ -53,7 +53,7 @@ const privateVpnAgentTask = {
 const configureHarnessAgentTask = {
 	task: 'configure-ai-harness-provider',
 	summary:
-		'External AI agents: coach the operator through Node → AI Agent → Provider (provider, model, baseUrl, API key). There is no MCP write tool. Load the For AI agents — Provider section in Configure.md. DeepSeek uses provider other, model deepseek-flash, baseUrl https://api.deepseek.com — not the example.com placeholder and not retired deepseek-chat.',
+		'External AI agents: coach the operator through Node → AI Agent → Provider (provider, model, baseUrl, API key). There is no MCP write tool. Load the For AI agents — Provider section in Configure.md. DeepSeek uses provider deepseek, model deepseek-flash (official default base URL). Groq (groq) is not xAI Grok (grok). other still requires a real baseUrl — not the example.com placeholder, not retired deepseek-chat.',
 	canonicalDoc: CONFIGURE_PROVIDER_DOC,
 	canonicalDocUrl: CONFIGURE_PROVIDER_URL,
 	overviewDoc: CONFIGURE_DOC,
@@ -68,6 +68,10 @@ const configureHarnessAgentTask = {
 		'API key',
 		'deepseek',
 		'deepseek-flash',
+		'groq',
+		'mistral',
+		'together',
+		'fireworks',
 		'ollama',
 		'openai',
 		'openrouter',

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-10T18:19:14.185Z",
+  "generatedAt": "2026-09-10T19:01:45.454Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1011,7 +1011,7 @@
           "id": "1-link-an-llm-required-for-the-agent",
           "title": "1. Link an LLM (required for the agent)",
           "level": 3,
-          "excerpt": "1. Open AI Agent → Provider . 2. Choose a Provider value from the dropdown (exact ids below). There is no deepseek row — use other for DeepSeek and any other OpenAI compatible host. 3. Set Model to that vendor’s current model id (not a display name). 4. Set Base URL when the table says it is require"
+          "excerpt": "1. Open AI Agent → Provider . 2. Choose a Provider value from the dropdown (exact ids below). Use other only for a host that is not listed. 3. Set Model to that vendor’s current model id (not a display name). 4. Leave Base URL empty to use the official default, or paste a custom root. The grey https"
         },
         {
           "id": "2-set-preferred-keygen-and-default-signer",

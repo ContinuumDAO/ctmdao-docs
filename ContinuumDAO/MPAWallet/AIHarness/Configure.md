@@ -4,7 +4,7 @@ agent:
   audience: [ai-agent, human]
   playbook: https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure
   externalAgentSection: for-ai-agents-provider
-  keywords: [AI Agent Provider, LLM, provider, model, baseUrl, API key, deepseek, deepseek-flash, ollama, openai, openrouter, other, venice, grok]
+  keywords: [AI Agent Provider, LLM, provider, model, baseUrl, API key, deepseek, deepseek-flash, groq, mistral, together, fireworks, ollama, openai, openrouter, other, venice, grok]
 -->
 
 ## Configure the AI harness
@@ -20,28 +20,33 @@ All settings below are under **Node → AI Agent** unless noted.
 ### 1. Link an LLM (required for the agent)
 
 1. Open **AI Agent → Provider**.
-2. Choose a **Provider** value from the dropdown (exact ids below). There is no `deepseek` row — use **`other`** for DeepSeek and any other OpenAI-compatible host.
+2. Choose a **Provider** value from the dropdown (exact ids below). Use **`other`** only for a host that is not listed.
 3. Set **Model** to that vendor’s current model id (not a display name).
-4. Set **Base URL** when the table says it is required. The grey `https://api.example.com/v1` text is a **placeholder**, not a working API. Do not save it.
+4. Leave **Base URL** empty to use the official default, or paste a custom root. The grey `https://api.example.com/v1` text (only for `other`) is a **placeholder**, not a working API.
 5. Paste the vendor **API key** on this same Provider tab, then **Save** (management signature). Cloud keys are stored on the node and never shown in full. MCP secrets go under **Variables**, not here.
 
 Without a working LLM, Agent chat, Telegram, cron, and webhooks cannot run turns.
 
-| Provider | Base URL | Example model | API key |
-|----------|----------|---------------|---------|
-| `openai` | Optional. Empty → `https://api.openai.com/v1` | `gpt-4.1` | Required |
-| `ollama` | Optional. Cloud default `https://ollama.com/api`. Local node: `http://host.docker.internal:11434/api` | Your pulled tag | Not required for a local host |
-| `openrouter` | Required. `https://openrouter.ai/api/v1` | `anthropic/claude-sonnet-4` | Required ([keys](https://openrouter.ai/keys)) |
-| `nvidia` | Required. `https://integrate.api.nvidia.com/v1` | `meta/llama-3.1-8b-instruct` | Required |
-| `huggingface` | Required. `https://router.huggingface.co/v1` | `Qwen/Qwen3.6-27B` | Required (HF token) |
-| `anthropic` | Required. No built-in default. Prefer `openrouter` for Claude, or an OpenAI-compatible Anthropic gateway | Vendor model id | Required |
-| `google` | Required. `https://generativelanguage.googleapis.com/v1beta/openai` | `gemini-2.0-flash` | Required |
-| `meta` | Required. `https://llama-api.meta.com/compat/v1` | `Llama-3.3-70B-Instruct` | Required |
-| `grok` | Required. `https://api.x.ai/v1` | `grok-4` | Required |
-| `venice` | Required. `https://api.venice.ai/api/v1` | `venice-uncensored` | Required ([venice.ai/settings/api](https://venice.ai/settings/api)) |
+| Provider | Default Base URL (empty is fine) | Example model | API key |
+|----------|----------------------------------|---------------|---------|
+| `openai` | `https://api.openai.com/v1` | `gpt-4.1` | Required |
+| `ollama` | `https://ollama.com/api`. Local node: `http://host.docker.internal:11434/api` | Your pulled tag | Not required for a local host |
+| `openrouter` | `https://openrouter.ai/api/v1` | `anthropic/claude-sonnet-4.6` | Required ([keys](https://openrouter.ai/keys)) |
+| `nvidia` | `https://integrate.api.nvidia.com/v1` | `meta/llama-3.3-70b-instruct` | Required |
+| `huggingface` | `https://router.huggingface.co/v1` | `Qwen/Qwen3.6-27B` | Required (HF token) |
+| `anthropic` | `https://api.anthropic.com/v1` (OpenAI-compat) | `claude-sonnet-4-6` | Required |
+| `google` | `https://generativelanguage.googleapis.com/v1beta/openai` | `gemini-2.5-flash` | Required |
+| `meta` | `https://llama-api.meta.com/compat/v1` | `Llama-4-Maverick-17B-128E-Instruct` | Required |
+| `grok` | `https://api.x.ai/v1` | `grok-4` | Required |
+| `groq` | `https://api.groq.com/openai/v1` | `llama-3.3-70b-versatile` | Required (Groq inference — not xAI Grok) |
+| `deepseek` | `https://api.deepseek.com` | `deepseek-flash` | Required ([platform.deepseek.com](https://platform.deepseek.com)) |
+| `mistral` | `https://api.mistral.ai/v1` | `mistral-large-latest` | Required |
+| `together` | `https://api.together.xyz/v1` | `meta-llama/Llama-3.3-70B-Instruct-Turbo` | Required |
+| `fireworks` | `https://api.fireworks.ai/inference/v1` | `accounts/fireworks/models/llama-v3p3-70b-instruct` | Required |
+| `venice` | `https://api.venice.ai/api/v1` | `venice-uncensored` | Required ([venice.ai/settings/api](https://venice.ai/settings/api)) |
 | `other` | **Required.** Real OpenAI-compatible root, not the example.com placeholder | That host’s model id | Required unless the host is local |
 
-**DeepSeek (common `other` setup):** Provider `other`, Base URL `https://api.deepseek.com` or `https://api.deepseek.com/v1`, Model `deepseek-flash`, API key from [platform.deepseek.com](https://platform.deepseek.com). Do **not** use `deepseek-chat` (retired 24 July 2026).
+**DeepSeek:** Provider `deepseek`, Model `deepseek-flash`, API key from [platform.deepseek.com](https://platform.deepseek.com). Do **not** use retired `deepseek-chat` / `deepseek-reasoner`. `groq` is Groq inference; `grok` is xAI.
 
 The node appends `/chat/completions` to a custom Base URL (or `/chat` for Ollama) unless you already pasted that suffix. Paste the vendor **root** (with `/v1` when the vendor documents it), not a made-up host.
 
@@ -109,9 +114,9 @@ Preferred KeyGen on the same tab **is** a Path A tool (`post_preferred_key_gen`)
 
 | Field | Rule |
 |-------|------|
-| `provider` | One of: `openai`, `ollama`, `openrouter`, `nvidia`, `huggingface`, `anthropic`, `google`, `meta`, `grok`, `venice`, `other`. Case-insensitive. Not a free-text vendor name. |
+| `provider` | One of: `openai`, `ollama`, `openrouter`, `nvidia`, `huggingface`, `anthropic`, `google`, `meta`, `grok`, `groq`, `deepseek`, `mistral`, `together`, `fireworks`, `venice`, `other`. Case-insensitive. Not a free-text vendor name. |
 | `model` | Required. Vendor model id. Save succeeds with provider + model even if Base URL is empty. |
-| `baseUrl` | Required at **chat time** for every provider except `openai` and `ollama` (those have defaults). Empty `other` → error `provider "other" requires baseUrl in agent LLM settings`. |
+| `baseUrl` | Optional for every first-class provider (official default applies). Required at **chat time** only for `other`. Empty `other` → error `provider "other" requires baseUrl in agent LLM settings`. |
 | Placeholder | `https://api.example.com/v1` is UI hint only. Saving it posts to a fake host. |
 | URL shape | Trim trailing `/`. If the value already ends with `/chat/completions` or `/chat`, the node uses it as-is. Otherwise it appends `/chat/completions` (`/chat` for `ollama`). |
 | API key | Required unless the resolved host is loopback, `host.docker.internal`, `*.local`, or RFC1918. Cloud DeepSeek / OpenAI / OpenRouter always need a key. |
@@ -120,13 +125,13 @@ Preferred KeyGen on the same tab **is** a Path A tool (`post_preferred_key_gen`)
 **DeepSeek checklist (if that is the vendor)**
 
 ```
-Provider: other
+Provider: deepseek
 Model:    deepseek-flash
-Base URL: https://api.deepseek.com
+Base URL: (leave empty, or https://api.deepseek.com)
 API key:  the operator’s DeepSeek key (sk-…)
 ```
 
-`https://api.deepseek.com/v1` is also valid. Do not use `deepseek-chat` or `deepseek-reasoner` (retired 24 July 2026). Do not use `http://example.com/v1`.
+`https://api.deepseek.com/v1` is also valid. Do not use `deepseek-chat` or `deepseek-reasoner` (retired 24 July 2026). Do not pick `other` unless they are on a third-party DeepSeek proxy.
 
 **Typical user prompts**
 
@@ -138,14 +143,14 @@ API key:  the operator’s DeepSeek key (sk-…)
 
 1. Confirm they are in the node app, attached, **Node → AI Agent → Provider**.
 2. Map their vendor to a dropdown id + Base URL + current model id (table in §1).
-3. Tell them to type the Base URL (not leave the placeholder) and paste the key on **Provider**, then **Save**.
+3. For a listed provider they can leave Base URL empty. For `other`, they must type a real root (not the example.com placeholder). Paste the key on **Provider**, then **Save**.
 4. If chat still fails, ask what the UI shows: save error, “Agent LLM is not fully configured yet”, “No API key stored”, or a chat-time error such as `provider "other" requires baseUrl`.
 5. Preferred KeyGen empty is unrelated to LLM HTTP. If they also need a default wallet, use `post_preferred_key_gen` or the picker on this tab.
 
 **Do not**
 
 - Pick `openai` and leave Base URL empty when the key is for DeepSeek or another host (that hits `api.openai.com`).
-- Treat `other` Base URL as optional because the label says “(optional)”.
+- Treat `other` Base URL as optional. The UI labels it required; chat fails without a real root.
 - Put the LLM key in **Variables**.
 - Call this done during VPS provision — [Agent provision](/ContinuumDAO/MPAWallet/AgentProvision.md) is first; Provider is a later human step.
 
