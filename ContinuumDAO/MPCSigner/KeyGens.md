@@ -23,7 +23,7 @@ The user selects either **multi-agree** or **tx-check**.
 
 Creating or joining a KeyGen from the **Keys** page is signed with the **current header management signer** — the Ethereum wallet (`NodeMgtKey`) or an allowed Ed25519 key selected with the header key icon (including a key whose private key is only on your PC). There is no per-KeyGen client identity to enter. The built-in AI agent uses the [preferred Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) on node API calls for **multi-agree**; for **tx-check** create/join it uses the on-disk bootstrap key when that file exists.
 
-For **EIP-191 (MetaMask)**: use a **newly created software wallet address** dedicated to management — **not** a hardware wallet (insufficient memory for large management signatures) and **not** an address used for custody or DeFi. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
+For **EIP-191 (Ethereum injected signer, e.g. MetaMask, Rabby, etc.)**: use a **newly created software wallet address** dedicated to management — **not** a hardware wallet (insufficient memory for large management signatures) and **not** an address used for custody or DeFi. See [Management signing and devices](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices).
 
 #### (2) GroupID
 
@@ -77,7 +77,7 @@ Once the KeyGen request has been submitted, the originator sees their request in
 
 Their own Node Key has a green tick (they agree automatically) and other nodes show **waiting** whilst those nodes decide whether to agree.
 
-On one of the other nodes, they will see a **Join** button. Clicking it signs the agreement with the **current header management signer** (Ethereum wallet or the Ed25519 key selected with the key icon). If the header is on Ed25519, the usual sign-and-paste management dialog opens.
+On one of the other nodes, they will see a **Join** button. Clicking it signs the agreement with the **current header management signer** (Ethereum wallet or the Ed25519 key selected with the key icon). If the header is on Ed25519 and the private key is on that node, click **OK**; if the private key is only on your PC, use **sign-clipboard** and paste the signature (see [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md#ok-vs-sign-clipboard-human-signing)).
 
 <img src="/_media/keygen_pending_from_peer.png" alt="KeyGen Join button on a peer node"/>
 

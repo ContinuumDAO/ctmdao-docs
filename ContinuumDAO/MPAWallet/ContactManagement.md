@@ -17,7 +17,7 @@ Click the **body / person icon** in the app **header** to open **Contacts**. Fro
 - **Edit** name, chain scope, or contract flag
 - **Remove** an entry (node registry only — nothing on-chain changes)
 
-Management signing (MetaMask **EIP-191** or **Ed25519**) is required for add, update, and remove.
+Management signing (Ethereum injected signer **EIP-191**, e.g. MetaMask or Rabby, or **Ed25519**) is required for add, update, and remove.
 
 ---
 

@@ -27,7 +27,7 @@ If some other Configured Nodes have health issues, then this is shown in the Add
 
 In this selection, two other nodes are on-line, but need to check their inter-node communications. Nodes that have issues cannot be selected for Group creation.
 
-In our example, two healthy nodes (including our own) were selected and after OK is clicked,  a signature request is triggered, e.g. from MetaMask. The new Group request can be seen in the Pending Groups table. Our node is now 'waiting' for agreement from other nodes to Join
+In our example, two healthy nodes (including our own) were selected and after OK is clicked, a **management signature** is requested (Ethereum injected signer **EIP-191**, e.g. MetaMask or Rabby, or **Ed25519** — whichever signer is selected in the header). The new Group request can be seen in the Pending Groups table. Our node is now 'waiting' for agreement from other nodes to Join
 
 <img src="/_media/Pending_groups_creator.png"  alt=""/>
 

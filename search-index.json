@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-10T09:56:13.993Z",
+  "generatedAt": "2026-09-10T14:38:24.338Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1396,10 +1396,11 @@
       "section": "Using an MPA wallet",
       "headings": [
         "Attach your node",
+        "Hosted app over an SSH tunnel",
         "Option 1: Browser HTTPS",
         "Option 2: Node hosted app (local PC)",
         "Option 3: Node hosted app (SSH tunnel)",
-        "Hosted app over an SSH tunnel",
+        "Management signing at attach",
         "Related"
       ],
       "sections": [
@@ -1410,10 +1411,16 @@
           "excerpt": "Open mpa.continuumdao.org. Your browser talks to your node — ContinuumDAO does not relay day to day control traffic. For management signing (Accept/Reject on multi sign, backups, KeyGen actions), prefer devices not used for everyday browsing ; the most secure pattern is a separate dedicated device p"
         },
         {
+          "id": "hosted-app-over-an-ssh-tunnel",
+          "title": "Hosted app over an SSH tunnel",
+          "level": 3,
+          "excerpt": "If Browser HTTPS is hidden for your region, choose Node hosted app (local PC) or Node hosted app (SSH tunnel) only. Acknowledge the compliance banner, then follow Option 2 or Option 3 below (not Browser HTTPS). <img src=\"/ media/attach option ssh tunnel.png\" alt=\"\" /"
+        },
+        {
           "id": "option-1-browser-https",
           "title": "Option 1: Browser HTTPS",
           "level": 3,
-          "excerpt": "Attach over HTTPS to your node’s read port. You need a short lived read JWT and a browser that trusts the node’s self signed browser.crt . Recommended order: attach via a Node hosted app option first (see below), open Node → Fetch Self Signed Web Cert , download browser.crt , import it into your bro"
+          "excerpt": "Attach over HTTPS to your node’s read port. You need a short lived read JWT and a browser that trusts the node’s self signed browser.crt . Recommended order: attach via a Node hosted app option first (Option 2 or 3 below), open Node → Fetch Self Signed Web Cert , download browser.crt , import it int"
         },
         {
           "id": "option-2-node-hosted-app-local-pc",
@@ -1425,19 +1432,19 @@
           "id": "option-3-node-hosted-app-ssh-tunnel",
           "title": "Option 3: Node hosted app (SSH tunnel)",
           "level": 3,
-          "excerpt": "Use when the node runs on a remote VPS (or another machine you reach over SSH). This is a good default option to connect to a remote nodes, e.g. on a VPS. It does not require to have a Let's Encrypt type of cert for https to be installed, or to import a self signed cert into your browser, which can "
+          "excerpt": "Use when the node runs on a remote VPS (or another machine you reach over SSH). This is a good default option to connect to a remote node, e.g. on a VPS. It does not require a Let's Encrypt style HTTPS cert on the node, or importing a self signed cert into your browser. 1. Select Node hosted app (SS"
         },
         {
-          "id": "hosted-app-over-an-ssh-tunnel",
-          "title": "Hosted app over an SSH tunnel",
+          "id": "management-signing-at-attach",
+          "title": "Management signing at attach",
           "level": 3,
-          "excerpt": "If Browser HTTPS is hidden for your region, choose Node hosted app (local PC) or Node hosted app (SSH tunnel) only. Acknowledge the compliance banner, then follow the steps above. <img src=\"/ media/attach option ssh tunnel.png\" alt=\"\" /"
+          "excerpt": "After you reach the node app (any attach option above), you connect with a management signer : Signer When to use Ed25519 No Ethereum signer required. Set PublicMgtKey (and optional added keys) on the node at install time. Ethereum signer (EIP 191) Optional. Requires NodeMgtKey in config — see Manag"
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop Install a node Overview Running an MPC Node Backup and restoration"
+          "excerpt": "MPC Accept/Reject loop Install a node Overview Running an MPC Node Default Ed25519 signer Backup and restoration"
         }
       ],
       "excerpt": "Open mpa.continuumdao.org. Your browser talks to your node — ContinuumDAO does not relay day to day control traffic. For management signing (Accept/Reject on multi sign, backups, KeyGen actions), prefer devices not used for everyday browsing ; the most secure pattern is a separate dedicated device p",
@@ -1493,7 +1500,7 @@
           "id": "steps-create-download",
           "title": "Steps (create + download)",
           "level": 4,
-          "excerpt": "1. Attach with MetaMask or Ed25519 management keys ( Browser HTTPS or Node hosted app recommended for download). 2. Confirm the bootstrap private key is present on the node ( Bootstrap Key tab / fetch works). Database encryption requires it. 3. Open Backup Database . 4. Choose scope if offered (all "
+          "excerpt": "1. Attach with your management signer — Ed25519 (OK if the private key is on the node, or sign clipboard if it is only on your PC) or optional Ethereum injected signer (e.g. MetaMask, Rabby, etc.) ( Browser HTTPS or Node hosted app recommended for download). 2. Confirm the bootstrap private key is p"
         },
         {
           "id": "restore-the-node-database",
@@ -1720,7 +1727,7 @@
           "id": "submit-ok-creates-the-multi-sign-request",
           "title": "Submit — OK creates the multi-sign request",
           "level": 4,
-          "excerpt": "When every step looks correct, confirm OK (or Create sign request ). The originator management signs the submission. The node creates the multi sign request and publishes it to the KeyGen. From here the flow continues on Join. <! Screenshot placeholder: replace media/mpc compose transaction flow.png"
+          "excerpt": "When every step looks correct, confirm OK (or Create sign request ). The originator management signs the submission. When the header management signer is Ed25519 , this step follows the same OK vs sign clipboard rules as other management actions (see Default Ed25519 signer — OK vs sign clipboard). T"
         },
         {
           "id": "foundry-script",
@@ -1881,7 +1888,7 @@
           "id": "open-contacts-header",
           "title": "Open Contacts (header)",
           "level": 3,
-          "excerpt": "Click the body / person icon in the app header to open Contacts . From here you can: Browse saved names and addresses Add a new contact ( + ) Edit name, chain scope, or contract flag Remove an entry (node registry only — nothing on chain changes) Management signing (MetaMask EIP 191 or Ed25519 ) is "
+          "excerpt": "Click the body / person icon in the app header to open Contacts . From here you can: Browse saved names and addresses Add a new contact ( + ) Edit name, chain scope, or contract flag Remove an entry (node registry only — nothing on chain changes) Management signing (Ethereum injected signer EIP 191 "
         },
         {
           "id": "add-or-edit-a-contact",
@@ -1963,6 +1970,7 @@
       "section": "Using an MPA wallet",
       "headings": [
         "Default Ed25519 signer",
+        "OK vs sign-clipboard (human signing)",
         "What “default signer” means",
         "Where your keys come from",
         "How to set the default signer",
@@ -1975,7 +1983,13 @@
           "id": "default-ed25519-signer",
           "title": "Default Ed25519 signer",
           "level": 2,
-          "excerpt": "The built in AI agent (Agent chat and Telegram, if configured) needs an Ed25519 management key to call your node’s API. The default signer (also called preferred signer in the UI) is which allowed management key it uses. This is not the shared MPC wallet key. On chain control still uses MPC — the no"
+          "excerpt": "Every node needs at least one management key; Ed25519 ( PublicMgtKey and optional added keys) is enough — you do not need an Ethereum injected signer (e.g. MetaMask, Rabby, etc.) or NodeMgtKey . The built in AI agent (Agent chat and Telegram, if configured) and human operators in the node app both u"
+        },
+        {
+          "id": "ok-vs-sign-clipboard-human-signing",
+          "title": "OK vs sign-clipboard (human signing)",
+          "level": 3,
+          "excerpt": "When the header management signer is Ed25519, the app checks whether the selected key’s private file is on the node ( bootstrap key/ed25519 private.hex or added keys/added key <N ): Private key location Typical flow On the node Click OK — the node signs locally and submits (no clipboard). Only on yo"
         },
         {
           "id": "what-default-signer-means",
@@ -2005,7 +2019,7 @@
           "id": "checklist",
           "title": "Checklist",
           "level": 3,
-          "excerpt": "Situation What to do Fresh install Bootstrap is enough unless you want a separate preferred key Recreated node Restore the original bootstrap private key (same PublicMgtKey) — see Backup and restoration Telegram bot Same default signer as Agent chat Want more detail Technical lifecycle: CONFIGURING "
+          "excerpt": "Situation What to do Fresh install Bootstrap is enough unless you want a separate preferred key Human operator, key on node Header Ed25519 signer + OK for most management actions Human operator, key on PC only sign clipboard + paste; or store private key on node if you accept that trade off SSH tunn"
         },
         {
           "id": "related",
@@ -2014,7 +2028,7 @@
           "excerpt": "MPC Accept/Reject loop Backup and restoration Configure the AI harness AI harness overview Telegram Mini App Technical: CONFIGURING ED25519 KEYS.md"
         }
       ],
-      "excerpt": "The built in AI agent (Agent chat and Telegram, if configured) needs an Ed25519 management key to call your node’s API. The default signer (also called preferred signer in the UI) is which allowed management key it uses. This is not the shared MPC wallet key. On chain control still uses MPC — the no",
+      "excerpt": "Every node needs at least one management key; Ed25519 ( PublicMgtKey and optional added keys) is enough — you do not need an Ethereum injected signer (e.g. MetaMask, Rabby, etc.) or NodeMgtKey . The built in AI agent (Agent chat and Telegram, if configured) and human operators in the node app both u",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DefaultEd25519Signer"
     },
     {
@@ -2464,7 +2478,7 @@
           "id": "management-signing-and-devices",
           "title": "Management signing and devices",
           "level": 3,
-          "excerpt": "When you attach to a node, you management sign sensitive actions: Accept/Reject on multi sign, KeyGen flows, bootstrap and database backup operations, and other node API calls (MetaMask EIP 191 or Ed25519 — see KeyGens). Prefer a device not used for general internet use — a machine you do not browse"
+          "excerpt": "When you attach to a node, you management sign sensitive actions: Accept/Reject on multi sign, KeyGen flows, bootstrap and database backup operations, and other node API calls. Each node needs at least one management key in config — Ed25519 ( PublicMgtKey and optional added keys) and/or Ethereum ( N"
         },
         {
           "id": "subscription-through-staking",

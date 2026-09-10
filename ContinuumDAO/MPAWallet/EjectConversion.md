@@ -29,7 +29,7 @@ Only **multi-agree** KeyGens can be ejected. **tx-check** KeyGens and keys alrea
 Do this from **Keys** on a node that is in the KeyGen’s Group. Peers need to be online and healthy enough to complete the eject protocol (same idea as finishing a KeyGen or multi-sign).
 
 1. Open **Existing keys**, expand the KeyGen you want to convert.
-2. Start **eject** for that KeyGen (management-signed request — MetaMask EIP-191 or Ed25519, same as other KeyGen actions).
+2. Start **eject** for that KeyGen (management-signed request — Ethereum signer **EIP-191** or Ed25519, same as other KeyGen actions).
 3. Other Group nodes see the eject in **Pending**. Each agreeing node taps **Eject** / Agree (again with their management signature). You need the same number of Accepts as for signing that KeyGen (**threshold**).
 4. After governance reaches quorum, nodes run the export protocol. The KeyGen moves to Existing keys with an **Ejected** badge. Green ticks on the pending eject row mean agreement only — wait until export finishes and the **Ejected** badge appears.
 5. On a node that completed export, use **Fetch Private Keys** (management-signed). Copy the relevant secret **once**, store it offline, and clear it from screen history when you are done.

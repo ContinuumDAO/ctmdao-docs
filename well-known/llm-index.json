@@ -207,7 +207,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-10T09:56:13.993Z",
+  "generatedAt": "2026-09-10T14:38:24.338Z",
   "pageCount": 60,
   "llmld:sections": [
     {
@@ -561,7 +561,7 @@
           "name": "Default Ed25519 signer",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DefaultEd25519Signer",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md",
-          "excerpt": "The built in AI agent (Agent chat and Telegram, if configured) needs an Ed25519 management key to call your node’s API. The default signer (also called preferred signer in the UI) is which allowed man"
+          "excerpt": "Every node needs at least one management key; Ed25519 ( PublicMgtKey and optional added keys) is enough — you do not need an Ethereum injected signer (e.g. MetaMask, Rabby, etc.) or NodeMgtKey . The b"
         },
         {
           "name": "Eject to Private Key",

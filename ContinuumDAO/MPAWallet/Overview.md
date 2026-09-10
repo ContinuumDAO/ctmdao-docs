@@ -70,12 +70,20 @@ The MPA wallet is designed so that **custody stays in your hands**, not on Conti
 
 ### Management signing and devices
 
-When you attach to a node, you **management-sign** sensitive actions: [Accept/Reject on multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md), KeyGen flows, bootstrap and database backup operations, and other node API calls (MetaMask **EIP-191** or **Ed25519** — see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
+When you attach to a node, you **management-sign** sensitive actions: [Accept/Reject on multi-sign](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md), KeyGen flows, bootstrap and database backup operations, and other node API calls. Each node needs **at least one** management key in config — **Ed25519** (`PublicMgtKey` and optional added keys) and/or **Ethereum** (`NodeMgtKey`). You do **not** need both; many operators use **Ed25519 only** and never attach an Ethereum injected signer (e.g. MetaMask, Rabby, etc.).
+
+Choose the active signer with the **header key icon** in the node app: an allowed **Ed25519** public key or an Ethereum wallet (`NodeMgtKey`). See [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) and [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
 
 - **Prefer a device not used for general internet use** — a machine you do not browse, email, or install casual software on reduces exposure to malware, malicious extensions, and phishing on the device that authorizes node control.
 - **Strongest setup: one dedicated device per node** — attach and sign management requests for each node from **separate** hardware (or at least separate user accounts and browsers with no shared daily-use profile). If one everyday laptop is compromised, the others in your Group should not be trivially reachable from the same environment.
 
-**Ethereum (EIP-191 / MetaMask) management signers:**
+**Ed25519 management signers (recommended for many setups):**
+
+- **Private key on the node** — bootstrap material (`bootstrap_key/ed25519_private.hex`) or keys added under **Node → Ed25519 Management Keys** whose private files live in `added_keys/`. After attach, most management actions show a simple **OK** button; the node signs locally (`POST /signLocalEd25519Message`) and submits. This suits AI nodes and operators who accept on-disk management material for convenience.
+- **Private key only on your PC** — the node stores only the **public** key. When prompted, copy the message, run **`sign-clipboard --key-file <path>`** on your PC (clone [mpc-config](https://github.com/ContinuumDAO/mpc-config) and build from **`tools/sign-clipboard`** if needed — see [`README.md`](https://github.com/ContinuumDAO/mpc-config/blob/main/tools/sign-clipboard/README.md)), paste the 128-hex signature, and **Submit**. Use this when you do **not** want management private keys on the VPS.
+- **Attach over SSH tunnel** — proving ownership at attach time always uses **sign-clipboard on your PC** (the app cannot OK without a local private key during that step). After attach, day-to-day management follows the rules above for whichever Ed25519 key you selected. See [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md).
+
+**Ethereum injected signer (EIP-191, e.g. MetaMask, Rabby, etc.) — optional:**
 
 - **Do not use hardware wallets** — they often lack enough memory to sign the **large EIP-191 management payloads** the node app produces. Use a **software wallet** in the browser instead.
 - **Use a newly created, dedicated address** — generate a fresh wallet for **management signing only**. Set that address as your node’s `**NodeMgtKey`**. Do **not** reuse addresses that hold custody funds, DeFi positions, or everyday assets; management keys authenticate node control, not your MPC wallet balances.

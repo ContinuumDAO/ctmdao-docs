@@ -73,7 +73,7 @@ Backups are **encrypted** using material derived from the **bootstrap** key, the
 
 #### Steps (create + download)
 
-1. Attach with MetaMask or Ed25519 management keys (**Browser HTTPS** or **Node hosted app** recommended for download).
+1. Attach with your management signer — **Ed25519** (OK if the private key is on the node, or **sign-clipboard** if it is only on your PC) or optional Ethereum injected signer (e.g. MetaMask, Rabby, etc.) (**Browser HTTPS** or **Node hosted app** recommended for download).
 2. Confirm the bootstrap private key is present on the node (**Bootstrap Key** tab / fetch works). Database encryption requires it.
 3. Open **Backup Database**.
 4. Choose scope if offered (all Groups, or include/exclude specific Group IDs), add optional notes, then create the backup and sign the management request. The node may enter a short **maintenance / drain** window for a consistent dump.
@@ -116,7 +116,7 @@ Store them offline and redundantly. Do not put the private seed in git, tickets,
 | One node’s recovery bundle **≠** same location as another node’s | Limits blast radius across your Group nodes |
 | Prefer different media or vaults for bootstrap vs database files | e.g. bootstrap on offline hardware wallet / paper; DB backup on a different encrypted disk |
 | **Dedicated signing devices** | Management-sign from machines not used for general web use; ideally **one device per node** — see [Overview](/ContinuumDAO/MPAWallet/Overview.md#management-signing-and-devices) |
-| **Ethereum management address** | New **software** wallet per node as **NodeMgtKey** — not hardware wallets; not used for custody |
+| **Ethereum management address** (optional) | New **software** wallet per node as **NodeMgtKey** if you use the Ethereum signer — not hardware wallets; not used for custody. Ed25519-only nodes can omit this. |
 
 Again: compromising this recovery bundle is serious for **your node’s privacy and operability**, but with a proper Group TSS threshold it is **not** by itself enough to steal KeyGen assets — attackers would still need enough other nodes’ shares / Accepts (or a full [eject](/ContinuumDAO/MPAWallet/EjectConversion.md) they somehow control).
 

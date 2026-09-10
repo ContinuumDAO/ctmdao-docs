@@ -61,7 +61,7 @@ Run **Validate** first for fast feedback; use **Simulate** when you need confide
 
 #### Submit — OK creates the multi-sign request
 
-When every step looks correct, confirm **OK** (or **Create sign request**). The originator **management-signs** the submission. The node creates the **multi-sign request** and publishes it to the KeyGen.
+When every step looks correct, confirm **OK** (or **Create sign request**). The originator **management-signs** the submission. When the header management signer is **Ed25519**, this step follows the same **OK** vs **sign-clipboard** rules as other management actions (see [Default Ed25519 signer — OK vs sign-clipboard](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md#ok-vs-sign-clipboard-human-signing)). The node creates the **multi-sign request** and publishes it to the KeyGen.
 
 From here the flow continues on [Join](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md#join--threshold-accept--reject).
 

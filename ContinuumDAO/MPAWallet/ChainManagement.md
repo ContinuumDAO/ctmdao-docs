@@ -28,7 +28,7 @@ Open the **Assets** tab and use the **chain selector** at the top. It lists ever
    - **Explorer** (optional) — block explorer base URL for links after broadcast
    - **Legacy gas** toggle — off for EIP-1559 networks (default for modern EVMs); on for legacy `gasPrice` chains
    - **Testnet** flag — when the network is not mainnet
-5. To **edit** an existing chain: select it in the list (for example **Arbitrum**), change RPC, explorer, or gas fields, and save. Management signing (MetaMask **EIP-191** or **Ed25519**) is required for add, update, and remove — same as other node configuration.
+5. To **edit** an existing chain: select it in the list (for example **Arbitrum**), change RPC, explorer, or gas fields, and save. Management signing (Ethereum injected signer **EIP-191**, e.g. MetaMask or Rabby, or **Ed25519**) is required for add, update, and remove — same as other node configuration.
 6. To **remove** a chain: open it in the modal and use **Remove** / delete. Removing only affects this node’s local registry.
 
 Here is an example of one node's configured chains:

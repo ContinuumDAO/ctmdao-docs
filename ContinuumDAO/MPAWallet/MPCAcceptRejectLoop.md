@@ -27,7 +27,7 @@ Regardless of path, the originator can usually attach:
 
 Custom Chain config applies to **this** multi-sign request only. Other nodes see the same config when reviewing; the originator can change gas again later on the **Execute** tab (see below).
 
-Each action is **management-signed** by the originator (MetaMask **EIP-191** or **Ed25519** — see [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
+Each action is **management-signed** by the originator (Ethereum injected signer **EIP-191**, e.g. MetaMask or Rabby, or **Ed25519** — see [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md) and [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
 
 ### Join — threshold Accept / Reject
 
