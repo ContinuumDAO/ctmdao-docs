@@ -18,7 +18,7 @@ To be eligible to join the Continuum network, a single Group of **3 or more** no
 
 ### Steps (node app)
 
-1. On **each node**, complete **Info → Node Registration**.
+1. On **each node**, complete **Node → Describe your Node**.
 2. Create both required **tx-check** KeyGens on the **Keys** page — one **secp256k1**, one **ed25519**, each with threshold **≥ 3** (see [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)).
 3. On the **Keys** page, click **Add signer**, select both KeyGens, and copy the displayed JSON for the DAO proposal.
 

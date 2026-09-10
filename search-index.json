@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-06T09:43:28.811Z",
+  "generatedAt": "2026-09-10T09:02:30.937Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3261,7 +3261,7 @@
           "id": "steps-node-app",
           "title": "Steps (node app)",
           "level": 3,
-          "excerpt": "1. On each node , complete Info → Node Registration . 2. Create both required tx check KeyGens on the Keys page — one secp256k1 , one ed25519 , each with threshold ≥ 3 (see KeyGens). 3. On the Keys page, click Add signer , select both KeyGens, and copy the displayed JSON for the DAO proposal. With a"
+          "excerpt": "1. On each node , complete Node → Describe your Node . 2. Create both required tx check KeyGens on the Keys page — one secp256k1 , one ed25519 , each with threshold ≥ 3 (see KeyGens). 3. On the Keys page, click Add signer , select both KeyGens, and copy the displayed JSON for the DAO proposal. With "
         },
         {
           "id": "related",
@@ -3280,11 +3280,9 @@
       "headings": [
         "Creating a KeyGen",
         "(1) MsgCheck",
-        "(2) Multi-sign client auth",
-        "(3) Client Key",
-        "(4) GroupID",
-        "(5) Threshold",
-        "(6) Key type",
+        "(2) GroupID",
+        "(3) Threshold",
+        "(4) Key type",
         "KeyGen Agreement",
         "Related"
       ],
@@ -3302,32 +3300,20 @@
           "excerpt": "The user selects either multi agree or tx check . multi agree — nodes in the KeyGen choose whether to sign a transaction (Accept) or not (Reject). This is the MPA wallet path: humans and/or AI agents, with Accept as the circuit breaker (including simple 2/2 ). Full UI flow: MPC Accept/Reject loop. t"
         },
         {
-          "id": "2-multi-sign-client-auth",
-          "title": "(2) Multi-sign client auth",
-          "level": 4,
-          "excerpt": "When creating or joining this KeyGen, choose how your node registers its client identity for multi sign rounds. The dialog offers EIP 191 (Ethereum signatures, e.g. MetaMask) or Ed25519 (a key from Node → Ed25519 Management Keys ). This choice is stored in the KeyGen’s ClientKeys map for your node —"
-        },
-        {
-          "id": "3-client-key",
-          "title": "(3) Client Key",
-          "level": 4,
-          "excerpt": "At create/join time, the Client Key is the value stored in ClientKeys for your node (visible when you expand the key under Existing keys ). EIP 191 (MetaMask) — your node’s Ethereum management address ( NodeMgtKey — the address the app uses when it prompts for a management signature). Ed25519 — pick"
-        },
-        {
-          "id": "4-groupid",
-          "title": "(4) GroupID",
+          "id": "2-groupid",
+          "title": "(2) GroupID",
           "level": 4,
           "excerpt": "Each KeyGen applies to a single Group that has previously been created. This defines which nodes can partake in the Sign Requests. All nodes in the Group must be in a healthy state before the KeyGen can start. A check is run to make sure this is the case. If the KeyGen request is blocked, confirm ev"
         },
         {
-          "id": "5-threshold",
-          "title": "(5) Threshold",
+          "id": "3-threshold",
+          "title": "(3) Threshold",
           "level": 4,
           "excerpt": "This is the TSS parameter from the CGGMP24 and FROST protocols (Lockness / LF Decentralized Trust). Signing requires threshold Accepts: UI Threshold Accepts needed Everyday name Typical use 2 2 2/2 (with a 2 node Group) Personal AI + human circuit breaker 3 3 3/5 (with a 5 node Group), or 3/3, 3/4, "
         },
         {
-          "id": "6-key-type",
-          "title": "(6) Key type",
+          "id": "4-key-type",
+          "title": "(4) Key type",
           "level": 4,
           "excerpt": "This is the cryptographic key type for which a signature is being sought. We currently support three key types: secp256k1 — ECDSA, threshold signing via CGGMP24 ; used by Ethereum, EVMs, and Bitcoin SegWit (P2WPKH) ( bc1q… ). One multi agree secp256k1 KeyGen can custody EVM assets and SegWit BTC tog"
         },
