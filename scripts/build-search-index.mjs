@@ -135,6 +135,7 @@ function extractTitle(md, fallback) {
 /** @param {string} md */
 function buildExcerpt(md) {
 	const text = md
+		.replace(/<!--[\s\S]*?-->/g, '')
 		.replace(/^#+\s.+$/gm, '')
 		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
 		.replace(/[*_`>#|-]/g, ' ')

@@ -73,7 +73,7 @@ Alternative to the **Keys** page dialog — use **Agent chat** on the node that 
 
 **Before you prompt:**
 
-1. **AI Agent → Provider** — link an LLM provider and model (API key in **Variables**). See [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
+1. **AI Agent → Provider** — link an LLM provider, model, Base URL, and API key on that tab (not Variables). See [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) and [For AI agents — Provider](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider).
 2. **Preferred signer** — set the **preferred** Ed25519 management key under **Node → Ed25519 Management Keys** (or when Agent chat prompts). The agent uses this to management-sign the KeyGen request. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
 3. Confirm every node in the Group is **healthy** on the **Groups** page.
 

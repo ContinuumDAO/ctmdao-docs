@@ -68,7 +68,7 @@ curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scrip
 |--------|---------|---------------|
 | Root password or root SSH key | Needed to run the script | Do not keep in the agent after install |
 | `mpcnode` login password | **Not set by oneshot** — you must give `passwd` next | User-only (SSH / wallet website attach). Not needed for MCP |
-| LLM API key | — | User sets **AI Agent → Provider** later. Not your first action. There is no MCP tool for it. |
+| LLM API key | — | User sets **AI Agent → Provider** later. Not your first action. There is no MCP tool for it. Coach values: [Configure the AI harness — For AI agents](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider). |
 
 Prefer: the user runs oneshot, or you use a **root SSH key**. Putting the root password in chat is last resort.
 
@@ -168,7 +168,7 @@ When the home node’s mesh view looks healthy (`get_connectivity_health`):
 3. **Register (preferred KeyGen)** — `post_preferred_key_gen` on the node they will use for compose / Agent chat. In the UI this is **AI Agent → Provider** (or the prompt in Agent chat). Without this, the wallet has an address but the agent/UI does not know which KeyGen to spend from.
 4. **Attach** — [https://mpa.continuumdao.org](https://mpa.continuumdao.org) ([Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md); tunnel **3333** if needed) so they can see the Group, KeyGen, and Accept queue.
 5. They already set the **`mpcnode`** password in §1b. If they skipped it, give `ssh root@IP 'passwd mpcnode'` now.
-6. Optional later: **AI Agent → Provider** (their LLM key), chains, tokens. Path A does not need the LLM key.
+6. Optional later: **AI Agent → Provider** (their LLM key), chains, tokens. Path A does not need the LLM key. If they ask you to fill Provider, load [For AI agents — Provider](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider).
 
 Point at [Groups](/ContinuumDAO/MPCSigner/Groups.md) and [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md) only as backup, not as the primary instruction.
 
@@ -181,4 +181,4 @@ Point at [Groups](/ContinuumDAO/MPCSigner/Groups.md) and [KeyGens](/ContinuumDAO
 - [Groups](/ContinuumDAO/MPCSigner/Groups.md)
 - [KeyGens](/ContinuumDAO/MPCSigner/KeyGens.md)
 - [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
-- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) — optional, after KeyGen
+- [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md) — optional, after KeyGen; LLM Provider coaching: [For AI agents — Provider](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider)

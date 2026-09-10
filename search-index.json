@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-10T17:20:02.291Z",
+  "generatedAt": "2026-09-10T18:19:14.185Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -997,6 +997,7 @@
         "3. Variables, MCP servers, and default search",
         "4. Optional — Telegram on your phone",
         "5. Optional next",
+        "For AI agents — Provider",
         "Related"
       ],
       "sections": [
@@ -1010,7 +1011,7 @@
           "id": "1-link-an-llm-required-for-the-agent",
           "title": "1. Link an LLM (required for the agent)",
           "level": 3,
-          "excerpt": "1. Open AI Agent → Provider . 2. Choose a provider and model. 3. Set the API key (stored via Variables when the UI prompts you). Without an LLM, Agent chat, Telegram, cron, and webhooks cannot run turns."
+          "excerpt": "1. Open AI Agent → Provider . 2. Choose a Provider value from the dropdown (exact ids below). There is no deepseek row — use other for DeepSeek and any other OpenAI compatible host. 3. Set Model to that vendor’s current model id (not a display name). 4. Set Base URL when the table says it is require"
         },
         {
           "id": "2-set-preferred-keygen-and-default-signer",
@@ -1037,10 +1038,16 @@
           "excerpt": "Skills — steer agent behaviour ( AI Agent → Skills ). For DAO: proposal drafting, standards checks, vote policy, Forum inbox — see Governance skills. For KeyGen discovery and mail on the live Forum: enable continuum dao mpa wallet chat — MPA to MPA Chat. Cron — scheduled agent turns ( AI Agent → Cro"
         },
         {
+          "id": "for-ai-agents-provider",
+          "title": "For AI agents — Provider",
+          "level": 3,
+          "excerpt": "Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover it with search continuum docs ( AI Agent Provider / LLM provider / deepseek ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Co"
+        },
+        {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "MPC Accept/Reject loop AI harness overview MCP servers Plan mode AI managed governance Default Ed25519 signer Telegram Mini App KeyGens Trade ideas Overview Operator detail: Agent hooks"
+          "excerpt": "MPC Accept/Reject loop AI harness overview MCP servers Plan mode AI managed governance Default Ed25519 signer Telegram Mini App KeyGens Trade ideas Overview Agent provision and configure — Path A; LLM key is later Operator detail: Agent hooks"
         }
       ],
       "excerpt": "This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without an AI agent. The MPA wallet is AI first , though, so most users will want to complete these steps once a KeyGen exists. Use this flow after you have Configured Nodes, a Group, and ",
@@ -1324,10 +1331,10 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Install a node — humans (node map) + short agent pointer CREATE NODE ONESHOT.md — VPS install script only Uninstall a node — decommission; UNINSTALL NODE.md Configured Nodes Groups KeyGens Attach your node Configure the AI harness — optional, after KeyGen"
+          "excerpt": "Install a node — humans (node map) + short agent pointer CREATE NODE ONESHOT.md — VPS install script only Uninstall a node — decommission; UNINSTALL NODE.md Configured Nodes Groups KeyGens Attach your node Configure the AI harness — optional, after KeyGen; LLM Provider coaching: For AI agents — Prov"
         }
       ],
-      "excerpt": "<! agent: task: provision and configure mpc node audience: [ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh oneshot doc: https://github.com/ContinuumDAO/mpc config/blob/main/docs/CREATE NODE ONESHOT.md agents md: https://",
+      "excerpt": "If you are an AI agent (Claude, Cursor, Grok, or similar) asked to create an MPC node , install a node , provision a VPS , or fully configure a Continuum MPA node, this page is the playbook . Do not start from the long manual Running an MPC Node page. Humans installing interactively should use Insta",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision"
     },
     {
@@ -2232,7 +2239,7 @@
           "excerpt": "Overview Backup and restoration Configured Nodes Groups KeyGens MPA billing Configure the AI harness AI managed governance Plan mode Agent provision and configure — AI agent full VPS provision + mesh CREATE NODE ONESHOT.md — AI agent one shot VPS install Uninstall a node — remove containers, images,"
         }
       ],
-      "excerpt": "<! agent: task: create mpc node audience: [human, ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh oneshot doc: https://github.com/ContinuumDAO/mpc config/blob/main/docs/CREATE NODE ONESHOT.md agents md: https://github.com",
+      "excerpt": "For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell provisioning. <img src=\"/ media/ContinuumMPAWalletNodeMap.png\" alt=\"\"/ 1. Open https://mpa.continuumdao.org/node map. 2. Click the + button. 3. Walk through the installer options: wher",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install"
     },
     {
@@ -2715,7 +2722,7 @@
           "excerpt": "Install a node Backup and restoration Eject to Private Key Agent provision and configure UNINSTALL NODE.md — AI agent router CREATE NODE ONESHOT.md — install only"
         }
       ],
-      "excerpt": "<! agent: task: uninstall mpc node audience: [human, ai agent] linux script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/uninstall node debian ubuntu.sh windows script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/uninstall node docker desktop.sh ",
+      "excerpt": "This page removes a Continuum MPC / MPA node from a machine (containers, Continuum images, host automation, the mpc config folder, and on a VPS the mpcnode user). It does not uninstall Docker Engine, Docker Desktop, UFW, WireGuard, or OS packages. Do one of the following first: 1. Back up this node’",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall"
     },
     {
@@ -3257,7 +3264,7 @@
           "id": "ai-flow",
           "title": "AI flow",
           "level": 3,
-          "excerpt": "Alternative to the Keys page dialog — use Agent chat on the node that should originate the KeyGen request. You need an existing Group first (Groups). Before you prompt: 1. AI Agent → Provider — link an LLM provider and model (API key in Variables ). See Configure the AI harness. 2. Preferred signer "
+          "excerpt": "Alternative to the Keys page dialog — use Agent chat on the node that should originate the KeyGen request. You need an existing Group first (Groups). Before you prompt: 1. AI Agent → Provider — link an LLM provider, model, Base URL, and API key on that tab (not Variables). See Configure the AI harne"
         },
         {
           "id": "keygen-agreement",
@@ -3680,7 +3687,7 @@
       "section": "",
       "headings": [],
       "sections": [],
-      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop. <! <span style=\"color:green;font weight:700;font size:20px\" markdown color font styles </span",
+      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop.",
       "url": "https://docs.continuumdao.org/README"
     }
   ]

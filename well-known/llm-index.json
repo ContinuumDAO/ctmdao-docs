@@ -14,7 +14,8 @@
       "MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.",
       "AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.",
       "Governance, C3Caller, MPC concepts, and node running guides are all indexed here.",
-      "Private VPN on MPA nodes: https://docs.continuumdao.org/ContinuumDAO/PrivateVPN — veCTM-gated WireGuard. External AI agents (SSH tunnel + MCP, Path A): https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp"
+      "Private VPN on MPA nodes: https://docs.continuumdao.org/ContinuumDAO/PrivateVPN — veCTM-gated WireGuard. External AI agents (SSH tunnel + MCP, Path A): https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp",
+      "AI harness LLM Provider (coach the operator; no MCP write tool): https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider"
     ]
   },
   "llmld:getStarted": {
@@ -134,7 +135,7 @@
       "The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.",
       "One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.",
       "For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.",
-      "LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.",
+      "LLM provider is a later step (AI Agent → Provider). External agents coach the operator — load https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider. There is no MCP write tool for provider, model, or API key.",
       "Private VPN (WireGuard through your node): https://docs.continuumdao.org/ContinuumDAO/PrivateVPN — veCTM privilege, not a Linea subscription; MCP `vpn` server on continuum-mcp. External AI agents (Path A): https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp"
     ]
   },
@@ -203,11 +204,40 @@
         "path a",
         "external ai agent"
       ]
+    },
+    {
+      "task": "configure-ai-harness-provider",
+      "summary": "External AI agents: coach the operator through Node → AI Agent → Provider (provider, model, baseUrl, API key). There is no MCP write tool. Load the For AI agents — Provider section in Configure.md. DeepSeek uses provider other, model deepseek-flash, baseUrl https://api.deepseek.com — not the example.com placeholder and not retired deepseek-chat.",
+      "canonicalDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider",
+      "canonicalDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider",
+      "overviewDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md",
+      "overviewDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure",
+      "externalAgentSection": "for-ai-agents-provider",
+      "keywords": [
+        "AI Agent Provider",
+        "LLM",
+        "provider",
+        "model",
+        "baseUrl",
+        "API key",
+        "deepseek",
+        "deepseek-flash",
+        "ollama",
+        "openai",
+        "openrouter",
+        "other",
+        "venice",
+        "grok"
+      ],
+      "audience": [
+        "ai-agent",
+        "human"
+      ]
     }
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-10T17:20:02.291Z",
+  "generatedAt": "2026-09-10T18:19:14.185Z",
   "pageCount": 60,
   "llmld:sections": [
     {
@@ -346,7 +376,7 @@
           "name": "Agent provision and configure",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
-          "excerpt": "<! agent: task: provision and configure mpc node audience: [ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh oneshot doc: "
+          "excerpt": "If you are an AI agent (Claude, Cursor, Grok, or similar) asked to create an MPC node , install a node , provision a VPS , or fully configure a Continuum MPA node, this page is the playbook . Do not s"
         }
       ]
     },
@@ -381,7 +411,7 @@
           "name": "Who are we?",
           "url": "https://docs.continuumdao.org/README",
           "markdown": "https://docs.continuumdao.org/README.md",
-          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop. <! <span style=\"color:green;font weight:700;font size:20px\" markdown color font "
+          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop."
         }
       ]
     },
@@ -573,7 +603,7 @@
           "name": "Install a node",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md",
-          "excerpt": "<! agent: task: create mpc node audience: [human, ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh oneshot doc: https://gi"
+          "excerpt": "For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell provisioning. <img src=\"/ media/ContinuumMPAWalletNodeMap.png\" alt=\"\"/ 1. Open https"
         },
         {
           "name": "MPC Accept/Reject loop",
@@ -615,7 +645,7 @@
           "name": "Uninstall a node",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall.md",
-          "excerpt": "<! agent: task: uninstall mpc node audience: [human, ai agent] linux script: https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/uninstall node debian ubuntu.sh windows script: http"
+          "excerpt": "This page removes a Continuum MPC / MPA node from a machine (containers, Continuum images, host automation, the mpc config folder, and on a VPS the mpcnode user). It does not uninstall Docker Engine, "
         },
         {
           "name": "veCTM on your node",

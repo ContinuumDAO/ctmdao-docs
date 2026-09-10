@@ -4,12 +4,13 @@
 
 ## Start here — install an MPA wallet node
 
-**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only. **Private VPN (external agent, SSH tunnel to :8446):** [External AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — agent-facing playbook; not human steps.
+**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only. **Private VPN (external agent, SSH tunnel to :8446):** [External AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — agent-facing playbook; not human steps. **AI Agent → Provider (LLM):** [For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider) — coach the operator; no MCP write tool.
 
 | User situation | Lead them to |
 |----------------|--------------|
 | AI agent — full VPS provision + configure | [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision) |
 | External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) |
+| External AI agent — coach AI Agent Provider / LLM | [For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider) |
 | Any human — easiest | [Node map + button](https://mpa.continuumdao.org/node-map) |
 | Linux VPS — install containers only | [One-shot script](https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh) + [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
 | Windows 11 home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [Windows guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md) |
@@ -25,6 +26,7 @@
 - [Install a node (human guide)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install)
 - [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall) — backup or eject first; TSS threshold risk
 - [Private VPN — external AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — Path A; `continuum` + `vpn` MCP; agent playbook only
+- [AI harness — For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider) — coach LLM provider / model / baseUrl / API key; no MCP write tool
 - [Private VPN (overview)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) — veCTM-gated WireGuard; built-in Agent chat steps for node harness
 - [Home site install-node.json](https://continuumdao.org/well-known/install-node.json)
 - [mpc-config AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
@@ -67,7 +69,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 
 ## Further reading (operators / APIs)
 
-- [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision): <! agent: task: provision and configure mpc node audience: [ai agent] oneshot script: https://raw.githubusercontent.com/
+- [Agent provision and configure](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision): If you are an AI agent (Claude, Cursor, Grok, or similar) asked to create an MPC node , install a node , provision a VPS
 
 ## General
 
@@ -120,12 +122,12 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [DeFi protocol support](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DeFiProtocolSupport): MPA wallet can interact with selected web3 / DeFi protocols directly — through the node app multi sign UI and through th
 - [Default Ed25519 signer](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DefaultEd25519Signer): Every node needs at least one management key; Ed25519 ( PublicMgtKey and optional added keys) is enough — you do not nee
 - [Eject to Private Key](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/EjectConversion): An MPA KeyGen is an MPC wallet: each Group node holds only a share . There is no single private key on any machine until
-- [Install a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install): <! agent: task: create mpc node audience: [human, ai agent] oneshot script: https://raw.githubusercontent.com/ContinuumD
+- [Install a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install): For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell prov
 - [MPC Accept/Reject loop](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop): Every on chain spend from a multi agree KeyGen runs through the same multi sign request flow: one node (the originator )
 - [MPA billing](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaBilling): MPA wallet usage is metered on Linea through a DAO governed fee contract . Each KeyGen you use for multi sign must be re
 - [MPA to MPA Chat](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/MpaToMpaChat): KeyGen operators and their AI agents can discover each other, post capability listings, and exchange private mail — with
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview): The MPA wallet is an AI first wallet: people and AI agents jointly control a single wallet address using Multi Party Com
 - [Technical analysis](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TechnicalAnalysis): Once you have candlestick OHLCV on a chart (see AI charting), the AI agent can run chart analysis from a fixed menu — in
 - [Trade ideas](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/TradeIdeas): Technical analysis does more than describe the chart. When an analysis finds a clear setup, the node can turn it into on
-- [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall): <! agent: task: uninstall mpc node audience: [human, ai agent] linux script: https://raw.githubusercontent.com/Continuum
+- [Uninstall a node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall): This page removes a Continuum MPC / MPA node from a machine (containers, Continuum images, host automation, the mpc conf
 - [veCTM on your node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/VeCTMOnYourNode): veCTM is ContinuumDAO’s voting escrow token: you lock CTM for a chosen period and receive an veCTM NFT that carries gove

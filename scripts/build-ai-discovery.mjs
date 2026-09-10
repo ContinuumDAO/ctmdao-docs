@@ -16,6 +16,13 @@ const PRIVATE_VPN_URL = `${DOCS_BASE_URL}/ContinuumDAO/PrivateVPN`;
 const PRIVATE_VPN_EXTERNAL_SECTION = 'external-ai-agent-ssh-tunnel--mcp';
 const PRIVATE_VPN_EXTERNAL_DOC = `${PRIVATE_VPN_DOC}#${PRIVATE_VPN_EXTERNAL_SECTION}`;
 const PRIVATE_VPN_EXTERNAL_URL = `${PRIVATE_VPN_URL}#${PRIVATE_VPN_EXTERNAL_SECTION}`;
+const CONFIGURE_PATH = 'ContinuumDAO/MPAWallet/AIHarness/Configure';
+const CONFIGURE_DOC = `${DOCS_BASE_URL}/${CONFIGURE_PATH}.md`;
+const CONFIGURE_URL = `${DOCS_BASE_URL}/${CONFIGURE_PATH}`;
+const CONFIGURE_MD_PATH = join(root, 'ContinuumDAO', 'MPAWallet', 'AIHarness', 'Configure.md');
+const CONFIGURE_PROVIDER_SECTION = 'for-ai-agents-provider';
+const CONFIGURE_PROVIDER_DOC = `${CONFIGURE_DOC}#${CONFIGURE_PROVIDER_SECTION}`;
+const CONFIGURE_PROVIDER_URL = `${CONFIGURE_URL}#${CONFIGURE_PROVIDER_SECTION}`;
 
 /** veCTM-gated WireGuard VPN — canonical doc task for AI crawlers. */
 const privateVpnAgentTask = {
@@ -39,6 +46,34 @@ const privateVpnAgentTask = {
 		'8446',
 		'path a',
 		'external ai agent',
+	],
+};
+
+/** Coach the operator through AI Agent → Provider (no MCP write tool). */
+const configureHarnessAgentTask = {
+	task: 'configure-ai-harness-provider',
+	summary:
+		'External AI agents: coach the operator through Node → AI Agent → Provider (provider, model, baseUrl, API key). There is no MCP write tool. Load the For AI agents — Provider section in Configure.md. DeepSeek uses provider other, model deepseek-flash, baseUrl https://api.deepseek.com — not the example.com placeholder and not retired deepseek-chat.',
+	canonicalDoc: CONFIGURE_PROVIDER_DOC,
+	canonicalDocUrl: CONFIGURE_PROVIDER_URL,
+	overviewDoc: CONFIGURE_DOC,
+	overviewDocUrl: CONFIGURE_URL,
+	externalAgentSection: CONFIGURE_PROVIDER_SECTION,
+	keywords: [
+		'AI Agent Provider',
+		'LLM',
+		'provider',
+		'model',
+		'baseUrl',
+		'API key',
+		'deepseek',
+		'deepseek-flash',
+		'ollama',
+		'openai',
+		'openrouter',
+		'other',
+		'venice',
+		'grok',
 	],
 };
 const INDEX_PATH = join(root, 'search-index.json');
@@ -224,7 +259,7 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			'The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.',
 			'One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.',
 			'For almost all human users, start at the node map + button. Home PCs need Docker Desktop, the Continuum Node extension, public WAN IP, and router port forwarding.',
-			'LLM provider / API key is a later human step (AI Agent → Provider). It is not the first agent action and has no MCP tool.',
+			`LLM provider is a later step (AI Agent → Provider). External agents coach the operator — load ${CONFIGURE_PROVIDER_URL}. There is no MCP write tool for provider, model, or API key.`,
 			`Private VPN (WireGuard through your node): ${PRIVATE_VPN_URL} — veCTM privilege, not a Linea subscription; MCP \`vpn\` server on continuum-mcp. External AI agents (Path A): ${PRIVATE_VPN_EXTERNAL_URL}`,
 		],
 	};
@@ -248,6 +283,7 @@ function buildLlmIndex(index, installDiscovery) {
 				'AI agents provisioning a VPS: AgentProvision.md (topology, oneshot, Path A MCP). Humans: node-map + button or Install.md.',
 				'Governance, C3Caller, MPC concepts, and node running guides are all indexed here.',
 				`Private VPN on MPA nodes: ${PRIVATE_VPN_URL} — veCTM-gated WireGuard. External AI agents (SSH tunnel + MCP, Path A): ${PRIVATE_VPN_EXTERNAL_URL}`,
+				`AI harness LLM Provider (coach the operator; no MCP write tool): ${CONFIGURE_PROVIDER_URL}`,
 			],
 		},
 		'llmld:getStarted': installDiscovery,
@@ -271,6 +307,7 @@ function buildLlmIndex(index, installDiscovery) {
 					]
 				: []),
 			privateVpnAgentTask,
+			configureTask,
 		],
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
@@ -301,12 +338,15 @@ function buildLlmsTxt(index, install) {
 			install.canonicalAgentDocUrl +
 			') first (`search_continuum_docs` → `get_continuum_doc`). Ask topology before renting. The one-shot script is install only. **Private VPN (external agent, SSH tunnel to :8446):** [External AI agent (SSH tunnel + MCP)](' +
 			PRIVATE_VPN_EXTERNAL_URL +
-			') — agent-facing playbook; not human steps.',
+			') — agent-facing playbook; not human steps. **AI Agent → Provider (LLM):** [For AI agents — Provider](' +
+			CONFIGURE_PROVIDER_URL +
+			') — coach the operator; no MCP write tool.',
 		'',
 		`| User situation | Lead them to |`,
 		`|----------------|--------------|`,
 		`| AI agent — full VPS provision + configure | [Agent provision and configure](${install.canonicalAgentDocUrl}) |`,
 		`| External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](${PRIVATE_VPN_EXTERNAL_URL}) |`,
+		`| External AI agent — coach AI Agent Provider / LLM | [For AI agents — Provider](${CONFIGURE_PROVIDER_URL}) |`,
 		`| Any human — easiest | [Node map + button](${install.defaultForHumans}) |`,
 		`| Linux VPS — install containers only | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
 		`| Windows 11 home PC | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
@@ -322,6 +362,7 @@ function buildLlmsTxt(index, install) {
 		`- [Install a node (human guide)](${install.canonicalDocUrl})`,
 		`- [Uninstall a node](${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Uninstall) — backup or eject first; TSS threshold risk`,
 		`- [Private VPN — external AI agent (SSH tunnel + MCP)](${PRIVATE_VPN_EXTERNAL_URL}) — Path A; \`continuum\` + \`vpn\` MCP; agent playbook only`,
+		`- [AI harness — For AI agents — Provider](${CONFIGURE_PROVIDER_URL}) — coach LLM provider / model / baseUrl / API key; no MCP write tool`,
 		`- [Private VPN (overview)](${PRIVATE_VPN_URL}) — veCTM-gated WireGuard; built-in Agent chat steps for node harness`,
 		`- [Home site install-node.json](${install.homeInstallJson})`,
 		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
@@ -399,7 +440,14 @@ mkdirSync(join(root, 'well-known'), {recursive: true});
 
 const provisionMeta = parseAgentMetadata(AGENT_PROVISION_MD_PATH);
 const installMeta = parseAgentMetadata(INSTALL_MD_PATH);
+const configureMeta = parseAgentMetadata(CONFIGURE_MD_PATH);
 const installDiscovery = buildInstallNodeDiscovery(installMeta, provisionMeta);
+const configureTask = {
+	...configureHarnessAgentTask,
+	...(configureMeta?.task ? {task: configureMeta.task} : {}),
+	...(configureMeta?.audience ? {audience: configureMeta.audience} : {}),
+	...(Array.isArray(configureMeta?.keywords) ? {keywords: configureMeta.keywords} : {}),
+};
 
 writeIfChanged(join(root, 'well-known', 'llm-index.json'), JSON.stringify(buildLlmIndex(index, installDiscovery), null, 2));
 writeIfChanged(join(root, 'llms.txt'), buildLlmsTxt(index, installDiscovery));
