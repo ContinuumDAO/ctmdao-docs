@@ -52,7 +52,7 @@ Alternative to **Add group** in the UI — use the built-in agent on the node wh
 3. **Configured peers healthy** — complete peer IP editing and Inter Node Communication on each node first ([Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)).
 
 
-Open **Agent chat** from the **cat icon** (bottom-left of the node app). Example prompts:
+Open **Agent chat** from the **cat icon** (bottom-right of the node app). Example prompts:
 
 - *"List my configured node keys and their health, then create a group with all healthy peers."*
 - *"Create a new group that includes every configured peer node."*

@@ -77,7 +77,7 @@ Alternative to the **Keys** page dialog — use **Agent chat** on the node that 
 2. **Preferred signer** — set the **preferred** Ed25519 management key under **Node → Ed25519 Management Keys** (or when Agent chat prompts). The agent uses this to management-sign the KeyGen request. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
 3. Confirm every node in the Group is **healthy** on the **Groups** page.
 
-Open **Agent chat** from the **cat icon** (bottom-left). Example prompts:
+Open **Agent chat** from the **cat icon** (bottom-right). Example prompts:
 
 - *"Create a multi-agree secp256k1 KeyGen with threshold 2 for my group."* (typical **2/2** MPA wallet)
 - *"Create a KeyGen for group [Group ID] — multi-agree, threshold 2, key type secp256k1."*
