@@ -168,14 +168,57 @@ Why add a second (or more) node — same peer setup, different roles:
 
 ### Tell your node about its peers (Configured Nodes)
 
-After a fresh install, the peer / relay list is typically a **placeholder** — not a working multi-node mesh yet.
+After a fresh install, the peer / relay list is typically a **placeholder** (`0.0.0.0`) — not a working multi-node mesh yet. Before you can create a Group, every collaborating node needs the **same ordered peer list** (first row = **Relay**) and a shared **Inter Node Communication** public key from that relay. Attach to each node in the node app, then open **Node** on that node.
+
+#### Example: two-node 2/2 wallet (relay + peer)
+
+Typical pattern: one VPS runs the **relay** (MQTT broker) and often the AI-assisted node; a second VPS is your **peer** (human circuit-breaker node). Both operators use the **same** relay IP as row 1 and list both public IPv4 addresses.
+
+| Role | Example public IPv4 | Notes |
+| ---- | ------------------- | ----- |
+| **Node A — Relay** | `198.51.100.10` | First row on **every** node; runs the MQTT relay |
+| **Node B — Peer** | `198.51.100.20` | Second row; must appear on both nodes’ lists |
+
+On **Node A** and **Node B**, **Node → Node Peer IP Editing** should look like this (order matters):
+
+| Row | IPv4 on both nodes |
+| --- | ------------------ |
+| **Relay** | `198.51.100.10` |
+| **Peer 2** | `198.51.100.20` |
+
+Each node’s own public IP must appear somewhere in its list. Coordinate with your co-operator so you do not swap relay and peer rows.
+
+#### Node Peer IP Editing (each node)
 
 1. Open **Node → Node Peer IP Editing**.
-2. Set a real **Relay** IP (the first / relay slot). Every node that will collaborate must use the **same** relay as the first entry.
-3. Add the **other node addresses** that may join Groups and KeyGens with this node.
-4. Complete **Inter Node Communication** (MQTT / messaging) as the UI guides.
+2. Replace the **Relay** placeholder with the relay VPS public IPv4 (same value on every node).
+3. Click **+ Add peer** and enter the other node’s public IPv4 (repeat for larger Groups).
+4. Click **Check new Peer list** — fix duplicates or invalid addresses; the UI warns if you changed the relay or added peers.
+5. Click **Write config** and complete the management signature (Ed25519 or Ethereum signer).
+6. Click **Restart** on the Node page so the new peer set loads (repeat on **each** node after its own write).
 
-Each peer needs a running node with a matching understanding of who the relay is. Details: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
+You can export the same list with **Save peers JSON…** and send it to co-operators so everyone imports identical entries (**Import JSON…**).
+
+#### Inter Node Communication (relay key → peer nodes)
+
+Nodes encrypt MQTT traffic using a **public key (PEM)** from the **relay** node. Peers must install that key before **Add group** is enabled.
+
+**On the relay node (Node A):**
+
+1. Open **Node → Inter Node Communication**.
+2. Click **Get inter-node key**.
+3. Copy the **Public key (PEM)** (or **Download** the file). Send this PEM to the peer operator through a channel you trust — treat it like TLS trust material, not a broadcast post.
+
+**On each peer node (Node B, and any other non-relay node):**
+
+1. Open **Node → Inter Node Communication**.
+2. Save the relay’s PEM to a file on your PC (for example `relay-inter-node.pem`).
+3. Click **Choose file**, select that PEM, then click **Post inter-node key** and management-sign when prompted.
+4. When the UI shows **Saved.**, use **Restart Node Service** on the Node page (the section shows an amber hint until you restart).
+
+Repeat the peer steps on every non-relay node. If you **change the relay IP** later, fetch the new relay’s inter-node key again and re-post on all peers.
+
+When peer IPs and the relay key are in place, **Groups → Configured Node Keys** should show healthy peers. Details and troubleshooting: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
 
 ### Then create a Group and a KeyGen
 

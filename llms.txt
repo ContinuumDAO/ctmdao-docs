@@ -59,7 +59,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 
 ## Creating an MPC Signer
 
-- [Configured Nodes](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes): Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node
+- [Configured Nodes](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes): Once collaborators have installed nodes and completed Node Peer IP Editing and Inter Node Communication , their public k
 - [Creating an MPC Signer](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/CreateMPCSigner): Nodes in ContinuumDAO play two differentiated roles (same install — different Group / KeyGen choices): 1. MPA wallet — s
 - [Groups](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/Groups): Creating a Group A node Group is a subset of the Configured Nodes that have decided to jointly sign transactions using M
 - [Joining the Network](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/JoinNetwork): This page is about the second role of Continuum nodes: securing cross chain C3Caller traffic and earning rewards — not t

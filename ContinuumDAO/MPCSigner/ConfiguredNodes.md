@@ -1,15 +1,17 @@
 
 ## Configured Nodes
 
-Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in the [MPA wallet](https://mpa.continuumdao.org)
+Once collaborators have installed nodes and completed **Node Peer IP Editing** and **Inter Node Communication**, their public keys appear under **Configured Node Keys** on the **Groups** page in the [MPA wallet](https://mpa.continuumdao.org).
 
 <img src="/_media/Configured_node_keys.png"  alt=""/>
 
-If any nodes are not running, then this table will show that. Please ensure that each node is running the most up to date version of the software.
+If any nodes are not running, the table shows that. Ensure each node runs an up-to-date build.
 
-This is a list of nodes that can *potentially* collaborate in different ways. The first node is always the Relay Node, which means that it is responsible for conveying messages between any nodes in the list. It must always be on-line for any operations between nodes. Other nodes need not be on-line.
+This is the list of nodes that can *potentially* collaborate. The **first** configured address is always the **Relay** node — it runs MQTT and must stay online for inter-node work. Other nodes may be offline temporarily but must have trusted the relay’s inter-node public key.
 
-Every node may have a list that differs from other nodes and so long as **the first node is identical** they may include other nodes run by themselves — for example a second machine you operate so one node can run the **AI agent** and another acts as your **human-in-the-loop** Accept node (**2/2** MPA wallet). Larger lists support committee custody or, later, independent-operator Groups for [cross-chain Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) signing.
+Every operator may include extra IPs they control (for example a second machine for **2/2** AI + human circuit breaker), but **the relay row (first entry) must be identical on every node** in the mesh. Step-by-step setup — two-node example, peer IP editing, copying the relay PEM, restart: [Install a node — Tell your node about its peers](/ContinuumDAO/MPAWallet/Install.md#tell-your-node-about-its-peers-configured-nodes).
+
+**Add group** stays disabled until: (a) at least two peers are configured, (b) a real relay IP is set, and (c) **Inter Node Communication** is posted on each node (peers use the relay’s PEM). If connectivity looks stuck after changes, use **Restart Node Service** on the **Node** page on each affected machine.
 
 ### Related
 

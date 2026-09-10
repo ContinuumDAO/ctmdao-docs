@@ -8,6 +8,8 @@ A key (or KeyGen) contains the information that each node needs to take part in 
 1. **MPA wallet custody (multi-agree)** — everyday asset control. The simplest setup is a **2-node Group with threshold 2** (everyday language: **2/2** — both must Accept). Typical pattern: one AI-assisted node + one human circuit-breaker node you control. Larger Groups add loss-of-party resilience or committee control.
 2. **Cross-chain Continuum (tx-check)** — optional. Groups that secure C3Caller messaging typically use **five or more independent** operators and **3/5 TSS**; eligibility starts at three nodes with threshold ≥ 3 — see [Joining the Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md).
 
+### Manual flow
+
 Here is the dialogue to request a new KeyGen on the **Keys** page of the [MPA wallet](https://mpa.continuumdao.org):
 
 <img src="/_media/keygen_new_keygen_dialog.png" alt="KeyGen request dialog in the MPA wallet Keys page"/>
@@ -29,9 +31,7 @@ For **EIP-191 (Ethereum injected signer, e.g. MetaMask, Rabby, etc.)**: use a **
 
 Each KeyGen applies to a single Group that has previously been created. This defines which nodes can partake in the Sign Requests. All nodes in the Group must be in a healthy state before the KeyGen can start. A check is run to make sure this is the case.
 
-If the KeyGen request is blocked, confirm every Group member is healthy on the [Groups](/ContinuumDAO/MPCSigner/Groups.md) page (**Health** section and peer list). Fix peer/MQTT setup or restart from the **Node** page as described there.
-
-**With an AI agent:** ask for example *"Check why I can't create a KeyGen"*, *"Are all nodes in my Group healthy?"*, or follow [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) for mesh fixes.
+If the KeyGen request is blocked, confirm every Group member is healthy on the [Groups](/ContinuumDAO/MPCSigner/Groups.md) page (**Health** section and peer list). Fix peer/MQTT setup or restart from the **Node** page as described there. To create via Agent chat instead of the dialog, see [AI flow](#ai-flow); for diagnostics, ask *"Check why I can't create a KeyGen"* or *"Are all nodes in my Group healthy?"*
 
 #### (3) Threshold
 
@@ -66,6 +66,32 @@ Each KeyGen will have different public addresses derived from its *public key* d
 - **bitcoin-taproot** — Taproot **bc1p…** addresses for Bitcoin mainnet, testnet, and signet.
 
 SegWit and Taproot are **different addresses** — funds sent to one are not spendable with the other KeyGen type.
+
+### AI flow
+
+Alternative to the **Keys** page dialog — use **Agent chat** on the node that should **originate** the KeyGen request. You need an existing **Group** first ([Groups](/ContinuumDAO/MPCSigner/Groups.md)).
+
+**Before you prompt:**
+
+1. **AI Agent → Provider** — link an LLM provider and model (API key in **Variables**). See [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
+2. **Preferred signer** — set the **preferred** Ed25519 management key under **Node → Ed25519 Management Keys** (or when Agent chat prompts). The agent uses this to management-sign the KeyGen request. See [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
+3. Confirm every node in the Group is **healthy** on the **Groups** page.
+
+Open **Agent chat** from the **cat icon** (bottom-left). Example prompts:
+
+- *"Create a multi-agree secp256k1 KeyGen with threshold 2 for my group."* (typical **2/2** MPA wallet)
+- *"Create a KeyGen for group [Group ID] — multi-agree, threshold 2, key type secp256k1."*
+- *"Create a bitcoin-taproot multi-agree KeyGen with threshold 2 for my group."* (Taproot custody — separate from SegWit/secp256k1)
+
+Use **tx-check** and higher thresholds only when you intend [cross-chain Continuum](/ContinuumDAO/MPCSigner/JoinNetwork.md) signing — say so in the prompt (for example *"tx-check KeyGen, threshold 3, secp256k1, for group …"*).
+
+To **review** requests instead of creating one:
+
+- *"What active KeyGen requests are pending?"*
+- *"List pending KeyGen requests for my groups."*
+- *"Are there any KeyGen requests waiting for me to join?"*
+
+After the agent creates the request, each **other** Group member must still **Join** on the **Keys** page (or prompt on their node: *"Show pending KeyGen requests and help me join"*). When the KeyGen appears under **Existing keys**, set **Preferred KeyGen** under **AI Agent → Provider** so compose and wallet actions use that address by default.
 
 ---
 

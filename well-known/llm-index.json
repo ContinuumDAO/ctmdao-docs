@@ -207,7 +207,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-10T14:38:24.338Z",
+  "generatedAt": "2026-09-10T17:20:02.291Z",
   "pageCount": 60,
   "llmld:sections": [
     {
@@ -311,7 +311,7 @@
           "name": "Configured Nodes",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes.md",
-          "excerpt": "Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in t"
+          "excerpt": "Once collaborators have installed nodes and completed Node Peer IP Editing and Inter Node Communication , their public keys appear under Configured Node Keys on the Groups page in the MPA wallet. <img"
         },
         {
           "name": "Creating an MPC Signer",

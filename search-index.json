@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-10T14:38:24.338Z",
+  "generatedAt": "2026-09-10T17:20:02.291Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2097,6 +2097,9 @@
         "Post install steps",
         "One node is not enough for a KeyGen address",
         "Tell your node about its peers (Configured Nodes)",
+        "Example: two-node 2/2 wallet (relay + peer)",
+        "Node Peer IP Editing (each node)",
+        "Inter Node Communication (relay key → peer nodes)",
         "Then create a Group and a KeyGen",
         "MPA billing",
         "Related"
@@ -2190,7 +2193,25 @@
           "id": "tell-your-node-about-its-peers-configured-nodes",
           "title": "Tell your node about its peers (Configured Nodes)",
           "level": 3,
-          "excerpt": "After a fresh install, the peer / relay list is typically a placeholder — not a working multi node mesh yet. 1. Open Node → Node Peer IP Editing . 2. Set a real Relay IP (the first / relay slot). Every node that will collaborate must use the same relay as the first entry. 3. Add the other node addre"
+          "excerpt": "After a fresh install, the peer / relay list is typically a placeholder ( 0.0.0.0 ) — not a working multi node mesh yet. Before you can create a Group, every collaborating node needs the same ordered peer list (first row = Relay ) and a shared Inter Node Communication public key from that relay. Att"
+        },
+        {
+          "id": "example-two-node-2-2-wallet-relay-peer",
+          "title": "Example: two-node 2/2 wallet (relay + peer)",
+          "level": 4,
+          "excerpt": "Typical pattern: one VPS runs the relay (MQTT broker) and often the AI assisted node; a second VPS is your peer (human circuit breaker node). Both operators use the same relay IP as row 1 and list both public IPv4 addresses. Role Example public IPv4 Notes Node A — Relay 198.51.100.10 First row on ev"
+        },
+        {
+          "id": "node-peer-ip-editing-each-node",
+          "title": "Node Peer IP Editing (each node)",
+          "level": 4,
+          "excerpt": "1. Open Node → Node Peer IP Editing . 2. Replace the Relay placeholder with the relay VPS public IPv4 (same value on every node). 3. Click + Add peer and enter the other node’s public IPv4 (repeat for larger Groups). 4. Click Check new Peer list — fix duplicates or invalid addresses; the UI warns if"
+        },
+        {
+          "id": "inter-node-communication-relay-key-peer-nodes",
+          "title": "Inter Node Communication (relay key → peer nodes)",
+          "level": 4,
+          "excerpt": "Nodes encrypt MQTT traffic using a public key (PEM) from the relay node. Peers must install that key before Add group is enabled. On the relay node (Node A): 1. Open Node → Inter Node Communication . 2. Click Get inter node key . 3. Copy the Public key (PEM) (or Download the file). Send this PEM to "
         },
         {
           "id": "then-create-a-group-and-a-keygen",
@@ -3072,7 +3093,7 @@
           "id": "configured-nodes",
           "title": "Configured Nodes",
           "level": 2,
-          "excerpt": "Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in the MPA wallet <img src=\"/ media/Configured node keys.png\" alt=\"\"/ If any nodes are not running, then"
+          "excerpt": "Once collaborators have installed nodes and completed Node Peer IP Editing and Inter Node Communication , their public keys appear under Configured Node Keys on the Groups page in the MPA wallet. <img src=\"/ media/Configured node keys.png\" alt=\"\"/ If any nodes are not running, the table shows that. "
         },
         {
           "id": "related",
@@ -3081,7 +3102,7 @@
           "excerpt": "Install a node Groups KeyGens Overview Backup and restoration — spare nodes and rebuilds"
         }
       ],
-      "excerpt": "Once a few collaborators have each created their own nodes and have them listed in their configs.yaml file in their node, they should appear in the Configured Node Keys section of the Groups page in the MPA wallet <img src=\"/ media/Configured node keys.png\" alt=\"\"/ If any nodes are not running, then",
+      "excerpt": "Once collaborators have installed nodes and completed Node Peer IP Editing and Inter Node Communication , their public keys appear under Configured Node Keys on the Groups page in the MPA wallet. <img src=\"/ media/Configured node keys.png\" alt=\"\"/ If any nodes are not running, the table shows that. ",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes"
     },
     {
@@ -3114,14 +3135,28 @@
       "title": "Groups",
       "section": "Creating an MPC Signer",
       "headings": [
+        "Manual flow",
+        "AI flow",
         "Related"
       ],
       "sections": [
         {
+          "id": "manual-flow",
+          "title": "Manual flow",
+          "level": 3,
+          "excerpt": "Any node can request Group creation by clicking the Add group button and selecting some of the Configured Nodes <img src=\"/ media/Add new group.png\" alt=\"\"/ If all nodes that have been requested to do so, agree, then the new Group is created. If this button is deactivated, it likely means that eithe"
+        },
+        {
+          "id": "ai-flow",
+          "title": "AI flow",
+          "level": 3,
+          "excerpt": "Alternative to Add group in the UI — use the built in agent on the node where you want to originate the Group request. Before you prompt: 1. AI Agent → Provider — choose an LLM provider and model, and set the API key (stored in Variables when prompted). Without this, Agent chat cannot run. See Confi"
+        },
+        {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Configured Nodes KeyGens Install a node — Post install steps Overview Creating an MPC Signer"
+          "excerpt": "Configured Nodes KeyGens Install a node — Post install steps Overview Configure the AI harness Default Ed25519 signer Creating an MPC Signer"
         }
       ],
       "excerpt": "Creating a Group A node Group is a subset of the Configured Nodes that have decided to jointly sign transactions using MPC. At this stage, the Group's purpose is not defined. That requires a further step (KeyGen creation) — multi agree for an MPA wallet, or tx check if you later aim to secure Contin",
@@ -3172,10 +3207,12 @@
       "section": "Creating an MPC Signer",
       "headings": [
         "Creating a KeyGen",
+        "Manual flow",
         "(1) MsgCheck",
         "(2) GroupID",
         "(3) Threshold",
         "(4) Key type",
+        "AI flow",
         "KeyGen Agreement",
         "Related"
       ],
@@ -3185,6 +3222,12 @@
           "title": "Creating a KeyGen",
           "level": 2,
           "excerpt": "A key (or KeyGen) contains the information that each node needs to take part in the joint creation of the Private Key to collectively sign transactions. A KeyGen has a public key but NO PRIVATE KEY . A new KeyGen can be requested by anyone in a Group. If all nodes in the Group agree to Join, then th"
+        },
+        {
+          "id": "manual-flow",
+          "title": "Manual flow",
+          "level": 3,
+          "excerpt": "Here is the dialogue to request a new KeyGen on the Keys page of the MPA wallet: <img src=\"/ media/keygen new keygen dialog.png\" alt=\"KeyGen request dialog in the MPA wallet Keys page\"/ The inputs are explained below. The user selects either multi agree or tx check . multi agree — nodes in the KeyGe"
         },
         {
           "id": "1-msgcheck",
@@ -3209,6 +3252,12 @@
           "title": "(4) Key type",
           "level": 4,
           "excerpt": "This is the cryptographic key type for which a signature is being sought. We currently support three key types: secp256k1 — ECDSA, threshold signing via CGGMP24 ; used by Ethereum, EVMs, and Bitcoin SegWit (P2WPKH) ( bc1q… ). One multi agree secp256k1 KeyGen can custody EVM assets and SegWit BTC tog"
+        },
+        {
+          "id": "ai-flow",
+          "title": "AI flow",
+          "level": 3,
+          "excerpt": "Alternative to the Keys page dialog — use Agent chat on the node that should originate the KeyGen request. You need an existing Group first (Groups). Before you prompt: 1. AI Agent → Provider — link an LLM provider and model (API key in Variables ). See Configure the AI harness. 2. Preferred signer "
         },
         {
           "id": "keygen-agreement",
