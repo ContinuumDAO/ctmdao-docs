@@ -59,8 +59,22 @@ Use when the node runs on a **remote VPS** (or another machine you reach over SS
 5. Attach on the local node app (plain HTTP to loopback management ports forwarded by SSH).
 6. Continue with [Management signing at attach](#management-signing-at-attach).
 
+A PC can own a local node **or** an SSH tunnel to a remote node, not both at once. See [One node at a time from your PC](#one-node-at-a-time-from-your-pc).
 
 <img src="/_media/attach-option-node-hosted-ssh.png" alt="Node hosted app (SSH tunnel) — screenshot pending" />
+
+---
+
+### One node at a time from your PC
+
+ContinuumDAO does **not** support using two nodes at the same time from one PC. The SSH tunnel and a local node both use `127.0.0.1` ports **3333**, **8080**, and **18080**. If those overlap, attach talks to the wrong process and you can get the **wrong node key**.
+
+You may own both a local node and a VPS. Use only one of them from this PC at a time:
+
+1. **Remote VPS:** start the [SSH tunnel](#option-3-node-hosted-app-ssh-tunnel), then attach as in Option 3.
+2. **Local node:** stop the SSH tunnel first (Ctrl+C in that terminal, or close it). Then follow [Option 2](#option-2-node-hosted-app-local-pc) and attach **`127.0.0.1:8080`**.
+
+Detach in the app before you switch. Do not leave a tunnel up while attaching the local node. Do not remap discovery ports or run two attach URLs in the same dashboard to keep both “live”.
 
 ---
 

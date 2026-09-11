@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-10T19:01:45.454Z",
+  "generatedAt": "2026-09-11T14:33:53.288Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1407,6 +1407,7 @@
         "Option 1: Browser HTTPS",
         "Option 2: Node hosted app (local PC)",
         "Option 3: Node hosted app (SSH tunnel)",
+        "One node at a time from your PC",
         "Management signing at attach",
         "Related"
       ],
@@ -1440,6 +1441,12 @@
           "title": "Option 3: Node hosted app (SSH tunnel)",
           "level": 3,
           "excerpt": "Use when the node runs on a remote VPS (or another machine you reach over SSH). This is a good default option to connect to a remote node, e.g. on a VPS. It does not require a Let's Encrypt style HTTPS cert on the node, or importing a self signed cert into your browser. 1. Select Node hosted app (SS"
+        },
+        {
+          "id": "one-node-at-a-time-from-your-pc",
+          "title": "One node at a time from your PC",
+          "level": 3,
+          "excerpt": "ContinuumDAO does not support using two nodes at the same time from one PC. The SSH tunnel and a local node both use 127.0.0.1 ports 3333 , 8080 , and 18080 . If those overlap, attach talks to the wrong process and you can get the wrong node key . You may own both a local node and a VPS. Use only on"
         },
         {
           "id": "management-signing-at-attach",
