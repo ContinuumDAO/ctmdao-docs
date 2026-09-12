@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-12T18:29:37.545Z",
+  "generatedAt": "2026-09-12T18:39:01.048Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1260,6 +1260,7 @@
         "Anti-pattern 3 — Agent improvised from Quick Start instead of one-shot",
         "Anti-pattern 4a — Windows: agent ran install scripts instead of coaching the human",
         "Anti-pattern 4b — macOS: agent ran install scripts instead of coaching the human",
+        "Anti-pattern 5 — Wrong ports or multiple nodes from one PC",
         "Verify a VPS install",
         "Verify a macOS Docker Desktop install",
         "Recovery: uninstall and reinstall",
@@ -1301,6 +1302,12 @@
           "title": "Anti-pattern 4b — macOS: agent ran install scripts instead of coaching the human",
           "level": 3,
           "excerpt": "Symptoms Agent ran install node macos docker desktop.sh , desktop local orchestrate.sh profile macos , or manual git clone + docker compose on the Mac Repo not at ~/mpc config , or LaunchAgent com.continuumdao.mpc auth watcher never registered Agent ran Homebrew or visudo steps without the operator "
+        },
+        {
+          "id": "anti-pattern-5-wrong-ports-or-multiple-nodes-from-one-pc",
+          "title": "Anti-pattern 5 — Wrong ports or multiple nodes from one PC",
+          "level": 3,
+          "excerpt": "Symptoms SSH tunnel uses 8081 , 9080 , 8443 , or other remapped local ports instead of 8080 / 18080 / 3333 / 8446 Attach URL or attach field shows 127.0.0.1:8081 (confused with peer port in set configured nodes ) Two SSH tunnels running, or tunnel + local Docker node both bound to the same loopback "
         },
         {
           "id": "verify-a-vps-install",
@@ -1503,6 +1510,7 @@
         "Option 2: Node hosted app (local PC)",
         "Option 3: Node hosted app (SSH tunnel)",
         "One node at a time from your PC",
+        "For AI agents — ports and one node at a time",
         "Management signing at attach",
         "Related"
       ],
@@ -1542,6 +1550,12 @@
           "title": "One node at a time from your PC",
           "level": 3,
           "excerpt": "ContinuumDAO does not support using two nodes at the same time from one PC. The SSH tunnel and a local node both use 127.0.0.1 ports 3333 , 8080 , and 18080 . If those overlap, attach talks to the wrong process and you can get the wrong node key . You may own both a local node and a VPS. Use only on"
+        },
+        {
+          "id": "for-ai-agents-ports-and-one-node-at-a-time",
+          "title": "For AI agents — ports and one node at a time",
+          "level": 4,
+          "excerpt": "When coaching attach or SSH tunnels, use only these loopback ports (same local and remote in L ): Port Use 3333 node app 8080 management HTTP — attach signing ( not 8081 ) 18080 discovery 8446 external MCP (Path A agents only; add to SSH when needed) Do not invent alternate local ports, run two tunn"
         },
         {
           "id": "management-signing-at-attach",

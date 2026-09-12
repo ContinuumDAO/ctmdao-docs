@@ -100,6 +100,28 @@ Then operator re-runs the extension or node-map **`+`** flow (human-led).
 
 Machine-readable routing: [install-node.json](https://docs.continuumdao.org/well-known/install-node.json) (`agentPlatformRules.windows-11`, `agentPlatformRules.macos`).
 
+### Anti-pattern 5 — Wrong ports or multiple nodes from one PC
+
+**Symptoms**
+
+- SSH tunnel uses **8081**, **9080**, **8443**, or other remapped local ports instead of **8080** / **18080** / **3333** / **8446**
+- Attach URL or attach field shows `127.0.0.1:8081` (confused with peer port in `set_configured_nodes`)
+- Two SSH tunnels running, or tunnel + local Docker node both bound to the same loopback ports
+- Agent opened MCP on `127.0.0.1:8447` (or similar) to “track both nodes”
+- Operator attached two nodes in the browser without stopping the first tunnel
+
+**Why it breaks**
+
+- [mpa.continuumdao.org](https://mpa.continuumdao.org) and the node app expect **8080** management and **18080** discovery on loopback ([Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md#one-node-at-a-time-from-your-pc))
+- Overlapping tunnels attach to the **wrong node key** — dangerous for Accept/Reject and backups
+- **8081** is for **peer** HTTP between nodes on the internet, not browser attach from the operator PC
+
+**What agents should do instead**
+
+- Use the exact four-port SSH line from [Agent provision §2](/ContinuumDAO/MPAWallet/AgentProvision.md#2-tunnels-mesh-setup-vs-wallet-control)
+- **One node at a time:** stop tunnel → switch VPS → new tunnel → MCP → finish mesh step → stop → next node
+- Attach field: **`127.0.0.1:8080`** only (unless the operator explicitly changed management port in node config — rare; do not guess)
+
 ### Verify a VPS install
 
 After the one-shot completes, run on the VPS (as root or `mpcnode`):

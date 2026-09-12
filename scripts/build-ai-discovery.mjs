@@ -211,6 +211,25 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 		agentAntiPatternsDoc: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}.md`,
 		agentAntiPatternsUrl: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}`,
 		verifyScript: VERIFY_SCRIPT_URL,
+		agentAttachRules: {
+			oneNodeAtATimeFromPc: true,
+			loopbackPorts: {
+				nodeApp: 3333,
+				managementHttp: 8080,
+				publicDiscovery: 18080,
+				continuumMcp: 8446,
+			},
+			sshTunnelBind: '127.0.0.1',
+			attachManagementUrl: '127.0.0.1:8080',
+			peerPortNotForAttach: 8081,
+			forbiddenForAgents: [
+				'remap SSH -L to local ports other than 3333, 8080, 18080, 8446',
+				'attach or MCP to 127.0.0.1:8081 (peer port, not management)',
+				'two SSH tunnels or two attached nodes from one PC at once',
+				'second MCP port (8447, 18446, etc.) to keep multiple nodes live',
+			],
+			doc: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}.md#anti-pattern-5--wrong-ports-or-multiple-nodes-from-one-pc`,
+		},
 		agentForbiddenActions: [
 			'manual git clone mpc-config on a greenfield Ubuntu/Debian VPS',
 			'custom repo directory instead of /home/mpcnode/mpc-config',
@@ -220,6 +239,8 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			'install-node-macos-docker-desktop.sh or desktop-local-orchestrate.sh --profile macos by an AI agent on macOS home PC',
 			'declaring VPS install complete without verify-node-install.sh passing',
 			'declaring macOS Docker Desktop install complete without verify-node-install-macos-desktop.sh passing',
+			'SSH tunnel or attach using ports other than 3333, 8080, 18080, 8446 on loopback',
+			'two nodes attached or two SSH tunnels from one PC at the same time',
 		],
 		agentPlatformRules: {
 			'linux-vps': {
@@ -370,6 +391,7 @@ function buildInstallNodeJson(installDiscovery, generatedAt) {
 		agentAntiPatternsDoc: installDiscovery.agentAntiPatternsDoc,
 		verifyScript: installDiscovery.verifyScript,
 		agentForbiddenActions: installDiscovery.agentForbiddenActions,
+		agentAttachRules: installDiscovery.agentAttachRules,
 		agentPlatformRules: installDiscovery.agentPlatformRules,
 		routes: installDiscovery.routes,
 		afterInstall: installDiscovery.afterInstall,

@@ -76,6 +76,19 @@ You may own both a local node and a VPS. Use only one of them from this PC at a 
 
 Detach in the app before you switch. Do not leave a tunnel up while attaching the local node. Do not remap discovery ports or run two attach URLs in the same dashboard to keep both “live”.
 
+#### For AI agents — ports and one node at a time
+
+When coaching attach or SSH tunnels, use **only** these loopback ports (same local and remote in `-L`):
+
+| Port | Use |
+|------|-----|
+| **3333** | node-app |
+| **8080** | management HTTP — attach signing (**not 8081**) |
+| **18080** | discovery |
+| **8446** | external MCP (Path A agents only; add to SSH when needed) |
+
+Do **not** invent alternate local ports, run two tunnels, or attach two nodes from one PC. See [Agent provision — loopback ports](/ContinuumDAO/MPAWallet/AgentProvision.md#hard-rules-for-ai-agents-vps-and-home-pc) and [Anti-pattern 5](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-5--wrong-ports-or-multiple-nodes-from-one-pc).
+
 ---
 
 ### Management signing at attach

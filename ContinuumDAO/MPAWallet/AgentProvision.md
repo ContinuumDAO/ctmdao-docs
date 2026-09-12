@@ -56,6 +56,26 @@ Load [install-node.json](https://docs.continuumdao.org/well-known/install-node.j
 
 Advanced operators may still run `process_config.sh` or `provision-node.sh` (including as root on Linux) by choice — that is **not** the default greenfield agent path on VPS or home PC.
 
+**Loopback ports and attach — MUST (one PC, one node at a time)**
+
+| Port | Role | Agent / attach |
+|------|------|----------------|
+| **3333** | node-app (local dashboard) | SSH tunnel local **and** remote side — do not change |
+| **8080** | management HTTP (signing API) | Attach field **`127.0.0.1:8080`** — **not 8081** |
+| **18080** | public discovery | SSH tunnel local **and** remote side — do not change |
+| **8446** | continuum-mcp `/mcp` | Your MCP URL only — add to SSH when using Path A |
+
+**8081** is the default **peer** port in `set_configured_nodes` (internet node-to-node traffic). It is **not** the management attach port. Do **not** tell the operator to attach at `:8081` or remap management to another local port.
+
+**One node at a time from this PC — MUST**
+
+- Run **one** SSH `-N` tunnel session; user **stops** it (Ctrl+C) before you give a tunnel line for the next VPS.
+- MCP only at **`http://127.0.0.1:8446/mcp`** — never a second local MCP port (8447, 18446, …) to “keep both nodes open”.
+- Do **not** attach two nodes in the browser at once; do **not** leave a tunnel up while attaching a **local** Docker Desktop node on the same PC.
+- After mesh setup on all nodes, leave **one** tunnel on the home/relay node for Group/KeyGen origin.
+
+Machine-readable: [install-node.json](https://docs.continuumdao.org/well-known/install-node.json) (`agentAttachRules`). Wrong ports: [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-5--wrong-ports-or-multiple-nodes-from-one-pc).
+
 ### How an AI agent discovers this page
 
 1. Call **`search_continuum_docs`** with queries such as `provision node`, `create mpc node`, `install node agent`, or `configure peers MQTT`.
@@ -147,7 +167,7 @@ You may MCP **each node you provisioned**, but only for **host mesh setup**. Do 
 | New preferred Ed25519 signer (silent) | `post_preferred_key_gen`, compose, Agree/Reject sign |
 | Health / `node_id` / restart gate | MCP into a node you did **not** provision (invitees run their own Path A or the wallet website) |
 
-Default: **one tunnel at a time** on `127.0.0.1:8446`. Give a new copy-paste `ssh` line for the next VPS IPv4; the user stops the previous `-N` session. Do not invent extra local ports unless they ask. After mesh setup, leave the tunnel on **one home node** (prefer the **relay**) for Group/KeyGen origin and later work.
+Default: **one tunnel at a time**. Give a new copy-paste `ssh` line for the next VPS IPv4 only after the user **stops** the previous `-N` session. Use the **fixed** loopback ports in the table above (**3333**, **8080**, **18080**, **8446**) — same number on local **and** remote `-L` bindings. **Do not** remap to 8081, 9080, or other ports. After mesh setup, leave the tunnel on **one home node** (prefer the **relay**) for Group/KeyGen origin and later work.
 
 You talk to **`http://127.0.0.1:8446/mcp`**. You do **not** use the node’s built-in AI harness. MCP HTTP has **no auth** — keep **8446** on loopback.
 
