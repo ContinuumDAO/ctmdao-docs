@@ -207,16 +207,44 @@ Nodes encrypt MQTT traffic using a **public key (PEM)** from the **relay** node.
 
 1. Open **Node → Inter Node Communication**.
 2. Click **Get inter-node key**.
-3. Copy the **Public key (PEM)** (or **Download** the file). Send this PEM to the peer operator through a channel you trust — treat it like TLS trust material, not a broadcast post.
+3. Copy the **Public key (PEM)** (or **Download** the file as `ca.crt`). Send this certificate to the peer operator through a channel you trust — treat it like TLS trust material, not a broadcast post.
+
+<img src="/_media/inter-node-download-crt-relay.png" alt="" />
 
 **On each peer node (Node B, and any other non-relay node):**
 
 1. Open **Node → Inter Node Communication**.
-2. Save the relay’s PEM to a file on your PC (for example `relay-inter-node.pem`).
-3. Click **Choose file**, select that PEM, then click **Post inter-node key** and management-sign when prompted.
+2. Save the relay’s `ca.crt` to a file on your PC.
+3. Click **Choose file**, select `ca.crt`, then click **Post inter-node key** and management-sign when prompted.
 4. When the UI shows **Saved.**, use **Restart Node Service** on the Node page (the section shows an amber hint until you restart).
 
+
+<img src="/_media/inter-node-post-crt-peer-node.png" alt="" />
+
 Repeat the peer steps on every non-relay node. If you **change the relay IP** later, fetch the new relay’s inter-node key again and re-post on all peers.
+
+##### For AI agents — Inter Node Communication
+
+**Audience:** external AI agents (Claude Code, Cursor, Grok Build, and similar) helping an operator install the relay MQTT trust anchor on peer nodes. Full mesh playbook: [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md). API detail: [`GET /getMSQTTKey`](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#get-getmqttkey) and [`POST /postMSQTTKey`](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#post-postmqttkey) in mpc-auth (documented in mpc-config).
+
+The UI steps above map to management HTTP and Path A MCP tools (activate tool group **`node_config`**; resource **`node_config_docs`**):
+
+| Step | UI | HTTP | MCP (`node_config`) |
+| ---- | -- | ---- | ------------------- |
+| Relay — fetch `ca.crt` | **Get inter-node key** / **Download** | `GET /getMSQTTKey` → `{ path, caCertPem }` | `get_mqtt_tls_public_key` |
+| Peer — install relay CA | **Choose file** → **Post inter-node key** | `POST /postMSQTTKey` (management signature over **`caCertPem`** bytes) | `set_mqtt_tls_key` |
+
+**One node at a time.** You cannot reach two nodes from one PC at once — SSH tunnel and local node both bind `127.0.0.1` ports **3333**, **8080**, **18080**, and MCP **8446**. Tell the operator to run **one** tunnel, finish that node, stop it, then open the next. Relay first: fetch the PEM; on each peer tunnel: post the **same** PEM. Call `get_configured_node_keys` / `get_connectivity_health` on each node before you leave its tunnel. Remind them to **Restart Node Service** after post (no automatic reload).
+
+**When one agent may fetch and post**
+
+| Setup | OK for one agent to fetch on relay and post on peers? |
+| ----- | ------------------------------------------------------- |
+| **Same operator** owns every VPS (Path A provision) | **Yes** — sequential tunnels, health check after each post. This is the intended AgentProvision flow. |
+| **Separate co-operators** (each runs their own node) | **No** — relay operator exports `ca.crt` through a channel **they** trust; each peer operator (or their agent) posts **only on their node**. Do not use one external agent as the sole courier across trust boundaries. |
+| **External cloud agent** with chat/tool logging | **Caution** — PEM may appear in provider logs. Prefer the peer operator receive the cert out-of-band and post locally, or have the operator confirm the PEM fingerprint before you call `set_mqtt_tls_key`. |
+
+Posting the wrong CA is a **trust substitution** (peer MQTT could be MITM’d). Treat `ca.crt` like TLS trust material, not a public broadcast.
 
 When peer IPs and the relay key are in place, **Groups → Configured Node Keys** should show healthy peers. Details and troubleshooting: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
 
