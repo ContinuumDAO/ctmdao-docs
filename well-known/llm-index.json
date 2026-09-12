@@ -28,7 +28,76 @@
     "canonicalAgentDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
     "agentsGuide": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
     "homeInstallJson": "https://continuumdao.org/well-known/install-node.json",
+    "docsInstallJson": "https://docs.continuumdao.org/well-known/install-node.json",
     "avoidForAgents": "https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md",
+    "agentAntiPatternsDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+    "agentAntiPatternsUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns",
+    "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh",
+    "agentForbiddenActions": [
+      "manual git clone mpc-config on a greenfield Ubuntu/Debian VPS",
+      "custom repo directory instead of /home/mpcnode/mpc-config",
+      "docker compose up as root without running install-node-debian-ubuntu.sh one-shot",
+      "piecemeal reimplementation of NodeRunningInstruction Quick Start for greenfield VPS",
+      "install-node-docker-desktop.sh or WSL orchestration by an AI agent on Windows 11 home PC",
+      "install-node-macos-docker-desktop.sh or desktop-local-orchestrate.sh --profile macos by an AI agent on macOS home PC",
+      "declaring VPS install complete without verify-node-install.sh passing",
+      "declaring macOS Docker Desktop install complete without verify-node-install-macos-desktop.sh passing"
+    ],
+    "agentPlatformRules": {
+      "linux-vps": {
+        "agentMayInstall": true,
+        "onlyInstallCommand": "curl -fsSL https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh | bash -s -- --node-mgt-key 0x... --ip VPS_IP",
+        "expectedUser": "mpcnode",
+        "expectedRepoDir": "/home/mpcnode/mpc-config",
+        "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh",
+        "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md"
+      },
+      "windows-11": {
+        "agentMayInstall": false,
+        "agentRole": "coach-human-via-node-map-and-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md",
+        "antiPatterns": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+        "forbiddenScripts": [
+          "install-node-docker-desktop.sh",
+          "desktop-local-orchestrate.sh --profile wsl"
+        ],
+        "expectedRepoDir": "~/mpc-config (inside WSL)",
+        "attachMode": "node-hosted-app-local-pc",
+        "humanPrerequisites": [
+          "docker-desktop-windows-wsl2",
+          "continuum-node-extension"
+        ]
+      },
+      "macos": {
+        "agentMayInstall": false,
+        "agentRole": "coach-human-via-node-map-and-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "coachDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents--macos-home-pc",
+        "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md",
+        "antiPatterns": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+        "forbiddenScripts": [
+          "install-node-macos-docker-desktop.sh",
+          "desktop-local-orchestrate.sh --profile macos"
+        ],
+        "expectedRepoDir": "~/mpc-config",
+        "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install-macos-desktop.sh",
+        "attachMode": "node-hosted-app-local-pc",
+        "humanPrerequisites": [
+          "docker-desktop-mac",
+          "continuum-node-extension",
+          "homebrew-optional-python-yq-wireguard-socat-bash",
+          "passwordless-sudo-if-extension-prompts"
+        ],
+        "launchAgentLabel": "com.continuumdao.mpc-auth-watcher"
+      },
+      "linux-pc": {
+        "agentMayInstall": false,
+        "agentRole": "coach-human-via-node-map-or-docker-extension",
+        "nodeMap": "https://mpa.continuumdao.org/node-map",
+        "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
+      }
+    },
     "agentMetadata": {
       "task": "provision-and-configure-mpc-node",
       "audience": [
@@ -130,7 +199,8 @@
       }
     ],
     "keyFacts": [
-      "AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). Do not start from NodeRunningInstruction.md.",
+      "AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). NodeRunningInstruction.md is advanced manual — not the default greenfield VPS path.",
+      "After VPS one-shot: run verify-node-install.sh before mesh setup. After Mac extension install: verify-node-install-macos-desktop.sh. Wrong installs: AgentInstallAntiPatterns.md.",
       "Ask topology before renting: standalone 2-of-3 (recommend), join existing relay, or become relay and invite. Prefer different regions and VPS providers.",
       "The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.",
       "One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.",
@@ -237,12 +307,29 @@
         "ai-agent",
         "human"
       ]
+    },
+    {
+      "task": "agent-install-anti-patterns",
+      "source": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+      "audience": [
+        "ai-agent",
+        "human"
+      ],
+      "keywords": [
+        "install anti-patterns",
+        "wrong install",
+        "mpcnode",
+        "root only",
+        "custom folder",
+        "Windows agent",
+        "recovery"
+      ]
     }
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-12T10:18:45.840Z",
-  "pageCount": 60,
+  "generatedAt": "2026-09-12T18:29:37.545Z",
+  "pageCount": 61,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -542,6 +629,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AICharting",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AICharting.md",
           "excerpt": "MPA wallet can plot candlestick (OHLCV) charts from the built in AI agent — in the node app Agent chat and on phones via the Telegram Mini App. Ask the agent to load a market (for example “plot ETH 4H"
+        },
+        {
+          "name": "Agent install anti-patterns",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+          "excerpt": "This page documents common mistakes when an AI agent (or operator) installs a Continuum MPA node without following Agent provision and configure. Use it to recognize , prevent , and fix non standard i"
         },
         {
           "name": "Asset management",

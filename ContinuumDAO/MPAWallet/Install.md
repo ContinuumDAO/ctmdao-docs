@@ -68,6 +68,8 @@ Advanced / manual shell steps (interactive operators): [Running an MPC Node](/Co
 
 ### Your own PC
 
+> **For AI agents:** do **not** run install shell scripts on the operator’s Windows, macOS, or home Linux PC. **Coach** them through this section and the [node map `+`](https://mpa.continuumdao.org/node-map) / **Continuum Node** Docker extension — the human clicks **Install** in the UI. See [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-4--windows--macos-agent-ran-install-scripts-instead-of-coaching-the-human).
+
 Enter your **public** WAN IPv4 in the installer (for example from [https://ip.me](https://ip.me)) — **not** a private LAN address such as `192.168.x.x`. Other nodes must reach you over the internet.
 
 **Prerequisites (you install these yourself):**
@@ -124,11 +126,37 @@ Full walkthrough: [Install on Windows (Docker Desktop)](https://github.com/Conti
 
 #### macOS
 
-1. Install and start **Docker Desktop for Mac** yourself ([download](https://www.docker.com/products/docker-desktop/)).
+1. Install and start **Docker Desktop for Mac** yourself ([download](https://www.docker.com/products/docker-desktop/)) — Intel or Apple Silicon.
 2. In Docker Desktop → **Extensions**, search for **Continuum Node** / **`continuumdao/continuum-node-installer`** and install the extension.
 3. Open the extension, enter your management key and **public** IPv4, then **Install**.
 
 Full walkthrough: [Install on macOS (Docker Desktop)](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md).
+
+##### For AI agents — macOS home PC
+
+**Audience:** external AI agents helping an operator install on **this Mac**. Discover via `search_continuum_docs` (`macOS install node`, `Docker Desktop Mac`) or [install-node.json](https://docs.continuumdao.org/well-known/install-node.json) (`agentPlatformRules.macos`). **Coaching only** — no curl/bash install scripts.
+
+Walk the operator through these steps in order. They perform each action; you do **not** substitute Terminal automation for the extension wizard.
+
+1. **Docker Desktop for Mac** — operator downloads, installs, and starts it ([Docker Desktop](https://www.docker.com/products/docker-desktop/)).
+2. **Enable Extensions** — Docker Desktop → **Settings → Extensions** → enable Docker Extensions if prompted.
+3. **Continuum Node extension** — Extensions tab → Marketplace → **Continuum Node** (`continuumdao/continuum-node-installer`), or start from [node map `+`](https://mpa.continuumdao.org/node-map) if they prefer the guided flow.
+4. **Keys and IP** — in the extension: **NodeMgtKey** (`0x` + 40 hex) and **public WAN IPv4** from [ip.me](https://ip.me) (not a LAN address). Same router forwarding as [Home router setup](#home-router-setup-port-forwarding) (**18080**, **8883** if relay).
+5. **Install** — operator clicks **Install** in the extension UI. Do **not** run `install-node-macos-docker-desktop.sh` or `desktop-local-orchestrate.sh --profile macos`.
+6. **Prerequisites (only if the extension or docs ask)** — operator runs locally:
+   - Homebrew (recommended): `brew install python@3 yq wireguard-tools socat bash` — macOS `/bin/bash` is 3.2; Homebrew **bash 4+** is used for install progress when present.
+   - Passwordless sudo if prompted: `sudo visudo -f /etc/sudoers.d/USERNAME` and add `USERNAME ALL=(ALL) NOPASSWD: ALL` — operator types their Mac password; never in chat.
+7. **Verify** — after Install completes, operator runs in Terminal:
+
+```bash
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install-macos-desktop.sh" | bash -s
+```
+
+All required checks must pass before you declare success. Expected layout: **`~/mpc-config`**, running compose containers, LaunchAgent `com.continuumdao.mpc-auth-watcher` (warn if missing — see [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md)).
+
+8. **Attach** — [mpa.continuumdao.org](https://mpa.continuumdao.org) → **Node hosted app (local PC)** (not VPS SSH tunnel unless they later use a remote node).
+
+Wrong install or agent ran shell scripts? [Agent install anti-patterns — macOS](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-4b--macos-agent-ran-install-scripts-instead-of-coaching-the-human).
 
 #### Linux PC
 
@@ -272,6 +300,7 @@ Before the first **register on Linea** for a KeyGen, claim **withdraw authority*
 - [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — AI agent full VPS provision + mesh
+- [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) — wrong installs, verify, recovery
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — AI agent one-shot VPS install
 - [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md) — remove containers, images, and the node folder
 - [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — advanced / manual path

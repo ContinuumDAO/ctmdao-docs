@@ -12,9 +12,10 @@
 | External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) |
 | External AI agent — coach AI Agent Provider / LLM | [For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider) |
 | Any human — easiest | [Node map + button](https://mpa.continuumdao.org/node-map) |
-| Linux VPS — install containers only | [One-shot script](https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh) + [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
-| Windows 11 home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [Windows guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md) |
-| macOS home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [macOS guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md) |
+| Linux VPS — install containers only | [One-shot script](https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh) + [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) + verify after install |
+| AI agent — wrong install / recovery | [Agent install anti-patterns](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns) |
+| Windows 11 home PC (human-led; agent coaches only) | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) + [Windows guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md) |
+| macOS home PC (human-led; agent coaches only) | [For AI agents — macOS](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents--macos-home-pc) + [macOS guide](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md) |
 | Linux home PC | [Install.md](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md) or node-map + button |
 | Advanced manual only | [NodeRunningInstruction.md](https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) — not the default |
 | Private VPN on your node (veCTM required, overview) | [Private VPN](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) |
@@ -28,12 +29,13 @@
 - [Private VPN — external AI agent (SSH tunnel + MCP)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel--mcp) — Path A; `continuum` + `vpn` MCP; agent playbook only
 - [AI harness — For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider) — coach LLM provider / model / baseUrl / API key; no MCP write tool
 - [Private VPN (overview)](https://docs.continuumdao.org/ContinuumDAO/PrivateVPN) — veCTM-gated WireGuard; built-in Agent chat steps for node harness
-- [Home site install-node.json](https://continuumdao.org/well-known/install-node.json)
+- [install-node.json (machine-readable router)](https://docs.continuumdao.org/well-known/install-node.json) — mirror on home site: https://continuumdao.org/well-known/install-node.json
+- [Agent install anti-patterns](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns)
 - [mpc-config AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 60 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 61 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -112,6 +114,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 ## Using an MPA wallet
 
 - [AI charting](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AICharting): MPA wallet can plot candlestick (OHLCV) charts from the built in AI agent — in the node app Agent chat and on phones via
+- [Agent install anti-patterns](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns): This page documents common mistakes when an AI agent (or operator) installs a Continuum MPA node without following Agent
 - [Asset management](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AssetManagement): After you configure chains on your node, register the tokens and NFTs you want to see and use on the Assets tab. Token c
 - [Attach your node](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode): Open mpa.continuumdao.org. Your browser talks to your node — ContinuumDAO does not relay day to day control traffic. For
 - [Backup and restoration](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration): Every MPA node has a bootstrap Ed25519 key pair. The public half is PublicMgtKey in the node config. With deterministic

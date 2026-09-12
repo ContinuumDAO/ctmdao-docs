@@ -88,7 +88,20 @@ const AGENT_PROVISION_MD_PATH = join(
 	'MPAWallet',
 	'AgentProvision.md',
 );
+const AGENT_ANTI_PATTERNS_MD_PATH = join(
+	root,
+	'ContinuumDAO',
+	'MPAWallet',
+	'AgentInstallAntiPatterns.md',
+);
 const AGENT_PROVISION_PATH = 'ContinuumDAO/MPAWallet/AgentProvision';
+const AGENT_ANTI_PATTERNS_PATH = 'ContinuumDAO/MPAWallet/AgentInstallAntiPatterns';
+const VERIFY_SCRIPT_URL =
+	'https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh';
+const VERIFY_MACOS_SCRIPT_URL =
+	'https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install-macos-desktop.sh';
+const INSTALL_MACOS_DOC =
+	`${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md#for-ai-agents--macos-home-pc`;
 
 /** @param {string} path @param {string} content */
 function writeIfChanged(path, content) {
@@ -193,7 +206,79 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 		canonicalAgentDocUrl: agentPlaybook,
 		agentsGuide,
 		homeInstallJson: `${HOME_URL}/well-known/install-node.json`,
+		docsInstallJson: `${DOCS_BASE_URL}/well-known/install-node.json`,
 		avoidForAgents: `${DOCS_BASE_URL}/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md`,
+		agentAntiPatternsDoc: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}.md`,
+		agentAntiPatternsUrl: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}`,
+		verifyScript: VERIFY_SCRIPT_URL,
+		agentForbiddenActions: [
+			'manual git clone mpc-config on a greenfield Ubuntu/Debian VPS',
+			'custom repo directory instead of /home/mpcnode/mpc-config',
+			'docker compose up as root without running install-node-debian-ubuntu.sh one-shot',
+			'piecemeal reimplementation of NodeRunningInstruction Quick Start for greenfield VPS',
+			'install-node-docker-desktop.sh or WSL orchestration by an AI agent on Windows 11 home PC',
+			'install-node-macos-docker-desktop.sh or desktop-local-orchestrate.sh --profile macos by an AI agent on macOS home PC',
+			'declaring VPS install complete without verify-node-install.sh passing',
+			'declaring macOS Docker Desktop install complete without verify-node-install-macos-desktop.sh passing',
+		],
+		agentPlatformRules: {
+			'linux-vps': {
+				agentMayInstall: true,
+				onlyInstallCommand:
+					'curl -fsSL https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh | bash -s -- --node-mgt-key 0x... --ip VPS_IP',
+				expectedUser: 'mpcnode',
+				expectedRepoDir: '/home/mpcnode/mpc-config',
+				verifyScript: VERIFY_SCRIPT_URL,
+				playbook: agentPlaybookMd,
+			},
+			'windows-11': {
+				agentMayInstall: false,
+				agentRole: 'coach-human-via-node-map-and-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				guide:
+					'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md',
+				antiPatterns: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}.md`,
+				forbiddenScripts: [
+					'install-node-docker-desktop.sh',
+					'desktop-local-orchestrate.sh --profile wsl',
+				],
+				expectedRepoDir: '~/mpc-config (inside WSL)',
+				attachMode: 'node-hosted-app-local-pc',
+				humanPrerequisites: [
+					'docker-desktop-windows-wsl2',
+					'continuum-node-extension',
+				],
+			},
+			macos: {
+				agentMayInstall: false,
+				agentRole: 'coach-human-via-node-map-and-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				coachDoc: INSTALL_MACOS_DOC,
+				guide:
+					'https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md',
+				antiPatterns: `${DOCS_BASE_URL}/${AGENT_ANTI_PATTERNS_PATH}.md`,
+				forbiddenScripts: [
+					'install-node-macos-docker-desktop.sh',
+					'desktop-local-orchestrate.sh --profile macos',
+				],
+				expectedRepoDir: '~/mpc-config',
+				verifyScript: VERIFY_MACOS_SCRIPT_URL,
+				attachMode: 'node-hosted-app-local-pc',
+				humanPrerequisites: [
+					'docker-desktop-mac',
+					'continuum-node-extension',
+					'homebrew-optional-python-yq-wireguard-socat-bash',
+					'passwordless-sudo-if-extension-prompts',
+				],
+				launchAgentLabel: 'com.continuumdao.mpc-auth-watcher',
+			},
+			'linux-pc': {
+				agentMayInstall: false,
+				agentRole: 'coach-human-via-node-map-or-docker-extension',
+				nodeMap: MPA_NODE_MAP,
+				doc: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,
+			},
+		},
 		agentMetadata: provisionMeta ?? installMeta ?? undefined,
 		installMetadata: installMeta ?? undefined,
 		routes: [
@@ -258,7 +343,8 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			},
 		],
 		keyFacts: [
-			'AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). Do not start from NodeRunningInstruction.md.',
+			'AI agents: load AgentProvision.md first (search_continuum_docs → get_continuum_doc). NodeRunningInstruction.md is advanced manual — not the default greenfield VPS path.',
+			'After VPS one-shot: run verify-node-install.sh before mesh setup. After Mac extension install: verify-node-install-macos-desktop.sh. Wrong installs: AgentInstallAntiPatterns.md.',
 			'Ask topology before renting: standalone 2-of-3 (recommend), join existing relay, or become relay and invite. Prefer different regions and VPS providers.',
 			'The one-shot script is install-only (root on Ubuntu/Debian). Mesh config is Path A MCP after the user tunnels continuum-mcp to 127.0.0.1:8446.',
 			'One node alone cannot create a shared wallet address. 2/2 has no spare; loss-safety needs gate < N.',
@@ -269,8 +355,30 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 	};
 }
 
-/** @param {{ version: number, generatedAt: string, pages: DocPage[] }} index */
-function buildLlmIndex(index, installDiscovery) {
+/** Machine-readable install router (mirrors llmld:getStarted; also published at /well-known/install-node.json). */
+function buildInstallNodeJson(installDiscovery, generatedAt) {
+	return {
+		'@context': ['https://schema.org', 'https://llmld.org/v1'],
+		'@type': 'llmld:InstallRouter',
+		name: 'ContinuumDAO MPA node install router',
+		url: installDiscovery.docsInstallJson,
+		mirrorUrl: installDiscovery.homeInstallJson,
+		generatedAt,
+		summary: installDiscovery.summary,
+		canonicalAgentDoc: installDiscovery.canonicalAgentDoc,
+		canonicalAgentDocUrl: installDiscovery.canonicalAgentDocUrl,
+		agentAntiPatternsDoc: installDiscovery.agentAntiPatternsDoc,
+		verifyScript: installDiscovery.verifyScript,
+		agentForbiddenActions: installDiscovery.agentForbiddenActions,
+		agentPlatformRules: installDiscovery.agentPlatformRules,
+		routes: installDiscovery.routes,
+		afterInstall: installDiscovery.afterInstall,
+		advancedManualDoc: installDiscovery.avoidForAgents,
+	};
+}
+
+/** @param {{ version: number, generatedAt: string, pages: DocPage[] }} index @param {ReturnType<typeof parseAgentMetadata>} antiPatternsMeta */
+function buildLlmIndex(index, installDiscovery, antiPatternsMeta) {
 	const grouped = groupPagesBySection(index.pages);
 	return {
 		'@context': ['https://schema.org', 'https://llmld.org/v1'],
@@ -312,6 +420,15 @@ function buildLlmIndex(index, installDiscovery) {
 				: []),
 			privateVpnAgentTask,
 			configureTask,
+			...(antiPatternsMeta
+				? [
+						{
+							task: antiPatternsMeta.task ?? 'agent-install-anti-patterns',
+							source: installDiscovery.agentAntiPatternsDoc,
+							...antiPatternsMeta,
+						},
+					]
+				: []),
 		],
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
@@ -352,9 +469,10 @@ function buildLlmsTxt(index, install) {
 		`| External AI agent — Private VPN (SSH tunnel + MCP) | [External AI agent section](${PRIVATE_VPN_EXTERNAL_URL}) |`,
 		`| External AI agent — coach AI Agent Provider / LLM | [For AI agents — Provider](${CONFIGURE_PROVIDER_URL}) |`,
 		`| Any human — easiest | [Node map + button](${install.defaultForHumans}) |`,
-		`| Linux VPS — install containers only | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) |`,
-		`| Windows 11 home PC | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
-		`| macOS home PC | [Install.md](${install.canonicalDoc}) + [macOS guide](${install.routes[2].guide}) |`,
+		`| Linux VPS — install containers only | [One-shot script](${install.routes[0].script}) + [CREATE_NODE_ONESHOT.md](${install.routes[0].guide}) + verify after install |`,
+		`| AI agent — wrong install / recovery | [Agent install anti-patterns](${install.agentAntiPatternsUrl}) |`,
+		`| Windows 11 home PC (human-led; agent coaches only) | [Install.md](${install.canonicalDoc}) + [Windows guide](${install.routes[1].guide}) |`,
+		`| macOS home PC (human-led; agent coaches only) | [For AI agents — macOS](${INSTALL_MACOS_DOC}) + [macOS guide](${install.routes[2].guide}) |`,
 		`| Linux home PC | [Install.md](${install.canonicalDoc}) or node-map + button |`,
 		`| Advanced manual only | [NodeRunningInstruction.md](${install.avoidForAgents}) — not the default |`,
 		`| Private VPN on your node (veCTM required, overview) | [Private VPN](${PRIVATE_VPN_URL}) |`,
@@ -368,7 +486,8 @@ function buildLlmsTxt(index, install) {
 		`- [Private VPN — external AI agent (SSH tunnel + MCP)](${PRIVATE_VPN_EXTERNAL_URL}) — Path A; \`continuum\` + \`vpn\` MCP; agent playbook only`,
 		`- [AI harness — For AI agents — Provider](${CONFIGURE_PROVIDER_URL}) — coach LLM provider / model / baseUrl / API key; no MCP write tool`,
 		`- [Private VPN (overview)](${PRIVATE_VPN_URL}) — veCTM-gated WireGuard; built-in Agent chat steps for node harness`,
-		`- [Home site install-node.json](${install.homeInstallJson})`,
+		`- [install-node.json (machine-readable router)](${install.docsInstallJson}) — mirror on home site: ${install.homeInstallJson}`,
+		`- [Agent install anti-patterns](${install.agentAntiPatternsUrl})`,
 		`- [mpc-config AGENTS.md](${install.agentsGuide})`,
 		'',
 		'## Machine-readable indexes (preferred for AI agents)',
@@ -443,6 +562,7 @@ if (!index?.pages?.length) {
 mkdirSync(join(root, 'well-known'), {recursive: true});
 
 const provisionMeta = parseAgentMetadata(AGENT_PROVISION_MD_PATH);
+const antiPatternsMeta = parseAgentMetadata(AGENT_ANTI_PATTERNS_MD_PATH);
 const installMeta = parseAgentMetadata(INSTALL_MD_PATH);
 const configureMeta = parseAgentMetadata(CONFIGURE_MD_PATH);
 const installDiscovery = buildInstallNodeDiscovery(installMeta, provisionMeta);
@@ -453,7 +573,14 @@ const configureTask = {
 	...(Array.isArray(configureMeta?.keywords) ? {keywords: configureMeta.keywords} : {}),
 };
 
-writeIfChanged(join(root, 'well-known', 'llm-index.json'), JSON.stringify(buildLlmIndex(index, installDiscovery), null, 2));
+writeIfChanged(
+	join(root, 'well-known', 'llm-index.json'),
+	JSON.stringify(buildLlmIndex(index, installDiscovery, antiPatternsMeta), null, 2),
+);
+writeIfChanged(
+	join(root, 'well-known', 'install-node.json'),
+	JSON.stringify(buildInstallNodeJson(installDiscovery, index.generatedAt), null, 2),
+);
 writeIfChanged(join(root, 'llms.txt'), buildLlmsTxt(index, installDiscovery));
 writeIfChanged(join(root, 'sitemap.xml'), buildSitemap(index));
 writeIfChanged(join(root, 'robots.txt'), buildRobotsTxt());

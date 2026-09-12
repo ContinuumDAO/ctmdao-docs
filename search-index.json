@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-12T10:18:45.840Z",
+  "generatedAt": "2026-09-12T18:29:37.545Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1250,15 +1250,98 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/AgentInstallAntiPatterns",
+      "title": "Agent install anti-patterns",
+      "section": "Using an MPA wallet",
+      "headings": [
+        "Agent install anti-patterns (and recovery)",
+        "Anti-pattern 1 — VPS: everything as root, no `mpcnode` user",
+        "Anti-pattern 2 — VPS: custom clone directory or made-up folder name",
+        "Anti-pattern 3 — Agent improvised from Quick Start instead of one-shot",
+        "Anti-pattern 4a — Windows: agent ran install scripts instead of coaching the human",
+        "Anti-pattern 4b — macOS: agent ran install scripts instead of coaching the human",
+        "Verify a VPS install",
+        "Verify a macOS Docker Desktop install",
+        "Recovery: uninstall and reinstall",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "agent-install-anti-patterns-and-recovery",
+          "title": "Agent install anti-patterns (and recovery)",
+          "level": 2,
+          "excerpt": "This page documents common mistakes when an AI agent (or operator) installs a Continuum MPA node without following Agent provision and configure. Use it to recognize , prevent , and fix non standard installs. Humans doing a deliberate advanced manual install may still use Running an MPC Node — that "
+        },
+        {
+          "id": "anti-pattern-1-vps-everything-as-root-no-mpcnode-user",
+          "title": "Anti-pattern 1 — VPS: everything as root, no `mpcnode` user",
+          "level": 3,
+          "excerpt": "Symptoms id mpcnode fails or user does not exist Repo lives under /root/... or a random path such as /opt/continuum node Agent ran git clone , docker compose up , or process config.sh directly as root Why it breaks the playbook SSH tunnels and attach expect mpcnode@ (see Agent provision §1b) Ownersh"
+        },
+        {
+          "id": "anti-pattern-2-vps-custom-clone-directory-or-made-up-folder-name",
+          "title": "Anti-pattern 2 — VPS: custom clone directory or made-up folder name",
+          "level": 3,
+          "excerpt": "Symptoms mpc config (or similar) cloned to /root/mpc config , /srv/continuum , etc. Not /home/mpcnode/mpc config Why it matters One shot, uninstall, backup docs, and support all assume the canonical VPS layout Peer tooling and operator muscle memory use the standard path Fix: treat as a broken green"
+        },
+        {
+          "id": "anti-pattern-3-agent-improvised-from-quick-start-instead-of-one-shot",
+          "title": "Anti-pattern 3 — Agent improvised from Quick Start instead of one-shot",
+          "level": 3,
+          "excerpt": "Symptoms Agent followed step by step shell from Node Running Instructions but skipped user creation or mixed steps Or agent “helpfully” ran individual apt , git clone , and docker compose commands Note: Node Running Instructions remain valuable for advanced operators. AI agents provisioning a new VP"
+        },
+        {
+          "id": "anti-pattern-4a-windows-agent-ran-install-scripts-instead-of-coaching-the-human",
+          "title": "Anti-pattern 4a — Windows: agent ran install scripts instead of coaching the human",
+          "level": 3,
+          "excerpt": "Symptoms Agent invoked install node docker desktop.sh , WSL orchestration, or curl/bash install on a Windows home PC Operator never used node map + or the Continuum Node Docker extension What agents should do instead Coach through Install — Windows Operator installs Docker Desktop for Windows (WSL2)"
+        },
+        {
+          "id": "anti-pattern-4b-macos-agent-ran-install-scripts-instead-of-coaching-the-human",
+          "title": "Anti-pattern 4b — macOS: agent ran install scripts instead of coaching the human",
+          "level": 3,
+          "excerpt": "Symptoms Agent ran install node macos docker desktop.sh , desktop local orchestrate.sh profile macos , or manual git clone + docker compose on the Mac Repo not at ~/mpc config , or LaunchAgent com.continuumdao.mpc auth watcher never registered Agent ran Homebrew or visudo steps without the operator "
+        },
+        {
+          "id": "verify-a-vps-install",
+          "title": "Verify a VPS install",
+          "level": 3,
+          "excerpt": "After the one shot completes, run on the VPS (as root or mpcnode ): bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/verify node install.sh\" \\ bash s Or from the mpc config clone: bash ./scripts/verify node install.sh Agents: paste the script output back to the "
+        },
+        {
+          "id": "verify-a-macos-docker-desktop-install",
+          "title": "Verify a macOS Docker Desktop install",
+          "level": 3,
+          "excerpt": "After the operator completes the Continuum Node extension (or node map) install, run on the Mac : bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/verify node install macos desktop.sh\" \\ bash s Or from ~/mpc config : bash ./scripts/verify node install macos desk"
+        },
+        {
+          "id": "recovery-uninstall-and-reinstall",
+          "title": "Recovery: uninstall and reinstall",
+          "level": 3,
+          "excerpt": "1. Back up bootstrap key and database if anything worth keeping exists — Backup and restoration 2. On the VPS as root: bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/uninstall node debian ubuntu.sh\" \\ bash s yes 3. Re run the one shot install 4. Run verify aga"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "Agent provision and configure CREATE NODE ONESHOT.md Running an MPC Node — advanced manual (humans and experienced operators) Uninstall a node"
+        }
+      ],
+      "excerpt": "This page documents common mistakes when an AI agent (or operator) installs a Continuum MPA node without following Agent provision and configure. Use it to recognize , prevent , and fix non standard installs. Humans doing a deliberate advanced manual install may still use Running an MPC Node — that ",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/AgentProvision",
       "title": "Agent provision and configure",
       "section": "Further reading (operators / APIs)",
       "headings": [
         "Agent provision and configure",
+        "Hard rules for AI agents (VPS and home PC)",
         "How an AI agent discovers this page",
         "0. Ask which topology before renting anything",
         "Option A — 2/2 vs extra nodes for safety",
         "1. One-shot VPS install (as root)",
+        "1a. Verify the one-shot layout (required before §1b)",
         "1b. Set the `mpcnode` login password (required before the tunnel)",
         "2. Tunnels: mesh setup vs wallet control",
         "3. Configure peers, MQTT, and signer (each node you provisioned)",
@@ -1272,6 +1355,12 @@
           "title": "Agent provision and configure",
           "level": 2,
           "excerpt": "If you are an AI agent (Claude, Cursor, Grok, or similar) asked to create an MPC node , install a node , provision a VPS , or fully configure a Continuum MPA node, this page is the playbook . Do not start from the long manual Running an MPC Node page. Humans installing interactively should use Insta"
+        },
+        {
+          "id": "hard-rules-for-ai-agents-vps-and-home-pc",
+          "title": "Hard rules for AI agents (VPS and home PC)",
+          "level": 3,
+          "excerpt": "Load install node.json or this section before running any shell on the operator’s machines. Ubuntu/Debian VPS — MUST Rule Detail Use the published one shot only Exact command in §1 — curl fsSL …/install node debian ubuntu.sh \\ bash s … Let the script create layout User mpcnode , repo /home/mpcnode/m"
         },
         {
           "id": "how-an-ai-agent-discovers-this-page",
@@ -1296,6 +1385,12 @@
           "title": "1. One-shot VPS install (as root)",
           "level": 3,
           "excerpt": "On each new Ubuntu/Debian VPS, run the one shot installer as root ( ssh root@… ). Full flags and restore notes: CREATE NODE ONESHOT.md. bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/install node debian ubuntu.sh\" \\ bash s \\ node mgt key \"0xYour40HexCharacters"
+        },
+        {
+          "id": "1a-verify-the-one-shot-layout-required-before-1b",
+          "title": "1a. Verify the one-shot layout (required before §1b)",
+          "level": 4,
+          "excerpt": "On the VPS after the one shot exits successfully: bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/main/scripts/verify node install.sh\" \\ bash s All checks must pass ( OK for user mpcnode , repo /home/mpcnode/mpc config , configs.yaml , running compose containers). If verifi"
         },
         {
           "id": "1b-set-the-mpcnode-login-password-required-before-the-tunnel",
@@ -1331,7 +1426,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Install a node — humans (node map) + short agent pointer CREATE NODE ONESHOT.md — VPS install script only Uninstall a node — decommission; UNINSTALL NODE.md Configured Nodes Groups KeyGens Attach your node Configure the AI harness — optional, after KeyGen; LLM Provider coaching: For AI agents — Prov"
+          "excerpt": "Agent install anti patterns — wrong installs, verification, recovery Install a node — humans (node map) + short agent pointer CREATE NODE ONESHOT.md — VPS install script only Uninstall a node — decommission; UNINSTALL NODE.md Configured Nodes Groups KeyGens Attach your node Configure the AI harness "
         }
       ],
       "excerpt": "If you are an AI agent (Claude, Cursor, Grok, or similar) asked to create an MPC node , install a node , provision a VPS , or fully configure a Continuum MPA node, this page is the playbook . Do not start from the long manual Running an MPC Node page. Humans installing interactively should use Insta",
@@ -2105,6 +2200,7 @@
         "Home router setup (port forwarding)",
         "Windows",
         "macOS",
+        "For AI agents — macOS home PC",
         "Linux PC",
         "After install (all paths)",
         "Attach your node",
@@ -2154,7 +2250,7 @@
           "id": "your-own-pc",
           "title": "Your own PC",
           "level": 3,
-          "excerpt": "Enter your public WAN IPv4 in the installer (for example from https://ip.me) — not a private LAN address such as 192.168.x.x . Other nodes must reach you over the internet. Prerequisites (you install these yourself): 1. Docker Desktop — Continuum’s PC installer does not install Docker Desktop. Downl"
+          "excerpt": "For AI agents: do not run install shell scripts on the operator’s Windows, macOS, or home Linux PC. Coach them through this section and the node map + / Continuum Node Docker extension — the human clicks Install in the UI. See Agent install anti patterns. Enter your public WAN IPv4 in the installer "
         },
         {
           "id": "home-router-setup-port-forwarding",
@@ -2172,7 +2268,13 @@
           "id": "macos",
           "title": "macOS",
           "level": 4,
-          "excerpt": "1. Install and start Docker Desktop for Mac yourself (download). 2. In Docker Desktop → Extensions , search for Continuum Node / continuumdao/continuum node installer and install the extension. 3. Open the extension, enter your management key and public IPv4, then Install . Full walkthrough: Install"
+          "excerpt": "1. Install and start Docker Desktop for Mac yourself (download) — Intel or Apple Silicon. 2. In Docker Desktop → Extensions , search for Continuum Node / continuumdao/continuum node installer and install the extension. 3. Open the extension, enter your management key and public IPv4, then Install . "
+        },
+        {
+          "id": "for-ai-agents-macos-home-pc",
+          "title": "For AI agents — macOS home PC",
+          "level": 5,
+          "excerpt": "Audience: external AI agents helping an operator install on this Mac . Discover via search continuum docs ( macOS install node , Docker Desktop Mac ) or install node.json ( agentPlatformRules.macos ). Coaching only — no curl/bash install scripts. Walk the operator through these steps in order. They "
         },
         {
           "id": "linux-pc",
@@ -2250,7 +2352,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Overview Backup and restoration Configured Nodes Groups KeyGens MPA billing Configure the AI harness AI managed governance Plan mode Agent provision and configure — AI agent full VPS provision + mesh CREATE NODE ONESHOT.md — AI agent one shot VPS install Uninstall a node — remove containers, images,"
+          "excerpt": "Overview Backup and restoration Configured Nodes Groups KeyGens MPA billing Configure the AI harness AI managed governance Plan mode Agent provision and configure — AI agent full VPS provision + mesh Agent install anti patterns — wrong installs, verify, recovery CREATE NODE ONESHOT.md — AI agent one"
         }
       ],
       "excerpt": "For almost all interactive (human) users, install a node from the Continuum node map — you do not need manual shell provisioning. <img src=\"/ media/ContinuumMPAWalletNodeMap.png\" alt=\"\"/ 1. Open https://mpa.continuumdao.org/node map. 2. Click the + button. 3. Walk through the installer options: wher",

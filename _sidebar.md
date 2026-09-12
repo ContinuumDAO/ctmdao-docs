@@ -22,6 +22,7 @@
   * [Install a node](/ContinuumDAO/MPAWallet/Install.md)
   * [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md)
   * [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md)
+  * [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md)
   * [Attach your node](/ContinuumDAO/MPAWallet/AttachYourNode.md)
   * [Backup and restoration](/ContinuumDAO/MPAWallet/BackupAndRestoration.md)
   * [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md)

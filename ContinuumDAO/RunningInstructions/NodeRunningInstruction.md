@@ -2,10 +2,13 @@ For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPA
 
 **AI agents creating or configuring a greenfield Ubuntu/Debian VPS node:** do **not** start here. Use the **agent playbook** first:
 
-- [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — topology, oneshot, Path A MCP, hand-off
+- [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — topology, one-shot, Path A MCP, hand-off
+- [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) — if an install already went wrong
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — install script flags
 - Script: [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh)
 - Repo: [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
+
+This page remains the **full advanced / manual reference** for operators who want step-by-step control (including running `process_config.sh` or `provision-node.sh` as root). It is not demoted — agents should simply prefer the playbook for new VPS installs.
 
 ## Node Running Instructions
 

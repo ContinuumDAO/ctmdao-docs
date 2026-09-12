@@ -1,0 +1,141 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://llmld.org/v1"
+  ],
+  "@type": "llmld:InstallRouter",
+  "name": "ContinuumDAO MPA node install router",
+  "url": "https://docs.continuumdao.org/well-known/install-node.json",
+  "mirrorUrl": "https://continuumdao.org/well-known/install-node.json",
+  "generatedAt": "2026-09-12T18:29:37.545Z",
+  "summary": "Provision and configure a Multi-Party Agent Wallet node: topology first, then VPS oneshot (or human node-map / home PC), Path A MCP mesh, Group, and KeyGen.",
+  "canonicalAgentDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
+  "canonicalAgentDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
+  "agentAntiPatternsDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+  "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh",
+  "agentForbiddenActions": [
+    "manual git clone mpc-config on a greenfield Ubuntu/Debian VPS",
+    "custom repo directory instead of /home/mpcnode/mpc-config",
+    "docker compose up as root without running install-node-debian-ubuntu.sh one-shot",
+    "piecemeal reimplementation of NodeRunningInstruction Quick Start for greenfield VPS",
+    "install-node-docker-desktop.sh or WSL orchestration by an AI agent on Windows 11 home PC",
+    "install-node-macos-docker-desktop.sh or desktop-local-orchestrate.sh --profile macos by an AI agent on macOS home PC",
+    "declaring VPS install complete without verify-node-install.sh passing",
+    "declaring macOS Docker Desktop install complete without verify-node-install-macos-desktop.sh passing"
+  ],
+  "agentPlatformRules": {
+    "linux-vps": {
+      "agentMayInstall": true,
+      "onlyInstallCommand": "curl -fsSL https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh | bash -s -- --node-mgt-key 0x... --ip VPS_IP",
+      "expectedUser": "mpcnode",
+      "expectedRepoDir": "/home/mpcnode/mpc-config",
+      "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh",
+      "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md"
+    },
+    "windows-11": {
+      "agentMayInstall": false,
+      "agentRole": "coach-human-via-node-map-and-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md",
+      "antiPatterns": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+      "forbiddenScripts": [
+        "install-node-docker-desktop.sh",
+        "desktop-local-orchestrate.sh --profile wsl"
+      ],
+      "expectedRepoDir": "~/mpc-config (inside WSL)",
+      "attachMode": "node-hosted-app-local-pc",
+      "humanPrerequisites": [
+        "docker-desktop-windows-wsl2",
+        "continuum-node-extension"
+      ]
+    },
+    "macos": {
+      "agentMayInstall": false,
+      "agentRole": "coach-human-via-node-map-and-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "coachDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents--macos-home-pc",
+      "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md",
+      "antiPatterns": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md",
+      "forbiddenScripts": [
+        "install-node-macos-docker-desktop.sh",
+        "desktop-local-orchestrate.sh --profile macos"
+      ],
+      "expectedRepoDir": "~/mpc-config",
+      "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install-macos-desktop.sh",
+      "attachMode": "node-hosted-app-local-pc",
+      "humanPrerequisites": [
+        "docker-desktop-mac",
+        "continuum-node-extension",
+        "homebrew-optional-python-yq-wireguard-socat-bash",
+        "passwordless-sudo-if-extension-prompts"
+      ],
+      "launchAgentLabel": "com.continuumdao.mpc-auth-watcher"
+    },
+    "linux-pc": {
+      "agentMayInstall": false,
+      "agentRole": "coach-human-via-node-map-or-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
+    }
+  },
+  "routes": [
+    {
+      "platform": "linux-vps",
+      "when": "Ubuntu or Debian VPS; AI agent provisions and configures (Path A MCP)",
+      "primary": "agent-provision-playbook",
+      "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
+      "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
+      "fallback": "https://mpa.continuumdao.org/node-map"
+    },
+    {
+      "platform": "windows-11",
+      "when": "Home or office Windows 11 PC; interactive user",
+      "primary": "node-map-or-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_WINDOWS_DOCKER_DESKTOP.md"
+    },
+    {
+      "platform": "macos",
+      "when": "Home or office Mac; interactive user",
+      "primary": "node-map-or-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/INSTALL_NODE_MACOS_DOCKER_DESKTOP.md"
+    },
+    {
+      "platform": "linux-pc",
+      "when": "Home Linux workstation or laptop",
+      "primary": "node-map-or-docker-extension",
+      "nodeMap": "https://mpa.continuumdao.org/node-map",
+      "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
+    }
+  ],
+  "afterInstall": [
+    {
+      "step": "attach-node",
+      "name": "Attach your node in the browser",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode.md"
+    },
+    {
+      "step": "backup",
+      "name": "Back up bootstrap key and encrypted database",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/BackupAndRestoration.md"
+    },
+    {
+      "step": "peers-group-keygen",
+      "name": "Configure peers / MQTT, create Group and KeyGen (prefer 2-of-3 across regions and providers)",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md"
+    },
+    {
+      "step": "ai-harness",
+      "name": "Optional: configure the built-in AI harness",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md"
+    },
+    {
+      "step": "private-vpn",
+      "name": "Optional: Private VPN (requires attached veCTM at voting-power threshold)",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md"
+    }
+  ],
+  "advancedManualDoc": "https://docs.continuumdao.org/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md"
+}

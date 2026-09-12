@@ -17,6 +17,45 @@ Humans installing interactively should use **[Install a node](/ContinuumDAO/MPAW
 
 This playbook covers **VPS install plus mesh configuration** (peers, relay, MQTT, Group, KeyGen) and hand-off to the operator. The one-shot script is **only the install step**.
 
+### Hard rules for AI agents (VPS and home PC)
+
+Load [install-node.json](https://docs.continuumdao.org/well-known/install-node.json) or this section **before** running any shell on the operator’s machines.
+
+**Ubuntu/Debian VPS — MUST**
+
+| Rule | Detail |
+|------|--------|
+| Use the published one-shot only | Exact command in [§1](#1-one-shot-vps-install-as-root) — `curl -fsSL …/install-node-debian-ubuntu.sh \| bash -s -- …` |
+| Let the script create layout | User **`mpcnode`**, repo **`/home/mpcnode/mpc-config`**, then `provision-node.sh` + compose |
+| Verify before mesh setup | Run [verify-node-install.sh](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/verify-node-install.sh) and show output to the operator |
+| Set mpcnode password next | [§1b](#1b-set-the-mpcnode-login-password-required-before-the-tunnel) — never in chat |
+
+**Ubuntu/Debian VPS — MUST NOT (improvised greenfield install)**
+
+| Do not | Why |
+|--------|-----|
+| `git clone` mpc-config to a custom path | Breaks canonical layout, tunnels, uninstall, and support |
+| Run `docker compose` as root without one-shot | Skips `mpcnode`, wrong ownership |
+| Reimplement Quick Start steps piecemeal | Use one-shot instead; manual path is for humans who choose [Node Running Instructions](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) deliberately |
+| Declare “installed” without verification | See [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) |
+
+**Windows 11 home PC — MUST NOT**
+
+| Do not | Do instead |
+|--------|------------|
+| Run `install-node-docker-desktop.sh`, WSL orchestration, or curl/bash install on the PC | **Coach** the operator: [Install — Windows](/ContinuumDAO/MPAWallet/Install.md#windows), [node map `+`](https://mpa.continuumdao.org/node-map), **Continuum Node** Docker extension |
+| Install Docker Desktop or the extension via agent shell automation | Operator installs Docker Desktop (WSL2 backend) and clicks **Install** in the extension |
+
+**macOS home PC — MUST NOT**
+
+| Do not | Do instead |
+|--------|------------|
+| Run `install-node-macos-docker-desktop.sh`, `desktop-local-orchestrate.sh --profile macos`, or any curl/bash install on the Mac | **Coach** the operator: [For AI agents — macOS home PC](/ContinuumDAO/MPAWallet/Install.md#for-ai-agents--macos-home-pc), [node map `+`](https://mpa.continuumdao.org/node-map), **Continuum Node** Docker extension |
+| Run Homebrew, `visudo`, or password prompts for the operator | Explain prerequisites; operator runs commands locally and types passwords |
+| Declare Mac install complete without verify | Operator runs [verify-node-install-macos-desktop.sh](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/verify-node-install-macos-desktop.sh) and shares output |
+
+Advanced operators may still run `process_config.sh` or `provision-node.sh` (including as root on Linux) by choice — that is **not** the default greenfield agent path on VPS or home PC.
+
 ### How an AI agent discovers this page
 
 1. Call **`search_continuum_docs`** with queries such as `provision node`, `create mpc node`, `install node agent`, or `configure peers MQTT`.
@@ -73,6 +112,17 @@ curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scrip
 Prefer: the user runs oneshot, or you use a **root SSH key**. Putting the root password in chat is last resort.
 
 Local Windows / macOS PCs are **not** this flow — send humans to [Install a node](/ContinuumDAO/MPAWallet/Install.md#your-own-pc).
+
+#### 1a. Verify the one-shot layout (required before §1b)
+
+On the VPS after the one-shot exits successfully:
+
+```bash
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh" \
+  | bash -s
+```
+
+**All checks must pass** (`OK` for user `mpcnode`, repo `/home/mpcnode/mpc-config`, `configs.yaml`, running compose containers). If verification fails, do **not** continue to tunnels or MCP — see [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) and recover with uninstall + one-shot.
 
 ### 1b. Set the `mpcnode` login password (required before the tunnel)
 
@@ -174,6 +224,7 @@ Point at [Groups](/ContinuumDAO/MPCSigner/Groups.md) and [KeyGens](/ContinuumDAO
 
 ### Related
 
+- [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) — wrong installs, verification, recovery
 - [Install a node](/ContinuumDAO/MPAWallet/Install.md) — humans (node map) + short agent pointer
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — VPS install script only
 - [Uninstall a node](/ContinuumDAO/MPAWallet/Uninstall.md) — decommission; [UNINSTALL_NODE.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/UNINSTALL_NODE.md)

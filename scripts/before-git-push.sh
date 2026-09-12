@@ -23,6 +23,7 @@ cd "$ROOT"
 GENERATED_FILES=(
 	search-index.json
 	well-known/llm-index.json
+	well-known/install-node.json
 	llms.txt
 	sitemap.xml
 	robots.txt
