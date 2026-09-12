@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-11T14:33:53.288Z",
+  "generatedAt": "2026-09-12T10:18:45.840Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2114,6 +2114,7 @@
         "Example: two-node 2/2 wallet (relay + peer)",
         "Node Peer IP Editing (each node)",
         "Inter Node Communication (relay key → peer nodes)",
+        "For AI agents — Inter Node Communication",
         "Then create a Group and a KeyGen",
         "MPA billing",
         "Related"
@@ -2225,7 +2226,13 @@
           "id": "inter-node-communication-relay-key-peer-nodes",
           "title": "Inter Node Communication (relay key → peer nodes)",
           "level": 4,
-          "excerpt": "Nodes encrypt MQTT traffic using a public key (PEM) from the relay node. Peers must install that key before Add group is enabled. On the relay node (Node A): 1. Open Node → Inter Node Communication . 2. Click Get inter node key . 3. Copy the Public key (PEM) (or Download the file). Send this PEM to "
+          "excerpt": "Nodes encrypt MQTT traffic using a public key (PEM) from the relay node. Peers must install that key before Add group is enabled. On the relay node (Node A): 1. Open Node → Inter Node Communication . 2. Click Get inter node key . 3. Copy the Public key (PEM) (or Download the file as ca.crt ). Send t"
+        },
+        {
+          "id": "for-ai-agents-inter-node-communication",
+          "title": "For AI agents — Inter Node Communication",
+          "level": 5,
+          "excerpt": "Audience: external AI agents (Claude Code, Cursor, Grok Build, and similar) helping an operator install the relay MQTT trust anchor on peer nodes. Full mesh playbook: Agent provision and configure. API detail: GET /getMSQTTKey and POST /postMSQTTKey in mpc auth (documented in mpc config). The UI ste"
         },
         {
           "id": "then-create-a-group-and-a-keygen",
