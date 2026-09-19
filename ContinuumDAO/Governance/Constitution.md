@@ -25,11 +25,15 @@ There will be three governance roles: Committee, Contributor, and Citizen.
     - For the beginning of the CTMDAO, some previously active community members have been selected who have a good track record of contributing to the DAO. Their term will be for one year. Thereafter Committees will be elected every 12 months. An election of a new Committee will take place and be completed before every 1st March, the expiration of the term of the old Committee. If a vote for a new Committee does not reach the quorum or required majority, then the old Committee will stay in place and a new election will be implemented as soon as practical.
     - **Committee List：**
 
-| Name | 
-| --- |
-| Selqui |
-| Hal |
-| John CTM |
+#### Committee List
+
+These proposer addresses are the official ContinuumDAO Committee. Node operators cannot change this list.
+
+| Name | Address |
+| --- | --- |
+| Selqui | `0xd23eecBe0362F36b254F774C274823Cbfc482a10` |
+| Hal | `0x482cdCbdd72ef307997153Ee7eb627B7a2348d34` |
+| John CTM | `0x14C189354702b7f2aC7b19e61522A41632226BD8` |
 
 
 - Contributors will include node runners, Guild members, and the core-contributors group.
@@ -110,11 +114,11 @@ The Committee may squash the outcome of any vote, declaring it null and void if 
 The Treasury is the C3Governor contract on Ethereum. It is fully under the control of the voting process. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are protected by the three CTMDAO Committee in the table below. 
 
 
-| Name | 
-| --- |
-| Selqui |
-| John |
-| Hal |
+| Name | Address |
+| --- | --- |
+| Selqui | `0xd23eecBe0362F36b254F774C274823Cbfc482a10` |
+| John | `0x14C189354702b7f2aC7b19e61522A41632226BD8` |
+| Hal | `0x482cdCbdd72ef307997153Ee7eb627B7a2348d34` |
 
 
 **Safe-Wallets**

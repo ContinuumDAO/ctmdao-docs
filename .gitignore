@@ -1,3 +1,6 @@
 # Obsidian editor layout (changes per machine / session)
 **/.obsidian/workspace.json
 **/.obsidian/workspace-mobile.json
+
+# Internal working docs (not published to docs.continuumdao.org)
+docs-internal/

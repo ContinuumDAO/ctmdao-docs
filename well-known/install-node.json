@@ -7,7 +7,7 @@
   "name": "ContinuumDAO MPA node install router",
   "url": "https://docs.continuumdao.org/well-known/install-node.json",
   "mirrorUrl": "https://continuumdao.org/well-known/install-node.json",
-  "generatedAt": "2026-09-12T18:39:01.048Z",
+  "generatedAt": "2026-09-19T11:21:33.266Z",
   "summary": "Provision and configure a Multi-Party Agent Wallet node: topology first, then VPS oneshot (or human node-map / home PC), Path A MCP mesh, Group, and KeyGen.",
   "canonicalAgentDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
   "canonicalAgentDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
