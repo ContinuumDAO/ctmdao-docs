@@ -111,7 +111,7 @@ The Committee may squash the outcome of any vote, declaring it null and void if 
 
 ### Treasury
 
-The Treasury is the C3Governor contract on Ethereum. It is fully under the control of the voting process. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are protected by the three CTMDAO Committee in the table below. 
+The Treasury exists on two chains and is fully under the control of the voting process. On Ethereum it is the C3Governor contract. On Linea it is the DAO Governor contract. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are protected by the three CTMDAO Committee in the table below. 
 
 
 | Name | Address |
@@ -127,10 +127,12 @@ Prior to the arrival of the Governor voting system, the Treasury wallet used to 
 
 The No 1 Safe-wallet address was *arb1:0x47B33679b7FF853300a5Cc19c59d85fcEBAaa278*
 
-The DAO has now moved to fully on-chain Governance and the new Treasury and DAO Governance addresses are as follows:
+The DAO has now moved to fully on-chain Governance and the Treasury and DAO Governance addresses are as follows:
 
-- Treasury (C3Governor) on Ethereum 0x58B610a359c870E0fc941139821a51F5aa23f14E
-- Governor DAO on Linea 0x4800F9f1dC1b6daCA841B71E0531F547D374168E
+- Treasury (C3Governor) on Ethereum: `0x58B610a359c870E0fc941139821a51F5aa23f14E`
+- Treasury and DAO Governor on Linea: `0x76FF2CB03175900F1D83328C82D27EA9aeaF2355`
+
+The previous Linea Governor `0x4800F9f1dC1b6daCA841B71E0531F547D374168E` has been superseded.
 
 Other Treasury wallets (including Multi-Party Agent wallets) may be created in the future to assist in ContinuumDAO management and funds may be transferred between them, but they will follow the same rules as the No. 1 wallet and their addresses will be added to the Constitution as soon as it is convenient to do so. 
 

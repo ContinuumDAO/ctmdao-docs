@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-19T11:21:33.266Z",
+  "generatedAt": "2026-09-19T11:41:30.984Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -597,7 +597,7 @@
           "id": "treasury",
           "title": "Treasury",
           "level": 3,
-          "excerpt": "The Treasury is the C3Governor contract on Ethereum. It is fully under the control of the voting process. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are protected by the three CTMDAO Committee in the table below. Name Ad"
+          "excerpt": "The Treasury exists on two chains and is fully under the control of the voting process. On Ethereum it is the C3Governor contract. On Linea it is the DAO Governor contract. If assets are transferred to the Committee, they may only spend Treasury assets as directed by DAO voting. The hot wallets are "
         },
         {
           "id": "continuumdao-ethics",
