@@ -226,10 +226,11 @@ Some protocols authorize actions with an **EIP-712 typed-data signature** instea
 Typical uses:
 
 - **Hyperliquid** L1 `/exchange` actions (`updateLeverage`, orders, cancels, and similar) — phantom-agent `Agent` typed data, domain `Exchange`
+- **Derive** options place / replace / internal transfer — `Action` typed data, domain `Matching` (settlement `chainId` **1** / **11155111**). Cancels use EIP-191 login, not EIP-712.
 - **Permit2** `PermitSingle` — signed allowance, then an optional on-chain `permit` call at Execute
 - **Custom typed data** you build in Compose or via agent/script
 
-Use the Compose tab **EIP-712** path when the action is “sign this structured message” rather than “sign and broadcast this RLP transaction.” [DeFi protocol](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) packs (for example Hyperliquid) can also build EIP-712 sign requests through the protocol UI or agent MCP; those enter the same [Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+Use the Compose tab **EIP-712** path when the action is “sign this structured message” rather than “sign and broadcast this RLP transaction.” [DeFi protocol](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md) packs (for example Hyperliquid and Derive) can also build EIP-712 sign requests through the protocol UI or agent MCP; those enter the same [Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 #### Select KeyGen and chain
 
@@ -239,7 +240,7 @@ Same starting point as [manual compose](#manual-compose):
 2. Choose the **blockchain** (network) for context and delivery.
 3. Optionally set **Purpose** text — peers see this on **Join** alongside a human-readable summary of the typed data (`primaryType`, domain name, protocol label).
 
-The chain selector sets which network context peers see in the UI. The typed-data **domain** (especially `chainId` and `verifyingContract`) defines what MPC actually signs — it must match the protocol you are targeting (Hyperliquid uses domain chainId `1337` even when your custody address lives on Arbitrum).
+The chain selector sets which network context peers see in the UI. The typed-data **domain** (especially `chainId` and `verifyingContract`) defines what MPC actually signs — it must match the protocol you are targeting (Hyperliquid uses domain chainId `1337` even when your custody address lives on Arbitrum; Derive signs settlement on Ethereum **1** / Sepolia **11155111** even when you funded from Base or Arbitrum).
 
 #### Add one or more EIP-712 steps
 
@@ -285,6 +286,7 @@ After threshold **Accept** and MPC signing on **Execute**, the originator **deli
 |---------------|-------------------|
 | **`none`** | Export or copy the signature — no automatic POST or broadcast |
 | **`hyperliquid_exchange`** | POST the action plus `{r,s,v}` and `nonce` to Hyperliquid `/exchange` |
+| **`derive_exchange`** | POST the signed Derive `Action` (place / replace / transfer) to Derive `private/order` (and related private methods) |
 | **`permit2_submit`** | Broadcast `Permit2.permit(owner, permitSingle, signature)` on-chain |
 
 EIP-712 rounds omit transaction **txParams**, fee-bump controls, and gas overrides on trigger — MPC signs the digest(s) only. On-chain gas applies only when a delivery kind submits a transaction (for example Permit2).

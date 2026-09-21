@@ -63,13 +63,13 @@ The **`continuum`** server is the agent’s primary wallet interface. It is **no
 | Tool | Use |
 |------|-----|
 | **`create_compose_multi_sign_request`** | Custom contract calls and transfers from compose **`actions[]`** |
-| **`create_compose_eip712_multi_sign_request`** | One or more [EIP-712 typed-data signatures](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#eip-712-typed-data-signatures) — Hyperliquid `/exchange`, Permit2, custom typed data; no unsigned tx calldata |
+| **`create_compose_eip712_multi_sign_request`** | One or more [EIP-712 typed-data signatures](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#eip-712-typed-data-signatures) — Hyperliquid `/exchange`, Derive options `Action`, Permit2, custom typed data; no unsigned tx calldata |
 | **`import_forge_dry_run_multi_sign_request`** | Import Foundry **`run-latest.json`** (same as Compose **Import from Foundry broadcast**) |
 | **`create_forge_multi_sign_request`** | Inline Foundry broadcast JSON |
 | **`create_joined_multi_sign_request`** | Merge compatible compose / Foundry batches on the same KeyGen and chain |
 | **`transfer_native_gas`**, **`transfer_erc20`**, **`transfer_erc721`**, **`transfer_ctm_erc20`**, **`transfer_ctm_erc20_cross_chain`** | Common transfer shortcuts |
 
-EIP-712 compose batches use **`signRequestKind: eip712`**. Get Sig omits transaction gas params; Execute delivers each leg per its **`delivery.kind`** (`none`, `hyperliquid_exchange`, `permit2_submit`, …).
+EIP-712 compose batches use **`signRequestKind: eip712`**. Get Sig omits transaction gas params; Execute delivers each leg per its **`delivery.kind`** (`none`, `hyperliquid_exchange`, `derive_exchange`, `permit2_submit`, …).
 
 Operator detail for agents: [continuum-node-sdk `mpc.md`](https://github.com/ContinuumDAO/continuum-node-sdk/blob/main/src/mcp/resources/mpc.md).
 

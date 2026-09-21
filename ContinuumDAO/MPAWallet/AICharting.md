@@ -28,6 +28,7 @@ New nodes seed **`coinmarketcap-public`** and **`coinbase-public`** in the catal
 | **Arcus** | Perp | DeFi protocol pack (`arcus`) | Robinhood Chain. Live mids when enabled. |
 | **Arcus spot (stock tokens)** | Spot | Same `arcus` pack (spot OHLCV tools) | Spot RFQ markets on Arcus. |
 | **GMX** | Perp / index-style | DeFi protocol pack (`gmx`) | Live mark price when enabled. Volume may be absent on rows. |
+| **Derive** | Options / index | DeFi protocol pack (`derive`) | Option candles by `instrumentName`, or index candles by currency. Optional — not a substitute for a live option quote. No API key. |
 | **Uniswap v4** | DEX pool spot | DeFi protocol pack (`uniswap-v4`) | Pool OHLCV via pool list / presets. Optional **`THE_GRAPH_API_KEY`**; some Robinhood-chain paths need **`BITQUERY_API_KEY`**. |
 
 #### Built-in **continuum-mcp** catalog servers
@@ -71,7 +72,7 @@ These catalog MCPs add context the agent can load for research, TA, or macro —
 
 For Telegram, Discord, and Reddit channel search (sentiment, not candles), use built-in **`continuum`** social tools — [MCP servers — Social media search](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md#social-media-search-on-continuum).
 
-DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded with **`agent_load_mcp_server`** after you choose a provider — see [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). Execution protocols (swaps, perps, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
+DeFi venues are loaded with continuum **`load_defi_protocol`**. Catalog market-data servers are loaded with **`agent_load_mcp_server`** after you choose a provider — see [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). Execution protocols (swaps, perps, options, etc.) are listed separately under [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md).
 
 #### Live chart updates
 
@@ -84,7 +85,7 @@ When the OHLCV source supports it, the interactive chart can refresh the last pr
 | **Coinbase (public)** | Full candles JSON → **`coinbase.productTicker`** |
 | **Financial Modeling Prep** | Full chart JSON → **`fmp.quote`** |
 | **Alpaca** | Full bars JSON → **`alpaca.latestTrade`** |
-| **Hyperliquid**, **Arcus**, **GMX**, other DeFi | Full fetch JSON; node may bind perp live |
+| **Hyperliquid**, **Arcus**, **GMX**, **Derive**, other DeFi | Full fetch JSON; node may bind perp / venue live |
 | **Equibles**, **Alpha Vantage** | Static series — snapshots via provider tools, no chart poller |
 | **CoinMarketCap (public)** DEX klines | Often static; Pro CEX historical may lag — offer another source if stale |
 
@@ -162,7 +163,7 @@ Pass a non-empty **`overlays`** array — this **replaces** EMA(50) and RSI(14) 
 
 Requires **≥200 bars** for the slow MA. Pair with **`chart-periods`** so default lookbacks are long enough (for example 1h with at least 30 days).
 
-**Default spot source for “chart ETH”** — note in **`chart-defaults`** or **`chart-ohlcv-sources`** that undifferentiated spot requests should use **`coingecko`** when loaded, or ask you to pick a provider. Perp / venue-specific requests still use the named DeFi pack (Hyperliquid, GMX, Arcus, and so on).
+**Default spot source for “chart ETH”** — note in **`chart-defaults`** or **`chart-ohlcv-sources`** that undifferentiated spot requests should use **`coingecko`** when loaded, or ask you to pick a provider. Perp / venue-specific requests still use the named DeFi pack (Hyperliquid, GMX, Arcus, Derive, and so on).
 
 #### Analysis overlays vs default chart
 

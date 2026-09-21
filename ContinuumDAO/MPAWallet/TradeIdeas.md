@@ -15,7 +15,7 @@ PRIMARY ideas are tied to the analysis that produced them (trend structure, Fib 
 ### From a trade idea to a multi-sign request
 
 1. Choose a trade idea (**Build #N**, or ask the agent to build a specific idea).
-2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)).
+2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)). **Derive options are not a trade-idea venue** — `build_trade` is perp/spot only. Charting Derive OHLCV can still run technical analysis, but the resulting entry / target / invalidation idea does not become a Derive call or put.
 3. The agent builds a **multi-sign request** (management-signed by your node’s default Ed25519 signer) for your preferred KeyGen.
 4. Other nodes in the KeyGen **Accept** or **Reject** as usual on the **Join** tab (Purpose, Thoughts, time limits, **Execute**, and **History** — see [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)). Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
 

@@ -8,16 +8,16 @@ Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP s
 
 ### Protocol modals — unified experience
 
-Every supported protocol opens in the **same modal pattern** in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, and perps all follow one wallet-native flow.
+Every supported protocol opens in the **same modal pattern** in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, perps, and options all follow one wallet-native flow.
 
 **How to open a protocol**
 
-- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Aerodrome** on **Base**, **Aave** / **Compound III** on supply/borrow markets for that asset)
+- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Derive** on fundable ETH / USDC / WETH / WBTC / HYPE rows, **Aerodrome** on **Base**, **Aave** / **Compound III** on supply/borrow markets for that asset)
 - **Multi-sign / protocol UI** — browse available packs for the selected chain and KeyGen when you are not starting from a specific token row
 
 **Shared steps (every pack)**
 
-1. **Choose action** — supply, withdraw, swap, bridge, stake, open/close perp, and so on (depends on the protocol)
+1. **Choose action** — supply, withdraw, swap, bridge, stake, open/close perp, buy/sell options, and so on (depends on the protocol)
 2. **Review** — amounts, slippage, routes, health-factor or fee previews where the node provides them
 3. **Confirm** — the node builds unsigned transaction(s), often as a **batch**, and creates a multi-sign request
 4. **Join → Execute** — peers **Accept** or **Reject** on **Join**; the originator runs MPC signing and broadcast on **Execute** after threshold agreement
@@ -32,7 +32,7 @@ See [Asset management — protocol modals](/ContinuumDAO/MPAWallet/AssetManageme
 
 ### Supported protocols
 
-Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Arcus**, **Circle CCTP**, **Venice**.
+Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Arcus**, **Derive**, **Circle CCTP**, **Venice**.
 
 | Protocol         | Capabilities                                                                                                                                                                                                          | Permissions / requirements                                                                                                                                                                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -51,6 +51,7 @@ Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **C
 | **GMX**          | Perps increase / decrease / cancel (classic); GM deposit / withdraw; GMX stake / unstake; markets, prices, OHLCV, positions                                                                                           | Arbitrum and Avalanche. **No** express mode, **no** 1CT subaccounts, **no** GMX spot swaps in this integration.                                                                                                                                                                            |
 | **Hyperliquid**  | Perps (limit / close / cancel, leverage, TP/SL); spot ↔ perp USDC transfer; Arbitrum ↔ Hyperliquid bridge; vaults; HYPE stake / delegate; markets, OHLCV, positions                                                   | Uses your MPC wallet as executor (no separate Hyperliquid signup). Bridge minimums and gas (e.g. HYPE on HyperEVM) apply per product rules.                                                                                                                                                |
 | **Arcus**        | Perps place / close / cancel / leverage; spot stock-token RFQ; deposit / withdraw; perp + spot OHLCV; account reads                                                                                                   | Robinhood Chain (**4663**). Needs **paired secp256k1 + ed25519 KeyGens** (same Group) and **API key registration** (`create_api_key`) before deposit / trade.                                                                                                                              |
+| **Derive**       | Options (calls / puts): expiry ladder, ATM strike/premium ladder, quote, greeks, order book; place / replace / cancel (**limit**, **stop-limit**, **TWAP**); portfolio / positions; fund from Ethereum L1, Socket FAST (ETH / OP / Base / Arb), or HyperEVM **HYPE** vault            | Same MPC KeyGen EOA on every chain. First deposit creates trading + fallback subaccounts — orders need that **`subaccountId`** (never `0`; do not store it as an AI Agent Variable). Fundable rows only: **ETH / USDC / WETH / WBTC** on Ethereum; **USDC / WETH / WBTC** on Optimism and Arbitrum; **USDC / WETH** on Base; **HYPE / WHYPE** on HyperEVM (**999**); **USDC** on Sepolia. **No** perps, spot, RFQ, or lending. **No** Polygon / Linea / BSC funding. **No** Derive L2 (**957**) as an Assets chain. Trades are EIP-712 (delivery `derive_exchange`) — no custom gas. Deposits are on-chain on the **source** chain. No Derive API key. [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md) / `build_trade` do **not** target Derive. |
 | **Circle CCTP**  | Cross-chain native **USDC** burn → mint (routes, fees, balance, status)                                                                                                                                               | Source-chain RPC; forwarding path as implemented (destination signing / gas rules per product).                                                                                                                                                                                            |
 | **Venice**       | Stake / unstake ladder for VVV / sVVV / DIEM (Base); staking reads; model catalog                                                                                                                                     | Base (**8453**). Model list / API credits: **`VENICE_API_KEY`** in Variables (tied to staked DIEM + Venice key where applicable).                                                                                                                                                          |
 
@@ -59,6 +60,7 @@ Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **C
 - **Unified UI first:** prefer protocol shortcuts on the [Assets tab](/ContinuumDAO/MPAWallet/AssetManagement.md) or the shared modal flow above — the table below is the capability reference, not a separate product surface per protocol.
 - **AI agent:** load a protocol with continuum MCP (`list_defi_protocols` / `load_defi_protocol`), then use that pack’s tools. Preferred KeyGen and default Ed25519 signer still apply for management-signed steps — see [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 - **Node app:** open the multi-sign / protocol UI for the same packs (no agent required).
+- **Derive:** the Trade tab lists calls / puts from an expiry + ATM strike ladder (not a full-chain dump). Inspectors cover payoff / greeks / ticket / book. Charting Derive OHLCV is optional and does **not** turn a technical-analysis idea into an options ticket — use the Derive pack to quote and place.
 - Support and chains evolve with releases; if a chain or action is missing in the UI or skill, it is not available on your node build yet.
 
 ### Related
