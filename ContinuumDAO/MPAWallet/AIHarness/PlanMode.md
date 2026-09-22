@@ -1,6 +1,6 @@
 ## Plan mode
 
-**Plan mode** is for work that takes several steps — research a market, compare yield options, sketch a trade idea, review a portfolio, or explore a governance topic — before anything runs on your wallet.
+**Plan mode** is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a hedge from live inventory, review a portfolio, or explore a governance topic — before anything runs on your wallet.
 
 You and the agent **draft the plan together** in a private Plan chat. When you are happy with it, you **Execute in KeyGen** so your Group can see the proposal on the KeyGen channel and agree (or reject) like any other multi-sign flow.
 
@@ -26,6 +26,7 @@ Use ordinary chat for quick questions and one-off actions. Use Plan mode when yo
 | **Yield** | “Compare lending venues for USDC on Linea and outline steps.” |
 | **Research** | “Summarize recent news and chart context before we decide.” |
 | **Portfolio** | “Review positions and suggest rebalancing themes.” |
+| **Hedging strategies** | “Keep my ETH; cut crash risk for two weeks without selling.” |
 | **DAO** | “Read live proposals and Forum threads; prepare a vote recommendation.” |
 | **Custom** | Anything multi-step you want written down before action |
 
@@ -35,7 +36,7 @@ While you are still drafting, nothing is sent to your KeyGen peers. Execution on
 
 ### How to use it
 
-1. **Start a plan** — in Agent chat, choose **New plan** and pick a starter (market, yield, research, portfolio, DAO, or custom). On Telegram you can start a plan from **New plan** beside **New chat**.
+1. **Start a plan** — in Agent chat, choose **New plan** and pick a starter (market, yield, research, portfolio, **Hedging strategies**, DAO, or custom). On Telegram, **New plan** beside **New chat** offers the same modes.
 2. **Describe the goal** — talk through what you want in plain language. The agent turns that into a readable plan you can review (**View plan** in the UI).
 3. **Refine** — ask for changes, extra research, or clearer risks until the plan matches what you want.
 4. **Execute in KeyGen** — when ready, run the plan on your preferred KeyGen. Other nodes in the Group see it on their KeyGen channel and can Accept or Reject any wallet actions the plan triggers.
@@ -43,6 +44,16 @@ While you are still drafting, nothing is sent to your KeyGen peers. Execution on
 Set **preferred KeyGen** under **AI Agent → Provider** (or Settings) before executing so the plan posts to the right wallet.
 
 Any on-chain step still goes through the normal [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). Plan mode does not bypass your threshold.
+
+---
+
+### Hedging strategies
+
+Use **Hedging strategies** when you want to cut directional risk **without dumping core coins**. The agent interviews first (what to keep, what to cut, ratio, horizon, budget, venue, unwind), then writes the plan from **live MPA inventory** — spot, LP (Uniswap / Curve / Aerodrome / Pendle), lending, Morpho/Euler Earn, Pendle PT/YT, open perps, or Derive options.
+
+Typical overlays: isolated perp short, Derive put/collar when you need a defined max loss, a stable sleeve, a basis book, a hedged LP, or Pendle PT/YT. Morpho Earn and Euler curated Earn (including RWA / reinsurance vaults) are **diversification** and opt-in — default is crypto-lending only.
+
+**First Execute is research only** (inventory, venue, protocol risk). Compose / MultiSign is a **follow-on** or **Continue in Orchestrator**. After the hedge is live, the **`hedging-monitor`** skill watches unwind triggers (cron can Telegram you); it does **not** auto-Accept. Skills: **`hedging-trade`** (design) and **`hedging-monitor`** (watch + unwind) under **AI Agent → Skills**.
 
 ---
 

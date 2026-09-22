@@ -42,6 +42,8 @@ These run in the node image sidecar. Activate with **Add from repository** (or u
 | **Business Latest RSS** | Headlines (not candles) | `business-latest` | Free business RSS — research only, not OHLCV. |
 | **World Affairs RSS** | Headlines (not candles) | `world-affairs` | Free world-news RSS — research only, not OHLCV. |
 | **Technical indicators** | Indicators on fetched series | `technical-indicators` | SMA, RSI, MACD, Bollinger, Fibonacci, 100+ indicators — **after** you have OHLCV bars. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md). Not a candle source. |
+| **Crypto Latest RSS** | Headlines (not candles) | `crypto-latest` | Free crypto RSS (CoinDesk, The Block, OpenZeppelin, and others) — research only. |
+| **Crypto Security RSS** | Headlines (not candles) | `crypto-security` | Free security / exploit RSS (CertiK, Rekt, Trail of Bits, and others) — research only. |
 
 #### Other catalog MCP servers (chartable OHLCV)
 
@@ -56,6 +58,7 @@ Load under **AI Agent → MCP Servers** / **Variables** as needed.
 | **Alpaca (v2)** | US equities / crypto bars | `alpaca` | **`ALPACA_API_KEY`** + **`ALPACA_SECRET_KEY`**. Pin v2 server. Live via **`alpaca.latestTrade`**. |
 | **Equibles** | US equities (daily OHLCV) | `equibles` | **`EQUIBLES_API_KEY`**. Pass full **`GetStockPrices`** result to the chart tool. No live tick poller — use **`GetLatestPrices`** for snapshots. |
 | **Alpha Vantage** | Stocks / forex / crypto | `alphavantage` | **`ALPHA_VANTAGE_API_KEY`**. Time-series via MCP **`TOOL_CALL`**. Static chart — no live tick poller. |
+| **Koinju** | Spot / historical OHLCV | `koinju` | Official HTTP MCP. **`KOINJU_API_KEY`**. **`find_markets`** then **`get_ohlcv`** — keep **`start`** for historical range. |
 
 #### Related market data (not primary OHLCV chart sources)
 
@@ -68,6 +71,12 @@ These catalog MCPs add context the agent can load for research, TA, or macro —
 | **`altfins`** | Crypto analytics (**`ALTFINS_API_KEY`**) |
 | **`dune`** | On-chain analytics queries (**`DUNE_API_KEY`**) |
 | **`whale-tracker`** | Large transfer alerts (**`WHALE_ALERT_API_KEY`**) |
+| **`nansen`** | On-chain intelligence (**`NANSEN_API_KEY`**) |
+| **`cryptorank`** | Market rankings / research (**`CRYPTORANK_API_KEY`**) |
+| **`coinglass`** | Derivatives / liquidations (**`COINGLASS_API_KEY`**) |
+| **`arkham-intel`** | Entity / transfer intel (**`ARKHAM_API_KEY`**) |
+| **`massive`** | Official Massive (Polygon.io) stocks / crypto tools (**`MASSIVE_API_KEY`**) |
+| **`etf-flow`** | Bitcoin / Ethereum ETF flows (uses **`COINGLASS_API_KEY`**) |
 | **`gdelt-cloud`** | Macro / world-event search (**`GDELT_API_KEY`**) |
 
 For Telegram, Discord, and Reddit channel search (sentiment, not candles), use built-in **`continuum`** social tools — [MCP servers — Social media search](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md#social-media-search-on-continuum).

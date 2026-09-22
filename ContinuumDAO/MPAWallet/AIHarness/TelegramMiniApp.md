@@ -64,6 +64,7 @@ Operator API: **`POST /sendTelegramMessage`** (management-signed). See [mpc-conf
 
 - After a plot / “show chart” with a compatible tunnel, tap **Open chart** to scroll and zoom (live ticks where supported).
 - Tap **New chat** on a bot reply, or send **`/new`** / **`new chat`**, to reset the Telegram conversation session (same idea as deleting a conversation under **AI Agent → Conversations**).
+- Tap **New plan** for the same starters as the node app, including **Hedging strategies** — see [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md#hedging-strategies).
 
 ### Related
 

@@ -126,11 +126,17 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 | **`business-latest`** | `/mcp/business-latest` | None | Free business RSS (BBC, CNBC, MarketWatch, Forbes, Reuters via Google News, RT Business) |
 | **`world-affairs`** | `/mcp/world-affairs` | None | Free world-news RSS (BBC, Al Jazeera, Guardian, DW, France 24, NPR, CNN, RT) |
 | **`technical-indicators`** | `/mcp/ta` | None | SMA, RSI, MACD, Bollinger, Fibonacci, and 100+ indicators over OHLCV series ( **`initialLoad: false`**, **`aiReady: false`** in catalog — enable Initial load or load per chat) |
+| **`crypto-latest`** | `/mcp/crypto-latest` | None | Free crypto headline RSS (CoinDesk, The Block, Cointelegraph, Decrypt, Blockworks, The Defiant, Bitcoin Magazine, CryptoPotato, CryptoSlate, Good Morning Crypto, OpenZeppelin) |
+| **`crypto-security`** | `/mcp/crypto-security` | None | Free security / exploit RSS (QuillAudits, SlowMist, Immunefi, BlockSec, CertiK, Rekt, Trail of Bits) |
+| **`coin-bureau-newsletters`** | `/mcp/coin-bureau-newsletters` | None | Coin Bureau newsletter RSS |
+| **`crypto-banter-newsletters`** | `/mcp/crypto-banter-newsletters` | None | Crypto Banter newsletter RSS (The Insider, Good Morning Crypto, The Daily Candle) |
+| **`arkham-intel`** | `/mcp/arkham-intel` | **`ARKHAM_API_KEY`** | Arkham Intelligence entity / transfer lookup (official API via the sidecar) |
+| **`continuumdao-tokenomics`** | `/mcp/continuumdao-tokenomics` | None | ContinuumDAO circulating supply / veCTM tokenomics |
 | **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and peer exit configs; requires **node veCTM privilege** (`get_node_privilege_status.entitled`) — not current-authority NFT ownership. See [Private VPN](/ContinuumDAO/PrivateVPN.md) |
 
 **Chart sources:** **`coinmarketcap-public`**, **`coinbase-public`**, FMP, Alpaca, Equibles, and other OHLCV MCPs are listed in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
 
-**News / research:** **`business-latest`** and **`world-affairs`** are not OHLCV sources. Load per chat when you want headline scans or RSS search. **`gdelt-cloud`** adds macro/event search (optional **`GDELT_API_KEY`**). For Telegram, Discord, and Reddit channel search, use the built-in **`continuum`** social tools — see [Social media search](#social-media-search-on-continuum) above.
+**News / research:** **`business-latest`**, **`world-affairs`**, **`crypto-latest`**, **`crypto-security`**, and the newsletter servers are not OHLCV sources. Load per chat when you want headline scans or RSS search. **`gdelt-cloud`** adds macro/event search (optional **`GDELT_API_KEY`**). For Telegram, Discord, and Reddit channel search, use the built-in **`continuum`** social tools — see [Social media search](#social-media-search-on-continuum) above.
 
 **Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
@@ -145,9 +151,9 @@ The same **Add from repository** flow activates servers defined in **`MCP_server
 | Category | Example catalog ids |
 |----------|---------------------|
 | Search / browser | **`duckduckgo`**, **`brave-search`**, **`google-search`**, **`exa`**, **`tavily`**, **`kagi`**, **`serpapi`**, **`perplexity`**, **`mullvad-browser`**, **`gecko`**, **`firefox`** |
-| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`coinmarketcap-public`**, **`coinbase-public`**, **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`** |
+| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`coinmarketcap-public`**, **`coinbase-public`**, **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`koinju`**, **`massive`**, **`nansen`**, **`cryptorank`**, **`coinglass`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`**, **`arkham-intel`** |
 | On-chain / dev | **`foundry`**, **`etherscan`** (official HTTP), **`etherscan-community`** (stdio — not official), **`blockscout`** (official HTTP) |
-| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`business-latest`**, **`world-affairs`**, **`edgartools`** |
+| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`business-latest`**, **`world-affairs`**, **`crypto-latest`**, **`crypto-security`**, **`coin-bureau-newsletters`**, **`crypto-banter-newsletters`**, **`etf-flow`**, **`edgartools`** |
 | Social (third-party API) | **`x`** (Twitter — **`TWITTER_*`** env vars) |
 | Other | **`venice`** |
 
