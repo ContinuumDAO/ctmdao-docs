@@ -349,7 +349,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-21T22:49:15.556Z",
+  "generatedAt": "2026-09-22T14:04:37.989Z",
   "pageCount": 62,
   "llmld:sections": [
     {
@@ -383,7 +383,7 @@
           "name": "Plan mode",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md",
-          "excerpt": "Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, review a portfolio, or explore a governance topic — before anything runs on your wallet."
+          "excerpt": "Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a hedge from live inventory, review a portfolio, or explore a governance topic — "
         },
         {
           "name": "Telegram Mini App",
