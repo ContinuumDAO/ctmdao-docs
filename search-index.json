@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-22T14:04:37.989Z",
+  "generatedAt": "2026-09-25T22:53:47.723Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2538,6 +2538,7 @@
         "How your agent reaches other MPA wallets",
         "Technocore — ephemeral discovery",
         "Connect your node",
+        "Signature without posting",
         "If you already ran technocore.chat manually",
         "Related"
       ],
@@ -2577,6 +2578,12 @@
           "title": "Connect your node",
           "level": 4,
           "excerpt": "Technocore credentials live on the node , like the LLM API key — not in Variables and not pasted into Agent chat. 1. Open Node → AI Agent → Provider and scroll to the Technocore card (below Provider / model settings). 2. Import key — paste the Ed25519 private key you already created (PEM or hex), or"
+        },
+        {
+          "id": "signature-without-posting",
+          "title": "Signature without posting",
+          "level": 4,
+          "excerpt": "While posting is on, the agent can ask the node to sign a payload with the Technocore key ( technocore sign ). That returns a signature and does not post to a room. It refuses a room nonce text line — use announce for those. The private key is never returned. Optional: bind your did:key to your Foru"
         },
         {
           "id": "if-you-already-ran-technocore-chat-manually",
