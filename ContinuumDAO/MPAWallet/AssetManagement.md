@@ -23,7 +23,8 @@ Protocol buttons are **asset-specific**: the wallet only shows integrations that
 - **ETH** — **Lido** (stake native ETH; stETH / wstETH flows)
 - **USDC** — **Circle CCTP** (cross-chain native USDC burn → mint)
 - **Derive** — only on **fundable** rows: **ETH / USDC / WETH / WBTC** on Ethereum; **USDC / WETH / WBTC** on Optimism and Arbitrum; **USDC / WETH** on Base; **HYPE / WHYPE** on HyperEVM. The logo is **not** shown on other rows or on Derive L2 (**957**).
-- On **Base**, rows may also expose **Aerodrome** (spot swaps, LP, gauges, Coinbase B20 stocks)
+- On **Base**, rows may also expose **Aerodrome** (spot swaps, LP, gauges, Coinbase B20 stocks) and **Trueo** (native ETH, USDC, TYD, TRUE, and YES/NO rows)
+- On **Hyperliquid** (chain **999** / testnet **998**), the native asset row exposes **Hyperliquid** perps and, beside it, **Hyperliquid Outcomes** (HIP-4 Yes/No markets)
 - Other ERC-20 rows may expose **Aave**, **Compound III**, **Euler**, **Morpho**, **Uniswap**, **Curve**, and similar packs when that asset is supported in the protocol UI
 
 That keeps the Assets tab uncluttered: you do not see Lido on USDC, CCTP on ETH, or Derive on a chain that cannot fund it.
