@@ -7,7 +7,7 @@
   "name": "ContinuumDAO MPA node install router",
   "url": "https://docs.continuumdao.org/well-known/install-node.json",
   "mirrorUrl": "https://continuumdao.org/well-known/install-node.json",
-  "generatedAt": "2026-09-27T10:05:20.168Z",
+  "generatedAt": "2026-09-27T11:41:04.535Z",
   "summary": "Provision and configure a Multi-Party Agent Wallet node: topology first, then VPS oneshot (or human node-map / home PC), Path A MCP mesh, Group, and KeyGen.",
   "canonicalAgentDoc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
   "canonicalAgentDocUrl": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
@@ -102,7 +102,7 @@
   "routes": [
     {
       "platform": "linux-vps",
-      "when": "Ubuntu/Debian VPS, or a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux); AI agent provisions and configures (Path A MCP)",
+      "when": "Ubuntu/Debian VPS, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), or Fedora Workstation or Server; AI agent provisions and configures (Path A MCP)",
       "primary": "agent-provision-playbook",
       "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
       "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
@@ -125,7 +125,7 @@
     },
     {
       "platform": "linux-pc",
-      "when": "Home Linux workstation or laptop (Ubuntu/Debian, or a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux)",
+      "when": "Home Linux workstation or laptop (Ubuntu/Debian, a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux, or Fedora Workstation or Server)",
       "primary": "node-map-or-docker-extension",
       "nodeMap": "https://mpa.continuumdao.org/node-map",
       "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"

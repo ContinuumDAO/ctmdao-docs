@@ -45,9 +45,9 @@ Warn the operator (backup / eject / transfer + TSS) **before** passing `--yes`. 
 
 **Remote VPS:** **ask** for the node’s **public IPv4**, then give **one** copy-paste **SSH login** with that address filled in. This is **not** an `ssh -N -L` tunnel (that is for MCP / attach). Curl runs **on** the VPS as `root@`. Do not use `curl | ssh bash -s`.
 
-### Linux VPS (Ubuntu/Debian or a systemd Arch derivative, as root)
+### Linux VPS (Ubuntu/Debian, a systemd Arch derivative, or Fedora Workstation/Server, as root)
 
-The same command covers Ubuntu/Debian and Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux. It does not remove distro packages. Artix, Obarun, and SteamOS are not supported install hosts.
+The same command covers Ubuntu/Debian, Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux, and Fedora Workstation or Server. It does not remove distro packages. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported install hosts.
 
 On the VPS itself:
 

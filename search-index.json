@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-27T10:05:20.168Z",
+  "generatedAt": "2026-09-27T11:41:04.535Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1405,7 +1405,7 @@
           "id": "1-one-shot-vps-install-as-root",
           "title": "1. One-shot VPS install (as root)",
           "level": 3,
-          "excerpt": "On each new Linux host, run the one shot installer as root ( ssh root@… ). Prefer a new Ubuntu or Debian cloud image. The script also installs on Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux. Full flags and restore notes: CREATE NODE ONESHOT.md. bash curl fsSL \"https://raw.git"
+          "excerpt": "On each new Linux host, run the one shot installer as root ( ssh root@… ). Prefer a new Ubuntu or Debian cloud image. The script also installs on Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux, and Fedora Workstation or Server. Full flags and restore notes: CREATE NODE ONESHOT.md. b"
         },
         {
           "id": "1a-verify-the-one-shot-layout-required-before-1b",
@@ -2315,7 +2315,7 @@
           "id": "linux-pc",
           "title": "Linux PC",
           "level": 4,
-          "excerpt": "Supported: Ubuntu/Debian, and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS are not supported. On the node map, choose Linux . The install command runs install node linux.sh on this machine, which selects apt or pacman from /et"
+          "excerpt": "Supported: Ubuntu/Debian, systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), and Fedora Workstation or Server. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported. On the node map, choose Linux . The install command runs install "
         },
         {
           "id": "after-install-all-paths",
@@ -2824,7 +2824,7 @@
         "Uninstall an MPA wallet node",
         "Before you delete anything",
         "For AI agents",
-        "Linux VPS (Ubuntu/Debian or a systemd Arch derivative, as root)",
+        "Linux VPS (Ubuntu/Debian, a systemd Arch derivative, or Fedora Workstation/Server, as root)",
         "Windows (WSL + Docker Desktop)",
         "macOS (Docker Desktop)",
         "What is removed",
@@ -2850,10 +2850,10 @@
           "excerpt": "If you are an AI agent asked to uninstall, remove, decommission, or wipe a node, load the skill for the operator’s OS (or the target host). Discover this page with search continuum docs ( uninstall node / remove mpc node ) then get continuum doc path ContinuumDAO/MPAWallet/Uninstall . Agent router U"
         },
         {
-          "id": "linux-vps-ubuntu-debian-or-a-systemd-arch-derivative-as-root",
-          "title": "Linux VPS (Ubuntu/Debian or a systemd Arch derivative, as root)",
+          "id": "linux-vps-ubuntu-debian-a-systemd-arch-derivative-or-fedora-workstation-server-as-root",
+          "title": "Linux VPS (Ubuntu/Debian, a systemd Arch derivative, or Fedora Workstation/Server, as root)",
           "level": 3,
-          "excerpt": "The same command covers Ubuntu/Debian and Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux. It does not remove distro packages. Artix, Obarun, and SteamOS are not supported install hosts. On the VPS itself: bash curl fsSL \"https://raw.githubusercontent.com/ContinuumDAO/mpc config/"
+          "excerpt": "The same command covers Ubuntu/Debian, Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux, and Fedora Workstation or Server. It does not remove distro packages. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported install hosts. On the VPS itself: bash curl "
         },
         {
           "id": "windows-wsl-docker-desktop",
@@ -3561,7 +3561,7 @@
           "id": "type-of-machine",
           "title": "Type of Machine",
           "level": 3,
-          "excerpt": "If you are only setting up a Multi Party Agent wallet (secure custody / AI with human Accept — often 2/2 ), then you can use a home machine with Linux: Ubuntu, Debian, or Mint, or a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS "
+          "excerpt": "If you are only setting up a Multi Party Agent wallet (secure custody / AI with human Accept — often 2/2 ), then you can use a home machine with Linux: Ubuntu, Debian, or Mint, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), or Fedora Workstation or Serve"
         },
         {
           "id": "quick-start",

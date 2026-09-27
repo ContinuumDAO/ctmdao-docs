@@ -28,7 +28,7 @@ Product overview: [An Overview of the Multi-party Agent Wallet](/ContinuumDAO/MP
 
 **If you are an AI agent asked to provision or configure a node, start here:** [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) (topology, oneshot, SSH tunnel to `:8446`, peers / MQTT, Group, KeyGen, hand-off). Discover it with `search_continuum_docs` (`provision node` / `create mpc node`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AgentProvision`.
 
-The one-shot script is **install only** (Linux host as **root**). It supports Ubuntu/Debian (apt) and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) via pacman. Artix, Obarun, and SteamOS are not supported. Do not start from the long manual [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) page.
+The one-shot script is **install only** (Linux host as **root**). It supports Ubuntu/Debian (apt), systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) via pacman, and Fedora Workstation or Server via dnf. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported. Do not start from the long manual [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) page.
 
 | | |
 |--|--|
@@ -60,7 +60,7 @@ Advanced / manual shell steps (interactive operators): [Running an MPC Node](/Co
 ### Remote VPS
 
 1. Use the node-map **`+`** flow and choose the remote / VPS option the installer presents.
-2. Typical prerequisites: an Ubuntu or Debian VPS (the usual cloud image), SSH access, and the **public IPv4** the installer asks for. The same installer also runs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) when that is already the host. Artix, Obarun, and SteamOS are not supported.
+2. Typical prerequisites: an Ubuntu or Debian VPS (the usual cloud image), SSH access, and the **public IPv4** the installer asks for. The same installer also runs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) or on Fedora Workstation or Server when that is already the host. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported.
 3. Ensure the cloud firewall (or host firewall) allows discovery and peer traffic — see the [one-shot install](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) and [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md) for exact port / `ufw` detail.
 4. When containers are up, [attach your node](#attach-your-node).
 
@@ -160,9 +160,9 @@ Wrong install or agent ran shell scripts? [Agent install anti-patterns — macOS
 
 #### Linux PC
 
-Supported: Ubuntu/Debian, and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS are not supported.
+Supported: Ubuntu/Debian, systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), and Fedora Workstation or Server. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported.
 
-On the node map, choose **Linux**. The install command runs [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) on this machine, which selects apt or pacman from `/etc/os-release`. You do not pick the distro family in the browser.
+On the node map, choose **Linux**. The install command runs [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) on this machine, which selects apt, pacman, or dnf from `/etc/os-release`. You do not pick the distro family in the browser. Fedora uses firewalld, not ufw.
 
 Install **Docker Desktop for Linux** yourself if you use the Desktop extension path, then search Extensions for **Continuum Node** / **`continuumdao/continuum-node-installer`**. Prefer the same node-map **`+`** flow the installer offers. If it routes you to a workstation-style script instead, follow the prompts and the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). When peers are on the internet, use a public IP and the same **18080** / **8883** forwarding as other home PCs.
 
