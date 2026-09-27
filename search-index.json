@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-26T11:38:57.401Z",
+  "generatedAt": "2026-09-27T09:43:24.305Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2063,6 +2063,7 @@
         "DeFi protocol support",
         "Protocol modals — unified experience",
         "Supported protocols",
+        "For AI agents — DeFi protocols",
         "Notes",
         "Related"
       ],
@@ -2083,13 +2084,19 @@
           "id": "supported-protocols",
           "title": "Supported protocols",
           "level": 3,
-          "excerpt": "Current packs: Uniswap v4 , Curve , Aerodrome (Base), Aave v4 , Compound III , Euler v2 , Morpho , Pendle , Lido , Ethena , Maple Syrup , Sky , GMX , Hyperliquid , Hyperliquid Outcomes , Arcus , Derive , Trueo , Circle CCTP , Venice . Protocol Capabilities Permissions / requirements Uniswap v4 Spot "
+          "excerpt": "Current packs: Uniswap v4 , Curve , Aerodrome (Base), Aave v4 , Compound III , Euler v2 , Morpho , Pendle , Lido , Ethena , Maple Syrup , Sky , GMX , Hyperliquid , Hyperliquid Outcomes , Arcus , Derive , Trueo , Circle CCTP , Venice . Permissions / requirements (human pre flight): what must be confi"
+        },
+        {
+          "id": "for-ai-agents-defi-protocols",
+          "title": "For AI agents — DeFi protocols",
+          "level": 3,
+          "excerpt": "Use continuum MCP: list defi protocols , then load defi protocol before that pack’s write tools unless the tool docs say otherwise. Built transactions still use the MPC Accept/Reject loop. Prefer list defi protocols on the node as the source of truth for pack ids and chain lists when it disagrees wi"
         },
         {
           "id": "notes",
           "title": "Notes",
           "level": 3,
-          "excerpt": "Unified UI first: prefer protocol shortcuts on the Assets tab or the shared modal flow above — the table below is the capability reference, not a separate product surface per protocol. AI agent: load a protocol with continuum MCP ( list defi protocols / load defi protocol ), then use that pack’s too"
+          "excerpt": "Unified UI first: prefer protocol shortcuts on the Assets tab or the shared modal flow above — the supported protocols table is the capability reference, not a separate product surface per protocol. AI agent: For AI agents — DeFi protocols; configure the harness in Configure the AI harness. Node app"
         },
         {
           "id": "related",
