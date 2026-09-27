@@ -1,11 +1,11 @@
 For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPAWallet/Install.md)** (node-map **`+`** button at [https://mpa.continuumdao.org/node-map](https://mpa.continuumdao.org/node-map)). You can create a node on a laptop or PC, or on a remote VPS (Linux / Windows 11 / macOS). This page is the **advanced / manual** path.
 
-**AI agents creating or configuring a greenfield Ubuntu/Debian VPS node:** do **not** start here. Use the **agent playbook** first:
+**AI agents creating or configuring a greenfield Linux VPS node:** do **not** start here. Use the **agent playbook** first:
 
 - [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — topology, one-shot, Path A MCP, hand-off
 - [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) — if an install already went wrong
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — install script flags
-- Script: [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh)
+- Script: [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) (Ubuntu/Debian via apt, or Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux via pacman)
 - Repo: [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 
 This page remains the **full advanced / manual reference** for operators who want step-by-step control (including running `process_config.sh` or `provision-node.sh` as root). It is not demoted — agents should simply prefer the playbook for new VPS installs.
@@ -16,7 +16,7 @@ A lot more details about setting up an MPC node is in our github [here](https://
 
 ### Type of Machine
 
-If you are only setting up a Multi-Party Agent wallet (secure custody / AI with human Accept — often **2/2**), then you can use a home machine with Linux (e.g. Ubuntu/Debian/Mint). You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient). See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) for the twofold purpose of nodes.
+If you are only setting up a Multi-Party Agent wallet (secure custody / AI with human Accept — often **2/2**), then you can use a home machine with Linux: Ubuntu, Debian, or Mint, or a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS are not supported. You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient). See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) for the twofold purpose of nodes.
 
 If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewards for doing so (typically **5+ independent** operators, **3/5 TSS**), then you will need a machine that has at least the above specification but must be a VPS or hosted to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
 
@@ -83,7 +83,7 @@ git clone https://github.com/ContinuumDAO/mpc-config.git
 cd mpc-config  # Should see the installed files and folders here
 ```
 
-**Docker Compose V2 (Ubuntu / Debian only)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. Use this script to update to V2:
+**Docker Compose V2 (Ubuntu / Debian manual path)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. On Ubuntu/Debian, use this script to update to V2. Arch-family hosts (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) get Compose v2 from the `docker-compose` package during [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh); do not run the apt script below on those hosts.
   
 ```bash
 cd  ~/mpc-config

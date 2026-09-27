@@ -2,7 +2,7 @@
 agent:
   task: provision-and-configure-mpc-node
   audience: [ai-agent]
-  oneshot_script: https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh
+  oneshot_script: https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh
   oneshot_doc: https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md
   agents_md: https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md
   playbook: https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision
@@ -21,16 +21,16 @@ This playbook covers **VPS install plus mesh configuration** (peers, relay, MQTT
 
 Load [install-node.json](https://docs.continuumdao.org/well-known/install-node.json) or this section **before** running any shell on the operator’s machines.
 
-**Ubuntu/Debian VPS — MUST**
+**Linux VPS — MUST**
 
 | Rule | Detail |
 |------|--------|
-| Use the published one-shot only | Exact command in [§1](#1-one-shot-vps-install-as-root) — `curl -fsSL …/install-node-debian-ubuntu.sh \| bash -s -- …` |
+| Use the published one-shot only | Exact command in [§1](#1-one-shot-vps-install-as-root) — `curl -fsSL …/install-node-linux.sh \| bash -s -- …` |
 | Let the script create layout | User **`mpcnode`**, repo **`/home/mpcnode/mpc-config`**, then `provision-node.sh` + compose |
 | Verify before mesh setup | Run [verify-node-install.sh](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/verify-node-install.sh) and show output to the operator |
 | Set mpcnode password next | [§1b](#1b-set-the-mpcnode-login-password-required-before-the-tunnel) — never in chat |
 
-**Ubuntu/Debian VPS — MUST NOT (improvised greenfield install)**
+**Linux VPS — MUST NOT (improvised greenfield install)**
 
 | Do not | Why |
 |--------|-----|
@@ -86,7 +86,7 @@ After the operator tunnels **continuum-mcp**, load MCP resource **`node_config_d
 
 ### 0. Ask which topology before renting anything
 
-Do **not** default to “rent two VPS from the same provider.” Continuum does **not** buy machines (no x402 / Hetzner / DigitalOcean integration here). After the user picks a topology, tell them to rent the matching **Ubuntu or Debian** VPS count with public IPv4 and `ssh root@`.
+Do **not** default to “rent two VPS from the same provider.” Continuum does **not** buy machines (no x402 / Hetzner / DigitalOcean integration here). After the user picks a topology, tell them to rent the matching **Ubuntu or Debian** VPS count with public IPv4 and `ssh root@`. The same one-shot also installs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) when that is already the host. Artix, Obarun, and SteamOS are not supported.
 
 **Recommend redundancy plus diversity** whenever the user will control more than one node (option A, and invitees in C):
 
@@ -114,10 +114,10 @@ The relay is still a single MQTT hub — say that clearly — but signing nodes 
 
 ### 1. One-shot VPS install (as root)
 
-On each new Ubuntu/Debian VPS, run the one-shot installer as **root** (`ssh root@…`). Full flags and restore notes: [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md).
+On each new Linux host, run the one-shot installer as **root** (`ssh root@…`). Prefer a new **Ubuntu or Debian** cloud image. The script also installs on Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux. Full flags and restore notes: [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md).
 
 ```bash
-curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh" \
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh" \
   | bash -s -- \
       --node-mgt-key "0xYour40HexCharacters..." \
       --ip "YOUR_VPS_PUBLIC_IP"

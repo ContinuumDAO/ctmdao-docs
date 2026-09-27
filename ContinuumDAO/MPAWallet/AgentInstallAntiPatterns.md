@@ -25,12 +25,12 @@ Humans doing a **deliberate advanced manual** install may still use [Running an 
 - Ownership, sudo, and docker group membership for day-to-day ops are wrong
 - Updates via MPA Maintenance and documented paths assume `/home/mpcnode/mpc-config`
 
-**What agents should do instead (greenfield Ubuntu/Debian VPS)**
+**What agents should do instead (greenfield Linux VPS)**
 
-Run **only** the published one-shot (as root — the script creates `mpcnode` for you):
+Run **only** the published one-shot (as root — the script creates `mpcnode` for you). It supports Ubuntu/Debian and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS are not supported.
 
 ```bash
-curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh" \
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh" \
   | bash -s -- \
       --node-mgt-key "0xYour40HexCharacters..." \
       --ip "YOUR_VPS_PUBLIC_IP"

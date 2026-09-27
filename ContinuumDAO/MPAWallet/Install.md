@@ -2,7 +2,7 @@
 agent:
   task: create-mpc-node
   audience: [human, ai-agent]
-  oneshot_script: https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh
+  oneshot_script: https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh
   oneshot_doc: https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md
   agents_md: https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md
   agent_playbook: https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision
@@ -28,17 +28,17 @@ Product overview: [An Overview of the Multi-party Agent Wallet](/ContinuumDAO/MP
 
 **If you are an AI agent asked to provision or configure a node, start here:** [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) (topology, oneshot, SSH tunnel to `:8446`, peers / MQTT, Group, KeyGen, hand-off). Discover it with `search_continuum_docs` (`provision node` / `create mpc node`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AgentProvision`.
 
-The one-shot script is **install only** (Ubuntu/Debian VPS as **root**). Do not start from the long manual [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) page.
+The one-shot script is **install only** (Linux host as **root**). It supports Ubuntu/Debian (apt) and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) via pacman. Artix, Obarun, and SteamOS are not supported. Do not start from the long manual [Running an MPC Node](/ContinuumDAO/RunningInstructions/NodeRunningInstruction.md) page.
 
 | | |
 |--|--|
 | **Full playbook** | [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) |
-| **Script** | [`install-node-debian-ubuntu.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh) |
+| **Script** | [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) |
 | **Install flags** | [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) |
 | **Repo entry** | [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md) |
 
 ```bash
-curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh" \
+curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh" \
   | bash -s -- \
       --node-mgt-key "0xYour40HexCharacters..." \
       --ip "YOUR_VPS_PUBLIC_IP"
@@ -60,8 +60,8 @@ Advanced / manual shell steps (interactive operators): [Running an MPC Node](/Co
 ### Remote VPS
 
 1. Use the node-map **`+`** flow and choose the remote / VPS option the installer presents.
-2. Typical prerequisites: an Ubuntu or Debian VPS, SSH access, and the **public IPv4** the installer asks for.
-3. Ensure the cloud firewall (or host firewall) allows discovery and peer traffic — see the [one-shot VPS install](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-debian-ubuntu.sh) and [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md) for exact port / `ufw` detail.
+2. Typical prerequisites: an Ubuntu or Debian VPS (the usual cloud image), SSH access, and the **public IPv4** the installer asks for. The same installer also runs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) when that is already the host. Artix, Obarun, and SteamOS are not supported.
+3. Ensure the cloud firewall (or host firewall) allows discovery and peer traffic — see the [one-shot install](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) and [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md) for exact port / `ufw` detail.
 4. When containers are up, [attach your node](#attach-your-node).
 
 ---
@@ -159,6 +159,10 @@ All required checks must pass before you declare success. Expected layout: **`~/
 Wrong install or agent ran shell scripts? [Agent install anti-patterns — macOS](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-4b--macos-agent-ran-install-scripts-instead-of-coaching-the-human).
 
 #### Linux PC
+
+Supported: Ubuntu/Debian, and systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux). Artix, Obarun, and SteamOS are not supported.
+
+On the node map, choose **Linux**. The install command runs [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) on this machine, which selects apt or pacman from `/etc/os-release`. You do not pick the distro family in the browser.
 
 Install **Docker Desktop for Linux** yourself if you use the Desktop extension path, then search Extensions for **Continuum Node** / **`continuumdao/continuum-node-installer`**. Prefer the same node-map **`+`** flow the installer offers. If it routes you to a workstation-style script instead, follow the prompts and the [mpc-config README](https://github.com/ContinuumDAO/mpc-config/blob/main/README.md). When peers are on the internet, use a public IP and the same **18080** / **8883** forwarding as other home PCs.
 

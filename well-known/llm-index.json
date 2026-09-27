@@ -53,9 +53,9 @@
       "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md#anti-pattern-5--wrong-ports-or-multiple-nodes-from-one-pc"
     },
     "agentForbiddenActions": [
-      "manual git clone mpc-config on a greenfield Ubuntu/Debian VPS",
+      "manual git clone mpc-config on a greenfield Linux VPS",
       "custom repo directory instead of /home/mpcnode/mpc-config",
-      "docker compose up as root without running install-node-debian-ubuntu.sh one-shot",
+      "docker compose up as root without running install-node-linux.sh one-shot",
       "piecemeal reimplementation of NodeRunningInstruction Quick Start for greenfield VPS",
       "install-node-docker-desktop.sh or WSL orchestration by an AI agent on Windows 11 home PC",
       "install-node-macos-docker-desktop.sh or desktop-local-orchestrate.sh --profile macos by an AI agent on macOS home PC",
@@ -67,7 +67,7 @@
     "agentPlatformRules": {
       "linux-vps": {
         "agentMayInstall": true,
-        "onlyInstallCommand": "curl -fsSL https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh | bash -s -- --node-mgt-key 0x... --ip VPS_IP",
+        "onlyInstallCommand": "curl -fsSL https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh | bash -s -- --node-mgt-key 0x... --ip VPS_IP",
         "expectedUser": "mpcnode",
         "expectedRepoDir": "/home/mpcnode/mpc-config",
         "verifyScript": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/verify-node-install.sh",
@@ -124,7 +124,7 @@
       "audience": [
         "ai-agent"
       ],
-      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
       "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
@@ -148,7 +148,7 @@
         "human",
         "ai-agent"
       ],
-      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
       "agent_playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
@@ -163,10 +163,10 @@
     "routes": [
       {
         "platform": "linux-vps",
-        "when": "Ubuntu or Debian VPS; AI agent provisions and configures (Path A MCP)",
+        "when": "Ubuntu/Debian VPS, or a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux); AI agent provisions and configures (Path A MCP)",
         "primary": "agent-provision-playbook",
         "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
-        "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+        "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
         "guide": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
         "fallback": "https://mpa.continuumdao.org/node-map"
       },
@@ -186,7 +186,7 @@
       },
       {
         "platform": "linux-pc",
-        "when": "Home Linux workstation or laptop",
+        "when": "Home Linux workstation or laptop (Ubuntu/Debian, or a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux)",
         "primary": "node-map-or-docker-extension",
         "nodeMap": "https://mpa.continuumdao.org/node-map",
         "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
@@ -237,7 +237,7 @@
       "audience": [
         "ai-agent"
       ],
-      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
       "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
@@ -262,7 +262,7 @@
         "human",
         "ai-agent"
       ],
-      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-debian-ubuntu.sh",
+      "oneshot_script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
       "oneshot_doc": "https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md",
       "agents_md": "https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md",
       "agent_playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision",
