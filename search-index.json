@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-27T11:58:44.114Z",
+  "generatedAt": "2026-09-27T17:44:18.225Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -561,7 +561,7 @@
           "id": "committee-list",
           "title": "Committee List",
           "level": 3,
-          "excerpt": "These proposer addresses are the official ContinuumDAO Committee. Node operators cannot change this list. Name Address Selqui 0xd23eecBe0362F36b254F774C274823Cbfc482a10 Hal 0x482cdCbdd72ef307997153Ee7eb627B7a2348d34 John CTM 0x14C189354702b7f2aC7b19e61522A41632226BD8 Contributors will include node r"
+          "excerpt": "These proposer addresses are the official ContinuumDAO Committee. Node operators cannot change this list. Name Address Selqui 0xd23eecBe0362F36b254F774C274823Cbfc482a10 Hal 0x482cdCbdd72ef307997153Ee7eb627B7a2348d34 John CTM 0x14C189354702b7f2aC7b19e61522A41632226BD8 Hal/Selqui Agent 0x7746Ca9F2Fb24"
         },
         {
           "id": "the-continuumdao-forum",

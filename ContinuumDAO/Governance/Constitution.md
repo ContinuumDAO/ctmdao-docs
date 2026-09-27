@@ -34,6 +34,9 @@ These proposer addresses are the official ContinuumDAO Committee. Node operators
 | Selqui | `0xd23eecBe0362F36b254F774C274823Cbfc482a10` |
 | Hal | `0x482cdCbdd72ef307997153Ee7eb627B7a2348d34` |
 | John CTM | `0x14C189354702b7f2aC7b19e61522A41632226BD8` |
+| Hal/Selqui Agent | `0x7746Ca9F2Fb24993758e4731f5Ebae074c69Dd77` |
+
+Committee members may have combined MPA wallet addresses for generating proposals.
 
 
 - Contributors will include node runners, Guild members, and the core-contributors group.
