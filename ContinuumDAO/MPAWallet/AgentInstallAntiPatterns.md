@@ -27,7 +27,7 @@ Humans doing a **deliberate advanced manual** install may still use [Running an 
 
 **What agents should do instead (greenfield Linux VPS)**
 
-Run **only** the published one-shot (as root — the script creates `mpcnode` for you). It supports Ubuntu/Debian, systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), and Fedora Workstation or Server. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported.
+Run **only** the published one-shot (as root — the script creates `mpcnode` for you). It supports Ubuntu/Debian, systemd Arch derivatives (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), Fedora Workstation or Server, and openSUSE Leap or Tumbleweed. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, Bazzite, openSUSE MicroOS, Aeon, and Kalpa are not supported.
 
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh" \

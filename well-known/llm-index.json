@@ -163,7 +163,7 @@
     "routes": [
       {
         "platform": "linux-vps",
-        "when": "Ubuntu/Debian VPS, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), or Fedora Workstation or Server; AI agent provisions and configures (Path A MCP)",
+        "when": "Ubuntu/Debian VPS, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), Fedora Workstation or Server, or openSUSE Leap or Tumbleweed; AI agent provisions and configures (Path A MCP)",
         "primary": "agent-provision-playbook",
         "playbook": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md",
         "script": "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh",
@@ -186,7 +186,7 @@
       },
       {
         "platform": "linux-pc",
-        "when": "Home Linux workstation or laptop (Ubuntu/Debian, a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux, or Fedora Workstation or Server)",
+        "when": "Home Linux workstation or laptop (Ubuntu/Debian, a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux, Fedora Workstation or Server, or openSUSE Leap or Tumbleweed)",
         "primary": "node-map-or-docker-extension",
         "nodeMap": "https://mpa.continuumdao.org/node-map",
         "doc": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md"
@@ -349,7 +349,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-09-27T11:41:04.535Z",
+  "generatedAt": "2026-09-27T11:58:44.114Z",
   "pageCount": 62,
   "llmld:sections": [
     {

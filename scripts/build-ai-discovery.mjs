@@ -304,7 +304,7 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 		routes: [
 			{
 				platform: 'linux-vps',
-				when: 'Ubuntu/Debian VPS, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), or Fedora Workstation or Server; AI agent provisions and configures (Path A MCP)',
+				when: 'Ubuntu/Debian VPS, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), Fedora Workstation or Server, or openSUSE Leap or Tumbleweed; AI agent provisions and configures (Path A MCP)',
 				primary: 'agent-provision-playbook',
 				playbook: agentPlaybookMd,
 				script: oneshotScript,
@@ -329,7 +329,7 @@ function buildInstallNodeDiscovery(installMeta, provisionMeta) {
 			},
 			{
 				platform: 'linux-pc',
-				when: 'Home Linux workstation or laptop (Ubuntu/Debian, a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux, or Fedora Workstation or Server)',
+				when: 'Home Linux workstation or laptop (Ubuntu/Debian, a systemd Arch derivative such as Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, or ArcoLinux, Fedora Workstation or Server, or openSUSE Leap or Tumbleweed)',
 				primary: 'node-map-or-docker-extension',
 				nodeMap: MPA_NODE_MAP,
 				doc: `${DOCS_BASE_URL}/ContinuumDAO/MPAWallet/Install.md`,

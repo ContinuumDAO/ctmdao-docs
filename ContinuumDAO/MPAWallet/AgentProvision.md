@@ -86,7 +86,7 @@ After the operator tunnels **continuum-mcp**, load MCP resource **`node_config_d
 
 ### 0. Ask which topology before renting anything
 
-Do **not** default to “rent two VPS from the same provider.” Continuum does **not** buy machines (no x402 / Hetzner / DigitalOcean integration here). After the user picks a topology, tell them to rent the matching **Ubuntu or Debian** VPS count with public IPv4 and `ssh root@`. The same one-shot also installs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) or on Fedora Workstation or Server when that is already the host. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported.
+Do **not** default to “rent two VPS from the same provider.” Continuum does **not** buy machines (no x402 / Hetzner / DigitalOcean integration here). After the user picks a topology, tell them to rent the matching **Ubuntu or Debian** VPS count with public IPv4 and `ssh root@`. The same one-shot also installs on a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), on Fedora Workstation or Server, or on openSUSE Leap or Tumbleweed when that is already the host. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, Bazzite, openSUSE MicroOS, Aeon, and Kalpa are not supported.
 
 **Recommend redundancy plus diversity** whenever the user will control more than one node (option A, and invitees in C):
 
@@ -114,7 +114,7 @@ The relay is still a single MQTT hub — say that clearly — but signing nodes 
 
 ### 1. One-shot VPS install (as root)
 
-On each new Linux host, run the one-shot installer as **root** (`ssh root@…`). Prefer a new **Ubuntu or Debian** cloud image. The script also installs on Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux, and Fedora Workstation or Server. Full flags and restore notes: [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md).
+On each new Linux host, run the one-shot installer as **root** (`ssh root@…`). Prefer a new **Ubuntu or Debian** cloud image. The script also installs on Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux, Fedora Workstation or Server, and openSUSE Leap or Tumbleweed. Full flags and restore notes: [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md).
 
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/ContinuumDAO/mpc-config/main/scripts/install-node-linux.sh" \

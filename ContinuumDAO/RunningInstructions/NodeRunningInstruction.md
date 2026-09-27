@@ -5,7 +5,7 @@ For almost all users, follow the user guide **[Install a node](/ContinuumDAO/MPA
 - [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md) — topology, one-shot, Path A MCP, hand-off
 - [Agent install anti-patterns](/ContinuumDAO/MPAWallet/AgentInstallAntiPatterns.md) — if an install already went wrong
 - [CREATE_NODE_ONESHOT.md](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/CREATE_NODE_ONESHOT.md) — install script flags
-- Script: [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) (Ubuntu/Debian via apt, Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux via pacman, or Fedora Workstation or Server via dnf)
+- Script: [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh) (Ubuntu/Debian via apt, Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, and ArcoLinux via pacman, Fedora Workstation or Server via dnf, or openSUSE Leap or Tumbleweed via zypper)
 - Repo: [AGENTS.md](https://github.com/ContinuumDAO/mpc-config/blob/main/AGENTS.md)
 
 This page remains the **full advanced / manual reference** for operators who want step-by-step control (including running `process_config.sh` or `provision-node.sh` as root). It is not demoted — agents should simply prefer the playbook for new VPS installs.
@@ -16,7 +16,7 @@ A lot more details about setting up an MPC node is in our github [here](https://
 
 ### Type of Machine
 
-If you are only setting up a Multi-Party Agent wallet (secure custody / AI with human Accept — often **2/2**), then you can use a home machine with Linux: Ubuntu, Debian, or Mint, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), or Fedora Workstation or Server. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, and Bazzite are not supported. You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient). See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) for the twofold purpose of nodes.
+If you are only setting up a Multi-Party Agent wallet (secure custody / AI with human Accept — often **2/2**), then you can use a home machine with Linux: Ubuntu, Debian, or Mint, a systemd Arch derivative (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux), Fedora Workstation or Server, or openSUSE Leap or Tumbleweed. Artix, Obarun, SteamOS, Fedora Silverblue, Kinoite, Bazzite, openSUSE MicroOS, Aeon, and Kalpa are not supported. You will need at least 16 GB of RAM and 6 CPU cores (most laptops are sufficient). See [MPA wallet Overview](/ContinuumDAO/MPAWallet/Overview.md) for the twofold purpose of nodes.
 
 If you want to join the Continuum as an MPC Signer to support C3Caller cross-chain messaging and to earn rewards for doing so (typically **5+ independent** operators, **3/5 TSS**), then you will need a machine that has at least the above specification but must be a VPS or hosted to ensure uninterrupted service. This will be checked at the Proposal stage of joining the Continuum.
 
@@ -83,7 +83,7 @@ git clone https://github.com/ContinuumDAO/mpc-config.git
 cd mpc-config  # Should see the installed files and folders here
 ```
 
-**Docker Compose V2 (Ubuntu / Debian manual path)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. On Ubuntu/Debian, use this script to update to V2. Arch-family hosts (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) get Compose v2 from the `docker-compose` package during [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh). Fedora Workstation and Server get it from the `docker-compose` package via dnf (`moby-engine` is the engine). Do not run the apt script below on Arch or Fedora.
+**Docker Compose V2 (Ubuntu / Debian manual path)** We should always use **`docker compose`** ; legacy **`docker-compose` 1.29.x** often fails on current engines (**`KeyError: 'ContainerConfig'`**). We need this so that remote upgrades and rebooting work. On Ubuntu/Debian, use this script to update to V2. Arch-family hosts (Arch, Omarchy, Manjaro, EndeavourOS, Garuda, CachyOS, ArcoLinux) get Compose v2 from the `docker-compose` package during [`install-node-linux.sh`](https://github.com/ContinuumDAO/mpc-config/blob/main/scripts/install-node-linux.sh). Fedora Workstation and Server get it from the `docker-compose` package via dnf (`moby-engine` is the engine). openSUSE Leap and Tumbleweed get it from the `docker` and `docker-compose` packages via zypper. Do not run the apt script below on Arch, Fedora, or openSUSE.
   
 ```bash
 cd  ~/mpc-config
