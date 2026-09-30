@@ -45,6 +45,28 @@ The node app (or agent) asks which option you want when you enable VPN or downlo
 
 ---
 
+### Ad and tracker blocking
+
+On a full tunnel you can turn on DNS ad and tracker blocking. The node app control is **Ad blocking**, with three choices:
+
+| Option | What it does |
+|--------|----------------|
+| **Off** | No filtering. Full-tunnel DNS stays the usual public resolver (default `1.1.1.1`). |
+| **Blocky** | The node answers DNS for the tunnel and blocks the shared list below. |
+| **dnsmasq** | Same list and same blocking as Blocky. Only the program that answers DNS changes. |
+
+**Blocky** and **dnsmasq** use the same HaGeZi light domain list: hostnames used to serve **ads**, **affiliate** links, and **tracking** (analytics, tracking pixels, and telemetry). A lookup for one of those names returns `0.0.0.0`, so the browser or app cannot reach that host. Names that are not on the list are forwarded as usual.
+
+This applies to your own **full-tunnel** VPN and to **peer egress** (traffic that leaves through a shared node). **Split tunnel** is unchanged: those client configs have no DNS line, so they are not filtered. One setting on the node covers both full tunnel and egress; peers do not pick a separate list.
+
+Blocking is DNS only. A tracker on the site’s own domain, or an app that uses DNS-over-HTTPS, still resolves normally.
+
+Turn blocking on or off from **Node → VPN**, or ask the agent to call **`set_vpn_dns_filter`** (`none`, `blocky`, or `dnsmasq`). That does not restart WireGuard. Download the client config again only when you cross **Off** and **Blocky** or **dnsmasq**, because that changes the DNS address in the file. Switching between **Blocky** and **dnsmasq** does not.
+
+The menu is available on a VPS after the host install script has put Blocky and dnsmasq on the machine. Desktop and WSL nodes do not run this resolver, so the control stays disabled there.
+
+---
+
 ### Sharing your connection with peers (rate limiting)
 
 When you **offer** your node so peer operators can route traffic through it, you choose a **default speed limit** (megabits per second). That cap applies per shared connection so one consumer cannot saturate your VPS link. You can **revoke** a peer’s access at any time from the node VPN controls.
@@ -59,7 +81,7 @@ Consumers see your node in the list of **available exits** (address, country hin
 
 1. Confirm **this node** has veCTM privilege (a Group on the node with a qualifying attached NFT) → [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock). The current authority KeyGen need not be the one holding the NFT.
 2. Open the node app → **Node** → **VPN** (or the Private VPN panel).
-3. **Enable** VPN, choose **full** or **split** routing, and pick **WireGuard (standard)** or an obfuscation option if needed.
+3. **Enable** VPN, choose **full** or **split** routing, and pick **WireGuard (standard)** or an obfuscation option if needed. On a **full** tunnel, optionally set **Ad blocking** to **Blocky** or **dnsmasq** ([Ad and tracker blocking](#ad-and-tracker-blocking)).
 4. **Download client config** — saves a WireGuard `.conf` (and a transport file when obfuscated) to the node workspace; copy or download to your PC/phone.
 5. Import into the **WireGuard** app (or follow any setup notes bundled with the download) and connect.
 
@@ -96,6 +118,7 @@ Describe what you want in plain language. The agent maps your request to MCP too
 
 - *“Enable Private VPN on my node with a full tunnel and standard WireGuard.”*
 - *“Enable split-tunnel VPN on my node and download the client config for my laptop.”*
+- *“Turn on Blocky ad and tracker blocking for my full-tunnel VPN.”*
 - *“My network blocks WireGuard — enable VPN with Shadowsocks obfuscation and download the config files.”*
 
 **Share your node with peer operators**
@@ -136,11 +159,12 @@ The operator may say something like:
 **Agent workflow (node side — you execute via MCP)**
 
 1. **`get_node_privilege_status`** on **`continuum`** — confirm VPN entitlement (`entitled`); abort with attach-veCTM guidance if missing. Do not use **`get_ve_ctm_attach_status`** as the gate.
-2. **`get_vpn_status`** on **`vpn`** — read `available`, `active`, `profile`, `obfuscation`, `privileged`.
+2. **`get_vpn_status`** on **`vpn`** — read `available`, `active`, `profile`, `obfuscation`, `dnsFilter`, `availableDnsFilters`, `privileged`.
 3. **`set_vpn_enabled`** on **`vpn`** — `{ "enabled": true, "profile": "full" | "split", "obfuscation": "none" | "shadowsocks" | "wg_obfuscator" | "lwo" | "udp2raw" }` when enabling. Management-signed POST; not an MPC multi-sign transaction.
 4. Poll **`get_vpn_status`** until `active` is true (or surface `lastError` / `message`).
-5. **`download_vpn_admin_client_config`** — optional `profile` / `obfuscation` matching step 3. Saves under **`user_folder/data/vpn/`** (host bind mount in Docker).
-6. Return to the operator: **`wireGuardPath`**, optional **`transportPath`**, and **`setupInstructions`** from the tool response — do not paraphrase obfuscation steps when `setupInstructions` is present.
+5. Optional **`set_vpn_dns_filter`** — `{ "engine": "none" | "blocky" | "dnsmasq" }` for full-tunnel and egress DNS blocking. Does not restart WireGuard. Use an engine only if it is in `availableDnsFilters`. See [Ad and tracker blocking](#ad-and-tracker-blocking).
+6. **`download_vpn_admin_client_config`** — optional `profile` / `obfuscation` matching step 3. Saves under **`user_folder/data/vpn/`** (host bind mount in Docker). Re-download after crossing **Off** and an engine, because that changes the DNS line.
+7. Return to the operator: **`wireGuardPath`**, optional **`transportPath`**, and **`setupInstructions`** from the tool response — do not paraphrase obfuscation steps when `setupInstructions` is present.
 
 **Egress (peer exit or sharing)** — same tunnel session:
 

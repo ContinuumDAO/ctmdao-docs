@@ -140,7 +140,7 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 
 **Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
-**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. Enable only when **`get_node_privilege_status`** shows **`entitled`** (this node is a member of a Group whose recorded attach key has a qualifying NFT this month). Do **not** use **`get_ve_ctm_attach_status`** as the VPN gate — that is KeyGen-scoped. No Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
+**VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. **`set_vpn_dns_filter`** sets **Off**, **Blocky**, or **dnsmasq** ad and tracker blocking for full tunnel and peer egress (same HaGeZi light list; split tunnel is not filtered). Enable VPN only when **`get_node_privilege_status`** shows **`entitled`** (this node is a member of a Group whose recorded attach key has a qualifying NFT this month). Do **not** use **`get_ve_ctm_attach_status`** as the VPN gate — that is KeyGen-scoped. No Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
 ---
 
