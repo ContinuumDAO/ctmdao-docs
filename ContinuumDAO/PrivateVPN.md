@@ -36,7 +36,28 @@ All paths use **WireGuard** for the core encrypted tunnel. On restrictive networ
 | **LWO** | Lightweight obfuscation layer over WireGuard. |
 | **udp2raw** | Carries WireGuard’s UDP traffic inside TCP or ICMP — useful when UDP is blocked but TCP is not. |
 
-The node app (or agent) asks which option you want when you enable VPN or download a client profile. Pick **standard WireGuard** first; switch obfuscation only if your network blocks the tunnel.
+The node app (or agent) asks which option you want when you enable VPN or download a client profile. Pick **standard WireGuard** first; switch obfuscation only if your network blocks the tunnel. Which computers and phones can start each obfuscator is in [Computers and phones](#computers-and-phones).
+
+---
+
+### Computers and phones
+
+Download a client config from **Node → VPN**. The panel then offers an optional desktop app for that system, or a QR code for a phone. The app does not call the node: import or paste the downloaded `continuum-vpn-….json` bundle. Packages are on the [widget releases](https://github.com/ContinuumDAO/continuum-vpn-widgets/releases/latest) page, and the VPN panel links the current file.
+
+| System | App | How to install | Shadowsocks | wg-obfuscator | udp2raw | LWO |
+|--------|-----|----------------|-------------|---------------|---------|-----|
+| Ubuntu and Debian | Optional tray app | `sudo apt install ./continuum-vpn-widget_amd64.deb` | Included | Included | Included | Manual steps on the VPN panel |
+| Arch | Optional tray app | `sudo pacman -U ./continuum-vpn-widget-x86_64.pkg.tar.zst` | Included | Included | Included | Manual steps on the VPN panel |
+| Fedora | Optional tray app | `sudo dnf install ./continuum-vpn-widget-x86_64.rpm` | Included | Included | Included | Manual steps on the VPN panel |
+| openSUSE | Optional tray app | `sudo zypper install --allow-unsigned-rpm ./continuum-vpn-widget-suse.x86_64.rpm` | Included | Included | Included | Manual steps on the VPN panel |
+| Omarchy | Bar plugin | `omarchy plugin add https://github.com/ContinuumDAO/continuum-vpn-omarchy.git`, then `omarchy plugin enable continuum.vpn` | Install `shadowsocks-rust`; the plugin starts `sslocal` | Install the binary yourself; the plugin starts it when it is on PATH. Not bundled | The plugin does not start it | The plugin does not start it |
+| macOS | Optional menu-bar app | Unzip the Apple silicon or Intel zip and move Continuum VPN.app to Applications. Control-click the app, choose Open, then Open. If macOS still blocks it, use System Settings → Privacy & Security → Open Anyway | Included | Included | Manual steps on the VPN panel | Manual steps on the VPN panel |
+| Windows | Optional tray app | Unzip and run Continuum VPN. Install [WireGuard for Windows](https://www.wireguard.com/install/) as well. If SmartScreen warns, choose More info, then Run anyway. If a virus checker blocks `sslocal.exe` or `wg-obfuscator.exe`, allow those files | Included | Included | Manual steps on the VPN panel | Manual steps on the VPN panel |
+| Android | Official WireGuard app | Install WireGuard from the Play Store. On the VPN panel, open **Android** and scan the QR code | Direct WireGuard only | Direct WireGuard only | Direct WireGuard only | Direct WireGuard only |
+| iPhone and iPad | Official WireGuard app | Install WireGuard from the App Store (seller WireGuard LLC). On the VPN panel, open **iPhone** and scan the same QR code. Name the tunnel and enter the phone passcode | Direct WireGuard only | Direct WireGuard only | Direct WireGuard only | Direct WireGuard only |
+| Other Linux | No package | Install WireGuard and the obfuscator with the commands on the VPN panel | Manual | Manual | Manual | Manual |
+
+On GNOME, enable the AppIndicator extension so the Linux tray icon appears. One imported profile is connected at a time. A phone QR code is the WireGuard file itself and contains the tunnel private key, so show it only to your own phone. If the downloaded config points at `127.0.0.1`, the panel hides the QR code: that profile needs the obfuscator, which the phone apps do not run. Download again with obfuscation set to **None**.
 
 **Routing mode**
 
@@ -82,8 +103,8 @@ Consumers see your node in the list of **available exits** (address, country hin
 1. Confirm **this node** has veCTM privilege (a Group on the node with a qualifying attached NFT) → [veCTM on your node](/ContinuumDAO/MPAWallet/VeCTMOnYourNode.md#how-much-vectm-do-i-need-to-lock). The current authority KeyGen need not be the one holding the NFT.
 2. Open the node app → **Node** → **VPN** (or the Private VPN panel).
 3. **Enable** VPN, choose **full** or **split** routing, and pick **WireGuard (standard)** or an obfuscation option if needed. On a **full** tunnel, optionally set **Ad blocking** to **Blocky** or **dnsmasq** ([Ad and tracker blocking](#ad-and-tracker-blocking)).
-4. **Download client config** — saves a WireGuard `.conf` (and a transport file when obfuscated) to the node workspace; copy or download to your PC/phone.
-5. Import into the **WireGuard** app (or follow any setup notes bundled with the download) and connect.
+4. **Download client config**.
+5. Connect with the app for that computer or phone. Install commands, phone QR codes, and which obfuscators each app starts are in [Computers and phones](#computers-and-phones). The panel keeps the manual WireGuard steps as well.
 
 For the same flow via **Agent chat**, see [AI agent steps](#ai-agent-steps) below.
 
