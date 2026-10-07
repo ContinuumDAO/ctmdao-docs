@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-07T15:37:55.560Z",
+  "generatedAt": "2026-10-07T15:46:08.457Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1442,7 +1442,7 @@
           "id": "4-topology-playbooks-after-oneshot",
           "title": "4. Topology playbooks (after oneshot)",
           "level": 3,
-          "excerpt": "A1 — 2/2 (only if they accept no spare): oneshot on two VPS in different regions , ideally different providers . Sequential tunnels: same peer list and new signer on both , then restart so the peer fetches the certificate. Then stay on the relay . Originate Group both node id s and KeyGen gate: 2 . "
+          "excerpt": "A1 — 2/2 (only if they accept no spare): oneshot on two VPS in different regions , ideally different providers . Sequential tunnels: same peer list and new signer on both , then restart so the peer fetches the certificate. Then stay on the relay . Originate Group both node id s and a secp256k1 KeyGe"
         },
         {
           "id": "5-hand-off-to-the-user",
