@@ -19,7 +19,7 @@ If all nodes that have been requested to do so, agree, then the new Group is cre
 
 If this button is deactivated, it likely means that either your node configuration has errors, or that your node has not initialized the inter-node network. The health of your node is shown in the **Health** section on this page.
 
-**In the node app:** open **Node → Node Peer IP Editing** to confirm relay and peer IPs match your collaborators, complete **Inter Node Communication** (MQTT) as the UI guides, and use **Restart Node Service** on the Node page if connectivity still looks stuck after you save changes. See [Install a node — Tell your node about its peers](/ContinuumDAO/MPAWallet/Install.md#tell-your-node-about-its-peers-configured-nodes).
+**In the node app:** open **Node → Node Peer IP Editing** to confirm relay and peer IPs match your collaborators, then restart so each peer fetches the relay certificate. Use **Restart Node Service** on the Node page if connectivity still looks stuck after you save changes. See [Install a node — Tell your node about its peers](/ContinuumDAO/MPAWallet/Install.md#tell-your-node-about-its-peers-configured-nodes).
 
 If some other Configured Nodes have health issues, then this is shown in the Add group selection e.g.
 
@@ -49,7 +49,7 @@ Alternative to **Add group** in the UI — use the built-in agent on the node wh
 
 1. **AI Agent → Provider** — choose an LLM provider and model, and set the API key (stored in **Variables** when prompted). Without this, Agent chat cannot run. See [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md).
 2. **Preferred signer** — under **Node → Ed25519 Management Keys**, set the **preferred** (crown) management key the agent uses to sign API calls (or pick it when Agent chat asks). Details: [Default Ed25519 signer](/ContinuumDAO/MPAWallet/DefaultEd25519Signer.md).
-3. **Configured peers healthy** — complete peer IP editing and Inter Node Communication on each node first ([Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)).
+3. **Configured peers healthy** — write the same peer list on each node and restart so each peer fetches the relay certificate ([Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md)).
 
 
 Open **Agent chat** from the **cat icon** (bottom-right of the node app). Example prompts:

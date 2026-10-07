@@ -200,7 +200,12 @@ Why add a second (or more) node — same peer setup, different roles:
 
 ### Tell your node about its peers (Configured Nodes)
 
-After a fresh install, the peer / relay list is typically a **placeholder** (`0.0.0.0`) — not a working multi-node mesh yet. Before you can create a Group, every collaborating node needs the **same ordered peer list** (first row = **Relay**) and a shared **Inter Node Communication** public key from that relay. Attach to each node in the node app, then open **Node** on that node.
+After a fresh install, the peer / relay list is typically a **placeholder** (`0.0.0.0`) — not a working multi-node mesh yet. Before you can create a Group, every collaborating node needs the **same ordered peer list** (first row = **Relay**). Write that list on each node and restart. Each peer then fetches the relay certificate itself. Attach to each node in the node app, then open **Node** on that node.
+
+One installed node is not a wallet. If you are only setting up one machine, choose one of these and do not continue to Group or KeyGen, and do not leave the list on `0.0.0.0`:
+
+1. **This node is the relay.** Its public IP is the first row on this node and on every other node. Each other node’s IP is also in this node’s list. One IP alone is not a wallet.
+2. **This node joins someone else’s relay.** Do not make this node the relay. The first row is that relay’s public IP. This node’s public IP must be added to the relay’s list and every other peer’s list. After restart, the certificate is fetched. Copy a PEM only if that fetch fails.
 
 #### Example: two-node 2/2 wallet (relay + peer)
 
@@ -231,54 +236,28 @@ Each node’s own public IP must appear somewhere in its list. Coordinate with y
 
 You can export the same list with **Save peers JSON…** and send it to co-operators so everyone imports identical entries (**Import JSON…**).
 
-#### Inter Node Communication (relay key → peer nodes)
+#### Relay certificate
 
-Nodes encrypt MQTT traffic using a **public key (PEM)** from the **relay** node. Peers must install that key before **Add group** is enabled.
+After **Write config** and **Restart** on each node, each peer fetches the relay certificate. Node Status shows **Fetching the relay certificate.** while that runs, and **Could not fetch the relay certificate.** if it keeps failing. If the relay row changes, restart; the new certificate is fetched then. Every node must use the same first IP.
 
-**On the relay node (Node A):**
-
-1. Open **Node → Inter Node Communication**.
-2. Click **Get inter-node key**.
-3. Copy the **Public key (PEM)** (or **Download** the file as `ca.crt`). Send this certificate to the peer operator through a channel you trust — treat it like TLS trust material, not a broadcast post.
+Copy a PEM only if that fetch fails. On the relay, **Node → Inter Node Communication → Get inter-node key**. On the peer, **Choose file**, then **Post inter-node key**, then **Restart Node Service**.
 
 <img src="/_media/inter-node-download-crt-relay.png" alt="" />
 
-**On each peer node (Node B, and any other non-relay node):**
-
-1. Open **Node → Inter Node Communication**.
-2. Save the relay’s `ca.crt` to a file on your PC.
-3. Click **Choose file**, select `ca.crt`, then click **Post inter-node key** and management-sign when prompted.
-4. When the UI shows **Saved.**, use **Restart Node Service** on the Node page (the section shows an amber hint until you restart).
-
-
 <img src="/_media/inter-node-post-crt-peer-node.png" alt="" />
 
-Repeat the peer steps on every non-relay node. If you **change the relay IP** later, fetch the new relay’s inter-node key again and re-post on all peers.
+##### For AI agents
 
-##### For AI agents — Inter Node Communication
+Full mesh playbook: [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md).
 
-**Audience:** external AI agents (Claude Code, Cursor, Grok Build, and similar) helping an operator install the relay MQTT trust anchor on peer nodes. Full mesh playbook: [Agent provision and configure](/ContinuumDAO/MPAWallet/AgentProvision.md). API detail: [`GET /getMSQTTKey`](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#get-getmqttkey) and [`POST /postMSQTTKey`](https://github.com/ContinuumDAO/mpc-config/blob/main/docs/references/API_IMPLEMENTATION.md#post-postmqttkey) in mpc-auth (documented in mpc-config).
+Write the same peer list on each node (`set_configured_nodes`), then have the operator restart that node. Do not call `get_mqtt_tls_public_key` or `set_mqtt_tls_key` unless the peer reports **Could not fetch the relay certificate.** Those tools map to `GET /getMSQTTKey` and `POST /postMSQTTKey`. One SSH tunnel at a time (ports **3333**, **8080**, **18080**, **8446**).
 
-The UI steps above map to management HTTP and Path A MCP tools (activate tool group **`node_config`**; resource **`node_config_docs`**):
+If the user asks you to install **only one node**, do not continue to Group or KeyGen, and do not leave the list on `0.0.0.0`. Ask which they want, then say it plainly:
 
-| Step | UI | HTTP | MCP (`node_config`) |
-| ---- | -- | ---- | ------------------- |
-| Relay — fetch `ca.crt` | **Get inter-node key** / **Download** | `GET /getMSQTTKey` → `{ path, caCertPem }` | `get_mqtt_tls_public_key` |
-| Peer — install relay CA | **Choose file** → **Post inter-node key** | `POST /postMSQTTKey` (management signature over **`caCertPem`** bytes) | `set_mqtt_tls_key` |
+1. **This node is the relay.** Its public IP is the first row on this node and on every other node. Each other node’s IP is also in this node’s list. One IP alone is not a wallet.
+2. **This node joins someone else’s relay.** Do not make this node the relay. The first row is that relay’s public IP. This node’s public IP must be added to the relay’s list and every other peer’s list. After restart, the certificate is fetched. Do not copy a PEM unless the fetch fails.
 
-**One node at a time.** You cannot reach two nodes from one PC at once — SSH tunnel and local node both bind `127.0.0.1` ports **3333**, **8080**, **18080**, and MCP **8446**. Tell the operator to run **one** tunnel, finish that node, stop it, then open the next. Relay first: fetch the PEM; on each peer tunnel: post the **same** PEM. Call `get_configured_node_keys` / `get_connectivity_health` on each node before you leave its tunnel. Remind them to **Restart Node Service** after post (no automatic reload).
-
-**When one agent may fetch and post**
-
-| Setup | OK for one agent to fetch on relay and post on peers? |
-| ----- | ------------------------------------------------------- |
-| **Same operator** owns every VPS (Path A provision) | **Yes** — sequential tunnels, health check after each post. This is the intended AgentProvision flow. |
-| **Separate co-operators** (each runs their own node) | **No** — relay operator exports `ca.crt` through a channel **they** trust; each peer operator (or their agent) posts **only on their node**. Do not use one external agent as the sole courier across trust boundaries. |
-| **External cloud agent** with chat/tool logging | **Caution** — PEM may appear in provider logs. Prefer the peer operator receive the cert out-of-band and post locally, or have the operator confirm the PEM fingerprint before you call `set_mqtt_tls_key`. |
-
-Posting the wrong CA is a **trust substitution** (peer MQTT could be MITM’d). Treat `ca.crt` like TLS trust material, not a public broadcast.
-
-When peer IPs and the relay key are in place, **Groups → Configured Node Keys** should show healthy peers. Details and troubleshooting: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
+When the peer list is in place and the certificate fetch has finished, **Groups → Configured Node Keys** should show healthy peers. Details: [Configured Nodes](/ContinuumDAO/MPCSigner/ConfiguredNodes.md).
 
 ### Then create a Group and a KeyGen
 

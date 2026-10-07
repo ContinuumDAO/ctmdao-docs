@@ -98,9 +98,9 @@ The relay is still a single MQTT hub — say that clearly — but signing nodes 
 
 | Option | Tell the user | Rent / oneshot | Then |
 |--------|---------------|----------------|------|
-| **A — Standalone set they control** | They run every signing node. Ask **how many can die** before the wallet is stuck. **Recommend 2-of-3**, split across **regions and providers**. | **N** Ubuntu/Debian VPS | Same relay (first slot) on every node. MQTT key from relay → others. Group + KeyGen with chosen **gate**. |
-| **B — Join an established group** | Someone already has a relay. | **One** VPS | Prefer a **different region and provider** than the existing peers. Import **relay IP** + **MQTT TLS public key**. Do not invent a second relay. |
-| **C — This node is the relay; invite others** | They host MQTT. | **One** VPS to start | Export MQTT public key and share IP + PEM. Invitees run B; ask them to use other regions/providers. |
+| **A — Standalone set they control** | They run every signing node. Ask **how many can die** before the wallet is stuck. **Recommend 2-of-3**, split across **regions and providers**. | **N** Ubuntu/Debian VPS | Same relay (first slot) on every node. Restart; each peer fetches the certificate. Group + KeyGen with chosen **gate**. |
+| **B — Join an established group** | Someone already has a relay. | **One** VPS | Prefer a **different region and provider** than the existing peers. First row is **their** relay IP. Add this node’s IP on the relay and every peer. Restart; the certificate is fetched. Do not invent a second relay. Copy a PEM only if the fetch fails. |
+| **C — This node is the relay; invite others** | They host the relay. | **One** VPS to start | This node’s public IP is the first row here and on every other node. Add each other node’s IP here. One IP alone is not a wallet. Invitees run B. |
 
 #### Option A — 2/2 vs extra nodes for safety
 
@@ -110,7 +110,14 @@ The relay is still a single MQTT hub — say that clearly — but signing nodes 
 | **Safer (recommend this)** | 3 | 2 (2-of-3) | The other two still reach gate 2. **Default ask.** Three VPS, three regions if possible, at least two providers. |
 | **More slack** | 4+ | e.g. 2-of-4 or 3-of-5 | Can lose `N − gate` nodes. Keep spreading region and provider as N grows. |
 
-`gate` is the KeyGen signing threshold (`2 ≤ gate ≤ N`). Loss-safety requires **gate &lt; N**. One installed node cannot finish a KeyGen alone. The MQTT TLS public key is an **invite secret** (relay → peers), not a public paste. Every collaborator must use the **same first/relay IPv4**.
+`gate` is the KeyGen signing threshold (`2 ≤ gate ≤ N`). Loss-safety requires **gate &lt; N**. One installed node cannot finish a KeyGen alone. Every collaborator must use the **same first/relay IPv4**. After restart, each peer fetches the relay certificate. Copy a PEM (`get_mqtt_tls_public_key` / `set_mqtt_tls_key`) only if that fetch fails.
+
+#### Only one node
+
+If they ask you to install **only one node**, do not continue to Group or KeyGen, and do not leave the peer list on `0.0.0.0`. Ask which they want, then say it plainly:
+
+1. **This node is the relay.** Its public IP is the first row on this node and on every other node. Each other node’s IP is also in this node’s list. One IP alone is not a wallet.
+2. **This node joins someone else’s relay.** Do not make this node the relay. The first row is that relay’s public IP. This node’s public IP must be added to the relay’s list and every other peer’s list. After restart, the certificate is fetched. Do not copy a PEM unless the fetch fails.
 
 ### 1. One-shot VPS install (as root)
 
@@ -163,7 +170,7 @@ You may MCP **each node you provisioned**, but only for **host mesh setup**. Do 
 | Allowed on every node you oneshot | Never on a second node |
 |-----------------------------------|-------------------------|
 | Peers (`set_configured_nodes`) | `create_group_request` / `accept_group_request` |
-| MQTT export / import | `create_key_gen_request` / `accept_key_gen_request` |
+| Restart so the peer fetches the relay certificate (PEM tools only if fetch fails) | `create_key_gen_request` / `accept_key_gen_request` |
 | New preferred Ed25519 signer (silent) | `post_preferred_key_gen`, compose, Agree/Reject sign |
 | Health / `node_id` / restart gate | MCP into a node you did **not** provision (invitees run their own Path A or the wallet website) |
 
@@ -208,23 +215,21 @@ Activate tool group **`node_config`** (`activate_tool_group`). Read peers with *
 Walk the nodes **one tunnel at a time** (relay first):
 
 1. `set_configured_nodes` with the **same** `peers: [relayIpv4, ...otherIpv4]` on each. Default peer port is **8081**.
-2. On the **relay**: `get_mqtt_tls_public_key`. Keep the PEM for the other tunnels.
-3. On each **other** node you provisioned: `set_mqtt_tls_key` with that PEM.
-4. On each of those nodes (silent): `add_management_signer` then `set_preferred_management_signer` with the new public key. Do not leave bootstrap as preferred.
-5. Optional: `get_maintenance_restart_gate`. The operator runs **`docker compose restart`** on that VPS. There is no MCP reboot tool.
-6. `get_configured_node_keys` / `get_connectivity_health` before you leave the tunnel.
+2. On each of those nodes (silent): `add_management_signer` then `set_preferred_management_signer` with the new public key. Do not leave bootstrap as preferred.
+3. The operator runs **`docker compose restart`** on that VPS. There is no MCP reboot tool. After restart, each peer fetches the relay certificate. Call `get_mqtt_tls_public_key` / `set_mqtt_tls_key` only if the peer reports that the fetch failed.
+4. `get_configured_node_keys` / `get_connectivity_health` before you leave the tunnel.
 
 Do **not** call `create_group_request`, `accept_group_request`, `create_key_gen_request`, or `accept_key_gen_request` until you are back on the **home** node — and never Accept on a second node.
 
 ### 4. Topology playbooks (after oneshot)
 
-**A1 — 2/2** (only if they accept no spare): oneshot on two VPS in **different regions**, ideally **different providers**. Sequential tunnels: peers + MQTT + new signer on **both**. Then stay on the **relay**. Originate Group both `node_id`s and KeyGen `gate: 2`. User **Accepts** on the other node in the wallet website.
+**A1 — 2/2** (only if they accept no spare): oneshot on two VPS in **different regions**, ideally **different providers**. Sequential tunnels: same peer list and new signer on **both**, then restart so the peer fetches the certificate. Then stay on the **relay**. Originate Group both `node_id`s and KeyGen `gate: 2`. User **Accepts** on the other node in the wallet website.
 
-**A2 — 2-of-3** (recommended): three VPS — **different regions**, **at least two providers**. Sequential tunnels for peers/MQTT/signer on all three. Stay on the relay. Group all three IDs. KeyGen `gate: 2`. User Accepts on the other two.
+**A2 — 2-of-3** (recommended): three VPS — **different regions**, **at least two providers**. Sequential tunnels for the same peer list and signer on all three, then restart so each peer fetches the certificate. Stay on the relay. Group all three IDs. KeyGen `gate: 2`. User Accepts on the other two.
 
-**B — Join existing:** oneshot on one VPS. Import their **relay IPv4** and **MQTT PEM**, new signer, restart. Originate or Accept **only on this node** as they instruct.
+**B — Join existing:** oneshot on one VPS. First row is their relay IPv4 (do not make this node the relay). This node’s public IP must be on the relay’s list and every other peer’s list. New signer, restart; the certificate is fetched. Copy a PEM only if the fetch fails. Originate or Accept **only on this node** as they instruct.
 
-**C — Become relay and invite:** oneshot on one VPS. Peers + export MQTT + new signer here. Give invitees: public IP, relay slot, PEM. They run B themselves. You never MCP invitee nodes. Prefer a 2-of-3+ gate.
+**C — Become relay and invite:** oneshot on one VPS. This node’s public IP is the first row. Add each invitee’s IP when you have it. One IP alone is not a wallet. New signer, restart. Give invitees the relay public IP and tell them to run B. You never MCP invitee nodes. Prefer a 2-of-3+ gate.
 
 ### 5. Hand-off to the user
 

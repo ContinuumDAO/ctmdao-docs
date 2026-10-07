@@ -166,7 +166,7 @@ This script will:
 
 -Create certificate directories (on client nodes)
 
--Provide instructions for certificate sharing
+-Peers fetch the relay certificate after restart (copy it by hand only if that fetch fails)
 
 -Configure your node for https TLS 1.3 encryption, so that all data to the MPA app https://mpa.continuumdao.org  is encrypted EXCEPT your IP address and Node Key, which will both be public.
 
@@ -271,7 +271,7 @@ You can check for errors or warnings on your node either using sudo docker logs 
 **No further actions are required, since further configuration can be done via https://mpa.continuumdao.org**
 
 
-(11) Optional (recommend that this be done from https://mpa.continuumdao.org): Otherwise share the MQTT Public Certificate from the Relay node (first IP address IP address in the Configured Nodes) with the other nodes. The Public cert is  ./mosquitto/config/certs/ca.crt and it should be copied to the ./mosquitto/config/certs/ folder on the other nodes **being careful to keep this information secret** It is good practice to delete the key pair on the Relay node and share with the other nodes regularly.
+(11) Write the same peer list on every node (first IP is the relay) and restart. Each peer fetches the relay certificate. Copy `./mosquitto/config/certs/ca.crt` by hand only if that fetch fails. Do not delete the relay key pair.
 
 Restart the nodes -
 
@@ -299,7 +299,7 @@ To run the node-hosted frontend on the node itself, read `local-node-app/README.
 ./local-node-app/install-or-update-node-app.sh
 ```
 
-Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), go to the Node page → **Node Peer IP Editing** to set up the IP address of the other nodes, then **Inter Node Communication** for secure messaging between nodes.
+Once you are in MPA wallet, if you ran the automated provision-node.sh above in step (9), go to the Node page → **Node Peer IP Editing**, write the same peer list on each node (first IP is the relay), and restart. Each peer fetches the relay certificate.
 
 ### Related
 
