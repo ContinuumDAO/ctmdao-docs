@@ -349,7 +349,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-10-03T10:48:42.709Z",
+  "generatedAt": "2026-10-07T15:37:55.560Z",
   "pageCount": 62,
   "llmld:sections": [
     {
@@ -453,7 +453,7 @@
           "name": "Configured Nodes",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/ConfiguredNodes.md",
-          "excerpt": "Once collaborators have installed nodes and completed Node Peer IP Editing and Inter Node Communication , their public keys appear under Configured Node Keys on the Groups page in the MPA wallet. <img"
+          "excerpt": "Once collaborators have installed nodes, written the same peer list, and restarted so each peer has fetched the relay certificate, their public keys appear under Configured Node Keys on the Groups pag"
         },
         {
           "name": "Creating an MPC Signer",
