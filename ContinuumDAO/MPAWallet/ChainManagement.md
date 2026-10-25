@@ -73,6 +73,8 @@ Bitcoin custody is documented in [Bitcoin](/ContinuumDAO/MPAWallet/Bitcoin.md). 
 
 You cannot spend Bitcoin from an **ed25519** KeyGen or EVM **Compose** steps meant for ERC-20 transfers.
 
+Optional checks against a BTC send use a pruned Bitcoin Core on any node in the KeyGen, or an RPC address you save on the **Node** page. See [Bitcoin — optional security check](/ContinuumDAO/MPAWallet/Bitcoin.md#optional-bitcoin-security-check).
+
 ---
 
 ### Solana and other non-EVM chains
