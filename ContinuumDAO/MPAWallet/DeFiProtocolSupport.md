@@ -16,11 +16,11 @@ Market-data-only feeds (for example CoinGecko or CoinMarketCap as optional MCP s
 
 ### Protocol modals — unified experience
 
-Every supported protocol opens in the **same modal pattern** in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, perps, options, and prediction markets all follow one wallet-native flow.
+Every supported protocol opens in the **same modal pattern** in the node app. You do not jump out to separate dApp sites or relearn a new layout for each venue — swaps, lending, staking, bridges, perps, options, prediction markets, and private balances all follow one wallet-native flow.
 
 **How to open a protocol**
 
-- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Derive** on fundable ETH / USDC / WETH / WBTC / HYPE rows, **Aerodrome** on **Base**, **Trueo** on Base native ETH / USDC / TYD / TRUE / YES / NO, **Hyperliquid Outcomes** beside Hyperliquid perps on the Hyperliquid native-asset row, **Aave** / **Compound III** on supply/borrow markets for that asset)
+- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Derive** on fundable ETH / USDC / WETH / WBTC / HYPE rows, **Aerodrome** on **Base**, **Trueo** on Base native ETH / USDC / TYD / TRUE / YES / NO, **Hyperliquid Outcomes** beside Hyperliquid perps on the Hyperliquid native-asset row, **Aave** / **Compound III** on supply/borrow markets for that asset, **Railgun** on an ERC-20 you want to shield)
 - **Multi-sign / protocol UI** — browse available packs for the selected chain and KeyGen when you are not starting from a specific token row
 
 **Shared steps (every pack)**
@@ -40,7 +40,7 @@ See [Asset management — protocol modals](/ContinuumDAO/MPAWallet/AssetManageme
 
 ### Supported protocols
 
-Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Hyperliquid Outcomes**, **Arcus**, **Derive**, **Trueo**, **Circle CCTP**, **Venice**.
+Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Hyperliquid Outcomes**, **Arcus**, **Derive**, **Trueo**, **Circle CCTP**, **Venice**, **Railgun**.
 
 **Permissions / requirements** (human pre-flight): what must be configured before a flow can succeed, and what this integration does not include. Use the same label order when a line applies; omit a label if it does not apply to that protocol.
 
@@ -74,6 +74,7 @@ Agent tool ids, delivery kinds, and Variable anti-patterns live in [For AI agent
 | **Trueo**        | On-chain Yes/No prediction markets: search and trending, chance history, order book; wrap / unwrap USDC ↔ TYD; mint and burn YES+NO; buy or sell Yes/No; limit order and cancel; redeem the winner                                              | **Networks:** Base (**8453**) only.<br>**Secrets:** None.<br>**Setup:** Assets shortcuts on Base ETH, USDC, TYD, TRUE, and YES/NO rows. Collateral is **TYD** (wrap USDC into TYD). After a bet, add that market’s YES or NO token (18 decimals) to the node token list so balances show on the Assets tab.<br>**Rules:** Multi-sign requests expire after 30 minutes. New bets are refused when the market closes within 5 minutes. |
 | **Circle CCTP**  | Cross-chain native **USDC** burn → mint (routes, fees, balance, status)                                                                                                                                               | **Networks:** CCTP-supported source and destination chains configured in your node registry.<br>**Secrets:** None.<br>**Setup:** Source-chain RPC; USDC on the source chain.<br>**Rules:** Destination signing and gas follow the forwarding path implemented in your node build.<br>**Not supported:** CCTP routes not implemented on your node yet. |
 | **Venice**       | Stake / unstake ladder for VVV / sVVV / DIEM (Base); staking reads; model catalog                                                                                                                                     | **Networks:** Base (**8453**).<br>**Secrets:** **`VENICE_API_KEY`** in Variables for the model catalog and API credits (linked to staked DIEM and your Venice account where applicable).<br>**Setup:** Node RPC on Base for on-chain stake / unstake.<br>**Rules:** Staking ladder applies to VVV, sVVV, and DIEM as shown in the UI. |
+| **Railgun**      | Private ERC-20 balances. Shield tokens from the public MPC address into a **0zk** balance, transfer or call DeFi inside the pool, then unshield back to a public address. In-pool activity is hidden with zk-SNARK proofs. A broadcaster can submit the transaction so the public address does not pay gas. | **Networks:** Ethereum, Polygon, BNB Smart Chain, and Arbitrum, when that chain is in your node registry with RPC.<br>**Secrets:** None.<br>**Setup:** Node RPC on the target chain. Shield into the private balance before a private transfer or DeFi call.<br>**Rules:** Shield and unshield show the public address and amount. Only activity inside the pool stays private. A private spend may need a Private Proof of Innocence check before it can be submitted. |
 
 ### For AI agents — DeFi protocols
 
@@ -131,6 +132,11 @@ Use continuum MCP: `list_defi_protocols`, then `load_defi_protocol` before that 
 
 - On-chain stake / unstake does not require Variables; agent **model catalog** and inference credit flows need **`VENICE_API_KEY`** in Variables.
 
+**Railgun**
+
+- Shield is a public deposit from the MPC address into a private **0zk** balance. Unshield is a public withdrawal. Private transfers and in-pool DeFi calls do not reveal token, amount, or counterparty.
+- Load the Railgun pack before shield, private transfer, unshield, or in-pool write tools. Confirm the pack id with `list_defi_protocols`.
+
 **All other table packs**
 
 - Load the matching pack with `load_defi_protocol` before write tools unless the tool description says otherwise.
@@ -143,6 +149,7 @@ Use continuum MCP: `list_defi_protocols`, then `load_defi_protocol` before that 
 - **Node app:** open the multi-sign / protocol UI for the same packs (no agent required).
 - **Derive:** the Trade tab lists calls / puts from an expiry + ATM strike ladder (not a full-chain dump). Inspectors cover payoff / greeks / ticket / book. Charting Derive OHLCV is optional and does **not** turn a technical-analysis idea into an options ticket — use the Derive pack to quote and place.
 - **Prediction markets:** **Trueo** (Base, on-chain YES/NO ERC20s) and **Hyperliquid Outcomes** (HIP-4, HyperCore balances) are separate packs. `search_prediction_markets` can search both; pass a venue to restrict to one. Hyperliquid perps stay on the **Hyperliquid** pack, not Outcomes.
+- **Railgun:** private balances for ERC-20s. Shield into a **0zk** address, then transfer or use DeFi without revealing the in-pool details, and unshield when you want the tokens public again.
 - Support and chains evolve with releases; if a chain or action is missing in the UI or skill, it is not available on your node build yet.
 
 ### Related
