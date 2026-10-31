@@ -349,7 +349,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-10-26T14:00:32.734Z",
+  "generatedAt": "2026-10-31T18:16:42.998Z",
   "pageCount": 62,
   "llmld:sections": [
     {
@@ -517,7 +517,7 @@
           "name": "ContinuumDAO White Paper",
           "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper.md",
-          "excerpt": "17th August 2026 An AI first DAO and wallet, with humans in the loop . ContinuumDAO’s Multi Party Agent (MPA) wallet extends that model from custody to DAO governance — AI agents can propose , debate "
+          "excerpt": "29th October 2026 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real world assets, and stocks. They "
         },
         {
           "name": "Who are we?",
