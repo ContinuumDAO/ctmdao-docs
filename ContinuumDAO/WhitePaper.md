@@ -109,31 +109,33 @@ ContinuumDAO has completed successful QuillAudits reviews of the veCTM, Governan
 
 ### ContinuumDAO Roadmap
 
-(1) Build the community through a vibrant DAO, and encourage new ideas, collaboration, and support among people using our products, with an emphasis on *real people* helping each other.
+(1) Build the community through a vibrant DAO. Encourage new ideas, collaboration, and mutual support among the people who use our products, with an emphasis on *real people* helping each other.
 
 (2) Form a company in RAKDAO to give ContinuumDAO legal certainty. This is underway. An LLC in the United States is also under consideration.
 
-(3) Use the talents of DAO members to build ContinuumDAO together. We try to involve experienced people in our work. A few community members are currently helping to test the MPA Wallet. Others are helping with security and marketing.
+(3) Build ContinuumDAO with the talents of its members. We try to involve experienced people in the work. A few community members are currently helping to test the MPA Wallet. Others are helping with security and marketing.
 
-(4) Continue integrating Web3 DeFi protocols with MPA Wallet MPC signatures, beyond the 22 protocols supported today. Our aim is to integrate all of DeFi into one experience for users, without favoring any blockchain or protocol.
+(4) Continue integrating Web3 DeFi protocols so they work with MPA Wallet MPC signatures, beyond the 22 protocols supported today. Our aim is to integrate all of DeFi into one experience for users, without favoring any blockchain or protocol.
 
 (5) **Develop the AI harness for the MPA Wallet**, and establish it as the **premier AI harness for safe on-chain custody and trading**. This work will be ongoing and will take a large share of the DAO’s time and effort. We will keep updating the harness as the AI landscape changes.
 
 (6) Develop the network of MPA Wallets so that their built-in AI harnesses can discover each other, negotiate and refine proposals, and offer services to each other. This work has started, and it is still at an early stage.
 
-(7) Build a framework that lets the built-in AI agent harness integrate new DeFi protocols securely, as a community effort, and create a community plugin repository for the MPA Wallet. This extends the agent’s coding capability, with tools that give clear guidance and with constructs and methods known to work well with DeFi protocols. It will also help MPA Wallet agents offer one another services that include coding tasks. Estimated delivery: Q2 2027.
+(7) Build both a framework that lets community members use the built-in AI agent harness to integrate new DeFi protocols securely and a community plugin repository for the MPA Wallet. This extends the agent’s coding capability through tools that give clear guidance, and through constructs and methods known to work well with DeFi protocols. It will also help MPA Wallet agents offer one another services that include coding tasks. Estimated delivery: Q2 2027.
 
-(8) Establish community-run **MPC Groups**, built from MPA Wallet nodes, and attach them to the Relayer for C3Caller signing. Estimated delivery: Q2 2027.
+(8) Build an AI security service that checks every DeFi interaction and protects users. It will cover coding errors, inappropriate contract interactions, and contact with known hackers, fraudsters, or actors that are not OFAC-compliant.
 
-(9) Test the new Relayer and Scanner for the C3Caller backend. This adds further security layers and lets the DAO control the backend through smart contracts and governance votes. Estimated initial delivery: Q4 2026. The DAO will add AI monitoring of cross-chain traffic to its security plan. That work will be ongoing.
+(9) Establish community-run **MPC Groups**, built from MPA Wallet nodes, and attach them to the Relayer for C3Caller signing. Estimated delivery: Q2 2027.
 
-(10) Develop an AI security model for cross-chain monitoring. This work is planned to start in Q1 2027.
+(10) Test the new Relayer and Scanner for the C3Caller backend. They add further security layers and let the DAO control the backend through smart contracts and governance votes. Estimated initial delivery: Q3 2027. The DAO will add AI monitoring of cross-chain traffic to its security plan. That work will be ongoing.
 
-(11) Extend the Continuum MPC network to non-EVM chains such as Solana, Soroban, and NEAR. This work will continue throughout 2027.
+(11) Develop an AI security model for cross-chain monitoring. This work is planned to start in Q1 2027.
 
-(12) Audit DevOps for the Scanner and the Relayer. Estimated timing: Q2 2027.
+(12) Extend the Continuum MPC network to non-EVM chains such as Solana, Soroban, and NEAR. This work will continue throughout 2027.
 
-(13) Develop DAO treasury management, assisted by our AI harness. The DAO is owned by its token holders. The aim is to build the treasury and then use it to further our objective: a better decentralized financial system. The DAO can invest in new projects, trade, and donate to good causes, so long as it adheres to the Constitution.
+(13) Audit DevOps for the Scanner and the Relayer. Estimated timing: Q2 2027.
+
+(14) Develop DAO treasury management with help from our AI harness. The DAO is owned by its token holders. The aim is to build the treasury and then use it toward a better decentralized financial system. The DAO can invest in new projects, trade, and donate to good causes, so long as it adheres to the Constitution.
 
 
 
