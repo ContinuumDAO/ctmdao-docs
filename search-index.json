@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-31T18:45:41.732Z",
+  "generatedAt": "2026-11-02T13:35:09.762Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3824,7 +3824,7 @@
       "section": "",
       "headings": [],
       "sections": [],
-      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop.",
+      "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO A network of AI and human controlled nodes, integrating all of DeFi, secured by Multi Party Computation cryptography.",
       "url": "https://docs.continuumdao.org/README"
     },
     {

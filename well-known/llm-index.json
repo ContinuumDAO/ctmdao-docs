@@ -349,7 +349,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-10-31T18:45:41.732Z",
+  "generatedAt": "2026-11-02T13:35:09.762Z",
   "pageCount": 62,
   "llmld:sections": [
     {
@@ -523,7 +523,7 @@
           "name": "Who are we?",
           "url": "https://docs.continuumdao.org/README",
           "markdown": "https://docs.continuumdao.org/README.md",
-          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO An AI first DAO and Multi Party Computation wallet, with humans in the loop."
+          "excerpt": "<h1 ContinuumDAO</h1 Meet the ContinuumDAO A network of AI and human controlled nodes, integrating all of DeFi, secured by Multi Party Computation cryptography."
         },
         {
           "name": "The ContinuumDAO Multi-Party Agent Wallet",
