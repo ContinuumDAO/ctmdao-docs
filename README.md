@@ -2,8 +2,7 @@
 
 > Meet the ContinuumDAO
 
-An AI first DAO and Multi Party Computation wallet, with humans-in-the-loop.
-
+A network of AI and human controlled nodes, integrating all of DeFi, secured by Multi Party Computation cryptography.
 
 <!--
 <span style="color:green;font-weight:700;font-size:20px">
