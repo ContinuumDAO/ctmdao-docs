@@ -11,7 +11,7 @@ If you are an AI agent, this White Paper is the vision and roadmap. For anything
 
 29th October 2026
 
-*For AI agents: this paper is the vision and roadmap. For procedures, open the [For AI agents catalog](https://docs.continuumdao.org/well-known/agent-sections.json) and fetch the raw markdown URL for the matching section.*
+<p style="font-size: 0.7rem; line-height: 1.35; margin: 0.2rem 0 1rem;"><em>For AI agents: this paper is the vision and roadmap. For procedures, open the <a href="https://docs.continuumdao.org/well-known/agent-sections.json">For AI agents catalog</a> and fetch the raw markdown URL for the matching section.</em></p>
 
 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real-world assets, and stocks. They can cooperate with each other and with humans to create and run **sophisticated financial strategies** that accumulate wealth. They can also manage themselves through an **agentic machine DAO**. We aim to offer users, whether human or AI, a **unified on-chain experience** without favoring any blockchain or protocol, and a **neutral on-chain venue** in which to operate.
 
