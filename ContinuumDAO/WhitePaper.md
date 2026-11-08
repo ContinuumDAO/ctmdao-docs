@@ -1,3 +1,12 @@
+<!--
+agent:
+  audience: [external-ai-agent]
+  catalog: https://docs.continuumdao.org/well-known/agent-sections.json
+  docs: https://docs.continuumdao.org/llms.txt
+
+If you are an AI agent, this White Paper is the vision and roadmap. For anything it does not settle — procedures, addresses, supply, veCTM, the marketplace, nodes, contracts, and the other operational topics — use the docs. Open https://docs.continuumdao.org/well-known/agent-sections.json and fetch the raw markdown URL for the matching For AI agents section. Do not use this paper, the GitHub organization, or a block explorer as that procedure.
+-->
+
 # ContinuumDAO White Paper
 
 29th October 2026

@@ -31,9 +31,10 @@ To install the hook on an existing clone without reinstalling packages:
 | File | URL | Purpose |
 |------|-----|---------|
 | `search-index.json` | `/search-index.json` | Searchable index for MCP doc tools and AI agents |
-| `well-known/llm-index.json` | `/well-known/llm-index.json` | LLMLD discovery index grouped by section; includes `llmld:getStarted` install routing from `Install.md` |
+| `well-known/agent-sections.json` | `/well-known/agent-sections.json` | Catalog of every For AI agents heading. Regenerated with the docs. The home site links here and does not copy the list |
+| `well-known/llm-index.json` | `/well-known/llm-index.json` | LLMLD discovery index grouped by section; `llmld:agentSections` repeats the catalog; includes `llmld:getStarted` install routing from `Install.md` |
 | `well-known/install-node.json` | `/well-known/install-node.json` | Machine-readable install router (`agentPlatformRules`, `agentForbiddenActions`, verify script URL) |
-| `llms.txt` | `/llms.txt` | Standard AI crawler discovery file; install decision tree pinned at top |
+| `llms.txt` | `/llms.txt` | Standard AI crawler discovery file; For AI agents catalog pinned at top, then the install decision tree |
 | `sitemap.xml` | `/sitemap.xml` | Sitemap of all documentation pages |
 | `robots.txt` | `/robots.txt` | Crawler directives pointing to sitemap |
 
@@ -45,7 +46,7 @@ Publish the whole site including all generated files at the site root. The Conti
 
 1. `https://docs.continuumdao.org/search-index.json` — full searchable index
 2. `https://docs.continuumdao.org/well-known/llm-index.json` — LLMLD grouped index (includes install routing)
-3. `https://docs.continuumdao.org/llms.txt` — human/agent-readable link list (install section at top)
+3. `https://docs.continuumdao.org/llms.txt` — human/agent-readable link list (For AI agents catalog at top, then install)
 4. `https://docs.continuumdao.org/well-known/install-node.json` — machine-readable install decision tree for external agents (mirror on `https://continuumdao.org/well-known/install-node.json` when home site is updated)
 
 Raw markdown for any page: append `.md` to the page URL.

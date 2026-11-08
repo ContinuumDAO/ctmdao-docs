@@ -9,6 +9,7 @@
   "llmld:summary": {
     "one_liner": "Official ContinuumDAO documentation: MPC network, Multi-Party Agent Wallet, C3Caller cross-chain messaging, governance, and node operations.",
     "key_facts": [
+      "External AI agents with no node MCP tools must answer from llmld:agentSections (raw markdown). Do not use the White Paper, GitHub, or a block explorer as the procedure.",
       "Docs are markdown source files served at stable URLs; append .md to any page path for raw content.",
       "search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.",
       "MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.",
@@ -345,6 +346,100 @@
         "Windows agent",
         "recovery"
       ]
+    }
+  ],
+  "llmld:agentSectionsUrl": "https://docs.continuumdao.org/well-known/agent-sections.json",
+  "llmld:agentSections": [
+    {
+      "page": "Marketplace",
+      "title": "For AI agents",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace#for-ai-agents",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace.md#for-ai-agents",
+      "excerpt": "Who signs. To send the calls below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea. The seller’s key must own the veCT"
+    },
+    {
+      "page": "Tokenomics",
+      "title": "For AI agents",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics#for-ai-agents",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics.md#for-ai-agents",
+      "excerpt": "Audience: agents that need supply, addresses, or a wallet’s locks. The reads below are public HTTP. They do not require a wallet or a private key. Writes are di"
+    },
+    {
+      "page": "veCTM",
+      "title": "For AI agents",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM#for-ai-agents",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM.md#for-ai-agents",
+      "excerpt": "Who signs. To call the functions below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea and must own the CTM or the veC"
+    },
+    {
+      "page": "Configure the AI harness",
+      "title": "For AI agents — Provider",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider",
+      "excerpt": "Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i"
+    },
+    {
+      "page": "Agent provision and configure",
+      "title": "Hard rules for AI agents (VPS and home PC)",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision#hard-rules-for-ai-agents-vps-and-home-pc",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md#hard-rules-for-ai-agents-vps-and-home-pc",
+      "excerpt": "Load install node.json or this section before running any shell on the operator’s machines. Linux VPS — MUST Rule Detail Use the published one shot only Exact c"
+    },
+    {
+      "page": "Attach your node",
+      "title": "For AI agents — ports and one node at a time",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode#for-ai-agents-ports-and-one-node-at-a-time",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode.md#for-ai-agents-ports-and-one-node-at-a-time",
+      "excerpt": "When coaching attach or SSH tunnels, use only these loopback ports (same local and remote in L ): Port Use 3333 node app 8080 management HTTP — attach signing ("
+    },
+    {
+      "page": "DeFi protocol support",
+      "title": "For AI agents — DeFi protocols",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DeFiProtocolSupport#for-ai-agents-defi-protocols",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md#for-ai-agents-defi-protocols",
+      "excerpt": "Use continuum MCP: list defi protocols , then load defi protocol before that pack’s write tools unless the tool docs say otherwise. Built transactions still use"
+    },
+    {
+      "page": "Install a node",
+      "title": "For AI agents — full provision and configure",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install#for-ai-agents-full-provision-and-configure",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents-full-provision-and-configure",
+      "excerpt": "If you are an AI agent asked to provision or configure a node, start here: Agent provision and configure (topology, oneshot, SSH tunnel to :8446 , peers / MQTT,"
+    },
+    {
+      "page": "Install a node",
+      "title": "For AI agents — macOS home PC",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install#for-ai-agents-macos-home-pc",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents-macos-home-pc",
+      "excerpt": "Audience: external AI agents helping an operator install on this Mac . Discover via search continuum docs ( macOS install node , Docker Desktop Mac ) or install"
+    },
+    {
+      "page": "Install a node",
+      "title": "For AI agents",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install#for-ai-agents",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Install.md#for-ai-agents",
+      "excerpt": "Full mesh playbook: Agent provision and configure. Write the same peer list on each node ( set configured nodes ), then have the operator restart that node. Do "
+    },
+    {
+      "page": "Uninstall a node",
+      "title": "For AI agents",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall#for-ai-agents",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Uninstall.md#for-ai-agents",
+      "excerpt": "If you are an AI agent asked to uninstall, remove, decommission, or wipe a node, load the skill for the operator’s OS (or the target host). Discover this page w"
+    },
+    {
+      "page": "Overview",
+      "title": "AI agent steps",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#ai-agent-steps",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md#ai-agent-steps",
+      "excerpt": "For the built in Agent chat / Telegram harness on the node. External agents (Claude with SSH tunnel + MCP, same as Agent provision) should follow External AI ag"
+    },
+    {
+      "page": "Overview",
+      "title": "External AI agent (SSH tunnel + MCP)",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN#external-ai-agent-ssh-tunnel-mcp",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/PrivateVPN.md#external-ai-agent-ssh-tunnel-mcp",
+      "excerpt": "Audience: external AI agents only (Claude, Cursor, Claude Code, etc.) — not human how to steps. This assumes the same Path A attachment as Agent provision and c"
     }
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",

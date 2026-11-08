@@ -119,7 +119,47 @@ function writeIfChanged(path, content) {
 	return true;
 }
 
-/** @typedef {{ path: string, title: string, section: string, excerpt: string, url: string }} DocPage */
+/** @typedef {{ path: string, title: string, section: string, excerpt: string, url: string, sections?: { id: string, title: string, level: number, excerpt: string }[] }} DocPage */
+
+/** Headings written for an agent, not the human intro on the same page. */
+const AGENT_SECTION_RE =
+	/for ai agents|external ai agent|hard rules for ai agents|^ai agent steps$/i;
+
+/** @param {DocPage[]} pages */
+function collectAgentSections(pages) {
+	/** @type {{ page: string, title: string, url: string, markdown: string, excerpt: string }[]} */
+	const out = [];
+	for (const page of pages) {
+		for (const section of page.sections ?? []) {
+			const title = String(section.title ?? '').replace(/\*\*/g, '').trim();
+			if (!section.id || !AGENT_SECTION_RE.test(title)) continue;
+			out.push({
+				page: page.title,
+				title,
+				url: `${page.url}#${section.id}`,
+				markdown: `${page.url}.md#${section.id}`,
+				excerpt: String(section.excerpt ?? '').replace(/\s+/g, ' ').trim().slice(0, 160),
+			});
+		}
+	}
+	return out;
+}
+
+/** @param {ReturnType<typeof collectAgentSections>} sections */
+function buildAgentSectionLines(sections) {
+	return [
+		'## External AI agents — read the For AI agents section first',
+		'',
+		'If you are an external agent (Grok, Pi, ChatGPT, Claude, or similar) and you do not have Continuum node MCP tools, answer operational questions from the raw markdown links below. The same list is [agent-sections.json](' +
+			DOCS_BASE_URL +
+			'/well-known/agent-sections.json). Do not use the White Paper, https://github.com/ContinuumDAO, or a block explorer as the procedure. The White Paper is vision and roadmap. GitHub is source code. An explorer shows chain history. A doc page that is not in this list is written for human readers.',
+		'',
+		...sections.map(
+			s => `- [${s.page} — ${s.title}](${s.markdown}): ${s.excerpt}`,
+		),
+		'',
+	];
+}
 
 /** @param {DocPage[]} pages */
 function groupPagesBySection(pages) {
@@ -401,6 +441,7 @@ function buildInstallNodeJson(installDiscovery, generatedAt) {
 /** @param {{ version: number, generatedAt: string, pages: DocPage[] }} index @param {ReturnType<typeof parseAgentMetadata>} antiPatternsMeta */
 function buildLlmIndex(index, installDiscovery, antiPatternsMeta) {
 	const grouped = groupPagesBySection(index.pages);
+	const agentSections = collectAgentSections(index.pages);
 	return {
 		'@context': ['https://schema.org', 'https://llmld.org/v1'],
 		'@type': 'llmld:AIDocumentation',
@@ -410,6 +451,7 @@ function buildLlmIndex(index, installDiscovery, antiPatternsMeta) {
 			one_liner:
 				'Official ContinuumDAO documentation: MPC network, Multi-Party Agent Wallet, C3Caller cross-chain messaging, governance, and node operations.',
 			key_facts: [
+				'External AI agents with no node MCP tools must answer from llmld:agentSections (raw markdown). Do not use the White Paper, GitHub, or a block explorer as the procedure.',
 				'Docs are markdown source files served at stable URLs; append .md to any page path for raw content.',
 				'search-index.json lists every page with titles, sections, headings, and excerpts for programmatic search.',
 				'MPA wallet AI agents use search_continuum_docs and get_continuum_doc MCP tools backed by this index.',
@@ -451,6 +493,8 @@ function buildLlmIndex(index, installDiscovery, antiPatternsMeta) {
 					]
 				: []),
 		],
+		'llmld:agentSectionsUrl': `${DOCS_BASE_URL}/well-known/agent-sections.json`,
+		'llmld:agentSections': agentSections,
 		'llmld:searchIndex': `${DOCS_BASE_URL}/search-index.json`,
 		'llmld:markdownSuffix': '.md',
 		generatedAt: index.generatedAt,
@@ -474,6 +518,7 @@ function buildLlmsTxt(index, install) {
 		'',
 		'> Official documentation for ContinuumDAO — a public permissionless decentralized MPC network for cross-chain messaging, AI agentic wallets, and cross-chain governance.',
 		'',
+		...buildAgentSectionLines(collectAgentSections(index.pages)),
 		'## Start here — install an MPA wallet node',
 		'',
 		'**For AI agents (Claude, Cursor, Grok):** if the user wants you to provision or configure a VPS node, load [Agent provision and configure](' +
@@ -594,6 +639,22 @@ const configureTask = {
 	...(Array.isArray(configureMeta?.keywords) ? {keywords: configureMeta.keywords} : {}),
 };
 
+const agentSections = collectAgentSections(index.pages);
+writeIfChanged(
+	join(root, 'well-known', 'agent-sections.json'),
+	JSON.stringify(
+		{
+			name: 'ContinuumDAO For AI agents sections',
+			url: `${DOCS_BASE_URL}/well-known/agent-sections.json`,
+			generatedAt: index.generatedAt,
+			instruction:
+				'External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.',
+			sections: agentSections,
+		},
+		null,
+		2,
+	),
+);
 writeIfChanged(
 	join(root, 'well-known', 'llm-index.json'),
 	JSON.stringify(buildLlmIndex(index, installDiscovery, antiPatternsMeta), null, 2),
