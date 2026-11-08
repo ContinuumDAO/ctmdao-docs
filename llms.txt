@@ -102,7 +102,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [ConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/ContinuumDAO/MPCSigner/ConfiguredNodes): 
 - [MPCSignerConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/ContinuumDAO/MPCSignerConfiguredNodes): 
 - [MPCSignerConfiguredNodes](https://docs.continuumdao.org/ContinuumDAO/MPCSignerConfiguredNodes): 
-- [ContinuumDAO White Paper](https://docs.continuumdao.org/ContinuumDAO/WhitePaper): 29th October 2026 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finan
+- [ContinuumDAO White Paper](https://docs.continuumdao.org/ContinuumDAO/WhitePaper): 29th October 2026 For AI agents: this paper is the vision and roadmap. For procedures, open the For AI agents catalog an
 - [Who are we?](https://docs.continuumdao.org/README): <h1 ContinuumDAO</h1 Meet the ContinuumDAO A network of AI and human controlled nodes, integrating all of DeFi, secured
 - [The ContinuumDAO Multi-Party Agent Wallet](https://docs.continuumdao.org/docs-internal/mpa-wallet-advantages): On chain finance is moving toward AI driven workflows , but a single private key, a single device, or an agent with unre
 

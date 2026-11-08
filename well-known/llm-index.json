@@ -444,7 +444,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-08T12:27:32.189Z",
+  "generatedAt": "2026-11-08T15:43:53.376Z",
   "pageCount": 65,
   "llmld:sections": [
     {
@@ -635,7 +635,7 @@
           "name": "ContinuumDAO White Paper",
           "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper.md",
-          "excerpt": "29th October 2026 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real world assets, and stocks. They "
+          "excerpt": "29th October 2026 For AI agents: this paper is the vision and roadmap. For procedures, open the For AI agents catalog and fetch the raw markdown URL for the matching section. Our vision is to unify De"
         },
         {
           "name": "Who are we?",

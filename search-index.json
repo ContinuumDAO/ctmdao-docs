@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-08T12:27:32.189Z",
+  "generatedAt": "2026-11-08T15:43:53.376Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3931,7 +3931,7 @@
           "id": "continuumdao-white-paper",
           "title": "ContinuumDAO White Paper",
           "level": 1,
-          "excerpt": "29th October 2026 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real world assets, and stocks. They can cooperate with each other and with humans to create and run sophisticated financial strategies t"
+          "excerpt": "29th October 2026 For AI agents: this paper is the vision and roadmap. For procedures, open the For AI agents catalog and fetch the raw markdown URL for the matching section. Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialist"
         },
         {
           "id": "welcome-to-continuum",
@@ -4072,7 +4072,7 @@
           "excerpt": "At the DAO’s discretion, there will be a grant program for new projects that use Continuum. A grant may be paid in CTM or in other tokens from the Treasury. The DAO will help new projects that want to use ContinuumDAO’s codebases, through coding support, joint marketing, and technical support as nee"
         }
       ],
-      "excerpt": "29th October 2026 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real world assets, and stocks. They can cooperate with each other and with humans to create and run sophisticated financial strategies t",
+      "excerpt": "29th October 2026 For AI agents: this paper is the vision and roadmap. For procedures, open the For AI agents catalog and fetch the raw markdown URL for the matching section. Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialist",
       "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper"
     },
     {
