@@ -444,7 +444,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-08T15:43:53.376Z",
+  "generatedAt": "2026-11-08T17:39:29.332Z",
   "pageCount": 65,
   "llmld:sections": [
     {
@@ -635,7 +635,7 @@
           "name": "ContinuumDAO White Paper",
           "url": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/WhitePaper.md",
-          "excerpt": "29th October 2026 For AI agents: this paper is the vision and roadmap. For procedures, open the For AI agents catalog and fetch the raw markdown URL for the matching section. Our vision is to unify De"
+          "excerpt": "29th October 2026 <p style=\"font size: 0.7rem; line height: 1.35; margin: 0.2rem 0 1rem;\" <em For AI agents: this paper is the vision and roadmap. For procedures, open the <a href=\"https://docs.contin"
         },
         {
           "name": "Who are we?",
