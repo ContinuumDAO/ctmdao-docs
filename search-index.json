@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-02T13:35:09.762Z",
+  "generatedAt": "2026-11-08T12:27:32.189Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -488,6 +488,263 @@
       ],
       "excerpt": "C3Caller is not yet live. The steps below describe the workflow for when protocol contracts are deployed. See Contract Addresses for launch status. There is no live registration frontend yet (C3Caller Hub — coming soon). When live, register on each network where you want to send or receive messages.",
       "url": "https://docs.continuumdao.org/ContinuumDAO/C3Caller/QuickStart"
+    },
+    {
+      "path": "ContinuumDAO/CTMToken/Marketplace",
+      "title": "Marketplace",
+      "section": "CTM Token",
+      "headings": [
+        "Marketplace for veCTM",
+        "Listings, offerings, and auctions",
+        "The NFT stays with you until an auction",
+        "Buy a listed token",
+        "Bid in an auction",
+        "Settlement",
+        "For AI agents",
+        "Calls"
+      ],
+      "sections": [
+        {
+          "id": "marketplace-for-vectm",
+          "title": "Marketplace for veCTM",
+          "level": 2,
+          "excerpt": "The marketplace sells veCTM NFTs on Linea. A holder can offer an NFT at a fixed price, a buyer can offer to buy a specific NFT, or a holder can run an auction. Settlement pays the seller in the payment token (USDC on Linea today) and moves the NFT to the buyer. The seller keeps the lock: the buyer r"
+        },
+        {
+          "id": "listings-offerings-and-auctions",
+          "title": "Listings, offerings, and auctions",
+          "level": 3,
+          "excerpt": "Listing. The owner sets an ask price and a deadline and puts the NFT up for anyone to buy. The NFT stays in the owner’s wallet. Creating the listing does not move it and does not require approving the marketplace yet. The seller approves the marketplace for that token id before a buyer can complete "
+        },
+        {
+          "id": "the-nft-stays-with-you-until-an-auction",
+          "title": "The NFT stays with you until an auction",
+          "level": 3,
+          "excerpt": "A listing or an offering is non custodial. The owner can still see the NFT in their wallet. The order stores a snapshot of how much CTM is locked and when it unlocks. If the owner later changes that lock, the order stops being fillable on its own: Less CTM locked than at the snapshot (a split is the"
+        },
+        {
+          "id": "buy-a-listed-token",
+          "title": "Buy a listed token",
+          "level": 3,
+          "excerpt": "Open Escrow → Marketplace and choose a listing. The page shows the ask, the payment token (USDC on Linea), how much CTM is locked, and when the lock ends. You receive that same veCTM: the same token id, the same locked CTM, and the same unlock date. Connect the wallet that will pay. Approve the paym"
+        },
+        {
+          "id": "bid-in-an-auction",
+          "title": "Bid in an auction",
+          "level": 3,
+          "excerpt": "Open a live auction on Escrow → Marketplace. A winning bid receives the same veCTM the seller locked: the same token id, the same locked CTM, and the same unlock date. A veCTM attached to a node cannot be bid on until governance detaches it. The first bid has to meet the reserve price. Each later bi"
+        },
+        {
+          "id": "settlement",
+          "title": "Settlement",
+          "level": 3,
+          "excerpt": "Listing. The buyer calls fulfillListing(tokenId, seller, paymentToken, price) with the price and token from the open order. The buyer must have approved the payment token (USDC on Linea uses 6 decimals). The seller must have approved the marketplace for the NFT. The contract pulls the payment, sends"
+        },
+        {
+          "id": "for-ai-agents",
+          "title": "For AI agents",
+          "level": 3,
+          "excerpt": "Who signs. To send the calls below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea. The seller’s key must own the veCTM (or be approved for it). The buyer’s key must hold the payment token. A KeyGen address has no private key. Use the node app or the node MC"
+        },
+        {
+          "id": "calls",
+          "title": "Calls",
+          "level": 4,
+          "excerpt": "Action Who calls Function List Owner createListing(tokenId, paymentToken, ask, deadline) Remove a listing Owner delist(tokenId) Buy a listing Buyer fulfillListing(tokenId, seller, paymentToken, price) Make an offer Anyone except the owner createOffering(tokenId, paymentToken, bid, deadline) Cancel y"
+        }
+      ],
+      "excerpt": "The marketplace sells veCTM NFTs on Linea. A holder can offer an NFT at a fixed price, a buyer can offer to buy a specific NFT, or a holder can run an auction. Settlement pays the seller in the payment token (USDC on Linea today) and moves the NFT to the buyer. The seller keeps the lock: the buyer r",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace"
+    },
+    {
+      "path": "ContinuumDAO/CTMToken/Tokenomics",
+      "title": "Tokenomics",
+      "section": "CTM Token",
+      "headings": [
+        "Tokenomics",
+        "Supply",
+        "Allocation",
+        "For AI agents",
+        "Supply and addresses",
+        "A wallet’s veCTM",
+        "Node MCP"
+      ],
+      "sections": [
+        {
+          "id": "tokenomics",
+          "title": "Tokenomics",
+          "level": 2,
+          "excerpt": "CTM is ContinuumDAO’s token. The contract is CTM , which extends CTMERC20 : an ERC 20 with native cross chain transfer through C3Caller. A cross chain send burns CTM on the source chain and asks the peer contract on the destination chain to mint the same amount. If the destination call fails, the so"
+        },
+        {
+          "id": "supply",
+          "title": "Supply",
+          "level": 3,
+          "excerpt": "Figure What it is Maximum supply 100 million CTM. Governance cannot mint past maxSupply on the Ethereum home contract. Global supply globalSupply() on Ethereum. Every mint and burn on the home contract updates it. A cross chain transfer moves CTM between chains and leaves global supply unchanged. In"
+        },
+        {
+          "id": "allocation",
+          "title": "Allocation",
+          "level": 3,
+          "excerpt": "The mint cap is allocated as follows. The chart and the longer treasury narrative are also in the White Paper — Tokenomics. <img src=\"/ media/ctm distribution.png\" alt=\"CTM allocation\"/ DAO Treasury — 45%. Spending is decided by on chain veCTM votes. The treasury may fund projects, pay for services,"
+        },
+        {
+          "id": "for-ai-agents",
+          "title": "For AI agents",
+          "level": 3,
+          "excerpt": "Audience: agents that need supply, addresses, or a wallet’s locks. The reads below are public HTTP. They do not require a wallet or a private key. Writes are different. Creating a lock, adding CTM, extending its unlock time, withdrawing after expiry, splitting, merging, liquidating, or trading on th"
+        },
+        {
+          "id": "supply-and-addresses",
+          "title": "Supply and addresses",
+          "level": 4,
+          "excerpt": "Request Returns GET /metrics escrowed , totalSupply , circulatingSupply , totalPower , holders , avgLockDuration . All amounts are decimal wei strings (18 decimals), except holders (count) and avgLockDuration (seconds). totalSupply is globalSupply() , not Linea totalSupply() . GET /protocol/ctm { \"a"
+        },
+        {
+          "id": "a-wallet-s-vectm",
+          "title": "A wallet’s veCTM",
+          "level": 4,
+          "excerpt": "Request Returns GET /user/:address That wallet’s delegate and its veCTM rows: id , locked , end , votes GET /tokens?ids=1,2,3 Lock and vote data for those token ids GET /tokens?page=N Up to 16 veNFTs per page ( page 0 is the newest) locked , end , and votes are wei / unix seconds strings. NFT art is"
+        },
+        {
+          "id": "node-mcp",
+          "title": "Node MCP",
+          "level": 4,
+          "excerpt": "On an MPA node, the catalog server continuumdao tokenomics ( /mcp/continuumdao tokenomics ) wraps this API. Load it with resolve catalog mcp enablement({ toolset: \"continuumdao tokenomics\" }) , then agent load mcp server({ serverId: \"continuumdao tokenomics\" }) . Tools are prefixed continuumdao toke"
+        }
+      ],
+      "excerpt": "CTM is ContinuumDAO’s token. The contract is CTM , which extends CTMERC20 : an ERC 20 with native cross chain transfer through C3Caller. A cross chain send burns CTM on the source chain and asks the peer contract on the destination chain to mint the same amount. If the destination call fails, the so",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics"
+    },
+    {
+      "path": "ContinuumDAO/CTMToken/VeCTM",
+      "title": "veCTM",
+      "section": "CTM Token",
+      "headings": [
+        "veCTM",
+        "Create a lock",
+        "Increase unlock time",
+        "Increase amount",
+        "Withdraw",
+        "Delegate",
+        "Split, merge, and liquidate",
+        "Attach to a node",
+        "For AI agents",
+        "Create a lock for the caller",
+        "Create a lock for another wallet",
+        "Increase unlock time",
+        "Increase amount",
+        "Withdraw",
+        "Delegate",
+        "Split, merge, liquidate",
+        "KeyGen addresses"
+      ],
+      "sections": [
+        {
+          "id": "vectm",
+          "title": "veCTM",
+          "level": 2,
+          "excerpt": "veCTM is a voting escrow NFT. You lock CTM for a period you choose, up to four years, and the lock becomes an NFT. The NFT’s voting power starts from how much CTM is inside it and how long is left on the lock, then declines toward zero as the unlock date gets closer. A lock of the same size held for"
+        },
+        {
+          "id": "create-a-lock",
+          "title": "Create a lock",
+          "level": 3,
+          "excerpt": "On Escrow, connect the wallet that holds CTM, approve the VotingEscrow contract to spend that CTM, and create a lock. You choose the amount and the duration. The contract rounds the unlock time down to a week boundary. The shortest practical lock is one week. The longest is four years (208 weeks). E"
+        },
+        {
+          "id": "increase-unlock-time",
+          "title": "Increase unlock time",
+          "level": 3,
+          "excerpt": "Increase Unlock Time keeps the same NFT and the same locked CTM, and moves the unlock date further out. Voting power rises because more time is left on the lock. The new date has to be later than the current unlock, and it cannot be more than four years from today. The contract rounds the date down "
+        },
+        {
+          "id": "increase-amount",
+          "title": "Increase amount",
+          "level": 3,
+          "excerpt": "Increase Amount adds more CTM to a veCTM you already hold. The unlock date stays the same. Voting power rises because more CTM is locked for the time that remains. On Escrow, open Increase Amount , select the veCTM, and enter the extra CTM. The wallet approves VotingEscrow for that amount, then the "
+        },
+        {
+          "id": "withdraw",
+          "title": "Withdraw",
+          "level": 3,
+          "excerpt": "Withdraw is how a finished lock becomes CTM again. After the unlock time has passed, open Withdraw on Escrow, select that veCTM, and confirm. The contract sends the full locked CTM back to the owner and burns the NFT. There is no penalty. Withdraw is available only once locked.end is in the past. Be"
+        },
+        {
+          "id": "delegate",
+          "title": "Delegate",
+          "level": 3,
+          "excerpt": "Delegate lets another address vote with your veCTM. You keep the NFTs. The other address receives the voting power for governance: proposals and votes read getVotes on the address that acts, and after you delegate that power is counted at the delegatee. Delegation is for the whole wallet , not one N"
+        },
+        {
+          "id": "split-merge-and-liquidate",
+          "title": "Split, merge, and liquidate",
+          "level": 3,
+          "excerpt": "These three actions are on the Escrow page. They also fail while the NFT is attached to a node. Split takes some of the locked CTM out of an NFT and mints a second NFT. Both pieces keep the same unlock time. Each piece must still meet minimumLock (1 CTM by default). <img src=\"/ media/vectm escrow sp"
+        },
+        {
+          "id": "attach-to-a-node",
+          "title": "Attach to a node",
+          "level": 3,
+          "excerpt": "Attaching binds one veCTM to one KeyGen on an MPA Wallet node. The KeyGen that owns the NFT, and that is the node’s withdraw authority, submits the attach. While the NFT is attached you cannot transfer it, split it, merge it, liquidate it, or withdraw it. Removing it is a governance vote. The node a"
+        },
+        {
+          "id": "for-ai-agents",
+          "title": "For AI agents",
+          "level": 3,
+          "excerpt": "Who signs. To call the functions below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea and must own the CTM or the veCTM (or be approved for it). A browser wallet counts when the agent can send transactions through it, because the key is still what signs. A "
+        },
+        {
+          "id": "create-a-lock-for-the-caller",
+          "title": "Create a lock for the caller",
+          "level": 4,
+          "excerpt": "1. CTM.approve(votingEscrow, amountWei) from the wallet that holds the CTM. 2. VotingEscrow.create lock(amountWei, lockDurationSeconds) . The NFT is minted to msg.sender . create lock returns the new token id."
+        },
+        {
+          "id": "create-a-lock-for-another-wallet",
+          "title": "Create a lock for another wallet",
+          "level": 4,
+          "excerpt": "1. CTM.approve(votingEscrow, amountWei) from the wallet that pays. 2. VotingEscrow.create lock for(amountWei, lockDurationSeconds, recipient) . The CTM is taken from the caller. The NFT is minted to recipient ."
+        },
+        {
+          "id": "increase-unlock-time",
+          "title": "Increase unlock time",
+          "level": 4,
+          "excerpt": "VotingEscrow.increase unlock time(tokenId, lockDurationSeconds) The caller must own the NFT or be approved for it. No CTM approve is required: the locked amount does not change. The call still works while the NFT is attached to a node. It reverts when the lock has expired, when the NFT has unclaimed"
+        },
+        {
+          "id": "increase-amount",
+          "title": "Increase amount",
+          "level": 4,
+          "excerpt": "1. CTM.approve(votingEscrow, valueWei) for the additional CTM, from the wallet that holds it. 2. VotingEscrow.increase amount(tokenId, valueWei) . The caller must own the NFT or be approved for it. valueWei must be greater than zero. The lock must still be active ( locked(tokenId).end is in the futu"
+        },
+        {
+          "id": "withdraw",
+          "title": "Withdraw",
+          "level": 4,
+          "excerpt": "VotingEscrow.withdraw(tokenId) Call this only after locked(tokenId).end is in the past. The caller must own the NFT or be approved for it. The contract transfers the full locked CTM to the owner and burns the NFT. There is no penalty. The NFT must not be attached to a node ( NodeProperties.attachedK"
+        },
+        {
+          "id": "delegate",
+          "title": "Delegate",
+          "level": 4,
+          "excerpt": "VotingEscrow.delegate(delegatee) moves every veCTM the caller owns onto delegatee . Governance then counts that power with getVotes(delegatee) and getPastVotes(delegatee, timepoint) . The caller remains ownerOf each token. delegates(account) returns the current delegatee. When the account has never "
+        },
+        {
+          "id": "split-merge-liquidate",
+          "title": "Split, merge, liquidate",
+          "level": 4,
+          "excerpt": "The caller must own the NFT, or be approved for it. The NFT must not be attached to a node ( NodeProperties.attachedKeyGen(tokenId) is the zero address). Call Effect split(tokenId, extractionWei) Pulls extractionWei of CTM into a new NFT. Both the remainder and the new NFT must be at least minimumLo"
+        },
+        {
+          "id": "keygen-addresses",
+          "title": "KeyGen addresses",
+          "level": 3,
+          "excerpt": "Everything in this page and in the marketplace can be done for a KeyGen address from the node app or from the node MCP. Do not look for a private key. The node’s MPC group signs, and the transaction is broadcast only after the group meets its threshold. See MPC Accept/Reject loop. Node app. Open the"
+        }
+      ],
+      "excerpt": "veCTM is a voting escrow NFT. You lock CTM for a period you choose, up to four years, and the lock becomes an NFT. The NFT’s voting power starts from how much CTM is inside it and how long is left on the lock, then declines toward zero as the unlock date gets closer. A lock of the same size held for",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM"
     },
     {
       "path": "ContinuumDAO/ContinuumDAO/MPCSigner/ConfiguredNodes",

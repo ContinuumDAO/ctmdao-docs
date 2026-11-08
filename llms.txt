@@ -35,7 +35,7 @@
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 62 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 65 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -68,6 +68,12 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [Groups](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/Groups): Creating a Group A node Group is a subset of the Configured Nodes that have decided to jointly sign transactions using M
 - [Joining the Network](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/JoinNetwork): This page is about the second role of Continuum nodes: securing cross chain C3Caller traffic and earning rewards — not t
 - [KeyGens](https://docs.continuumdao.org/ContinuumDAO/MPCSigner/KeyGens): A key (or KeyGen) contains the information that each node needs to take part in the joint creation of the Private Key to
+
+## CTM Token
+
+- [Marketplace](https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace): The marketplace sells veCTM NFTs on Linea. A holder can offer an NFT at a fixed price, a buyer can offer to buy a specif
+- [Tokenomics](https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics): CTM is ContinuumDAO’s token. The contract is CTM , which extends CTMERC20 : an ERC 20 with native cross chain transfer t
+- [veCTM](https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM): veCTM is a voting escrow NFT. You lock CTM for a period you choose, up to four years, and the lock becomes an NFT. The N
 
 ## Further reading (operators / APIs)
 

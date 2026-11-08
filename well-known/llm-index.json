@@ -349,8 +349,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-02T13:35:09.762Z",
-  "pageCount": 62,
+  "generatedAt": "2026-11-08T12:27:32.189Z",
+  "pageCount": 65,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -478,6 +478,29 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/KeyGens",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPCSigner/KeyGens.md",
           "excerpt": "A key (or KeyGen) contains the information that each node needs to take part in the joint creation of the Private Key to collectively sign transactions. A KeyGen has a public key but NO PRIVATE KEY . "
+        }
+      ]
+    },
+    {
+      "name": "CTM Token",
+      "pages": [
+        {
+          "name": "Marketplace",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace.md",
+          "excerpt": "The marketplace sells veCTM NFTs on Linea. A holder can offer an NFT at a fixed price, a buyer can offer to buy a specific NFT, or a holder can run an auction. Settlement pays the seller in the paymen"
+        },
+        {
+          "name": "Tokenomics",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics.md",
+          "excerpt": "CTM is ContinuumDAO’s token. The contract is CTM , which extends CTMERC20 : an ERC 20 with native cross chain transfer through C3Caller. A cross chain send burns CTM on the source chain and asks the p"
+        },
+        {
+          "name": "veCTM",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM.md",
+          "excerpt": "veCTM is a voting escrow NFT. You lock CTM for a period you choose, up to four years, and the lock becomes an NFT. The NFT’s voting power starts from how much CTM is inside it and how long is left on "
         }
       ]
     },

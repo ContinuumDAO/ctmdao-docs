@@ -46,6 +46,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://docs.continuumdao.org/ContinuumDAO/ContinuumDAO/MPCSigner/ConfiguredNodes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
