@@ -4,6 +4,10 @@
 
 Our vision is to unify Decentralized Finance (DeFi) through a new network of AI agents built for finance. These AI specialists can manage crypto, real-world assets, and stocks. They can cooperate with each other and with humans to create and run **sophisticated financial strategies** that accumulate wealth. They can also manage themselves through an **agentic machine DAO**. We aim to offer users, whether human or AI, a **unified on-chain experience** without favoring any blockchain or protocol, and a **neutral on-chain venue** in which to operate.
 
+To allow the creation of new services that can be sold to other AI agents, ContininuumDAO will develop its own LLM, tuned on curated DeFi, that can quickly create and deploy new secure smart contracts and then market these services to humans and AI entities. This new specialist DeFi LLM will use the rest of DeFi as composable units to create new services **on-the fly**.
+
+DeFi is too complicated for humans alone, but when using AI agents, strong cryptographic safe-guards, such as using MPC is essential, so that humans stay in the loop.
+
 # Welcome to Continuum
 
 Continuum is an **AI-first DAO and an AI-agent network of wallet nodes, with humans in the loop**. ContinuumDAO’s flagship product, the **Multi-Party Agent (MPA) Wallet**, is controlled by both AI agents and humans, with a clear cryptographic boundary between them based on multi-party computation (MPC) and threshold signature schemes (TSS). An MPA Wallet operates **without any private keys** controlling on-chain assets. Every MPA Wallet has a custom built-in AI harness, with a large set of DeFi primitives available by default, covering the most important protocols in Web3 (Aave, Morpho, Robinhood, Hyperliquid, Derive, Uniswap, Aero, Sky, Lido, Ethena, Euler, VeniceAI, Railgun, and others). Users, whether human or AI, can borrow and lend, trade perps and options, swap stocks and crypto assets on DEXes, use prediction markets and investment vaults, make private transfers with zk-proofs, access private LLM compute, and more.
@@ -121,23 +125,25 @@ ContinuumDAO has completed successful QuillAudits reviews of the veCTM, Governan
 
 (6) Develop the network of MPA Wallets so that their built-in AI harnesses can discover each other, negotiate and refine proposals, and offer services to each other. This work has started, and it is still at an early stage.
 
-(7) Build both a framework that lets community members use the built-in AI agent harness to integrate new DeFi protocols securely and a community plugin repository for the MPA Wallet. This extends the agent’s coding capability through tools that give clear guidance, and through constructs and methods known to work well with DeFi protocols. It will also help MPA Wallet agents offer one another services that include coding tasks. Estimated delivery: Q2 2027.
+(7) Develop our own AI LLM by fine tuning an existing open weights model. The mode will be tuned with all existing on-chain smart-contracts from a curated list. The LLM will be available to users through a subscription. It will enable (a) composable creation of new smart contracts using existing primitives, so that MPA Wallets can create and advertise new services for other MPA Wallets, (b) Easily and quickly access historical transactions with existing protocols to assist the MPA Wallet to generate new trade ideas, (c) Scan new transactions against existing smart contract interactions, so that malicious ones are quickly caught and stopped. This work has started and will continue through H1 2017.
 
-(8) Integrate 8004.org  for AI agent on-chain identities. This is a framework for agent trust, reputation and payments using open standards. We will enable MPA Wallets to use this when advertising services to other MPA Wallet agents.
+(8) Build both a framework that lets community members use the built-in AI agent harness to integrate new DeFi protocols securely and a community plugin repository for the MPA Wallet. This extends the agent’s coding capability through tools that give clear guidance, and through constructs and methods known to work well with DeFi protocols. It will also help MPA Wallet agents offer one another services that include coding tasks. Estimated delivery: Q2 2027.
 
-(9) Build an AI security service that checks every DeFi interaction and protects users. It will cover coding errors, inappropriate contract interactions, and contact with known hackers, fraudsters, or actors that are not OFAC-compliant.
+(9) Integrate 8004.org  for AI agent on-chain identities. This is a framework for agent trust, reputation and payments using open standards. We will enable MPA Wallets to use this when advertising services to other MPA Wallet agents.
 
-(10) Establish community-run **MPC Groups**, built from MPA Wallet nodes, and attach them to the Relayer for C3Caller signing. Estimated delivery: Q2 2027.
+(10) Build an AI security service that checks every DeFi interaction and protects users. It will cover coding errors, inappropriate contract interactions, and contact with known hackers, fraudsters, or actors that are not OFAC-compliant.
 
-(11) Test the new Relayer and Scanner for the C3Caller backend. They add further security layers and let the DAO control the backend through smart contracts and governance votes. Estimated initial delivery: Q3 2027. The DAO will add AI monitoring of cross-chain traffic to its security plan. That work will be ongoing.
+(11) Establish community-run **MPC Groups**, built from MPA Wallet nodes, and attach them to the Relayer for C3Caller signing. Estimated delivery: Q2 2027.
 
-(12) Develop an AI security model for cross-chain monitoring. This work is planned to start in Q1 2027.
+(12) Test the new Relayer and Scanner for the C3Caller backend. They add further security layers and let the DAO control the backend through smart contracts and governance votes. Estimated initial delivery: Q3 2027. The DAO will add AI monitoring of cross-chain traffic to its security plan. That work will be ongoing.
 
-(13) Extend the Continuum MPC network to non-EVM chains such as Solana, Soroban, and NEAR. This work will continue throughout 2027.
+(13) Develop an AI security model for cross-chain monitoring, using the new tuned AI LLM. This work is planned to start in Q1 2027.
 
-(14) Audit DevOps for the Scanner and the Relayer. Estimated timing: Q2 2027.
+(14) Extend the Continuum MPC network to non-EVM chains such as Solana, Soroban, and NEAR. This work will continue throughout 2027.
 
-(15) Develop DAO treasury management with help from our AI harness. The DAO is owned by its token holders. The aim is to build the treasury and then use it toward a better decentralized financial system. The DAO can invest in new projects, trade, and donate to good causes, so long as it adheres to the Constitution.
+(15) Audit DevOps for the Scanner and the Relayer. Estimated timing: Q2 2027.
+
+(16) Develop DAO treasury management with help from our AI harness. The DAO is owned by its token holders. The aim is to build the treasury and then use it toward a better decentralized financial system. The DAO can invest in new projects, trade, and donate to good causes, so long as it adheres to the Constitution.
 
 
 
