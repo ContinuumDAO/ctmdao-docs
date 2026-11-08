@@ -7,6 +7,12 @@
 
   * [Introduction](/ContinuumDAO/Introduction.md)
 
+* CTM Token
+
+  * [Tokenomics](/ContinuumDAO/CTMToken/Tokenomics.md)
+  * [veCTM](/ContinuumDAO/CTMToken/VeCTM.md)
+  * [Marketplace](/ContinuumDAO/CTMToken/Marketplace.md)
+
 * Governance
 
   * [Constitution](/ContinuumDAO/Governance/Constitution.md)
