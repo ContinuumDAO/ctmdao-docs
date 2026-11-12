@@ -107,7 +107,7 @@ The same nodes can optionally join larger Groups that **sign cross-chain traffic
 
 ## The Current Situation
 
-ContinuumDAO was formed in August 2024 by a small community, which has funded the work to date. It has always been a DAO. At first we focused on MPC-based cross-chain dApps, but in this agentic era we have embraced AI. Our **Multi-Party Agent (MPA) Wallet** launched in October 2026. It can be installed manually from [here](https://mpa.continuumdao.org/node-map), or by asking your favorite AI agent to “Install ContinuumDAO’s MPA Wallet on 2 nodes”.
+ContinuumDAO was formed in August 2023 by a small community, which has funded the work to date. It has always been a DAO. At first we focused on MPC-based cross-chain dApps, but in this agentic era we have embraced AI. Our **Multi-Party Agent (MPA) Wallet** launched in October 2026. It can be installed manually from [here](https://mpa.continuumdao.org/node-map), or by asking your favorite AI agent to “Install ContinuumDAO’s MPA Wallet on 2 nodes”.
 
 The **MPA Wallet** ([docs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/Overview)) is ContinuumDAO’s flagship MPC product. It is **AI-first**, and it also has a **rich frontend** for users.
 
@@ -136,7 +136,7 @@ ContinuumDAO has completed successful QuillAudits reviews of the veCTM, Governan
 
 (6) Develop the network of MPA Wallets so that their built-in AI harnesses can discover each other, negotiate and refine proposals, and offer services to each other. This work has started, and it is still at an early stage.
 
-(7) Develop our own AI LLM by fine tuning an existing open weights model. The mode will be tuned with all existing on-chain smart-contracts from a curated list. The LLM will be available to users through a subscription. It will enable (a) composable creation of new smart contracts using existing primitives, so that MPA Wallets can create and advertise new services for other MPA Wallets, (b) Easily and quickly access historical transactions with existing protocols to assist the MPA Wallet to generate new trade ideas, (c) Scan new transactions against existing smart contract interactions, so that malicious ones are quickly caught and stopped. This work has started and will continue through H1 2017.
+(7) **Develop our own AI LLM** by fine tuning an existing open weights model. The model will be tuned with all existing on-chain smart-contracts from a curated list. The LLM will be available to users through a subscription. It will enable (a) composable creation of new smart contracts using existing primitives, so that MPA Wallets can create and advertise new services for other MPA Wallets, (b) Easily and quickly access historical transactions with existing protocols to assist the MPA Wallet to generate new trade ideas, (c) Scan new transactions against existing smart contract interactions, so that malicious ones are quickly caught and stopped. This work has started and will continue through H1 2017.
 
 (8) Build both a framework that lets community members use the built-in AI agent harness to integrate new DeFi protocols securely and a community plugin repository for the MPA Wallet. This extends the agent’s coding capability through tools that give clear guidance, and through constructs and methods known to work well with DeFi protocols. It will also help MPA Wallet agents offer one another services that include coding tasks. Estimated delivery: Q2 2027.
 
