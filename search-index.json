@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-08T17:39:29.332Z",
+  "generatedAt": "2026-11-12T02:03:08.230Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3997,7 +3997,7 @@
           "id": "the-current-situation",
           "title": "The Current Situation",
           "level": 2,
-          "excerpt": "ContinuumDAO was formed in August 2024 by a small community, which has funded the work to date. It has always been a DAO. At first we focused on MPC based cross chain dApps, but in this agentic era we have embraced AI. Our Multi Party Agent (MPA) Wallet launched in October 2026. It can be installed "
+          "excerpt": "ContinuumDAO was formed in August 2023 by a small community, which has funded the work to date. It has always been a DAO. At first we focused on MPC based cross chain dApps, but in this agentic era we have embraced AI. Our Multi Party Agent (MPA) Wallet launched in October 2026. It can be installed "
         },
         {
           "id": "continuumdao-roadmap",
