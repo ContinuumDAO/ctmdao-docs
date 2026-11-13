@@ -18,7 +18,7 @@ Type a message and press **Enter**. **Shift+Enter** adds a line. Type **`/`** fo
 | **`/run_mcp_tool`** | `/run_mcp_tool list_defi_protocols` | Runs one tool from the node catalog. `/run_mcp_tool list_defi_protocols ?` shows its description. Missing fields open a small form. |
 | **`/upload_image_or_pdf`** | `/upload_image_or_pdf` | Opens the file picker. See [Images and PDFs](#images-and-pdfs). |
 
-Your own commands appear in the same menu. See [Custom prompts](#custom-prompts).
+Your own commands appear in the same menu. See [Custom prompts](#custom-prompts). An enabled [plugin](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md) adds its prompt here too.
 
 For **`/load_skill`**, **`/load_web3_protocol`**, and **`/load_mcp_server_external`**, the bubble shows the `/` line and the model receives the words after the name, with that skill, protocol, or server already loaded. A name on its own only loads that context; type the question on the next line.
 
@@ -233,5 +233,6 @@ External agents: tell the operator to use the mic on HTTPS or localhost and to a
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [Workspace rules](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#upload-scripts-and-data-workspace-tab)

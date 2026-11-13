@@ -2,7 +2,7 @@
 
 Every MPC node ships an **AI agent harness**: one LLM, one set of tools, and the threads, schedules, and inbound hooks that use them. Wallet spends still go through the [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). The harness is optional — the node app can run Groups, KeyGens, and multi-sign without it.
 
-Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md).
+Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md). Extra skill and prompt packages: [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md).
 
 ---
 
@@ -17,6 +17,7 @@ All of these are under **Node → AI Agent**, in this order.
 | **MCP Servers** | Tool packs (wallet, charts, search, Foundry). [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). |
 | **Skills** | Markdown guidance. **Initial load** injects a catalog skill into every new chat. Skills saved from chat are load-on-demand. [Skills from chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#skills-from-chat). |
 | **Prompts** | Your own `/` commands. [Custom prompts](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#custom-prompts). |
+| **Plugins** | Skill and prompt packages, plus an optional entrypoint. [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md). |
 | **Workspace** | Files on the node. [Workspace](#workspace). |
 | **Conversations** | Stored threads. [Conversations](#conversations). |
 | **Cron** | Scheduled turns. [Cron](#cron). |
@@ -77,6 +78,7 @@ Put signing secrets in **Variables** (`WEBHOOK_SECRET_*`, and **`TELEGRAM_BOT_TO
 | Path | Role |
 |------|------|
 | **`prompts/<name>.md`** | A custom `/` command |
+| **`plugins/<name>/`** | An installed plugin (`mpa-plugin.json`, skills, prompts). [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md) |
 | **`skills/<name>/SKILL.md`** | A workspace skill (from chat or the Skills tab) |
 | **`plans/`** | Plan-mode documents |
 | **`data/chat-uploads/`** | Image and PDF copies from chat |
@@ -97,6 +99,7 @@ Discover this page with `search_continuum_docs` (`AI Agent tabs` / `AI harness`)
 | **Variables / Webhooks** | The operator signs these in the UI. Leave secrets out of chat. |
 | **MCP Servers** | `agent_load_mcp_server` / `agent_unload_mcp_server` for this conversation. A new server is an elicitation the operator signs. [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). |
 | **Skills / Prompts** | [Agent chat — For AI agents](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-slash-commands). |
+| **Plugins** | `agent_search_plugins`, `agent_install_plugin`, `agent_enable_plugin`. Show the review before `confirmPermissions`. [For AI agents — plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins). |
 | **Workspace** | Native file tools, under an allowed subtree. `agent_write_user_skill` for `skills/<name>/SKILL.md`. |
 | **Conversations** | The operator opens and deletes threads in the UI. |
 | **Cron** | The operator signs jobs on the Cron tab. Governance examples: [Optional automation](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#optional-automation-cron). |
@@ -106,6 +109,7 @@ Discover this page with `search_continuum_docs` (`AI Agent tabs` / `AI harness`)
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
