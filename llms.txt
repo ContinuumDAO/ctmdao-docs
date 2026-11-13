@@ -9,7 +9,16 @@ If you are an external agent (Grok, Pi, ChatGPT, Claude, or similar) and you do 
 - [Marketplace — For AI agents](https://docs.continuumdao.org/ContinuumDAO/CTMToken/Marketplace.md#for-ai-agents): Who signs. To send the calls below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea. The seller’s key must own the veCT
 - [Tokenomics — For AI agents](https://docs.continuumdao.org/ContinuumDAO/CTMToken/Tokenomics.md#for-ai-agents): Audience: agents that need supply, addresses, or a wallet’s locks. The reads below are public HTTP. They do not require a wallet or a private key. Writes are di
 - [veCTM — For AI agents](https://docs.continuumdao.org/ContinuumDAO/CTMToken/VeCTM.md#for-ai-agents): Who signs. To call the functions below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea and must own the CTM or the veC
+- [Agent chat — For AI agents — slash commands](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-slash-commands): search continuum docs ( slash commands / load skill ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/AgentChat section for ai agents slash command
+- [Agent chat — For AI agents — prompts](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-prompts): Write a template with agent write file at prompts/<name .md . The stem is kebab case and must not be a reserved command. Frontmatter keys the host reads are des
+- [Agent chat — For AI agents — images and PDFs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-images-and-pdfs): The model sees each file as text on the user message: [Attachment filename → path] plus the transcript. It does not receive the raw bytes on that turn. Read the
+- [Agent chat — For AI agents — clipboard](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-clipboard): Paste is a UI action. There is no tool that reads the operator’s clipboard. When they say they pasted a screenshot, use the attachment transcript already on the
+- [Agent chat — For AI agents — workspace skills](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-workspace-skills): Call agent write user skill only after this chat has both a name and a one line description . If either is missing, ask for both in one message, then stop until
+- [Agent chat — For AI agents — language](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-language): search continuum docs ( non English chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/AgentChat section for ai agents language . Reply in the 
+- [Agent chat — For AI agents — microphone](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-microphone): There is no tool that reads the microphone. The composer calls POST /agent/transcribe , puts the text in the draft, and the operator sends it. The chat completi
 - [Configure the AI harness — For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider): Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i
+- [Overview — For AI agents — AI Agent tabs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md#for-ai-agents-ai-agent-tabs): Discover this page with search continuum docs ( AI Agent tabs / AI harness ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Overview . Tab What yo
+- [Telegram Mini App — For AI agents — Telegram](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#for-ai-agents-telegram): The turn is a webhook message. The operator’s words are the text: line. Reply in that language. For AI agents — language. A voice note is already transcribed in
 - [Agent provision and configure — Hard rules for AI agents (VPS and home PC)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md#hard-rules-for-ai-agents-vps-and-home-pc): Load install node.json or this section before running any shell on the operator’s machines. Linux VPS — MUST Rule Detail Use the published one shot only Exact c
 - [Attach your node — For AI agents — ports and one node at a time](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode.md#for-ai-agents-ports-and-one-node-at-a-time): When coaching attach or SSH tunnels, use only these loopback ports (same local and remote in L ): Port Use 3333 node app 8080 management HTTP — attach signing (
 - [DeFi protocol support — For AI agents — DeFi protocols](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md#for-ai-agents-defi-protocols): Use continuum MCP: list defi protocols , then load defi protocol before that pack’s write tools unless the tool docs say otherwise. Built transactions still use
@@ -53,7 +62,7 @@ If you are an external agent (Grok, Pi, ChatGPT, Claude, or similar) and you do 
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 65 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 66 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -61,10 +70,11 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 
 ## AI harness
 
+- [Agent chat](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat): Open the harness from the cat icon (bottom right) after Provider is saved. The same composer is used in ordinary chat an
 - [AI-managed governance](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance): ContinuumDAO is an AI first DAO managed by both people and AI agents. veCTM holders — including MPA wallet operators who
 - [Configure the AI harness](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure): This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without
 - [MCP servers](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers): Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, char
-- [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): 
+- [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): Every MPC node ships an AI agent harness : one LLM, one set of tools, and the threads, schedules, and inbound hooks that
 - [Plan mode](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode): Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a
 - [Telegram Mini App](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp): Talk to your node’s built in AI agent from Telegram on your phone. This is the same harness as Agent chat in the node ap
 

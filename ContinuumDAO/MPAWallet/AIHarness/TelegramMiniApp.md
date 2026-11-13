@@ -64,12 +64,36 @@ Operator API: **`POST /sendTelegramMessage`** (management-signed). See [mpc-conf
 
 - After a plot / “show chart” with a compatible tunnel, tap **Open chart** to scroll and zoom (live ticks where supported).
 - Tap **New chat** on a bot reply, or send **`/new`** / **`new chat`**, to reset the Telegram conversation session (same idea as deleting a conversation under **AI Agent → Conversations**).
+- Send **`/stop`** (or tap **Stop**) to cancel the turn that is running.
 - Tap **New plan** for the same starters as the node app, including **Hedging strategies** — see [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md#hedging-strategies).
+
+### Chat from Telegram
+
+Text, voice notes, photos, and PDFs run the **same agent** as the node app. Write in any language. The `/` menu, the browser microphone, and clipboard paste stay in the node composer — see [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md).
+
+| You send | What the agent receives |
+|----------|-------------------------|
+| A message | That text, in the language you used. Example: *“Quiero un resumen de las propuestas abiertas.”* |
+| A **voice note** | A transcript, then the turn runs. Up to about **3 minutes**. A caption is kept above the transcript. |
+| A **photo** or **PDF** | A transcript of the file, plus your caption as the question. Images **4 MB**, PDFs **10 MB**. No caption means “what does this contain?” |
+
+Voice uses the same speech-to-text as the node mic: OpenAI or Groq Whisper when that is the linked provider, otherwise local whisper.cpp. If neither is available, the bot replies *Speech-to-text is unavailable on this node.* A scanned PDF is rejected. Details: [Chat in any language](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#chat-in-any-language) and [Microphone](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#microphone).
+
+Ask for a skill in a sentence (*“Load hedging-trade and draft a two-week hedge”*). Creating a skill from chat works the same way (*“Save this checklist as a skill named pre-compose-check”*). The bot’s own commands are **`/start`**, **`/new`**, and **`/stop`**.
+
+### For AI agents — Telegram
+
+The turn is a webhook message. The operator’s words are the `text:` line. Reply in that language. [For AI agents — language](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-language).
+
+A voice note is already transcribed into `text` before the turn. A photo or PDF is already an attachment transcript on that message. Call **`agent_read_document`** only for another pass at the stored path.
+
+**`/new`** resets the Telegram session. **`/stop`** cancels the current turn. Those are host commands. Name a skill in a sentence. The slash menu (`/load_skill`, custom prompts) is the node composer.
 
 ### Related
 
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
+- [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
 - [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)

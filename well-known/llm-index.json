@@ -372,11 +372,74 @@
       "excerpt": "Who signs. To call the functions below, the agent must hold the private key of the wallet that signs. That key pays gas on Linea and must own the CTM or the veC"
     },
     {
+      "page": "Agent chat",
+      "title": "For AI agents — slash commands",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-slash-commands",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-slash-commands",
+      "excerpt": "search continuum docs ( slash commands / load skill ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/AgentChat section for ai agents slash command"
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — prompts",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-prompts",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-prompts",
+      "excerpt": "Write a template with agent write file at prompts/<name .md . The stem is kebab case and must not be a reserved command. Frontmatter keys the host reads are des"
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — images and PDFs",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-images-and-pdfs",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-images-and-pdfs",
+      "excerpt": "The model sees each file as text on the user message: [Attachment filename → path] plus the transcript. It does not receive the raw bytes on that turn. Read the"
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — clipboard",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-clipboard",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-clipboard",
+      "excerpt": "Paste is a UI action. There is no tool that reads the operator’s clipboard. When they say they pasted a screenshot, use the attachment transcript already on the"
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — workspace skills",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-workspace-skills",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-workspace-skills",
+      "excerpt": "Call agent write user skill only after this chat has both a name and a one line description . If either is missing, ask for both in one message, then stop until"
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — language",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-language",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-language",
+      "excerpt": "search continuum docs ( non English chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/AgentChat section for ai agents language . Reply in the "
+    },
+    {
+      "page": "Agent chat",
+      "title": "For AI agents — microphone",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat#for-ai-agents-microphone",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-microphone",
+      "excerpt": "There is no tool that reads the microphone. The composer calls POST /agent/transcribe , puts the text in the draft, and the operator sends it. The chat completi"
+    },
+    {
       "page": "Configure the AI harness",
       "title": "For AI agents — Provider",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider",
       "excerpt": "Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i"
+    },
+    {
+      "page": "Overview",
+      "title": "For AI agents — AI Agent tabs",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview#for-ai-agents-ai-agent-tabs",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md#for-ai-agents-ai-agent-tabs",
+      "excerpt": "Discover this page with search continuum docs ( AI Agent tabs / AI harness ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Overview . Tab What yo"
+    },
+    {
+      "page": "Telegram Mini App",
+      "title": "For AI agents — Telegram",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp#for-ai-agents-telegram",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#for-ai-agents-telegram",
+      "excerpt": "The turn is a webhook message. The operator’s words are the text: line. Reply in that language. For AI agents — language. A voice note is already transcribed in"
     },
     {
       "page": "Agent provision and configure",
@@ -444,12 +507,18 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-12T02:03:08.230Z",
-  "pageCount": 65,
+  "generatedAt": "2026-11-13T13:30:05.925Z",
+  "pageCount": 66,
   "llmld:sections": [
     {
       "name": "AI harness",
       "pages": [
+        {
+          "name": "Agent chat",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md",
+          "excerpt": "Open the harness from the cat icon (bottom right) after Provider is saved. The same composer is used in ordinary chat and in Plan mode. Type a message and press Enter . Shift+Enter adds a line. Type /"
+        },
         {
           "name": "AI-managed governance",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance",
@@ -472,7 +541,7 @@
           "name": "Overview",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md",
-          "excerpt": ""
+          "excerpt": "Every MPC node ships an AI agent harness : one LLM, one set of tools, and the threads, schedules, and inbound hooks that use them. Wallet spends still go through the MPC Accept/Reject loop. The harnes"
         },
         {
           "name": "Plan mode",

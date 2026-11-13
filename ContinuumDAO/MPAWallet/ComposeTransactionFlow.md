@@ -99,6 +99,8 @@ Typical layout:
 | **`evm/out/`** | Compiled artifacts (ABI, bytecode) |
 | **`evm/broadcast/`** | `forge script` logs, including dry-run `run-latest.json` |
 | **`data/`** | Offloads, artifacts, cron state, VPN client configs (`data/vpn/`) |
+| **`prompts/`** | Custom Agent chat `/` commands (`<name>.md`) — [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#custom-prompts) |
+| **`skills/<name>/SKILL.md`** | Workspace skills saved from chat or the Skills tab |
 | **`scripts/`**, **`skills/<name>/scripts/`** | Cross-cutting shell helpers (not Solidity) |
 | **`solana/`**, **`near/`**, **`stellar/`**, **`ton/`**, **`sui/`** | Other chain projects (placeholders until those toolchains land) |
 | **`.foundry/`**, **`.svm/`** | Foundry toolchain binaries and solc cache (`HOME` is `user_folder`) |

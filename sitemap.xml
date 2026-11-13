@@ -96,6 +96,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

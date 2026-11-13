@@ -22,7 +22,7 @@ All settings are under **Node → AI Agent → MCP Servers** and **Variables** u
 1. Open **AI Agent → MCP Servers** — confirm **`continuum`** is enabled.
 2. **Add from repository** for optional servers (Foundry, CoinGecko, Blockscout, business news, and so on). Social channel search (Telegram, Discord, Reddit) is built into **`continuum`** — configure under **Continuum → Social search**, not the catalog.
 3. Set **Variables** for any `apiKeyEnvVar` / `envVars` the listing shows.
-4. Toggle **Initial load** if you want that server’s tools in **every new chat**; otherwise the agent loads them per conversation with **`agent_load_mcp_server`** (or you enable Initial load and start a fresh chat).
+4. Toggle **Initial load** if you want that server’s tools in **every new chat**; otherwise the agent loads them per conversation with **`agent_load_mcp_server`**, or you type **`/load_mcp_server_external <id>`** — [Slash commands](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#slash-commands).
 
 Non-**continuum** tools appear prefixed as **`{serverId}__{toolName}`** (for example **`coinbase-public__get_product_candles`**).
 
