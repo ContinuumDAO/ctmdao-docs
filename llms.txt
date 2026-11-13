@@ -18,6 +18,7 @@ If you are an external agent (Grok, Pi, ChatGPT, Claude, or similar) and you do 
 - [Agent chat — For AI agents — microphone](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md#for-ai-agents-microphone): There is no tool that reads the microphone. The composer calls POST /agent/transcribe , puts the text in the draft, and the operator sends it. The chat completi
 - [Configure the AI harness — For AI agents — Provider](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider): Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i
 - [Overview — For AI agents — AI Agent tabs](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md#for-ai-agents-ai-agent-tabs): Discover this page with search continuum docs ( AI Agent tabs / AI harness ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Overview . Tab What yo
+- [Plugins — For AI agents — plugins](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins): search continuum docs ( MPA plugins / install plugin / publish plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agen
 - [Telegram Mini App — For AI agents — Telegram](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#for-ai-agents-telegram): The turn is a webhook message. The operator’s words are the text: line. Reply in that language. For AI agents — language. A voice note is already transcribed in
 - [Agent provision and configure — Hard rules for AI agents (VPS and home PC)](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision.md#hard-rules-for-ai-agents-vps-and-home-pc): Load install node.json or this section before running any shell on the operator’s machines. Linux VPS — MUST Rule Detail Use the published one shot only Exact c
 - [Attach your node — For AI agents — ports and one node at a time](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AttachYourNode.md#for-ai-agents-ports-and-one-node-at-a-time): When coaching attach or SSH tunnels, use only these loopback ports (same local and remote in L ): Port Use 3333 node app 8080 management HTTP — attach signing (
@@ -62,7 +63,7 @@ If you are an external agent (Grok, Pi, ChatGPT, Claude, or similar) and you do 
 
 ## Machine-readable indexes (preferred for AI agents)
 
-- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 66 pages with titles, sections, headings, and excerpts
+- [search-index.json](https://docs.continuumdao.org/search-index.json): Searchable index of all 67 pages with titles, sections, headings, and excerpts
 - [llm-index.json](https://docs.continuumdao.org/well-known/llm-index.json): LLMLD discovery index grouped by section
 - [sitemap.xml](https://docs.continuumdao.org/sitemap.xml): Full sitemap of documentation pages
 
@@ -76,6 +77,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [MCP servers](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers): Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, char
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): Every MPC node ships an AI agent harness : one LLM, one set of tools, and the threads, schedules, and inbound hooks that
 - [Plan mode](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode): Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a
+- [Plugins](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins): A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live i
 - [Telegram Mini App](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp): Talk to your node’s built in AI agent from Telegram on your phone. This is the same harness as Agent chat in the node ap
 
 ## C3Caller

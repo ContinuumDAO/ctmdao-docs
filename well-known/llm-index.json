@@ -435,6 +435,13 @@
       "excerpt": "Discover this page with search continuum docs ( AI Agent tabs / AI harness ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Overview . Tab What yo"
     },
     {
+      "page": "Plugins",
+      "title": "For AI agents — plugins",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins#for-ai-agents-plugins",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins",
+      "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agen"
+    },
+    {
       "page": "Telegram Mini App",
       "title": "For AI agents — Telegram",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp#for-ai-agents-telegram",
@@ -507,8 +514,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-13T13:30:05.925Z",
-  "pageCount": 66,
+  "generatedAt": "2026-11-13T21:31:04.949Z",
+  "pageCount": 67,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -548,6 +555,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md",
           "excerpt": "Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a hedge from live inventory, review a portfolio, or explore a governance topic — "
+        },
+        {
+          "name": "Plugins",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md",
+          "excerpt": "A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live in user folder/plugins/<name . Wallet spends still go through the MPC Accept/Reje"
         },
         {
           "name": "Telegram Mini App",
