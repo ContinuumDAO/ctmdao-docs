@@ -46,12 +46,13 @@ Publishing sends a plugin that is already installed on this node to [mpaplugins.
 
 The **Plugins** tab has no publish button. Ask this node’s harness, with **`mpa-plugin-author`** loaded.
 
-1. Put the package at `user_folder/plugins/<name>/`. **`agent_create_plugin`** writes a local draft at `v1.0.0` (a skill, a `/` prompt, and `user_folder:read`) and enables it. A hand-written directory, or a Pi, Claude, or Codex package after **`agent_adapt_plugin`** and **Install local**, is the same starting point. This step only fills this node.
-2. Call **`agent_create_plugin_new_version`**. The node needs veCTM privilege. **`keyGenId`**, or the preferred KeyGen, must be a secp256k1 multi-agree KeyGen in that veCTM group.
-3. The first public version is **`v1.0.0`**. A later version (`v1.2.3`) must be greater, and it must use the veCTM id, GroupId, and KeyGen address recorded on the first release.
-4. The node writes `version`, `versionDate` (UTC `YYYY-MM-DD`), `nodeKey`, `veCtmId`, `groupId`, and `keyGenAddress` into `mpa-plugin.json`, then packs a `.tar.gz` of at most 32 MB and hashes it. `.mpa-state.json` and `.trust.json` stay out of the archive.
-5. That opens a [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) for an EIP-712 **`MpaPluginRelease`** (domain **MPA Wallet Plugins**, version 1, Linea chain id 59144). The signed fields are the name, version, version date, sha256, node key, veCTM id, group id, and KeyGen address. The request expires in 24 hours. Group members agree, then the signature is triggered.
-6. Call **`agent_create_plugin_new_version`** again with **`requestId`**. The node posts the archive and the signature to `https://mpaplugins.continuumdao.org/publish`. The host keeps the archive at `packages/<name>/<version>.tar.gz` and replaces that name’s current row in `index.json`. The previous row moves into **`versions`**. Other nodes take the new current version with **`agent_update_plugin`**.
+1. Put the package at `user_folder/plugins/<name>/`. **`agent_create_plugin`** writes a local draft at `v1.0.0` (a skill, a `/` prompt, and `user_folder:read`) and enables it. A hand-written directory, or a Pi, Claude, or Codex package after **`agent_adapt_plugin`** and **Install local**, is the same starting point. This step only fills this node. A local install does not need a public repository.
+2. Commit those same files to a **public** GitHub repository. `mpa-plugin.json` in that commit must already contain this release’s `version`, `versionDate` (UTC `YYYY-MM-DD`), `nodeKey`, `veCtmId`, `groupId`, and `keyGenAddress`. Pass **`repository`** (`https://github.com/owner/name`), the full 40-character **`commit`**, and **`path`** when the plugin is a directory inside the repository. A private repository is refused, because other operators have to be able to open the commit and read the code. The public snapshot must fit the 32 MB catalog limit.
+3. Call **`agent_create_plugin_new_version`**. The node needs veCTM privilege. **`keyGenId`**, or the preferred KeyGen, must be a secp256k1 multi-agree KeyGen in that veCTM group.
+4. The first public version is **`v1.0.0`**. A later version (`v1.2.3`) must be greater. It must use the same GitHub repository and path, and the veCTM id, GroupId, and KeyGen address recorded on the first release.
+5. The node writes those release fields into the local `mpa-plugin.json`, downloads the commit, and refuses to sign unless every published file matches. It then packs a `.tar.gz` of at most 32 MB and hashes it. `.mpa-state.json` and `.trust.json` stay out of the archive.
+6. That opens a [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) for an EIP-712 **`MpaPluginRelease`** (domain **MPA Wallet Plugins**, version 1, Linea chain id 59144). The signed fields are the name, version, version date, sha256, node key, veCTM id, group id, KeyGen address, repository, commit, and path. The request expires in 24 hours. Group members agree, then the signature is triggered.
+7. Call **`agent_create_plugin_new_version`** again with **`requestId`**. The node posts the archive and the signature to `https://mpaplugins.continuumdao.org/publish`. The host checks the commit again, keeps the archive at `packages/<name>/<version>.tar.gz`, and replaces that name’s current row in `index.json`. **`commitUrl`** is the GitHub tree for that commit. The previous row moves into **`versions`**. Other nodes take the new current version with **`agent_update_plugin`**.
 
 ---
 
@@ -67,6 +68,10 @@ The **Plugins** tab has no publish button. Ask this node’s harness, with **`mp
 | **`description`** | Description from `mpa-plugin.json` |
 | **`source`** | URL of this version’s `.tar.gz` |
 | **`sha256`** | Hash of that archive |
+| **`repository`** | Public `https://github.com/owner/name` URL |
+| **`commit`** | Full 40-character commit hash |
+| **`path`** | Directory inside the repository, empty when the plugin is the repository root |
+| **`commitUrl`** | GitHub tree link for that commit, so an operator can read the code |
 | **`permissions`** | Permissions declared in the manifest |
 | **`nodeKey`** | Publishing node’s public key |
 | **`veCtmId`** | veCTM token id attached to that node |
@@ -74,7 +79,7 @@ The **Plugins** tab has no publish button. Ask this node’s harness, with **`mp
 | **`keyGenAddress`** | secp256k1 address that must have produced the signature |
 | **`digest`** | EIP-712 digest of the release |
 | **`signature`** | 65-byte KeyGen signature |
-| **`originVeCtmId`**, **`originGroupId`**, **`originKeyGenAddress`** | Identity of the first release. Later versions have to match it |
+| **`originVeCtmId`**, **`originGroupId`**, **`originKeyGenAddress`**, **`originRepository`**, **`originPath`** | Identity of the first release. Later versions have to match it |
 | **`versions`** | Earlier records for this name |
 
 Inside the archive, `mpa-plugin.json` repeats those release fields and also lists **`skills`**, **`prompts`**, an optional **`entrypoint`**, an optional **`mcp`** file, and an optional **`agentReputation`** object (`standard: EIP-8004`, plus optional `chainId`, `agentRegistry`, and `agentId`). Reputation fields are stored for a later check and are left unresolved.
@@ -124,7 +129,7 @@ Load **`mpa-plugin-author`** first. These tools are added with that skill. Load 
 | **`agent_uninstall_plugin`** | Delete `plugins/<name>`. |
 | **`agent_adapt_plugin`** | Rewrite a Pi, Claude, or Codex directory under `user_folder` into `mpa-plugin.json`. The original manifest stays. Unsupported Pi APIs are listed. Install afterwards. |
 | **`agent_create_plugin`** | Local draft at `plugins/<name>`, version `v1.0.0`, with a skill, a `/` prompt, and `user_folder:read`, then enables it. This does not publish. |
-| **`agent_create_plugin_new_version`** | Publish. The node needs veCTM privilege, and `keyGenId` (or the preferred KeyGen) must be a multi-agree KeyGen in that group. The first release is `v1.0.0`. A later version must be higher and signed by the same KeyGen. Opens a multi-sign request. After members agree and the signature is triggered, call again with `requestId`. |
+| **`agent_create_plugin_new_version`** | Publish. Pass public `repository`, full `commit`, and optional `path`. The catalog keeps a `commitUrl` and rejects a private repository or a commit whose files differ from the archive. The node needs veCTM privilege, and `keyGenId` (or the preferred KeyGen) must be a multi-agree KeyGen in that group. The first release is `v1.0.0`. A later version must be higher, from the same repository and path, and signed by the same KeyGen. Opens a multi-sign request. After members agree and the signature is triggered, call again with `requestId`. |
 
 Call **`agent_enable_plugin`** with `confirmPermissions: true` only after the operator has read the recommendation and asked to continue. That call is the permission card. Keep it in a later step than the recommendation. If they decline, the plugin stays off. Leave key material, bootstrap, and signing endpoints out of a plugin.
 
