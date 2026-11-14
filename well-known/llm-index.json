@@ -439,7 +439,7 @@
       "title": "For AI agents — plugins",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins#for-ai-agents-plugins",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins",
-      "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agen"
+      "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins sec"
     },
     {
       "page": "Telegram Mini App",
@@ -514,7 +514,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-13T21:31:04.949Z",
+  "generatedAt": "2026-11-14T13:26:44.031Z",
   "pageCount": 67,
   "llmld:sections": [
     {

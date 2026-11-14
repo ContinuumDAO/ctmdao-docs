@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T21:31:04.949Z",
+  "generatedAt": "2026-11-14T13:26:44.031Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1649,6 +1649,11 @@
         "Plugins",
         "Install and run",
         "Package",
+        "Plugin coding",
+        "Candles, analysis, ideas, and protocols",
+        "Skills",
+        "MCP servers",
+        "Webhooks",
         "Publish to the repository",
         "Index record",
         "Review on install and update",
@@ -1675,6 +1680,36 @@
           "excerpt": "Path Role mpa plugin.json Name, version, description, skills, prompts, optional entrypoint, permissions skills/<name /SKILL.md Guidance, loaded on demand prompts/<name .md The / command. Same placeholders as custom prompts extension/ Optional JavaScript. Its tools appear as plugin <name <tool ( plug"
         },
         {
+          "id": "plugin-coding",
+          "title": "Plugin coding",
+          "level": 3,
+          "excerpt": "A plugin is instructions for the agent, plus an optional entrypoint. The instructions name tools from the public packages @continuumdao/continuum node sdk and @continuumdao/ctm mpc defi . The SDK package is the tool catalog continuum mcp server runs. The DeFi package is the protocol math behind the "
+        },
+        {
+          "id": "candles-analysis-ideas-and-protocols",
+          "title": "Candles, analysis, ideas, and protocols",
+          "level": 4,
+          "excerpt": "The skill tells the agent which of these to load, and how to combine the numbers. Piece What the agent uses Candlesticks OHLCV from the chart sources in AI charting. list ohlcv sources lists providers. A provider tool such as coinbase public get product candles returns the rows. prepare chart from r"
+        },
+        {
+          "id": "skills",
+          "title": "Skills",
+          "level": 4,
+          "excerpt": "The plugin skill is the program. The / prompt loads it with agent load skill . Write the order of tools, the inputs, and what to do with the result in skills/<name /SKILL.md . The same skill can load other skills already on the node. A chart or trade idea skill stays the source of those rules. The p"
+        },
+        {
+          "id": "mcp-servers",
+          "title": "MCP servers",
+          "level": 4,
+          "excerpt": "The plugin uses the MCP servers already installed on the node, under AI Agent → MCP Servers . Server Role in a plugin continuum Wallet, DeFi packs, charts, and trade ideas. Loaded at chat start. Built in continuum MCP. Candle and indicator servers coinmarketcap public , coinbase public , technical i"
+        },
+        {
+          "id": "webhooks",
+          "title": "Webhooks",
+          "level": 4,
+          "excerpt": "A webhook starts an agent turn. It does not call the entrypoint. Webhooks. Point the webhook prompt at this plugin: tell the agent to load the plugin skill and apply the posted body. The same candle, analysis, and payload steps then run on that event. Telegram, GitHub, Slack, and a generic JSON POST"
+        },
+        {
           "id": "publish-to-the-repository",
           "title": "Publish to the repository",
           "level": 3,
@@ -1696,13 +1731,13 @@
           "id": "for-ai-agents-plugins",
           "title": "For AI agents — plugins",
           "level": 3,
-          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Publish steps and index fields: Publish to the repository. Import and update scan: Review on install and update. Load mpa plugi"
+          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . How a plugin combines candles, analysis, trade ideas, and DeFi payloads: Plugin coding. Publish steps and index"
         },
         {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "AI harness overview Agent chat MCP servers"
+          "excerpt": "AI harness overview Agent chat MCP servers AI charting Technical analysis Trade ideas DeFi protocol support"
         }
       ],
       "excerpt": "A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live in user folder/plugins/<name . Wallet spends still go through the MPC Accept/Reject loop. Open Node → AI Agent → Plugins . The public index is mpaplugins.continuumdao.org. Search fi",
