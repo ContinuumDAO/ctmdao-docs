@@ -29,6 +29,8 @@ An enabled plugin adds its prompt to the chat `/` menu, for example `/hello-mpa`
 
 The name is kebab-case, at most 48 characters. The package must include a skill, a prompt, or an entrypoint.
 
+How a package calls the public libraries, candles, analysis, trade ideas, and DeFi tools: [Plugin coding](#plugin-coding).
+
 | Permission | Allows |
 |------------|--------|
 | **`user_folder:read`** | Read the workspace. This is the default |
@@ -37,6 +39,52 @@ The name is kebab-case, at most 48 characters. The package must include a skill,
 | **`hooks:session`** | Session start and end |
 | **`hooks:before_tool`** | See or block a later tool call |
 | **`process:spawn`** | Run a process |
+
+---
+
+### Plugin coding
+
+A plugin is instructions for the agent, plus an optional entrypoint. The instructions name tools from the public packages [`@continuumdao/continuum-node-sdk`](https://www.npmjs.com/package/@continuumdao/continuum-node-sdk) and [`@continuumdao/ctm-mpc-defi`](https://www.npmjs.com/package/@continuumdao/ctm-mpc-defi). The SDK package is the tool catalog `continuum-mcp-server` runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk) repository.
+
+The agent calls those tools. The entrypoint can compute and return text to that agent. Management keys stay on the node. A transaction payload stays with the agent until a later step in the same chat opens the [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+
+#### Candles, analysis, ideas, and protocols
+
+The skill tells the agent which of these to load, and how to combine the numbers.
+
+| Piece | What the agent uses |
+|-------|---------------------|
+| **Candlesticks** | OHLCV from the chart sources in [AI charting](/ContinuumDAO/MPAWallet/AICharting.md). **`list_ohlcv_sources`** lists providers. A provider tool such as **`coinbase-public__get_product_candles`** returns the rows. **`prepare_chart_from_rows`** draws them. |
+| **Technical analysis** | The chart analysis menu in [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md), and the **`technical-indicators`** MCP server (SMA, RSI, MACD, and the rest) over those rows. |
+| **Trade ideas** | A clear analysis becomes a PRIMARY idea with entry, target, and invalidation. [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md). **Build #N** is the agent’s path from that idea to a payload. |
+| **DeFi web3 protocols** | [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md). **`list_defi_protocols`** shows what this node has. **`load_defi_protocol`** turns one pack on (Uniswap, Aave, Curve, Aerodrome, GMX, Hyperliquid, and the others on that page). The pack’s tools quote, build liquidity, or build a position. |
+| **Transaction payload** | Build tools return a quote or a helper JSON and leave the sign request closed. The agent uses that payload afterwards, in the same chat, when it calls the tool that posts **`/multiSignRequest`**. Group members still Accept or Reject before anything is broadcast. |
+
+One skill can chain these: load candles, run an indicator, keep the PRIMARY idea, load the venue the operator named, and build the payload. Opening the sign request is a later agent step.
+
+#### Skills
+
+The plugin skill is the program. The `/` prompt loads it with **`agent_load_skill`**. Write the order of tools, the inputs, and what to do with the result in `skills/<name>/SKILL.md`.
+
+The same skill can load other skills already on the node. A chart or trade-idea skill stays the source of those rules. The plugin skill says when to load it.
+
+#### MCP servers
+
+The plugin uses the MCP servers already installed on the node, under **AI Agent → MCP Servers**.
+
+| Server | Role in a plugin |
+|--------|------------------|
+| **`continuum`** | Wallet, DeFi packs, charts, and trade ideas. Loaded at chat start. [Built-in continuum MCP](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md#built-in-continuum-mcp-wallet-node). |
+| **Candle and indicator servers** | **`coinmarketcap-public`**, **`coinbase-public`**, **`technical-indicators`**, and the other OHLCV servers on [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md). The skill tells the agent to load one with **`agent_load_mcp_server`** when the chat does not already have it. |
+| **A protocol pack** | **`load_defi_protocol`** after the operator has chosen the venue. |
+
+Tools from a server other than **`continuum`** are named **`{serverId}__{toolName}`**.
+
+#### Webhooks
+
+A webhook starts an agent turn. It does not call the entrypoint. [Webhooks](/ContinuumDAO/MPAWallet/AIHarness/Overview.md#webhooks).
+
+Point the webhook prompt at this plugin: tell the agent to load the plugin skill and apply the posted body. The same candle, analysis, and payload steps then run on that event. Telegram, GitHub, Slack, and a generic JSON POST all work this way. Secrets stay in **Variables**. The agent does not receive them.
 
 ---
 
@@ -115,7 +163,7 @@ After the scan, a skill and a prompt with only **`user_folder:read`** and no fin
 
 ### For AI agents — plugins
 
-`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Publish steps and index fields: [Publish to the repository](#publish-to-the-repository). Import and update scan: [Review on install and update](#review-on-install-and-update).
+`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. How a plugin combines candles, analysis, trade ideas, and DeFi payloads: [Plugin coding](#plugin-coding). Publish steps and index fields: [Publish to the repository](#publish-to-the-repository). Import and update scan: [Review on install and update](#review-on-install-and-update).
 
 Load **`mpa-plugin-author`** first. These tools are added with that skill. Load **`mpa-plugin-review`** before install, update, or enable, and show its recommendation (each risk, and the **accept** or **reject** rule) before asking the operator whether to continue. A plugin’s own tools appear after its skill is loaded. `/<name>` or **`agent_load_skill`** does that.
 
@@ -142,3 +190,7 @@ External agents coach install, approval, disable, and uninstall through **AI Age
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)
+- [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md)
+- [Trade ideas](/ContinuumDAO/MPAWallet/TradeIdeas.md)
+- [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)

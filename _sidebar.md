@@ -52,6 +52,7 @@
   * [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
   * [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
   * [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
+    * [Plugin coding](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#plugin-coding)
   * [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
   * [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
   * [Telegram Mini App](/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md)
