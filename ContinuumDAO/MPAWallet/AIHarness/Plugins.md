@@ -46,7 +46,7 @@ How a package calls the public libraries, candles, analysis, trade ideas, and De
 
 A plugin is instructions for the agent, plus an optional entrypoint. The instructions name tools from the public packages [`@continuumdao/continuum-node-sdk`](https://www.npmjs.com/package/@continuumdao/continuum-node-sdk) and [`@continuumdao/ctm-mpc-defi`](https://www.npmjs.com/package/@continuumdao/ctm-mpc-defi). The SDK package is the tool catalog `continuum-mcp-server` runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk) repository.
 
-The agent calls those tools. The entrypoint can compute and return text to that agent. `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. Management keys stay on the node. A transaction payload stays with the agent until a later step in the same chat opens the [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+The agent calls those tools. The entrypoint can compute and return text to that agent. `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. Management keys stay on the node. The entrypoint may `import` `ethers` to encode a call or read a contract. It cannot hold a private key: `Wallet`, `HDNodeWallet`, and `SigningKey` throw. `pi.signRequest({ chainId, to, data, value, purpose })` opens a [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) for the preferred KeyGen. Group members still Accept or Reject before anything is broadcast. `purpose` is the text they review. A provider needs the `net:https` permission. The entrypoint may `import express from 'express'` and register `get`, `post`, `put`, `patch`, and `delete` routes. `app.listen` needs `net:https` and listens on `127.0.0.1`. The entrypoint may `import { z } from 'zod'` to check a request body or a tool argument.
 
 #### Candles, analysis, ideas, and protocols
 
@@ -148,6 +148,8 @@ The scan runs on the node that imports or updates a package. Findings appear on 
 | **`hook-before-tool`** | A hook that can see or block a later tool call |
 | **`skill-shell`**, **`skill-net`**, **`skill-write`** | Instructions that tell the agent to run a shell, fetch or search, or write a file |
 | **`key-material`** | Text that mentions node key material |
+| **`protocol-library`** | An entrypoint that names a covered protocol and builds that call itself, without importing the library module |
+| **`http-post`**, **`http-put`**, **`http-patch`**, **`http-delete`** | A route or request for that method. Each shipped rule is reject |
 
 The scan covers the manifest, JavaScript and TypeScript, shell scripts, and skill or prompt markdown.
 
