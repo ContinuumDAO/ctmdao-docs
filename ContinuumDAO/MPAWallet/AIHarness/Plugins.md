@@ -46,7 +46,7 @@ How a package calls the public libraries, candles, analysis, trade ideas, and De
 
 A plugin is instructions for the agent, plus an optional entrypoint. The instructions name tools from the public packages [`@continuumdao/continuum-node-sdk`](https://www.npmjs.com/package/@continuumdao/continuum-node-sdk) and [`@continuumdao/ctm-mpc-defi`](https://www.npmjs.com/package/@continuumdao/ctm-mpc-defi). The SDK package is the tool catalog `continuum-mcp-server` runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk) repository.
 
-The agent calls those tools. The entrypoint can compute and return text to that agent. Management keys stay on the node. A transaction payload stays with the agent until a later step in the same chat opens the [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
+The agent calls those tools. The entrypoint can compute and return text to that agent. `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. Management keys stay on the node. A transaction payload stays with the agent until a later step in the same chat opens the [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md).
 
 #### Candles, analysis, ideas, and protocols
 
