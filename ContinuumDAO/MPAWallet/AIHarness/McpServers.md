@@ -119,26 +119,28 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 
 ### Repository servers on **continuum-mcp**
 
+These run in the node image sidecar. Activate with **Add from repository**. **`coinmarketcap-public`** and **`coinbase-public`** are already seeded on a new node (`initialLoad: false`). Set **Variables** when a row needs a key, then load the server for that chat with **`agent_load_mcp_server`** after you pick a provider.
+
 | Catalog id | Endpoint | API key | Typical use |
 |------------|----------|---------|-------------|
-| **`coinmarketcap-public`** | `/mcp/cmc-public` | None for keyless tools; optional **`COINMARKETCAP_API_KEY`** unlocks CEX historical OHLCV on the **same** server | DEX pool klines, market snapshots, Fear & Greed; default when operator picks CoinMarketCap for charts |
-| **`coinbase-public`** | `/mcp/coinbase-public` | None for public market data; optional **`COINBASE_CDP_API_KEY_NAME`** + **`COINBASE_CDP_API_PRIVATE_KEY`** for authenticated routes | Spot CEX OHLCV (`BTC-USD`-style products), product search, ticker, order book |
-| **`business-latest`** | `/mcp/business-latest` | None | Free business RSS (BBC, CNBC, MarketWatch, Forbes, Reuters via Google News, RT Business) |
-| **`world-affairs`** | `/mcp/world-affairs` | None | Free world-news RSS (BBC, Al Jazeera, Guardian, DW, France 24, NPR, CNN, RT) |
-| **`technical-indicators`** | `/mcp/ta` | None | SMA, RSI, MACD, Bollinger, Fibonacci, and 100+ indicators over OHLCV series ( **`initialLoad: false`**, **`aiReady: false`** in catalog — enable Initial load or load per chat) |
-| **`crypto-latest`** | `/mcp/crypto-latest` | None | Free crypto headline RSS (CoinDesk, The Block, Cointelegraph, Decrypt, Blockworks, The Defiant, Bitcoin Magazine, CryptoPotato, CryptoSlate, Good Morning Crypto, OpenZeppelin) |
-| **`crypto-security`** | `/mcp/crypto-security` | None | Free security / exploit RSS (QuillAudits, SlowMist, Immunefi, BlockSec, CertiK, Rekt, Trail of Bits) |
-| **`coin-bureau-newsletters`** | `/mcp/coin-bureau-newsletters` | None | Coin Bureau newsletter RSS |
-| **`crypto-banter-newsletters`** | `/mcp/crypto-banter-newsletters` | None | Crypto Banter newsletter RSS (The Insider, Good Morning Crypto, The Daily Candle) |
+| **`coinmarketcap-public`** | `/mcp/cmc-public` | None for keyless tools; optional **`COINMARKETCAP_API_KEY`** unlocks CEX historical OHLCV on the **same** server | Keyless: DEX **`get_kline_candles`**, global metrics, Fear & Greed, CMC100, altcoin season, DEX token and pool search. With the key: CEX aggregate **`get_crypto_ohlcv_historical`** (hourly/daily and volume). Prefer this over catalog **`coinmarketcap`** for charts, and call **`resolve_coinmarketcap_mcp_server`** first. |
+| **`coinbase-public`** | `/mcp/coinbase-public` | None for public market data; optional **`COINBASE_CDP_API_KEY_NAME`** + **`COINBASE_CDP_API_PRIVATE_KEY`** for authenticated routes | Keyless **`get_product_candles`** (`BTC-USD`-style products), product search, and ticker. **`get_product_book`** feeds [liquidity depth](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md). Live product ticker when enabled. |
+| **`business-latest`** | `/mcp/business-latest` | None | Free business RSS (BBC, CNBC, MarketWatch, Forbes, Reuters via Google News, RT Business). Headlines, not candles. |
+| **`world-affairs`** | `/mcp/world-affairs` | None | Free world-news RSS (BBC, Al Jazeera, Guardian, DW, France 24, NPR, CNN, RT). Headlines, not candles. |
+| **`technical-indicators`** | `/mcp/ta` | None | SMA, RSI, MACD, Bollinger, Fibonacci, and 100+ indicators over OHLCV bars you already have. Not a candle source. Catalog ships **`initialLoad: false`** and **`aiReady: false`** — enable Initial load or load per chat. |
+| **`crypto-latest`** | `/mcp/crypto-latest` | None | Free crypto headline RSS (CoinDesk, The Block, Cointelegraph, Decrypt, Blockworks, The Defiant, Bitcoin Magazine, CryptoPotato, CryptoSlate, Good Morning Crypto, OpenZeppelin). Not candles. |
+| **`crypto-security`** | `/mcp/crypto-security` | None | Free security / exploit RSS (QuillAudits, SlowMist, Immunefi, BlockSec, CertiK, Rekt, Trail of Bits). Not candles. |
+| **`coin-bureau-newsletters`** | `/mcp/coin-bureau-newsletters` | None | Coin Bureau newsletter RSS. Not candles. |
+| **`crypto-banter-newsletters`** | `/mcp/crypto-banter-newsletters` | None | Crypto Banter newsletter RSS (The Insider, Good Morning Crypto, The Daily Candle). Not candles. |
 | **`arkham-intel`** | `/mcp/arkham-intel` | **`ARKHAM_API_KEY`** | Arkham Intelligence entity / transfer lookup (official API via the sidecar) |
 | **`continuumdao-tokenomics`** | `/mcp/continuumdao-tokenomics` | None | ContinuumDAO circulating supply / veCTM tokenomics |
 | **`vpn`** | `/mcp/vpn` | None (uses Ed25519 management signing for writes) | WireGuard admin VPN and peer exit configs; requires **node veCTM privilege** (`get_node_privilege_status.entitled`) — not current-authority NFT ownership. See [Private VPN](/ContinuumDAO/PrivateVPN.md) |
 
-**Chart sources:** **`coinmarketcap-public`**, **`coinbase-public`**, FMP, Alpaca, Equibles, and other OHLCV MCPs are listed in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
+**Chart sources:** **`coinmarketcap-public`** and **`coinbase-public`** in the table above are the built-in candle servers. Third-party OHLCV providers (CoinGecko, Binance, FMP, Alpaca, and the rest) are under [Other repository catalog entries](#other-repository-catalog-entries-third-party-runtimes). How a fetched series becomes a chart, including live updates, is in [AI charting — OHLCV data sources](/ContinuumDAO/MPAWallet/AICharting.md#ohlcv-data-sources). The agent should call **`list_ohlcv_sources`** when you ask what chart providers exist, and load a provider **only when you choose it** — not auto-picked for generic “chart ETH” requests (skill **`chart-ohlcv-sources`**).
 
-**News / research:** **`business-latest`**, **`world-affairs`**, **`crypto-latest`**, **`crypto-security`**, and the newsletter servers are not OHLCV sources. Load per chat when you want headline scans or RSS search. **`gdelt-cloud`** adds macro/event search (optional **`GDELT_API_KEY`**). For Telegram, Discord, and Reddit channel search, use the built-in **`continuum`** social tools — see [Social media search](#social-media-search-on-continuum) above.
+**News / research:** **`business-latest`**, **`world-affairs`**, **`crypto-latest`**, **`crypto-security`**, and the newsletter servers are headline feeds, not candle sources. Load per chat when you want a headline scan or RSS search. **`gdelt-cloud`** (a third-party catalog entry) adds macro/event search (optional **`GDELT_API_KEY`**). For Telegram, Discord, and Reddit channel search, use the built-in **`continuum`** social tools — see [Social media search](#social-media-search-on-continuum) above.
 
-**Technical analysis:** After loading **`technical-indicators`**, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
+**Technical analysis:** **`technical-indicators`** is not a candle source. After it is loaded, the agent calls **`list_technical_indicators`** then **`calculate_technical_indicator`** with series or candle input. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
 **VPN:** **`vpn`** tools configure WireGuard on the node and download configs to **`user_folder/data/vpn/`**. **`set_vpn_dns_filter`** sets **Off**, **Blocky**, or **dnsmasq** ad and tracker blocking for full tunnel and peer egress (same HaGeZi light list; split tunnel is not filtered). Enable VPN only when **`get_node_privilege_status`** shows **`entitled`** (this node is a member of a Group whose recorded attach key has a qualifying NFT this month). Do **not** use **`get_ve_ctm_attach_status`** as the VPN gate — that is KeyGen-scoped. No Linea register or monthly VPN fee. See [Private VPN](/ContinuumDAO/PrivateVPN.md).
 
@@ -146,20 +148,22 @@ Operator detail: [continuum-node-sdk `agent-social-search.md`](https://github.co
 
 ### Other repository catalog entries (third-party runtimes)
 
-The same **Add from repository** flow activates servers defined in **`MCP_servers.json`** that call **external** or **npx/uv** runtimes — for example:
+The same **Add from repository** flow activates servers defined in **`MCP_servers.json`** that call **external** or **npx/uv** runtimes. Sidecar servers that run in the node image, including CoinMarketCap, Coinbase, and the RSS feeds, are in the table above. Third-party examples:
 
 | Category | Example catalog ids |
 |----------|---------------------|
 | Search / browser | **`duckduckgo`**, **`brave-search`**, **`google-search`**, **`exa`**, **`tavily`**, **`kagi`**, **`serpapi`**, **`perplexity`**, **`mullvad-browser`**, **`gecko`**, **`firefox`** |
-| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`coinmarketcap-public`**, **`coinbase-public`**, **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`koinju`**, **`massive`**, **`nansen`**, **`cryptorank`**, **`coinglass`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`**, **`arkham-intel`** |
-| On-chain / dev | **`foundry`**, **`etherscan`** (official HTTP), **`etherscan-community`** (stdio — not official), **`blockscout`** (official HTTP) |
-| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`business-latest`**, **`world-affairs`**, **`crypto-latest`**, **`crypto-security`**, **`coin-bureau-newsletters`**, **`crypto-banter-newsletters`**, **`etf-flow`**, **`edgartools`** |
+| Market data | **`coingecko`**, **`coingecko-pro`**, **`coinmarketcap`** (full official MCP), **`financial-modeling-prep`**, **`alpaca`**, **`equibles`**, **`binance`**, **`alphavantage`**, **`koinju`**, **`massive`**, **`nansen`**, **`cryptorank`**, **`coinglass`**, **`dune`**, **`messari`**, **`altfins`**, **`whale-tracker`** |
+| On-chain / dev | **`foundry`**, **`quillshield`**, **`etherscan`** (official HTTP), **`etherscan-community`** (stdio — not official), **`blockscout`** (official HTTP) |
+| News / macro | **`gdelt-cloud`**, **`finance-news`**, **`etf-flow`**, **`edgartools`** |
 | Social (third-party API) | **`x`** (Twitter — **`TWITTER_*`** env vars) |
 | Other | **`venice`** |
 
 Each row may require **Variables** (API keys, OAuth tokens, or **`EDGAR_IDENTITY`**). The UI shows env var **names** and configured flags — never secret values.
 
 **Foundry MCP** (`foundry`) runs **`forge`**, **`cast`**, and **`anvil`** with **`user_folder`** as workspace — pairs with [Foundry script](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#foundry-script) compose import on **`continuum`**.
+
+**QuillShield** (`quillshield`) is an optional audit of Solidity under `evm/`. How it fits a contract the agent writes: [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md). It runs `npx -y @quillaudits/mcp` and needs **`QUILLSHIELD_API_KEY`** in **Variables**. Initial load is off. Add it from the repository, then load it for the chat that should use it. An accepted audit uploads `evm/` to QuillShield and shows a quote before it runs. Top up the QuillShield balance on their dashboard, by card or crypto. This node does not take that payment. The report is an automated audit. Skipping it still leaves the deploy multi-sign request available. Setup: [QuillShield MCP](https://www.quillaudits.com/quillshield/developers/mcp-for-cursor-and-claude).
 
 Catalog maintenance for operators adding new servers: [mpc-config `CATALOG.md`](https://github.com/ContinuumDAO/mpc-config/blob/main/agent_llm_config.defaults/CATALOG.md).
 

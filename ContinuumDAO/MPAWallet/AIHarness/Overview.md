@@ -2,7 +2,7 @@
 
 Every MPC node ships an **AI agent harness**: one LLM, one set of tools, and the threads, schedules, and inbound hooks that use them. Wallet spends still go through the [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). The harness is optional — the node app can run Groups, KeyGens, and multi-sign without it.
 
-Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md). Extra skill and prompt packages: [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md).
+Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md). Extra skill and prompt packages: [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md). Solidity from chat: [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md).
 
 ---
 
@@ -82,7 +82,7 @@ Put signing secrets in **Variables** (`WEBHOOK_SECRET_*`, and **`TELEGRAM_BOT_TO
 | **`skills/<name>/SKILL.md`** | A workspace skill (from chat or the Skills tab) |
 | **`plans/`** | Plan-mode documents |
 | **`data/chat-uploads/`** | Image and PDF copies from chat |
-| **`evm/`** | Foundry / Solidity |
+| **`evm/`** | Foundry / Solidity. [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md) |
 
 Catalog skills (the ones with **Initial load**) live under `agent_llm_config/Skills/` and are edited on the **Skills** tab. That tab can also upload a `.md`, `.txt`, or a text-layer PDF. A scanned PDF is rejected.
 
@@ -109,6 +109,7 @@ Discover this page with `search_continuum_docs` (`AI Agent tabs` / `AI harness`)
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
+- [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md)
 - [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)

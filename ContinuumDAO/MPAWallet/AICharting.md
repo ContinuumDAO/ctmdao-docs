@@ -31,19 +31,11 @@ New nodes seed **`coinmarketcap-public`** and **`coinbase-public`** in the catal
 | **Derive** | Options / index | DeFi protocol pack (`derive`) | Option candles by `instrumentName`, or index candles by currency. Optional — not a substitute for a live option quote. No API key. |
 | **Uniswap v4** | DEX pool spot | DeFi protocol pack (`uniswap-v4`) | Pool OHLCV via pool list / presets. Optional **`THE_GRAPH_API_KEY`**; some Robinhood-chain paths need **`BITQUERY_API_KEY`**. |
 
-#### Built-in **continuum-mcp** catalog servers
+#### Built-in catalog servers
 
-These run in the node image sidecar. Activate with **Add from repository** (or use the default seed for **`coinmarketcap-public`** / **`coinbase-public`**), set **Variables** if noted, then **`agent_load_mcp_server`** after you pick a provider.
+CoinMarketCap, Coinbase, the headline RSS servers, and **`technical-indicators`** run in the node image. Endpoints, keys, and tools are in [MCP servers — Repository servers on continuum-mcp](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md#repository-servers-on-continuum-mcp).
 
-| Source | Kind | Catalog id | Notes / keys |
-|--------|------|------------|--------------|
-| **CoinMarketCap (public)** | Spot index, **DEX pool** klines, sentiment | `coinmarketcap-public` | **Keyless:** DEX **`get_kline_candles`**, global metrics, Fear & Greed, CMC100, altcoin season, DEX token/pool search. **With `COINMARKETCAP_API_KEY`:** CEX aggregate **`get_crypto_ohlcv_historical`** (hourly/daily + volume) on the **same** server. Prefer this over catalog **`coinmarketcap`** for charts — call **`resolve_coinmarketcap_mcp_server`** first. |
-| **Coinbase Advanced Trade (public)** | Spot CEX | `coinbase-public` | Keyless **`get_product_candles`** (`BTC-USD`-style products). Optional **`COINBASE_CDP_API_KEY_NAME`** + **`COINBASE_CDP_API_PRIVATE_KEY`** for authenticated routes. **`get_product_book`** feeds [liquidity depth](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md) analysis. Live product ticker when enabled. |
-| **Business Latest RSS** | Headlines (not candles) | `business-latest` | Free business RSS — research only, not OHLCV. |
-| **World Affairs RSS** | Headlines (not candles) | `world-affairs` | Free world-news RSS — research only, not OHLCV. |
-| **Technical indicators** | Indicators on fetched series | `technical-indicators` | SMA, RSI, MACD, Bollinger, Fibonacci, 100+ indicators — **after** you have OHLCV bars. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md). Not a candle source. |
-| **Crypto Latest RSS** | Headlines (not candles) | `crypto-latest` | Free crypto RSS (CoinDesk, The Block, OpenZeppelin, and others) — research only. |
-| **Crypto Security RSS** | Headlines (not candles) | `crypto-security` | Free security / exploit RSS (CertiK, Rekt, Trail of Bits, and others) — research only. |
+For candles from that list, use **`coinmarketcap-public`** or **`coinbase-public`**. The RSS servers do not supply candles. **`technical-indicators`** runs after the bars are loaded. See [Technical analysis](/ContinuumDAO/MPAWallet/TechnicalAnalysis.md).
 
 #### Other catalog MCP servers (chartable OHLCV)
 

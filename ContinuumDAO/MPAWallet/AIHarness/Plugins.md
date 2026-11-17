@@ -56,6 +56,8 @@ File names and the shape of the description file are in [For AI agents — plugi
 
 A plugin is instructions for the agent, plus an optional program. The instructions name tools the node already has for the wallet, charts, analysis, trade ideas, and DeFi. The agent calls those tools. The program can calculate something and hand the text back to the agent, or it can ask the group to sign. It uses the node’s preferred KeyGen address. Management keys stay on the node. The program cannot create or hold a private key.
 
+The same program can call a contract you created and deployed with the [Solidity harness](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md). It uses ethers.js to read that contract or to encode the call, then asks the group to sign.
+
 Library names, the calls the program may make, and the tool names to write into the instructions are in [For AI agents — plugins](#entrypoint-and-libraries).
 
 #### Charts, analysis, trade ideas, and DeFi
@@ -170,9 +172,9 @@ The name is kebab-case, at most 48 characters. The package must include a skill,
 
 #### Entrypoint and libraries
 
-The instructions name tools from the public packages [`@continuumdao/continuum-node-sdk`](https://www.npmjs.com/package/@continuumdao/continuum-node-sdk) and [`@continuumdao/ctm-mpc-defi`](https://www.npmjs.com/package/@continuumdao/ctm-mpc-defi). The SDK package is the tool catalog `continuum-mcp-server` runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk) repository.
+The instructions name tools the agent already has. Tool names and payload shapes are in the [continuum-node-sdk](https://github.com/ContinuumDAO/continuum-node-sdk) repository. The entrypoint does not import `@continuumdao/continuum-node-sdk`. An import that is not on the allowlist throws. Direct imports from the package root are `ethers`, `express`, and `zod`. DeFi code imports `@continuumdao/ctm-mpc-defi` through `importDefi`, and only for a subpath named in `defiModules`. Market data imports `@continuumdao/ctm-market-data` through `importMarket`, and only for a subpath named in `marketModules` (`ta`, `ohlcv`, `trade-ideas`). Do not call `ctm_*` tools or `load_defi_protocol` from the entrypoint. Load **`mpa-plugin-libraries`** for the export list. The node image supplies these packages. The plugin does not run `npm install`.
 
-The agent calls those tools. The entrypoint can compute and return text to that agent. `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. Management keys stay on the node. The entrypoint may `import` `ethers` to encode a call or read a contract. It cannot hold a private key: `Wallet`, `HDNodeWallet`, and `SigningKey` throw. `pi.signRequest({ chainId, to, data, value, purpose })` opens a [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) for the preferred KeyGen. Group members still Accept or Reject before anything is broadcast. `purpose` is the text they review. A provider needs the `net:https` permission. The entrypoint may `import express from 'express'` and register `get`, `post`, `put`, `patch`, and `delete` routes. `app.listen` needs `net:https` and listens on `127.0.0.1`. The entrypoint may `import { z } from 'zod'` to check a request body or a tool argument.
+The agent calls those tools. The entrypoint can compute and return text to that agent. `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. Management keys stay on the node. The entrypoint may `import` `ethers` to encode a call or read a contract, including one deployed from the [Solidity harness](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md). It cannot hold a private key: `Wallet`, `HDNodeWallet`, and `SigningKey` throw. `pi.signRequest({ chainId, to, data, value, purpose })` opens a [multi-sign request](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md) for the preferred KeyGen. Group members still Accept or Reject before anything is broadcast. `purpose` is the text they review. A provider needs the `net:https` permission. The entrypoint may `import express from 'express'` and register `get`, `post`, `put`, `patch`, and `delete` routes. `app.listen` needs `net:https` and listens on `127.0.0.1`. The entrypoint may `import { z } from 'zod'` to check a request body or a tool argument.
 
 The plugin skill is the program of steps. The `/` prompt loads it with **`agent_load_skill`**. Write the order of tools, the inputs, and what to do with the result in `skills/<name>/SKILL.md`. The same skill can load other skills already on the node. A chart or trade-idea skill stays the source of those rules. The plugin skill says when to load it.
 
@@ -269,6 +271,7 @@ After the scan, a skill and a prompt with only **`user_folder:read`** and no fin
 
 ### Related
 
+- [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md)
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
