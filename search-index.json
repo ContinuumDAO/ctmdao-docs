@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T22:14:25.035Z",
+  "generatedAt": "2026-11-17T22:19:05.518Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1653,7 +1653,6 @@
         "Hedging strategies",
         "Create a plugin",
         "After a plan runs",
-        "For AI agents — create a plugin",
         "Related"
       ],
       "sections": [
@@ -1700,12 +1699,6 @@
           "excerpt": "Continue the conversation — use After orchestration → Continue in Orchestrator chat to follow up on the same run (for example adjust gas, sign, or schedule the next step). Plan follow on — start a new plan that builds on an earlier run without re explaining everything from scratch. Find past runs — "
         },
         {
-          "id": "for-ai-agents-create-a-plugin",
-          "title": "For AI agents — create a plugin",
-          "level": 3,
-          "excerpt": "search continuum docs ( create a plugin / plan mode plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/PlanMode section for ai agents create a plugin . Plan mode id is plugin . The starter is New plan → Create a plugin . In ordinary chat, a skill and a prompt with no library impor"
-        },
-        {
           "id": "related",
           "title": "Related",
           "level": 3,
@@ -1731,6 +1724,7 @@
         "Publish a plugin",
         "Review before you enable a plugin",
         "For AI agents — plugins",
+        "Create a plugin plan",
         "Package layout",
         "Entrypoint and libraries",
         "Charts, analysis, ideas, and protocol tools",
@@ -1804,7 +1798,13 @@
           "id": "for-ai-agents-plugins",
           "title": "For AI agents — plugins",
           "level": 3,
-          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, the publish procedure, index fields, and the install scan are i"
+          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, the create a plugin plan, the publish procedu"
+        },
+        {
+          "id": "create-a-plugin-plan",
+          "title": "Create a plugin plan",
+          "level": 4,
+          "excerpt": "A skill and a prompt with no library import and no entrypoint stay in ordinary chat: agent create plugin , then install that local path, then agent smoke plugin . If the plugin needs find library function , a library export, or an entrypoint import, stop. Do not call find library function in that ch"
         },
         {
           "id": "package-layout",
