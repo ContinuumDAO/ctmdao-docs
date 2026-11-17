@@ -1,7 +1,7 @@
 {
   "name": "ContinuumDAO For AI agents sections",
   "url": "https://docs.continuumdao.org/well-known/agent-sections.json",
-  "generatedAt": "2026-11-17T22:19:05.518Z",
+  "generatedAt": "2026-11-17T22:28:05.428Z",
   "instruction": "External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.",
   "sections": [
     {
@@ -100,7 +100,7 @@
       "title": "For AI agents — plugins",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins#for-ai-agents-plugins",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins",
-      "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIH"
+      "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin / adapt plugin ) then get continuum doc path ContinuumDA"
     },
     {
       "page": "Telegram Mini App",

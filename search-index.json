@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T22:19:05.518Z",
+  "generatedAt": "2026-11-17T22:28:05.428Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1715,6 +1715,7 @@
       "headings": [
         "Plugins",
         "Install a plugin",
+        "Import a Claude, Codex, or Pi plugin",
         "What a plugin contains",
         "Plugin coding",
         "Charts, analysis, trade ideas, and DeFi",
@@ -1724,6 +1725,7 @@
         "Publish a plugin",
         "Review before you enable a plugin",
         "For AI agents — plugins",
+        "Import a Claude, Codex, or Pi package",
         "Create a plugin plan",
         "Package layout",
         "Entrypoint and libraries",
@@ -1745,6 +1747,12 @@
           "title": "Install a plugin",
           "level": 3,
           "excerpt": "Search filters the published plugins loaded from the public catalog, by name, description, author, repository, or commit. Install downloads the current version onto this node. It needs a management signature. The node checks that the file matches the published copy and that the release signature bel"
+        },
+        {
+          "id": "import-a-claude-codex-or-pi-plugin",
+          "title": "Import a Claude, Codex, or Pi plugin",
+          "level": 3,
+          "excerpt": "You can bring a plugin written for Claude, Codex, or Pi onto this node. This node does not download those catalogs. Fetch one plugin’s own folder into the workspace, then ask the agent to import that folder. These are the public lists: Claude, Anthropic’s list: claude plugins official Claude, commun"
         },
         {
           "id": "what-a-plugin-contains",
@@ -1798,7 +1806,13 @@
           "id": "for-ai-agents-plugins",
           "title": "For AI agents — plugins",
           "level": 3,
-          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, the create a plugin plan, the publish procedu"
+          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin / adapt plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, adapting a Claude, Codex, or P"
+        },
+        {
+          "id": "import-a-claude-codex-or-pi-package",
+          "title": "Import a Claude, Codex, or Pi package",
+          "level": 4,
+          "excerpt": "The download lands at user folder/data/<name / . plugins/<name / is filled later by agent install plugin . Fetch only the directory that contains the manifest. A marketplace root is a catalog, and adapting it does not import one plugin. Claude official: https://github.com/anthropics/claude plugins o"
         },
         {
           "id": "create-a-plugin-plan",
