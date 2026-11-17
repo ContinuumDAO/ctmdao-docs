@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T21:26:52.941Z",
+  "generatedAt": "2026-11-17T21:53:46.715Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1048,7 +1048,7 @@
         "What you can do",
         "OHLCV data sources",
         "DeFi protocol packs (via `load_defi_protocol`)",
-        "Built-in **continuum-mcp** catalog servers",
+        "Built-in catalog servers",
         "Other catalog MCP servers (chartable OHLCV)",
         "Related market data (not primary OHLCV chart sources)",
         "Live chart updates",
@@ -1083,10 +1083,10 @@
           "excerpt": "Source Kind How it is loaded Notes / keys Hyperliquid Perp DeFi protocol pack ( hyperliquid ) Live mid prices when chart live binding is enabled. No API key for read/chart. Arcus Perp DeFi protocol pack ( arcus ) Robinhood Chain. Live mids when enabled. Arcus spot (stock tokens) Spot Same arcus pack"
         },
         {
-          "id": "built-in-continuum-mcp-catalog-servers",
-          "title": "Built-in continuum-mcp catalog servers",
+          "id": "built-in-catalog-servers",
+          "title": "Built-in catalog servers",
           "level": 4,
-          "excerpt": "These run in the node image sidecar. Activate with Add from repository (or use the default seed for coinmarketcap public / coinbase public ), set Variables if noted, then agent load mcp server after you pick a provider. Source Kind Catalog id Notes / keys CoinMarketCap (public) Spot index, DEX pool "
+          "excerpt": "CoinMarketCap, Coinbase, the headline RSS servers, and technical indicators run in the node image. Endpoints, keys, and tools are in MCP servers — Repository servers on continuum mcp. For candles from that list, use coinmarketcap public or coinbase public . The RSS servers do not supply candles. tec"
         },
         {
           "id": "other-catalog-mcp-servers-chartable-ohlcv",
@@ -1441,6 +1441,66 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure"
     },
     {
+      "path": "ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts",
+      "title": "Creating smart contracts",
+      "section": "AI harness",
+      "headings": [
+        "Creating smart contracts",
+        "What you can do",
+        "What it checks",
+        "What you need",
+        "Where the project lives",
+        "For AI agents — creating smart contracts",
+        "Related"
+      ],
+      "sections": [
+        {
+          "id": "creating-smart-contracts",
+          "title": "Creating smart contracts",
+          "level": 2,
+          "excerpt": "Ask the agent in chat to write a Solidity contract. The harness puts the project in the node’s evm/ folder, compiles it with Foundry, and runs it on a fork of a chain you already configured. Deployment is a multi sign request. Group members Accept or Reject before anything is broadcast. Foundry itse"
+        },
+        {
+          "id": "what-you-can-do",
+          "title": "What you can do",
+          "level": 3,
+          "excerpt": "Describe the contract in chat. The agent writes the Solidity, the tests, and a deploy script under AI Agent → Workspace , in evm/ . Run that project on a fork of one chain this node already has, so you see whether it works before anyone signs. See whether the preferred KeyGen holds enough of that ch"
+        },
+        {
+          "id": "what-it-checks",
+          "title": "What it checks",
+          "level": 3,
+          "excerpt": "Before any code is written, the harness stops until three things are true. 1. The official Etherscan server is enabled, with an API key in Variables . The community Etherscan server does not stand in for it. 2. This node has at least one EVM chain with an RPC. You pick one of those chains. The fork "
+        },
+        {
+          "id": "what-you-need",
+          "title": "What you need",
+          "level": 3,
+          "excerpt": "Requirement Why A linked model and a preferred KeyGen The agent runs in the harness, and the gas check and the deployment use that KeyGen. Configure the AI harness An EVM chain with an RPC The fork and the balance check use it. Chain management Official Etherscan, with ETHERSCAN API KEY Required bef"
+        },
+        {
+          "id": "where-the-project-lives",
+          "title": "Where the project lives",
+          "level": 3,
+          "excerpt": "Path What it holds evm/ The Foundry project. foundry.toml is seeded here evm/src/ Contract source evm/test/ Tests evm/script/ Deploy scripts evm/lib/ Libraries installed for this project evm/broadcast/.../dry run/run latest.json The dry run the deployment request is built from .svm/ Solidity compile"
+        },
+        {
+          "id": "for-ai-agents-creating-smart-contracts",
+          "title": "For AI agents — creating smart contracts",
+          "level": 3,
+          "excerpt": "search continuum docs ( creating smart contracts / solidity / evm foundry ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts section for ai agents creating smart contracts . Load evm foundry when the operator asks for a Solidity contract, a Foundry test, or a forge"
+        },
+        {
+          "id": "related",
+          "title": "Related",
+          "level": 3,
+          "excerpt": "Plugins AI harness overview MCP servers Foundry script Chain management MPC Accept/Reject loop"
+        }
+      ],
+      "excerpt": "Ask the agent in chat to write a Solidity contract. The harness puts the project in the node’s evm/ folder, compiles it with Foundry, and runs it on a fork of a chain you already configured. Deployment is a multi sign request. Group members Accept or Reject before anything is broadcast. Foundry itse",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts"
+    },
+    {
       "path": "ContinuumDAO/MPAWallet/AIHarness/McpServers",
       "title": "MCP servers",
       "section": "AI harness",
@@ -1496,13 +1556,13 @@
           "id": "repository-servers-on-continuum-mcp",
           "title": "Repository servers on continuum-mcp",
           "level": 3,
-          "excerpt": "Catalog id Endpoint API key Typical use coinmarketcap public /mcp/cmc public None for keyless tools; optional COINMARKETCAP API KEY unlocks CEX historical OHLCV on the same server DEX pool klines, market snapshots, Fear & Greed; default when operator picks CoinMarketCap for charts coinbase public /m"
+          "excerpt": "These run in the node image sidecar. Activate with Add from repository . coinmarketcap public and coinbase public are already seeded on a new node ( initialLoad: false ). Set Variables when a row needs a key, then load the server for that chat with agent load mcp server after you pick a provider. Ca"
         },
         {
           "id": "other-repository-catalog-entries-third-party-runtimes",
           "title": "Other repository catalog entries (third-party runtimes)",
           "level": 3,
-          "excerpt": "The same Add from repository flow activates servers defined in MCP servers.json that call external or npx/uv runtimes — for example: Category Example catalog ids Search / browser duckduckgo , brave search , google search , exa , tavily , kagi , serpapi , perplexity , mullvad browser , gecko , firefo"
+          "excerpt": "The same Add from repository flow activates servers defined in MCP servers.json that call external or npx/uv runtimes. Sidecar servers that run in the node image, including CoinMarketCap, Coinbase, and the RSS feeds, are in the table above. Third party examples: Category Example catalog ids Search /"
         },
         {
           "id": "related",
@@ -1575,7 +1635,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "Agent chat Configure the AI harness MCP servers Plugins Plan mode AI managed governance Telegram Mini App MPA wallet overview"
+          "excerpt": "Agent chat Configure the AI harness MCP servers Creating smart contracts Plugins Plan mode AI managed governance Telegram Mini App MPA wallet overview"
         }
       ],
       "excerpt": "Every MPC node ships an AI agent harness : one LLM, one set of tools, and the threads, schedules, and inbound hooks that use them. Wallet spends still go through the MPC Accept/Reject loop. The harness is optional — the node app can run Groups, KeyGens, and multi sign without it. Link a model first:",
@@ -1742,7 +1802,7 @@
           "id": "entrypoint-and-libraries",
           "title": "Entrypoint and libraries",
           "level": 4,
-          "excerpt": "The instructions name tools from the public packages @continuumdao/continuum node sdk and @continuumdao/ctm mpc defi . The SDK package is the tool catalog continuum mcp server runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the continu"
+          "excerpt": "The instructions name tools the agent already has. Tool names and payload shapes are in the continuum node sdk repository. The entrypoint does not import @continuumdao/continuum node sdk . An import that is not on the allowlist throws. Direct imports from the package root are ethers , express , and "
         },
         {
           "id": "charts-analysis-ideas-and-protocol-tools",
@@ -1772,7 +1832,7 @@
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "AI harness overview Agent chat MCP servers AI charting Technical analysis Trade ideas DeFi protocol support"
+          "excerpt": "Creating smart contracts AI harness overview Agent chat MCP servers AI charting Technical analysis Trade ideas DeFi protocol support"
         }
       ],
       "excerpt": "A plugin is an add on for the AI agent on your node. It packages instructions the agent can follow, a / command you can type in chat, and, when the author needs it, a small program that runs on the node. Plugins are made to be published and shared. An author installs one on their node, puts the sour",

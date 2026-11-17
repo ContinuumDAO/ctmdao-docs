@@ -428,6 +428,13 @@
       "excerpt": "Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i"
     },
     {
+      "page": "Creating smart contracts",
+      "title": "For AI agents — creating smart contracts",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts#for-ai-agents-creating-smart-contracts",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md#for-ai-agents-creating-smart-contracts",
+      "excerpt": "search continuum docs ( creating smart contracts / solidity / evm foundry ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts "
+    },
+    {
       "page": "Overview",
       "title": "For AI agents — AI Agent tabs",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview#for-ai-agents-ai-agent-tabs",
@@ -514,8 +521,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-17T21:26:52.941Z",
-  "pageCount": 67,
+  "generatedAt": "2026-11-17T21:53:46.715Z",
+  "pageCount": 68,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -537,6 +544,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md",
           "excerpt": "This checklist is optional . You can run an MPA wallet entirely from the node app (Groups, KeyGens, multi sign) without an AI agent. The MPA wallet is AI first , though, so most users will want to com"
+        },
+        {
+          "name": "Creating smart contracts",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md",
+          "excerpt": "Ask the agent in chat to write a Solidity contract. The harness puts the project in the node’s evm/ folder, compiles it with Foundry, and runs it on a fork of a chain you already configured. Deploymen"
         },
         {
           "name": "MCP servers",

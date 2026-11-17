@@ -111,6 +111,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

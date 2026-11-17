@@ -1,7 +1,7 @@
 {
   "name": "ContinuumDAO For AI agents sections",
   "url": "https://docs.continuumdao.org/well-known/agent-sections.json",
-  "generatedAt": "2026-11-17T21:26:52.941Z",
+  "generatedAt": "2026-11-17T21:53:46.715Z",
   "instruction": "External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.",
   "sections": [
     {
@@ -80,6 +80,13 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure#for-ai-agents-provider",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Configure.md#for-ai-agents-provider",
       "excerpt": "Audience: external AI agents (Claude, Cursor, Claude Code, Grok, and similar) helping an operator fill AI Agent → Provider . This is a coaching task. Discover i"
+    },
+    {
+      "page": "Creating smart contracts",
+      "title": "For AI agents — creating smart contracts",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts#for-ai-agents-creating-smart-contracts",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md#for-ai-agents-creating-smart-contracts",
+      "excerpt": "search continuum docs ( creating smart contracts / solidity / evm foundry ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts "
     },
     {
       "page": "Overview",
