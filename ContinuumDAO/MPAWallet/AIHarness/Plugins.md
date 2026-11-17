@@ -127,7 +127,7 @@ The finding names and the checks on the download are in [For AI agents — plugi
 
 ### For AI agents — plugins
 
-`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, tool names, the publish procedure, index fields, and the install scan are in this section.
+`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding` / `create a plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, tool names, the create-a-plugin plan, the publish procedure, index fields, and the install scan are in this section.
 
 Load **`mpa-plugin-author`** first. These tools are added with that skill. Load **`mpa-plugin-review`** before install, update, or enable, and show its recommendation (each risk, and the **accept** or **reject** rule) before asking the operator whether to continue. A plugin’s own tools appear after its skill is loaded. `/<name>` or **`agent_load_skill`** does that.
 
@@ -141,12 +141,25 @@ Load **`mpa-plugin-author`** first. These tools are added with that skill. Load 
 | **`agent_uninstall_plugin`** | Delete `plugins/<name>`. |
 | **`agent_adapt_plugin`** | Rewrite a Pi, Claude, or Codex directory under `user_folder` into `mpa-plugin.json`. The original manifest stays. Unsupported Pi APIs are listed. Install afterwards. |
 | **`agent_create_plugin`** | Local draft at `plugins/<name>`, version `v1.0.0`, with a skill, a `/` prompt, a `README.md`, and `user_folder:read`, then enables it. This does not publish. |
+| **`agent_smoke_plugin`** | Run one tool of a plugin in `user_folder/plugins`. Pass `name`, `tool`, and optional `arguments`. Does not enable the plugin or open the permission card. The first run does not grant net, shell, or writes. |
 | **`agent_export_plugin_for_github`** | Check an installed plugin and tell the operator to click **Download for GitHub**. The archive is the directory to commit. |
 | **`agent_create_plugin_new_version`** | Publish after that commit is pushed. Pass `repository`, the full `commit`, and `path` when the plugin is a subdirectory. The commit does not need the release stamp. The catalog keeps a `commitUrl` and rejects a private repository or a commit whose other files differ from the archive. The node needs veCTM privilege, and `keyGenId` (or the preferred KeyGen) must be a multi-agree KeyGen in that group. The first release is `v1.0.0`. A later version must be higher, from the same repository and path, and signed by the same KeyGen. Opens a multi-sign request. After members agree and the signature is triggered, call again with `requestId`. |
 
 Call **`agent_enable_plugin`** with `confirmPermissions: true` only after the operator has read the recommendation and asked to continue. That call is the permission card. Keep it in a later step than the recommendation. If they decline, the plugin stays off. Leave key material, bootstrap, and signing endpoints out of a plugin.
 
 External agents coach install, approval, disable, and uninstall through **AI Agent → Plugins**. Each of those buttons needs a management signature. Publishing is the node harness calling **`agent_create_plugin_new_version`**, described below. There is no publish button on the tab.
+
+#### Create a plugin plan
+
+A skill and a prompt with no library import and no entrypoint stay in ordinary chat: **`agent_create_plugin`**, then install that local path, then **`agent_smoke_plugin`**. If the plugin needs **`find_library_function`**, a library export, or an entrypoint import, stop. Do not call **`find_library_function`** in that chat. Tell the operator to open **New plan → Create a plugin** (plan mode id `plugin`). The human steps are in [Plan mode — Create a plugin](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md#create-a-plugin).
+
+In that plan thread, spawn one specialist with **`agent_spawn_sub_agent`** (skills **`mpa-plugin-libraries`** and **`mpa-plugin-author`**) and join it. Ask only the open questions it returns, one at a time. A second spawn is allowed only after those answers, and only if the card is still incomplete.
+
+Write the operator’s words once under **Goal**. Draft **What this plugin should do** as one or two sentences they can edit. Do not copy Goal into that section. The name line starts with `- Name:`. Must-not is its own line. If they do not answer, write `Must not: skipped` and do not ask again. Do not paste an address into the plan. Unless Goal names a different address, the entrypoint calls `pi.preferredKeyGenAddress()`.
+
+Before Execute, write `## Smoke check` with one or two calls. Each call is **Tool**, **Arguments** as one JSON object, and **Expect** as the field names that must appear in the result. Leave no placeholders. Execute freezes that section. The author specialist must not edit it. Execute writes the plugin on this node and smokes the locked check. It does not post to KeyGen, enable the plugin, or publish. A missing Expect field is not finished: edit the plugin and call **`agent_smoke_plugin`** again with the locked Tool and Arguments. A missing permission or Variable is not a code edit. The smoke tool asks the operator, stores each Variable without showing the value, and smokes again. A decline stops the plan. The plugin stays off.
+
+**Publish follow-on** appears when that plan’s status is complete. Publish only if the operator asks and the KeyGen group has veCTM.
 
 #### Package layout
 

@@ -84,26 +84,6 @@ For DAO-related plans, see [AI-managed governance](/ContinuumDAO/MPAWallet/AIHar
 
 ---
 
-### For AI agents — create a plugin
-
-`search_continuum_docs` (`create a plugin` / `plan mode plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/PlanMode` section `for-ai-agents-create-a-plugin`.
-
-Plan mode id is `plugin`. The starter is **New plan → Create a plugin**.
-
-In ordinary chat, a skill and a prompt with no library import and no entrypoint stay in that chat: `agent_create_plugin`, then install that local path, then `agent_smoke_plugin`. If the plugin needs `find_library_function`, a library export, or an entrypoint import, stop. Do not call `find_library_function` there. Tell the operator to open this plan. The host loads `mpa-plugin-author` and `mpa-plugin-review`. It loads `mpa-plugin-libraries` when the ask names DeFi, an indicator, or an import.
-
-In the plan thread, do not call `find_library_function`. Spawn one specialist with `agent_spawn_sub_agent` (skills `mpa-plugin-libraries` and `mpa-plugin-author`) and join it. Ask only the open questions it returns, one at a time. A second spawn is allowed only after those answers, and only if the card is still incomplete. Do not run a parallel wave.
-
-Write the operator’s words once under **Goal**. Draft **What this plugin should do** as one or two sentences they can edit. Do not copy Goal into that section. The name line starts with `- Name:`. Must-not is its own line. If they do not answer the must-not question, write `Must not: skipped` and do not ask again. Do not paste an address into the plan. Unless Goal names a different address, the entrypoint calls `pi.preferredKeyGenAddress()`. Do not import `@continuumdao/continuum-node-sdk`.
-
-Before Execute, write `## Smoke check` with one or two calls. Each call is **Tool**, **Arguments** as one JSON object, and **Expect** as the field names that must appear in the result. Use the tool name from the card. Leave no placeholders. Execute freezes that section. The author specialist must not edit it.
-
-Execute writes the plugin on this node and smokes the locked check. It does not post to KeyGen, enable the plugin, or publish. `agent_smoke_plugin` runs the files in `user_folder/plugins/<name>`. A missing Expect field is not finished: edit the plugin and smoke again with the locked Tool and Arguments. A missing permission or Variable is not a code edit. The smoke tool asks the operator, stores each Variable without showing the value, and smokes again. A decline stops the plan. The plugin stays off. Show the `mpa-plugin-review` recommendation and wait.
-
-**Publish follow-on** appears when the plan status is complete. Publish only if the operator asks and the KeyGen group has veCTM.
-
----
-
 ### Related
 
 - [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
