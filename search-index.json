@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T21:53:46.715Z",
+  "generatedAt": "2026-11-17T22:14:25.035Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1651,7 +1651,9 @@
         "What it is good for",
         "How to use it",
         "Hedging strategies",
+        "Create a plugin",
         "After a plan runs",
+        "For AI agents — create a plugin",
         "Related"
       ],
       "sections": [
@@ -1677,7 +1679,7 @@
           "id": "how-to-use-it",
           "title": "How to use it",
           "level": 3,
-          "excerpt": "1. Start a plan — in Agent chat, choose New plan and pick a starter (market, yield, research, portfolio, Hedging strategies , DAO, or custom). On Telegram, New plan beside New chat offers the same modes. 2. Describe the goal — talk through what you want in plain language. The agent turns that into a"
+          "excerpt": "1. Start a plan — in Agent chat, choose New plan and pick a starter (market, yield, research, portfolio, Hedging strategies , DAO, Create a plugin , or custom). On Telegram, New plan beside New chat offers the same modes. 2. Describe the goal — talk through what you want in plain language. The agent"
         },
         {
           "id": "hedging-strategies",
@@ -1686,16 +1688,28 @@
           "excerpt": "Use Hedging strategies when you want to cut directional risk without dumping core coins . The agent interviews first (what to keep, what to cut, ratio, horizon, budget, venue, unwind), then writes the plan from live MPA inventory — spot, LP (Uniswap / Curve / Aerodrome / Pendle), lending, Morpho/Eul"
         },
         {
+          "id": "create-a-plugin",
+          "title": "Create a plugin",
+          "level": 3,
+          "excerpt": "Use Create a plugin when you want a plugin written for this node, especially one with a program or a library import. A plugin that is only instructions and a / command can still be written in ordinary chat. If that chat finds the plugin needs a library or a program, it sends you here. The agent asks"
+        },
+        {
           "id": "after-a-plan-runs",
           "title": "After a plan runs",
           "level": 3,
           "excerpt": "Continue the conversation — use After orchestration → Continue in Orchestrator chat to follow up on the same run (for example adjust gas, sign, or schedule the next step). Plan follow on — start a new plan that builds on an earlier run without re explaining everything from scratch. Find past runs — "
         },
         {
+          "id": "for-ai-agents-create-a-plugin",
+          "title": "For AI agents — create a plugin",
+          "level": 3,
+          "excerpt": "search continuum docs ( create a plugin / plan mode plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/PlanMode section for ai agents create a plugin . Plan mode id is plugin . The starter is New plan → Create a plugin . In ordinary chat, a skill and a prompt with no library impor"
+        },
+        {
           "id": "related",
           "title": "Related",
           "level": 3,
-          "excerpt": "AI harness overview Configure the AI harness MPC Accept/Reject loop AI managed governance Telegram Mini App"
+          "excerpt": "Plugins AI harness overview Configure the AI harness MPC Accept/Reject loop AI managed governance Telegram Mini App"
         }
       ],
       "excerpt": "Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a hedge from live inventory, review a portfolio, or explore a governance topic — before anything runs on your wallet. You and the agent draft the plan together in a private Plan cha",

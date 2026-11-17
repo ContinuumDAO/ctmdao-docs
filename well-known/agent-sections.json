@@ -1,7 +1,7 @@
 {
   "name": "ContinuumDAO For AI agents sections",
   "url": "https://docs.continuumdao.org/well-known/agent-sections.json",
-  "generatedAt": "2026-11-17T21:53:46.715Z",
+  "generatedAt": "2026-11-17T22:14:25.035Z",
   "instruction": "External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.",
   "sections": [
     {
@@ -94,6 +94,13 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview#for-ai-agents-ai-agent-tabs",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview.md#for-ai-agents-ai-agent-tabs",
       "excerpt": "Discover this page with search continuum docs ( AI Agent tabs / AI harness ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Overview . Tab What yo"
+    },
+    {
+      "page": "Plan mode",
+      "title": "For AI agents — create a plugin",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode#for-ai-agents-create-a-plugin",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md#for-ai-agents-create-a-plugin",
+      "excerpt": "search continuum docs ( create a plugin / plan mode plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/PlanMode section for ai agents create "
     },
     {
       "page": "Plugins",
