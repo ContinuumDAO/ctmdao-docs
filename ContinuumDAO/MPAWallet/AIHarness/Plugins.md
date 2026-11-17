@@ -16,11 +16,40 @@ Open **Node → AI Agent → Plugins**. The public catalog is [mpaplugins.contin
 
 **Install** downloads the current version onto this node. It needs a management signature. The node checks that the file matches the published copy and that the release signature belongs to the publisher, then shows a [review](#review-before-you-enable-a-plugin) of what the plugin wants to do.
 
-**Install local** copies a folder that is already on this node and already contains the plugin’s description file. Use it for a draft you are writing, or for a package the agent has adapted from Pi, Claude, or Codex.
+**Install local** copies a folder that is already on this node and already contains the plugin’s description file. Use it for a draft you are writing, or after the agent has [adapted a Pi, Claude, or Codex package](#import-a-claude-codex-or-pi-plugin).
 
 When a plugin is on, its `/` command appears in the chat menu and loads the plugin’s instructions. The command name is the prompt file name. On the **Skills** tab those instructions are read-only. Turn the plugin off, update it, or remove it from this **Plugins** tab.
 
 **Disable** turns the plugin off and leaves the files in place. **Uninstall** deletes them. Both need a management signature.
+
+---
+
+### Import a Claude, Codex, or Pi plugin
+
+You can bring a plugin written for Claude, Codex, or Pi onto this node. This node does not download those catalogs. Fetch one plugin’s own folder into the workspace, then ask the agent to import that folder.
+
+These are the public lists:
+
+- Claude, Anthropic’s list: [claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
+- Claude, community list: [claude-plugins-community](https://github.com/anthropics/claude-plugins-community)
+- Codex: [openai/plugins](https://github.com/openai/plugins)
+- Pi has no single list. Use the package you already run in Pi. How a Pi package is laid out: [Pi packages](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md)
+
+A list is not a plugin. Download the one plugin folder.
+
+- For Codex, open `plugins/` in that repository and take the folder named after the plugin. That folder contains `.codex-plugin/plugin.json`.
+- For Claude, open the plugin in the list and follow it to the folder that contains `.claude-plugin/plugin.json`. That folder is often in a different repository.
+- For Pi, take the package folder. It contains `package.json` or `plugin.json`.
+
+Put that folder on this node under the workspace, at `data/<plugin-name>/`. A plugin named `commit-commands` goes in `data/commit-commands/`. Leave the files out of `plugins/`. That folder is where this node keeps a plugin after you install it, and the import copies the package there. Leave the files out of the top of the workspace as well.
+
+On **AI Agent → Workspace**, that path is the `data` folder. The straightforward way to fill it is to tell the agent, in chat, the link to that one plugin folder and ask it to download the folder into `data/<plugin-name>/`. The link is only for the download. When the folder is on the node, ask the agent to import `data/<plugin-name>`.
+
+The agent rewrites the package into this node’s format. It adds the description file and a `/` command. Your original manifest stays where it was. Instructions that are already in a skill file are kept. Command files become the `/` prompts. If the package has no commands, the agent writes one prompt that loads the skill.
+
+A Pi package can include a small program. That program then runs on this node, in the plugin worker. It does not keep running inside Pi. Flags, extra providers, shortcuts, a status line, and a custom provider are not available here. The agent lists any of those it finds. Rewrite that part as instructions, or drop it.
+
+The adapted plugin starts with permission to read the workspace. After it is rewritten, install it from that same folder. The [review](#review-before-you-enable-a-plugin) runs, and the plugin stays off until you agree. If it has a program, the agent tries that program once before you turn it on. Publishing is a later step, and only if you ask.
 
 ---
 
@@ -127,7 +156,7 @@ The finding names and the checks on the download are in [For AI agents — plugi
 
 ### For AI agents — plugins
 
-`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding` / `create a plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, tool names, the create-a-plugin plan, the publish procedure, index fields, and the install scan are in this section.
+`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding` / `create a plugin` / `adapt plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, tool names, adapting a Claude, Codex, or Pi package, the create-a-plugin plan, the publish procedure, index fields, and the install scan are in this section.
 
 Load **`mpa-plugin-author`** first. These tools are added with that skill. Load **`mpa-plugin-review`** before install, update, or enable, and show its recommendation (each risk, and the **accept** or **reject** rule) before asking the operator whether to continue. A plugin’s own tools appear after its skill is loaded. `/<name>` or **`agent_load_skill`** does that.
 
@@ -139,7 +168,7 @@ Load **`mpa-plugin-author`** first. These tools are added with that skill. Load 
 | **`agent_enable_plugin`** | Without `confirmPermissions`, returns the review and leaves the plugin off. |
 | **`agent_disable_plugin`** | Turn a plugin off. Files stay. |
 | **`agent_uninstall_plugin`** | Delete `plugins/<name>`. |
-| **`agent_adapt_plugin`** | Rewrite a Pi, Claude, or Codex directory under `user_folder` into `mpa-plugin.json`. The original manifest stays. Unsupported Pi APIs are listed. Install afterwards. |
+| **`agent_adapt_plugin`** | Rewrite a Pi, Claude, or Codex directory under `user_folder` into `mpa-plugin.json`. Pass `path`. The original manifest stays. Unsupported Pi APIs are listed. Install afterwards. |
 | **`agent_create_plugin`** | Local draft at `plugins/<name>`, version `v1.0.0`, with a skill, a `/` prompt, a `README.md`, and `user_folder:read`, then enables it. This does not publish. |
 | **`agent_smoke_plugin`** | Run one tool of a plugin in `user_folder/plugins`. Pass `name`, `tool`, and optional `arguments`. Does not enable the plugin or open the permission card. The first run does not grant net, shell, or writes. |
 | **`agent_export_plugin_for_github`** | Check an installed plugin and tell the operator to click **Download for GitHub**. The archive is the directory to commit. |
@@ -148,6 +177,22 @@ Load **`mpa-plugin-author`** first. These tools are added with that skill. Load 
 Call **`agent_enable_plugin`** with `confirmPermissions: true` only after the operator has read the recommendation and asked to continue. That call is the permission card. Keep it in a later step than the recommendation. If they decline, the plugin stays off. Leave key material, bootstrap, and signing endpoints out of a plugin.
 
 External agents coach install, approval, disable, and uninstall through **AI Agent → Plugins**. Each of those buttons needs a management signature. Publishing is the node harness calling **`agent_create_plugin_new_version`**, described below. There is no publish button on the tab.
+
+#### Import a Claude, Codex, or Pi package
+
+The download lands at `user_folder/data/<name>/`. `plugins/<name>/` is filled later by **`agent_install_plugin`**. Fetch only the directory that contains the manifest. A marketplace root is a catalog, and adapting it does not import one plugin.
+
+- Claude official: `https://github.com/anthropics/claude-plugins-official`. Community: `https://github.com/anthropics/claude-plugins-community`. Follow the marketplace entry to the directory that contains `.claude-plugin/plugin.json`. That directory is often a git subdir of another repository.
+- Codex: `https://github.com/openai/plugins`, directory `plugins/<name>/`, manifest `.codex-plugin/plugin.json`.
+- Pi has no catalog. The package directory has `package.json` (`pi.extensions`) or root `plugin.json`. Layout: `https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md`.
+
+When the operator gives a URL, clone or copy that plugin directory into `data/<name>/`. Then call **`agent_adapt_plugin`** with `path` set to `data/<name>`. A GitHub or marketplace URL is not that path. Do not start from **`agent_create_plugin`**.
+
+The tool reads identity from the first of these that has a name: `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, root `plugin.json`, then `package.json`. A Pi extension is `package.json` `pi.extensions[0]`, mapped to `entrypoint`. The note says it runs in the MPA Node worker, not inside Pi. Underscores in the name become hyphens. An empty version becomes `0.1.0`. An empty description becomes `Adapted MPA Wallet plugin <name>`. Existing `skills/<name>/SKILL.md` directories are listed. `commands/*.md` is copied to `prompts/<stem>.md`. If there are no commands, it writes `prompts/<name>.md` that loads the skill with `$ARGUMENTS`. Permissions are `user_folder:read`, plus `hooks:session` and `hooks:before_tool` when an entrypoint is set. The original manifest is left in place. A directory that already has a valid `mpa-plugin.json` is not rewritten.
+
+`registerFlag`, `registerProvider`, `registerShortcut`, `setStatus`, and `customProvider` are listed and not executed. Tell the operator to rewrite that part as a skill or drop it.
+
+Then **`agent_install_plugin`** with `localPath` set to that directory. Show the **`mpa-plugin-review`** recommendation. When the package has an entrypoint, call **`agent_smoke_plugin`**. Do not call **`agent_enable_plugin`** until the operator agrees. Do not publish unless asked.
 
 #### Create a plugin plan
 
