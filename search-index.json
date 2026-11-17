@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-14T13:26:44.031Z",
+  "generatedAt": "2026-11-17T21:26:52.941Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1647,17 +1647,22 @@
       "section": "AI harness",
       "headings": [
         "Plugins",
-        "Install and run",
-        "Package",
+        "Install a plugin",
+        "What a plugin contains",
         "Plugin coding",
-        "Candles, analysis, ideas, and protocols",
-        "Skills",
-        "MCP servers",
+        "Charts, analysis, trade ideas, and DeFi",
+        "Instructions and other skills",
+        "Tools already on the node",
         "Webhooks",
-        "Publish to the repository",
-        "Index record",
-        "Review on install and update",
+        "Publish a plugin",
+        "Review before you enable a plugin",
         "For AI agents — plugins",
+        "Package layout",
+        "Entrypoint and libraries",
+        "Charts, analysis, ideas, and protocol tools",
+        "Publish procedure",
+        "Index record",
+        "Install and update scan",
         "Related"
       ],
       "sections": [
@@ -1665,73 +1670,103 @@
           "id": "plugins",
           "title": "Plugins",
           "level": 2,
-          "excerpt": "A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live in user folder/plugins/<name . Wallet spends still go through the MPC Accept/Reject loop. Open Node → AI Agent → Plugins . The public index is mpaplugins.continuumdao.org. Search fi"
+          "excerpt": "A plugin is an add on for the AI agent on your node. It packages instructions the agent can follow, a / command you can type in chat, and, when the author needs it, a small program that runs on the node. Plugins are made to be published and shared. An author installs one on their node, puts the sour"
         },
         {
-          "id": "install-and-run",
-          "title": "Install and run",
+          "id": "install-a-plugin",
+          "title": "Install a plugin",
           "level": 3,
-          "excerpt": "Search filters the index by name or description. Index URL overrides the default index. Install needs a management signature. An index install checks the archive hash and the veCTM release signature, then runs the review. Install local copies a directory that already contains mpa plugin.json . The p"
+          "excerpt": "Search filters the published plugins loaded from the public catalog, by name, description, author, repository, or commit. Install downloads the current version onto this node. It needs a management signature. The node checks that the file matches the published copy and that the release signature bel"
         },
         {
-          "id": "package",
-          "title": "Package",
+          "id": "what-a-plugin-contains",
+          "title": "What a plugin contains",
           "level": 3,
-          "excerpt": "Path Role mpa plugin.json Name, version, description, skills, prompts, optional entrypoint, permissions skills/<name /SKILL.md Guidance, loaded on demand prompts/<name .md The / command. Same placeholders as custom prompts extension/ Optional JavaScript. Its tools appear as plugin <name <tool ( plug"
+          "excerpt": "A plugin is a folder. It needs at least one of these: written instructions, a chat command, or a small program. Part What you get Description The name, version, a short summary, and the list of what the plugin is allowed to do Instructions Guidance the agent loads when you use the plugin Command A /"
         },
         {
           "id": "plugin-coding",
           "title": "Plugin coding",
           "level": 3,
-          "excerpt": "A plugin is instructions for the agent, plus an optional entrypoint. The instructions name tools from the public packages @continuumdao/continuum node sdk and @continuumdao/ctm mpc defi . The SDK package is the tool catalog continuum mcp server runs. The DeFi package is the protocol math behind the "
+          "excerpt": "A plugin is instructions for the agent, plus an optional program. The instructions name tools the node already has for the wallet, charts, analysis, trade ideas, and DeFi. The agent calls those tools. The program can calculate something and hand the text back to the agent, or it can ask the group to"
         },
         {
-          "id": "candles-analysis-ideas-and-protocols",
-          "title": "Candles, analysis, ideas, and protocols",
+          "id": "charts-analysis-trade-ideas-and-defi",
+          "title": "Charts, analysis, trade ideas, and DeFi",
           "level": 4,
-          "excerpt": "The skill tells the agent which of these to load, and how to combine the numbers. Piece What the agent uses Candlesticks OHLCV from the chart sources in AI charting. list ohlcv sources lists providers. A provider tool such as coinbase public get product candles returns the rows. prepare chart from r"
+          "excerpt": "The instructions say which of these to use, and how to combine the numbers. Piece What the agent does Charts Reads candlestick prices from the sources in AI charting and can draw them Technical analysis Runs indicators such as a moving average, RSI, or MACD on those prices. Technical analysis Trade "
         },
         {
-          "id": "skills",
-          "title": "Skills",
+          "id": "instructions-and-other-skills",
+          "title": "Instructions and other skills",
           "level": 4,
-          "excerpt": "The plugin skill is the program. The / prompt loads it with agent load skill . Write the order of tools, the inputs, and what to do with the result in skills/<name /SKILL.md . The same skill can load other skills already on the node. A chart or trade idea skill stays the source of those rules. The p"
+          "excerpt": "Write the order of steps, the inputs, and what to do with the result. The / command loads those instructions. The same instructions can load other skills already on the node. A chart skill or a trade idea skill stays the source of those rules. The plugin says when to load it."
         },
         {
-          "id": "mcp-servers",
-          "title": "MCP servers",
+          "id": "tools-already-on-the-node",
+          "title": "Tools already on the node",
           "level": 4,
-          "excerpt": "The plugin uses the MCP servers already installed on the node, under AI Agent → MCP Servers . Server Role in a plugin continuum Wallet, DeFi packs, charts, and trade ideas. Loaded at chat start. Built in continuum MCP. Candle and indicator servers coinmarketcap public , coinbase public , technical i"
+          "excerpt": "The plugin uses the MCP servers already installed under AI Agent → MCP Servers . The built in continuum server covers the wallet, DeFi, charts, and trade ideas, and it is available when a chat starts. Chart and indicator servers are loaded when the instructions ask for them. A protocol pack is loade"
         },
         {
           "id": "webhooks",
           "title": "Webhooks",
           "level": 4,
-          "excerpt": "A webhook starts an agent turn. It does not call the entrypoint. Webhooks. Point the webhook prompt at this plugin: tell the agent to load the plugin skill and apply the posted body. The same candle, analysis, and payload steps then run on that event. Telegram, GitHub, Slack, and a generic JSON POST"
+          "excerpt": "A webhook starts a new agent turn and can point that turn at this plugin. The prompt tells the agent to load the plugin’s instructions and apply the message that was posted. The same chart, analysis, and transaction steps then run for that event. The plugin’s own program runs when that turn calls it"
         },
         {
-          "id": "publish-to-the-repository",
-          "title": "Publish to the repository",
+          "id": "publish-a-plugin",
+          "title": "Publish a plugin",
           "level": 3,
-          "excerpt": "Publishing sends a plugin that is already installed on this node to mpaplugins.continuumdao.org. The repository checks the signature, the archive hash, and the version lineage. The security review runs later, on each node that imports the package. The Plugins tab has no publish button. Ask this node"
+          "excerpt": "Publishing sends a plugin that is already installed on this node to the public catalog. Other operators can then search for it and install it. The catalog checks the group signature, the file, and that the new version follows the previous one. Each node that later installs the plugin runs its own re"
         },
         {
-          "id": "index-record",
-          "title": "Index record",
+          "id": "review-before-you-enable-a-plugin",
+          "title": "Review before you enable a plugin",
           "level": 3,
-          "excerpt": "index.json keeps one current record per name. versions lists the earlier records. Each archive stays at its own URL. Field Stored value name Kebab case package name version v1.2.3 versionDate YYYY MM DD description Description from mpa plugin.json source URL of this version’s .tar.gz sha256 Hash of "
-        },
-        {
-          "id": "review-on-install-and-update",
-          "title": "Review on install and update",
-          "level": 3,
-          "excerpt": "The scan runs on the node that imports or updates a package. Findings appear on the Installed row and in the agent’s review text. mpa plugin review.yaml ( Skills → Host YAML ) maps each finding to accept or reject . The shipped file rejects every finding below. A package with no findings follows cle"
+          "excerpt": "Before a plugin from the catalog or from a local folder is allowed to run, this node scans it. You see the findings on the Installed row, and the agent can explain them. The scan looks for a program that would run on the node, network calls, reading or writing files, starting a shell, hooks that can"
         },
         {
           "id": "for-ai-agents-plugins",
           "title": "For AI agents — plugins",
           "level": 3,
-          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . How a plugin combines candles, analysis, trade ideas, and DeFi payloads: Plugin coding. Publish steps and index"
+          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, the publish procedure, index fields, and the install scan are i"
+        },
+        {
+          "id": "package-layout",
+          "title": "Package layout",
+          "level": 4,
+          "excerpt": "Installed copies live in user folder/plugins/<name . Install local copies a directory under user folder that already contains mpa plugin.json . A source example sits at agent llm config.defaults/plugins/hello mpa in the mpc config tree. It is not copied into user folder/plugins on a new node. Its pr"
+        },
+        {
+          "id": "entrypoint-and-libraries",
+          "title": "Entrypoint and libraries",
+          "level": 4,
+          "excerpt": "The instructions name tools from the public packages @continuumdao/continuum node sdk and @continuumdao/ctm mpc defi . The SDK package is the tool catalog continuum mcp server runs. The DeFi package is the protocol math behind the wallet’s web3 tools. Tool names and payload shapes are in the continu"
+        },
+        {
+          "id": "charts-analysis-ideas-and-protocol-tools",
+          "title": "Charts, analysis, ideas, and protocol tools",
+          "level": 4,
+          "excerpt": "Piece What the agent uses Candlesticks OHLCV from the chart sources in AI charting. list ohlcv sources lists providers. A provider tool such as coinbase public get product candles returns the rows. prepare chart from rows draws them. Technical analysis The chart analysis menu in Technical analysis, "
+        },
+        {
+          "id": "publish-procedure",
+          "title": "Publish procedure",
+          "level": 4,
+          "excerpt": "Publishing sends a plugin that is already installed on this node to mpaplugins.continuumdao.org. The repository checks the signature, the archive hash, and the version lineage. The security review runs later, on each node that imports the package. The Plugins tab has no publish button. Ask this node"
+        },
+        {
+          "id": "index-record",
+          "title": "Index record",
+          "level": 4,
+          "excerpt": "index.json keeps one current record per name. versions lists the earlier records. Each archive stays at its own URL. Field Stored value name Kebab case package name version v1.2.3 versionDate YYYY MM DD description Description from mpa plugin.json source URL of this version’s .tar.gz sha256 Hash of "
+        },
+        {
+          "id": "install-and-update-scan",
+          "title": "Install and update scan",
+          "level": 4,
+          "excerpt": "The scan runs on the node that imports or updates a package. Findings appear on the Installed row and in the agent’s review text. mpa plugin review.yaml ( Skills → Host YAML ) maps each finding to accept or reject . The shipped file rejects every finding below. A package with no findings follows cle"
         },
         {
           "id": "related",
@@ -1740,7 +1775,7 @@
           "excerpt": "AI harness overview Agent chat MCP servers AI charting Technical analysis Trade ideas DeFi protocol support"
         }
       ],
-      "excerpt": "A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live in user folder/plugins/<name . Wallet spends still go through the MPC Accept/Reject loop. Open Node → AI Agent → Plugins . The public index is mpaplugins.continuumdao.org. Search fi",
+      "excerpt": "A plugin is an add on for the AI agent on your node. It packages instructions the agent can follow, a / command you can type in chat, and, when the author needs it, a small program that runs on the node. Plugins are made to be published and shared. An author installs one on their node, puts the sour",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins"
     },
     {

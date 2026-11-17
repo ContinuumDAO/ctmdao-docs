@@ -514,7 +514,7 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-14T13:26:44.031Z",
+  "generatedAt": "2026-11-17T21:26:52.941Z",
   "pageCount": 67,
   "llmld:sections": [
     {
@@ -560,7 +560,7 @@
           "name": "Plugins",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins.md",
-          "excerpt": "A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live in user folder/plugins/<name . Wallet spends still go through the MPC Accept/Reje"
+          "excerpt": "A plugin is an add on for the AI agent on your node. It packages instructions the agent can follow, a / command you can type in chat, and, when the author needs it, a small program that runs on the no"
         },
         {
           "name": "Telegram Mini App",

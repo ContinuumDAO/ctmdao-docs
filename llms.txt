@@ -77,7 +77,7 @@ Raw markdown for any page: append `.md` to the page URL (e.g. `ContinuumDAO/Intr
 - [MCP servers](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/McpServers): Every MPC node ships an AI agent harness that can call MCP servers — tool packs the agent loads for wallet actions, char
 - [Overview](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Overview): Every MPC node ships an AI agent harness : one LLM, one set of tools, and the threads, schedules, and inbound hooks that
 - [Plan mode](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/PlanMode): Plan mode is for work that takes several steps — research a market, compare yield options, sketch a trade idea, design a
-- [Plugins](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins): A plugin is a package on this node: a skill, a / command, and an optional JavaScript entrypoint. Installed copies live i
+- [Plugins](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/Plugins): A plugin is an add on for the AI agent on your node. It packages instructions the agent can follow, a / command you can
 - [Telegram Mini App](https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp): Talk to your node’s built in AI agent from Telegram on your phone. This is the same harness as Agent chat in the node ap
 
 ## C3Caller
