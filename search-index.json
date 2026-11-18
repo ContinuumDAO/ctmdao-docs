@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-18T17:20:43.979Z",
+  "generatedAt": "2026-11-18T17:26:14.710Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1729,6 +1729,20 @@
         "Create a plugin plan",
         "Package layout",
         "Entrypoint and libraries",
+        "Package root",
+        "ethers",
+        "viem",
+        "express",
+        "zod",
+        "graphql-request",
+        "@openzeppelin/merkle-tree",
+        "Sign request",
+        "Preferred KeyGen",
+        "DeFi",
+        "Market data",
+        "Tools the agent already has",
+        "Plugin skill",
+        "Other skills",
         "Charts, analysis, ideas, and protocol tools",
         "Publish procedure",
         "Index record",
@@ -1830,7 +1844,91 @@
           "id": "entrypoint-and-libraries",
           "title": "Entrypoint and libraries",
           "level": 4,
-          "excerpt": "The instructions name tools the agent already has. Tool names and payload shapes are in the continuum node sdk repository. The entrypoint does not import @continuumdao/continuum node sdk . An import that is not on the allowlist throws. Direct imports from the package root are ethers , express , zod "
+          "excerpt": "Direct imports from the package root are ethers , express , zod , graphql request , @openzeppelin/merkle tree , and viem . An import that is not on the allowlist throws. The node image supplies these packages. The plugin does not run npm install . ethers , express , zod , graphql request , @openzepp"
+        },
+        {
+          "id": "package-root",
+          "title": "Package root",
+          "level": 5,
+          "excerpt": "ethers , express , zod , graphql request , @openzeppelin/merkle tree , and viem ."
+        },
+        {
+          "id": "ethers",
+          "title": "ethers",
+          "level": 5,
+          "excerpt": "import { Interface, Contract, JsonRpcProvider, parseUnits } from 'ethers' encodes a call or reads a contract, including one deployed from the Solidity harness. Wallet , HDNodeWallet , and SigningKey throw. A provider needs net:https ."
+        },
+        {
+          "id": "viem",
+          "title": "viem",
+          "level": 5,
+          "excerpt": "import { encodeFunctionData, parseAbi, getAddress, keccak256, createPublicClient, http, defineChain } from 'viem' . createPublicClient needs net:https . viem/accounts and viem/chains throw, so a plugin cannot build a private key or a mnemonic. Pass defineChain a chain id, name, and RPC."
+        },
+        {
+          "id": "express",
+          "title": "express",
+          "level": 5,
+          "excerpt": "import express from 'express' registers get , post , put , patch , and delete routes. app.listen needs net:https and listens on 127.0.0.1 ."
+        },
+        {
+          "id": "zod",
+          "title": "zod",
+          "level": 5,
+          "excerpt": "import { z } from 'zod' checks a request body or a tool argument."
+        },
+        {
+          "id": "graphql-request",
+          "title": "graphql-request",
+          "level": 5,
+          "excerpt": "import { gql, request } from 'graphql request' . request sends a query and needs net:https . Do not import graphql itself."
+        },
+        {
+          "id": "openzeppelin-merkle-tree",
+          "title": "@openzeppelin/merkle-tree",
+          "level": 5,
+          "excerpt": "import { StandardMerkleTree } from '@openzeppelin/merkle tree' builds or checks a proof that matches Solidity MerkleProof . That import does not use the network."
+        },
+        {
+          "id": "sign-request",
+          "title": "Sign request",
+          "level": 5,
+          "excerpt": "pi.signRequest({ chainId, to, data, value, purpose }) opens a multi sign request for the preferred KeyGen. purpose is the text the group reviews. The node that opened it is already agreed. Nothing is broadcast until the other members accept. Management keys stay on the node."
+        },
+        {
+          "id": "preferred-keygen",
+          "title": "Preferred KeyGen",
+          "level": 5,
+          "excerpt": "pi.preferredKeyGenAddress() returns the node's current preferred KeyGen Ethereum address when a tool or hook runs."
+        },
+        {
+          "id": "defi",
+          "title": "DeFi",
+          "level": 5,
+          "excerpt": "DeFi code imports @continuumdao/ctm mpc defi through importDefi , and only for a subpath named in defiModules . Do not call ctm tools or load defi protocol from the entrypoint. Load mpa plugin libraries for the export list."
+        },
+        {
+          "id": "market-data",
+          "title": "Market data",
+          "level": 5,
+          "excerpt": "Market data imports @continuumdao/ctm market data through importMarket , and only for a subpath named in marketModules ( ta , ohlcv , trade ideas )."
+        },
+        {
+          "id": "tools-the-agent-already-has",
+          "title": "Tools the agent already has",
+          "level": 5,
+          "excerpt": "The instructions name tools the agent already has. Tool names and payload shapes are in the continuum node sdk repository. The entrypoint does not import @continuumdao/continuum node sdk . The agent calls those tools. The entrypoint can compute and return text to that agent."
+        },
+        {
+          "id": "plugin-skill",
+          "title": "Plugin skill",
+          "level": 5,
+          "excerpt": "The plugin skill is the program of steps. The / prompt loads it with agent load skill . Write the order of tools, the inputs, and what to do with the result in skills/<name /SKILL.md ."
+        },
+        {
+          "id": "other-skills",
+          "title": "Other skills",
+          "level": 5,
+          "excerpt": "The same skill can load other skills already on the node. A chart or trade idea skill stays the source of those rules. The plugin skill says when to load it."
         },
         {
           "id": "charts-analysis-ideas-and-protocol-tools",
