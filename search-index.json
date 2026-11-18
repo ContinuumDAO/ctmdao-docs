@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T22:28:05.428Z",
+  "generatedAt": "2026-11-18T17:20:43.979Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1830,7 +1830,7 @@
           "id": "entrypoint-and-libraries",
           "title": "Entrypoint and libraries",
           "level": 4,
-          "excerpt": "The instructions name tools the agent already has. Tool names and payload shapes are in the continuum node sdk repository. The entrypoint does not import @continuumdao/continuum node sdk . An import that is not on the allowlist throws. Direct imports from the package root are ethers , express , and "
+          "excerpt": "The instructions name tools the agent already has. Tool names and payload shapes are in the continuum node sdk repository. The entrypoint does not import @continuumdao/continuum node sdk . An import that is not on the allowlist throws. Direct imports from the package root are ethers , express , zod "
         },
         {
           "id": "charts-analysis-ideas-and-protocol-tools",

@@ -1,7 +1,7 @@
 {
   "name": "ContinuumDAO For AI agents sections",
   "url": "https://docs.continuumdao.org/well-known/agent-sections.json",
-  "generatedAt": "2026-11-17T22:28:05.428Z",
+  "generatedAt": "2026-11-18T17:20:43.979Z",
   "instruction": "External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.",
   "sections": [
     {
