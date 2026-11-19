@@ -242,7 +242,7 @@ Direct imports from the package root are `ethers`, `express`, `zod`, `graphql-re
 
 ##### viem
 
-`import { encodeFunctionData, parseAbi, getAddress, keccak256, createPublicClient, http, defineChain } from 'viem'`. `createPublicClient` needs `net:https`. `viem/accounts` and `viem/chains` throw, so a plugin cannot build a private key or a mnemonic. Pass `defineChain` a chain id, name, and RPC.
+`import { encodeFunctionData, parseAbi, getAddress, keccak256, createPublicClient, http, defineChain } from 'viem'`. `createPublicClient` needs `net:https`. `viem/accounts` and `viem/chains` throw, so a plugin cannot build a private key or a mnemonic. Pass `defineChain` a chain id, name, and the `rpcGateway` from `pi.chainConfigs()`.
 
 ##### express
 
@@ -267,6 +267,10 @@ Direct imports from the package root are `ethers`, `express`, `zod`, `graphql-re
 ##### Preferred KeyGen
 
 `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs.
+
+##### Chain configs, assets, and contacts
+
+`pi.chainConfigs()`, `pi.assets()`, and `pi.contacts()` return this node's chain configs, configured assets, and address book. The host refreshes them when a tool or hook runs. Each call returns a frozen copy, and a plugin has no call that adds, changes, or deletes these records. EVM chain configs use `chainType` `ethereum`. Read `rpcGateway` from the matching row. A plugin that requires Ethereum uses the row whose `chainId` is `1` and stops when that row is missing or has no `rpcGateway`.
 
 ##### DeFi
 
