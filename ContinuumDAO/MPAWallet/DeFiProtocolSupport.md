@@ -20,7 +20,7 @@ Every supported protocol opens in the **same modal pattern** in the node app. Yo
 
 **How to open a protocol**
 
-- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Chainlink CCIP** on a reviewed token or the chain’s gas row, **Derive** on fundable ETH / USDC / WETH / WBTC / HYPE rows, **Aerodrome** on **Base**, **Trueo** on Base native ETH / USDC / TYD / TRUE / YES / NO, **Hyperliquid Outcomes** beside Hyperliquid perps on the Hyperliquid native-asset row, **Aave** / **Compound III** on supply/borrow markets for that asset, **Railgun** on an ERC-20 you want to shield)
+- **Assets tab** — click a **protocol shortcut** on an [asset row](/ContinuumDAO/MPAWallet/AssetManagement.md#asset-rows-assets-tab) when that token supports the integration (for example **Lido** on **ETH**, **Circle CCTP** on **USDC**, **Chainlink CCIP** on a reviewed token or the chain’s gas row, **Stargate** on a Stargate asset or the gas row for a native pool, **Derive** on fundable ETH / USDC / WETH / WBTC / HYPE rows, **Aerodrome** on **Base**, **Trueo** on Base native ETH / USDC / TYD / TRUE / YES / NO, **Hyperliquid Outcomes** beside Hyperliquid perps on the Hyperliquid native-asset row, **Aave** / **Compound III** on supply/borrow markets for that asset, **Railgun** on an ERC-20 you want to shield)
 - **Multi-sign / protocol UI** — browse available packs for the selected chain and KeyGen when you are not starting from a specific token row
 
 **Shared steps (every pack)**
@@ -40,7 +40,7 @@ See [Asset management — protocol modals](/ContinuumDAO/MPAWallet/AssetManageme
 
 ### Supported protocols
 
-Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Hyperliquid Outcomes**, **Arcus**, **Derive**, **Trueo**, **Circle CCTP**, **Chainlink CCIP**, **Venice**, **Railgun**.
+Current packs: **Uniswap v4**, **Curve**, **Aerodrome** (Base), **Aave v4**, **Compound III**, **Euler v2**, **Morpho**, **Pendle**, **Lido**, **Ethena**, **Maple Syrup**, **Sky**, **GMX**, **Hyperliquid**, **Hyperliquid Outcomes**, **Arcus**, **Derive**, **Trueo**, **Circle CCTP**, **Chainlink CCIP**, **Stargate**, **Venice**, **Railgun**.
 
 **Permissions / requirements** (human pre-flight): what must be configured before a flow can succeed, and what this integration does not include. Use the same label order when a line applies; omit a label if it does not apply to that protocol.
 
@@ -74,6 +74,7 @@ Agent tool ids, delivery kinds, and Variable anti-patterns live in [For AI agent
 | **Trueo**        | On-chain Yes/No prediction markets: search and trending, chance history, order book; wrap / unwrap USDC ↔ TYD; mint and burn YES+NO; buy or sell Yes/No; limit order and cancel; redeem the winner                                              | **Networks:** Base (**8453**) only.<br>**Secrets:** None.<br>**Setup:** Assets shortcuts on Base ETH, USDC, TYD, TRUE, and YES/NO rows. Collateral is **TYD** (wrap USDC into TYD). After a bet, add that market’s YES or NO token (18 decimals) to the node token list so balances show on the Assets tab.<br>**Rules:** Multi-sign requests expire after 30 minutes. New bets are refused when the market closes within 5 minutes. |
 | **Circle CCTP**  | Cross-chain native **USDC** burn → mint (routes, fees, balance, status)                                                                                                                                               | **Networks:** CCTP-supported source and destination chains configured in your node registry.<br>**Secrets:** None.<br>**Setup:** Source-chain RPC; USDC on the source chain.<br>**Rules:** Destination signing and gas follow the forwarding path implemented in your node build.<br>**Not supported:** CCTP routes not implemented on your node yet. |
 | **Chainlink CCIP** | Send the same token to another EVM chain. Pay the network fee in native gas or LINK. A gas-token send wraps the full amount; the destination receives the wrapped token | **Networks:** EVM source and destination chains in your node registry, same environment.<br>**Secrets:** None.<br>**Setup:** Source-chain RPC. The token must be a reviewed CCIP token on that chain.<br>**Rules:** A LINK fee approves the live quote plus 10%; unused LINK stays in the wallet. A native fee is the exact quote. Get Sig stops the request when a new quote is above the approved amount.<br>**Not supported:** Non-EVM destinations, extra message data, and token swaps. |
+| **Stargate** | Taxi send of a Stargate pool, native pool, or Hydra OFT to another EVM chain. Native gas pays the message. A native-pool send includes the token amount in the same value | **Networks:** EVM chains the app already knows, for both source and destination.<br>**Secrets:** None.<br>**Setup:** Source-chain RPC. The token must be that Stargate asset on the source chain.<br>**Rules:** The wallet attaches the live messaging quote plus 50%. Unused fee returns to the wallet. Default slippage is 0.5% under the quoted amount-out. Get Sig stops the request when a new quote is above the attached fee, or the amount-out is below the slippage floor.<br>**Not supported:** Bus mode, ZRO fees, compose messages, chains whose endpoint charges an ERC-20 as the messaging fee, and token swaps. |
 | **Venice**       | Stake / unstake ladder for VVV / sVVV / DIEM (Base); staking reads; model catalog                                                                                                                                     | **Networks:** Base (**8453**).<br>**Secrets:** **`VENICE_API_KEY`** in Variables for the model catalog and API credits (linked to staked DIEM and your Venice account where applicable).<br>**Setup:** Node RPC on Base for on-chain stake / unstake.<br>**Rules:** Staking ladder applies to VVV, sVVV, and DIEM as shown in the UI. |
 | **Railgun**      | Private ERC-20 balances. Shield tokens from the public MPC address into a **0zk** balance, transfer or call DeFi inside the pool, then unshield back to a public address. In-pool activity is hidden with zk-SNARK proofs. A broadcaster can submit the transaction so the public address does not pay gas. | **Networks:** Ethereum, Polygon, BNB Smart Chain, and Arbitrum, when that chain is in your node registry with RPC.<br>**Secrets:** None.<br>**Setup:** Node RPC on the target chain. Shield into the private balance before a private transfer or DeFi call.<br>**Rules:** Shield and unshield show the public address and amount. Only activity inside the pool stays private. A private spend may need a Private Proof of Innocence check before it can be submitted. |
 
@@ -148,6 +149,11 @@ Use continuum MCP: `list_defi_protocols`, then `load_defi_protocol` before that 
 - Load pack **`chainlink-ccip`**. Call `ctm_ccip_fetch_send_fee` before `ctm_ccip_build_send_multisign`.
 - A native-gas send wraps the full transfer amount. Unwrap that wrapped token on the destination chain with `ctm_ccip_build_unwrap_multisign` (`chainId` is the chain that holds it).
 
+**Stargate**
+
+- Load pack **`stargate`**. Call `ctm_stargate_fetch_send_fee` before `ctm_stargate_build_send_multisign`.
+- Taxi only. The attached fee is the quote plus 50%. Get Sig stops when the new quote exceeds that fee or the amount-out falls under the slippage floor.
+
 **All other table packs**
 
 - Load the matching pack with `load_defi_protocol` before write tools unless the tool description says otherwise.
@@ -162,6 +168,7 @@ Use continuum MCP: `list_defi_protocols`, then `load_defi_protocol` before that 
 - **Prediction markets:** **Trueo** (Base, on-chain YES/NO ERC20s) and **Hyperliquid Outcomes** (HIP-4, HyperCore balances) are separate packs. `search_prediction_markets` can search both; pass a venue to restrict to one. Hyperliquid perps stay on the **Hyperliquid** pack, not Outcomes.
 - **Railgun:** private balances for ERC-20s. Shield into a **0zk** address, then transfer or use DeFi without revealing the in-pool details, and unshield when you want the tokens public again.
 - **Chainlink CCIP:** sends the same token between EVM chains. A LINK fee approves the quote plus 10%. Sending the gas token wraps the full amount; unwrap the wrapped token on the destination.
+- **Stargate:** Taxi send of a Stargate pool, native pool, or Hydra OFT. The wallet attaches the messaging quote plus 50%. Unused fee returns to the wallet.
 - Support and chains evolve with releases; if a chain or action is missing in the UI or skill, it is not available on your node build yet.
 
 ### Related
