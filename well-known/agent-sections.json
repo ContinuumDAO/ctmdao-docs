@@ -1,7 +1,7 @@
 {
   "name": "ContinuumDAO For AI agents sections",
   "url": "https://docs.continuumdao.org/well-known/agent-sections.json",
-  "generatedAt": "2026-11-22T16:11:10.092Z",
+  "generatedAt": "2026-11-23T10:45:24.348Z",
   "instruction": "External AI agents with no Continuum node MCP tools answer operational questions from these raw markdown sections. Do not use the White Paper, GitHub, or a block explorer as the procedure.",
   "sections": [
     {
@@ -108,6 +108,13 @@
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp#for-ai-agents-telegram",
       "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md#for-ai-agents-telegram",
       "excerpt": "The turn is a webhook message. The operator’s words are the text: line. Reply in that language. For AI agents — language. A voice note is already transcribed in"
+    },
+    {
+      "page": "Terminal chat",
+      "title": "For AI agents — terminal chat",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat#for-ai-agents-terminal-chat",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md#for-ai-agents-terminal-chat",
+      "excerpt": "search continuum docs ( mpa chat / REPL / terminal chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/TerminalChat . You cannot type into this "
     },
     {
       "page": "Agent provision and configure",

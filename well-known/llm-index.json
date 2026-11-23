@@ -456,6 +456,13 @@
       "excerpt": "The turn is a webhook message. The operator’s words are the text: line. Reply in that language. For AI agents — language. A voice note is already transcribed in"
     },
     {
+      "page": "Terminal chat",
+      "title": "For AI agents — terminal chat",
+      "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat#for-ai-agents-terminal-chat",
+      "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md#for-ai-agents-terminal-chat",
+      "excerpt": "search continuum docs ( mpa chat / REPL / terminal chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/TerminalChat . You cannot type into this "
+    },
+    {
       "page": "Agent provision and configure",
       "title": "Hard rules for AI agents (VPS and home PC)",
       "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AgentProvision#hard-rules-for-ai-agents-vps-and-home-pc",
@@ -521,8 +528,8 @@
   ],
   "llmld:searchIndex": "https://docs.continuumdao.org/search-index.json",
   "llmld:markdownSuffix": ".md",
-  "generatedAt": "2026-11-22T16:11:10.092Z",
-  "pageCount": 68,
+  "generatedAt": "2026-11-23T10:45:24.348Z",
+  "pageCount": 69,
   "llmld:sections": [
     {
       "name": "AI harness",
@@ -531,7 +538,7 @@
           "name": "Agent chat",
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md",
-          "excerpt": "Open the harness from the cat icon (bottom right) after Provider is saved. The same composer is used in ordinary chat and in Plan mode. Type a message and press Enter . Shift+Enter adds a line. Type /"
+          "excerpt": "Open the harness from the cat icon (bottom right) after Provider is saved. The same composer is used in ordinary chat and in Plan mode. To type into this agent from a terminal on your computer, instal"
         },
         {
           "name": "AI-managed governance",
@@ -580,6 +587,12 @@
           "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp",
           "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TelegramMiniApp.md",
           "excerpt": "Talk to your node’s built in AI agent from Telegram on your phone. This is the same harness as Agent chat in the node app — not a separate agent. Harness overview: AI harness overview. Finish Configur"
+        },
+        {
+          "name": "Terminal chat",
+          "url": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat",
+          "markdown": "https://docs.continuumdao.org/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md",
+          "excerpt": "mpa chat is a small program you run in a terminal on your own computer. You type a line, and the AI agent on your node replies in that same window. It is the same agent as Agent chat in the node app. "
         }
       ]
     },
