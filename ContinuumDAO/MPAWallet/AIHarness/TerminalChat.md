@@ -10,12 +10,12 @@ Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness
 
 ### Install
 
-Packages are published for Linux: Ubuntu, Debian, Arch Linux, and Omarchy. Windows and macOS do not have a package yet. On those computers, use Agent chat in the node app.
+Packages are published for Linux and Windows. macOS does not have a package yet. On a Mac, use Agent chat in the node app.
 
 1. Attach the node app and open **Node → REPL Downloads**.
-2. Choose **Linux**, then the distribution. Omarchy uses the Arch package.
-3. Download the package. The page picks the file for the processor in that browser. A normal PC is `amd64` (Ubuntu and Debian) or `x86_64` (Arch). An ARM machine is `arm64` or `aarch64`.
-4. Open a terminal in the folder where the file was saved.
+2. Choose **Linux** or **Windows**. On Linux, choose the distribution. Omarchy uses the Arch package. **Other** is a plain archive for a Linux that is not in the list.
+3. Download the package. The page picks the file for the processor in that browser. A normal PC is `amd64` or `x86_64`. An ARM machine is `arm64` or `aarch64`.
+4. Open a terminal in the folder where the file was saved. On Windows, use PowerShell.
 5. Install it with the command shown on that page.
 
 Ubuntu or Debian:
@@ -30,7 +30,31 @@ Arch or Omarchy:
 sudo pacman -U ./mpa-chat-0.1.0-1-x86_64.pkg.tar.zst
 ```
 
-Use the file name you downloaded. The version in the name changes when a new package is published. The install also pulls in OpenSSH, which the chat uses to reach the node.
+Fedora:
+
+```bash
+sudo dnf install ./mpa-chat-0.1.0-1.x86_64.rpm
+```
+
+openSUSE:
+
+```bash
+sudo zypper install --allow-unsigned-rpm ./mpa-chat-0.1.0-1.suse.x86_64.rpm
+```
+
+Other Linux:
+
+```bash
+tar -xzf ./mpa-chat_0.1.0_linux_amd64.tar.gz && sudo install -m 755 mpa-chat /usr/local/bin/mpa-chat
+```
+
+Windows:
+
+```powershell
+Expand-Archive .\mpa-chat_0.1.0_windows_amd64.zip -DestinationPath .
+```
+
+Use the file name you downloaded. The version in the name changes when a new package is published. The Ubuntu, Debian, Arch, Fedora, and openSUSE packages also install OpenSSH, which the chat uses to reach the node. The other-Linux archive is only the program, so OpenSSH needs to be installed already. On Windows, turn on the **OpenSSH Client** optional feature so `ssh` is available, then run `.\mpa-chat.exe` from the folder where you expanded the zip.
 
 The same files are on the [mpc-config releases page](https://github.com/ContinuumDAO/mpc-config/releases/latest). If the node app cannot fetch the latest file, download it from there and run the same install command.
 
@@ -44,6 +68,12 @@ mpa-chat uses an SSH tunnel that is already open. That is the tunnel from the no
 mpa-chat
 ```
 
+On Windows, from the folder where you expanded the zip:
+
+```powershell
+.\mpa-chat.exe
+```
+
 It talks to the node at `http://127.0.0.1:8080` through that tunnel and does not ask for a password.
 
 If there is no tunnel, give it the node’s IP address or machine name. mpa-chat opens the tunnel for you:
@@ -51,6 +81,13 @@ If there is no tunnel, give it the node’s IP address or machine name. mpa-chat
 ```bash
 mpa-chat 203.0.113.10
 mpa-chat your-node.example
+```
+
+On Windows:
+
+```powershell
+.\mpa-chat.exe 203.0.113.10
+.\mpa-chat.exe your-node.example
 ```
 
 An address or name on its own logs in as **`mpcnode`**. To use another account, write `you@203.0.113.10` or `you@your-node.example`.
@@ -70,9 +107,10 @@ Type a message and press Enter. The reply streams into the same window. While a 
 | **Enter** | Sends the line |
 | **`/help`** | Lists the commands |
 | **Ctrl-C** | Stops the reply that is running and stays in the chat. If nothing is running, it tells you how to leave |
-| **`logout`**, **`exit`**, **`quit`**, or **Ctrl-D** | Leaves |
+| **`logout`**, **`exit`**, or **`quit`** | Leaves |
+| **Ctrl-D** | Leaves on Linux. On Windows, **Ctrl-Z** then Enter does the same |
 
-For more about the command-line options, run `mpa-chat --help`. That lists the SSH port, the key file, and the ports the tunnel forwards. Inside the chat, `/help` lists the chat commands.
+For more about the command-line options, run `mpa-chat --help`. On Windows that is `.\mpa-chat.exe --help`. That lists the SSH port, the key file, and the ports the tunnel forwards. Inside the chat, `/help` lists the chat commands.
 
 ---
 
@@ -114,11 +152,11 @@ Charts, menus, and other pictures that Agent chat draws in the browser are not d
 
 You cannot type into this program. Give the operator one exact command to paste.
 
-Install is a Linux package from **Node → REPL Downloads**, or the matching asset on `https://github.com/ContinuumDAO/mpc-config/releases/latest`. Ubuntu/Debian: `sudo apt install ./<file>.deb`. Arch and Omarchy: `sudo pacman -U ./<file>.pkg.tar.zst`. The package depends on OpenSSH. There is no Windows or macOS package.
+Install is a package from **Node → REPL Downloads**, or the matching asset on `https://github.com/ContinuumDAO/mpc-config/releases/latest`. Ubuntu/Debian: `sudo apt install ./<file>.deb`. Arch and Omarchy: `sudo pacman -U ./<file>.pkg.tar.zst`. Fedora: `sudo dnf install ./<file>.rpm`. openSUSE: `sudo zypper install --allow-unsigned-rpm ./<file>.suse.<arch>.rpm`. Other Linux: `tar -xzf ./<file>.tar.gz && sudo install -m 755 mpa-chat /usr/local/bin/mpa-chat`. Windows: `Expand-Archive .\<file>.zip -DestinationPath .`, then `.\mpa-chat.exe`. Those packages depend on OpenSSH, except the plain archive and the Windows zip: the operator installs OpenSSH (on Windows, the OpenSSH Client optional feature). There is no macOS package. On Windows, `logout` leaves, and Ctrl-Z then Enter also leaves.
 
-With no address, `mpa-chat` uses an SSH tunnel that is already open (or a node on this computer) at `http://127.0.0.1:8080`. If there is no tunnel, `mpa-chat <ip-or-hostname>` opens one as `mpcnode@host` and forwards 3333, 8080, 18080, and 8446. `user@host` uses that account. Tell the operator to run `mpa-chat --help` for the command-line options. A read JWT, when the listener is Browser HTTPS, is `--token` or `token` in `mpc-chat/config.yaml` under the user config directory (`~/.config/mpc-chat/config.yaml` on Linux). The SSH-tunnel path does not need it.
+With no address, `mpa-chat` uses an SSH tunnel that is already open (or a node on this computer) at `http://127.0.0.1:8080`. If there is no tunnel, `mpa-chat <ip-or-hostname>` opens one as `mpcnode@host` and forwards 3333, 8080, 18080, and 8446. `user@host` uses that account. Tell the operator to run `mpa-chat --help` (on Windows, `.\mpa-chat.exe --help`) for the command-line options. A read JWT, when the listener is Browser HTTPS, is `--token` or `token` in `mpc-chat/config.yaml` under the user config directory (`~/.config/mpc-chat/config.yaml` on Linux). The SSH-tunnel path does not need it.
 
-Chat commands are `/help`, `/new`, `/stop`, `/conversations`, `/use`, `/cron`, `/hooks`, `/plan`, `/skills`, `/mcp`, `/load_skill`, `/load_web3_protocol`, `/load_mcp_server_external`, `/run_mcp_tool`, `/upload_image_or_pdf`, and custom `/name` prompts. `logout`, `exit`, `quit`, and Ctrl-D leave. Ctrl-C cancels the current turn.
+Chat commands are `/help`, `/new`, `/stop`, `/conversations`, `/use`, `/cron`, `/hooks`, `/plan`, `/skills`, `/mcp`, `/load_skill`, `/load_web3_protocol`, `/load_mcp_server_external`, `/run_mcp_tool`, `/upload_image_or_pdf`, and custom `/name` prompts. `logout`, `exit`, and `quit` leave. Ctrl-D leaves on Linux. Ctrl-C cancels the current turn.
 
 Cron, webhook, and add-MCP writes are signed on the node with the on-disk Ed25519 management key. There is no browser signature step. Warn the operator before a command that adds, changes, or removes a job or webhook. Spending still uses the MPC Accept/Reject loop.
 
