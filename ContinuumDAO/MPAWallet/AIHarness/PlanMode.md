@@ -37,7 +37,7 @@ While you are still drafting, nothing is sent to your KeyGen peers. Execution on
 
 ### How to use it
 
-1. **Start a plan** — in Agent chat, choose **New plan** and pick a starter (market, yield, research, portfolio, **Hedging strategies**, DAO, **Create a plugin**, or custom). On Telegram, **New plan** beside **New chat** offers the same modes.
+1. **Start a plan** — in Agent chat, choose **New plan** and pick a starter (market, yield, research, portfolio, **Hedging strategies**, DAO, **Create a plugin**, or custom). On Telegram, **New plan** beside **New chat** offers the same modes. In a terminal, `/plan new` does the same. See [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md).
 2. **Describe the goal** — talk through what you want in plain language. The agent turns that into a readable plan you can review (**View plan** in the UI).
 3. **Refine** — ask for changes, extra research, or clearer risks until the plan matches what you want.
 4. **Execute plan** — when ready, run the plan on your preferred KeyGen. Other nodes in the Group see it on their KeyGen channel and can Accept or Reject any wallet actions the plan triggers. **Create a plugin** is the exception: Execute writes the plugin on this node and does not post it to KeyGen.

@@ -1,6 +1,6 @@
 ## Agent chat
 
-Open the harness from the **cat icon** (bottom-right) after [Provider](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#1-link-an-llm-required-for-the-agent) is saved. The same composer is used in ordinary chat and in [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md).
+Open the harness from the **cat icon** (bottom-right) after [Provider](/ContinuumDAO/MPAWallet/AIHarness/Configure.md#1-link-an-llm-required-for-the-agent) is saved. The same composer is used in ordinary chat and in [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md). To type into this agent from a terminal on your computer, install [mpa-chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md).
 
 Type a message and press **Enter**. **Shift+Enter** adds a line. Type **`/`** for commands.
 

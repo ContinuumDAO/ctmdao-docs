@@ -94,6 +94,7 @@ A voice note is already transcribed into `text` before the turn. A photo or PDF 
 - [AI harness overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
+- [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md)
 - [AI-managed governance](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md)
 - [Plan mode](/ContinuumDAO/MPAWallet/AIHarness/PlanMode.md)
 - [AI charting](/ContinuumDAO/MPAWallet/AICharting.md)

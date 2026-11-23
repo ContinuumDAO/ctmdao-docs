@@ -2,7 +2,7 @@
 
 Every MPC node ships an **AI agent harness**: one LLM, one set of tools, and the threads, schedules, and inbound hooks that use them. Wallet spends still go through the [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md). The harness is optional — the node app can run Groups, KeyGens, and multi-sign without it.
 
-Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md). Extra skill and prompt packages: [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md). Solidity from chat: [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md).
+Link a model first: [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md). Open chat from the **cat icon** (bottom-right). Composer features (`/` commands, prompts, files, paste, skills, any language, microphone): [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md). The same agent from a terminal on your computer: [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md). Extra skill and prompt packages: [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md). Solidity from chat: [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md).
 
 ---
 
@@ -103,11 +103,13 @@ Discover this page with `search_continuum_docs` (`AI Agent tabs` / `AI harness`)
 | **Plugins** | `agent_search_plugins`, `agent_install_plugin`, `agent_enable_plugin`. Show the review before `confirmPermissions`. [For AI agents — plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md#for-ai-agents-plugins). |
 | **Workspace** | Native file tools, under an allowed subtree. `agent_write_user_skill` for `skills/<name>/SKILL.md`. |
 | **Conversations** | The operator opens and deletes threads in the UI. |
+| **Terminal chat** | The operator runs `mpa-chat` on their computer. You cannot type into it. Coach them from [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md#for-ai-agents-terminal-chat). |
 | **Cron** | The operator signs jobs on the Cron tab, including **Instant** on one job (`reject-all-sign-request`, `auto-accept-sign-request`, `conditional-accept-sign-request`, or `auto-sign-and-broadcast`). There is no chat tool for that switch. Accept Instant hooks weaken the MPC review on this node; signing still uses threshold shares and no private key. Warn the operator before they enable an accept hook. `auto-sign-and-broadcast` does not use that warning. Governance examples: [Optional automation](/ContinuumDAO/MPAWallet/AIHarness/AgentGovernance.md#optional-automation-cron). |
 
 ### Related
 
 - [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
+- [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md)
 - [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
 - [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
 - [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md)

@@ -50,6 +50,7 @@
   * [Overview](/ContinuumDAO/MPAWallet/AIHarness/Overview.md)
   * [Configure the AI harness](/ContinuumDAO/MPAWallet/AIHarness/Configure.md)
   * [Agent chat](/ContinuumDAO/MPAWallet/AIHarness/AgentChat.md)
+  * [Terminal chat](/ContinuumDAO/MPAWallet/AIHarness/TerminalChat.md)
   * [MCP servers](/ContinuumDAO/MPAWallet/AIHarness/McpServers.md)
   * [Creating smart contracts](/ContinuumDAO/MPAWallet/AIHarness/CreatingSmartContracts.md)
   * [Plugins](/ContinuumDAO/MPAWallet/AIHarness/Plugins.md)
