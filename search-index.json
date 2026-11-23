@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T10:45:24.348Z",
+  "generatedAt": "2026-11-23T12:02:12.090Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -2068,13 +2068,13 @@
           "id": "install",
           "title": "Install",
           "level": 3,
-          "excerpt": "Packages are published for Linux: Ubuntu, Debian, Arch Linux, and Omarchy. Windows and macOS do not have a package yet. On those computers, use Agent chat in the node app. 1. Attach the node app and open Node → REPL Downloads . 2. Choose Linux , then the distribution. Omarchy uses the Arch package. "
+          "excerpt": "Packages are published for Linux and Windows. macOS does not have a package yet. On a Mac, use Agent chat in the node app. 1. Attach the node app and open Node → REPL Downloads . 2. Choose Linux or Windows . On Linux, choose the distribution. Omarchy uses the Arch package. Other is a plain archive f"
         },
         {
           "id": "start-a-chat",
           "title": "Start a chat",
           "level": 3,
-          "excerpt": "mpa chat uses an SSH tunnel that is already open. That is the tunnel from the node app, or the node itself when it is running on this computer. Both already answer on this machine, so run: bash mpa chat It talks to the node at http://127.0.0.1:8080 through that tunnel and does not ask for a password"
+          "excerpt": "mpa chat uses an SSH tunnel that is already open. That is the tunnel from the node app, or the node itself when it is running on this computer. Both already answer on this machine, so run: bash mpa chat On Windows, from the folder where you expanded the zip: powershell .\\mpa chat.exe It talks to the"
         },
         {
           "id": "what-you-can-ask",
@@ -2086,7 +2086,7 @@
           "id": "for-ai-agents-terminal-chat",
           "title": "For AI agents — terminal chat",
           "level": 3,
-          "excerpt": "search continuum docs ( mpa chat / REPL / terminal chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/TerminalChat . You cannot type into this program. Give the operator one exact command to paste. Install is a Linux package from Node → REPL Downloads , or the matching asset on http"
+          "excerpt": "search continuum docs ( mpa chat / REPL / terminal chat ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/TerminalChat . You cannot type into this program. Give the operator one exact command to paste. Install is a package from Node → REPL Downloads , or the matching asset on https://gi"
         },
         {
           "id": "related",
