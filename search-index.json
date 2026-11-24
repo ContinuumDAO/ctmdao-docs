@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-23T12:02:12.090Z",
+  "generatedAt": "2026-11-24T23:02:34.062Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3587,7 +3587,7 @@
           "id": "settings-by-analysis-type",
           "title": "Settings by analysis type",
           "level": 4,
-          "excerpt": "Analysis Desk keys ( trade desk.yaml ) Trend structure Universal proximity, minTradeRatio Elliott Wave Universal proximity (bar count guidance is in the analysis skill) Key levels Universal proximity Key level Fibonacci fibKeyLevelMinConfidence (default 0.35 ), universal proximity Momentum — (confir"
+          "excerpt": "Analysis Desk keys ( trade desk.yaml ) Trend structure Universal proximity, minTradeRatio Elliott Wave Universal proximity (bar count guidance is in the analysis skill) Key levels Universal proximity Key level Fibonacci keyLevelFibonacci.minTouches (default 3 ), retracementRatio (default 0.618 ), un"
         },
         {
           "id": "examples",
