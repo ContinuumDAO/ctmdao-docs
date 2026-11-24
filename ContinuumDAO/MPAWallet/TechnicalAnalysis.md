@@ -60,7 +60,7 @@ Bollinger fade gates use their own pair: `bollingerEntryProximityMode` / `bollin
 | **Trend structure** | Universal proximity, `minTradeRatio` |
 | **Elliott Wave** | Universal proximity (bar-count guidance is in the analysis skill) |
 | **Key levels** | Universal proximity |
-| **Key level Fibonacci** | `fibKeyLevelMinConfidence` (default **0.35**), universal proximity |
+| **Key level Fibonacci** | `keyLevelFibonacci.minTouches` (default **3**), `retracementRatio` (default **0.618**), universal proximity |
 | **Momentum** | — (confirmation only; not a standalone trade idea) |
 | **Liquidity depth** | `depthExchangeId`, `depthSampleIntervalSec`, `depthAverageWindowSec`, `depthLimit`, `depthLevelCount` |
 | **Divergence** | `divergenceOscillator` (`rsi` \| `stochasticrsi` \| `both`), `divergenceMaxLag` |
@@ -109,8 +109,9 @@ universal:
 **Fibonacci — require stronger key levels in the bracket:**
 
 ```yaml
-universal:
-  fibKeyLevelMinConfidence: 0.45   # default is 0.35 (strength/100 per leg)
+keyLevelFibonacci:
+  minTouches: 4          # default is 3 touches on each bracket leg
+  retracementRatio: 0.5  # default is 0.618
 ```
 
 ### Related
