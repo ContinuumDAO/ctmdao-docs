@@ -28,7 +28,7 @@ New nodes seed **`coinmarketcap-public`** and **`coinbase-public`** in the catal
 | **Arcus** | Perp | DeFi protocol pack (`arcus`) | Robinhood Chain. Live mids when enabled. |
 | **Arcus spot (stock tokens)** | Spot | Same `arcus` pack (spot OHLCV tools) | Spot RFQ markets on Arcus. |
 | **GMX** | Perp / index-style | DeFi protocol pack (`gmx`) | Live mark price when enabled. Volume may be absent on rows. |
-| **Derive** | Options / index | DeFi protocol pack (`derive`) | Option candles by `instrumentName`, or index candles by currency. Optional — not a substitute for a live option quote. No API key. |
+| **Derive** | Options / perps / index | DeFi protocol pack (`derive`) | Option or perp candles by `instrumentName` (`marketKind` `option` or `perp`), or index candles by currency. No API key. |
 | **Uniswap v4** | DEX pool spot | DeFi protocol pack (`uniswap-v4`) | Pool OHLCV via pool list / presets. Optional **`THE_GRAPH_API_KEY`**; some Robinhood-chain paths need **`BITQUERY_API_KEY`**. |
 
 #### Built-in catalog servers

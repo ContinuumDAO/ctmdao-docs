@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-24T23:02:34.062Z",
+  "generatedAt": "2026-11-25T15:26:19.653Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -3637,7 +3637,7 @@
           "id": "from-a-trade-idea-to-a-multi-sign-request",
           "title": "From a trade idea to a multi-sign request",
           "level": 3,
-          "excerpt": "1. Choose a trade idea ( Build N , or ask the agent to build a specific idea). 2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see DeFi protocol support). Derive options are not a trade idea venue — build trade is perp/spot only. Charting Derive"
+          "excerpt": "1. Choose a trade idea ( Build N , or ask the agent to build a specific idea). 2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, Uniswap, or Derive perps — see DeFi protocol support). Derive options are not a trade idea venue. A Derive perp needs chain 1 , a s"
         },
         {
           "id": "scheduling-with-cron",

@@ -228,7 +228,7 @@ Some protocols authorize actions with an **EIP-712 typed-data signature** instea
 Typical uses:
 
 - **Hyperliquid** L1 `/exchange` actions (`updateLeverage`, orders, cancels, and similar) — phantom-agent `Agent` typed data, domain `Exchange`
-- **Derive** options place / replace / internal transfer — `Action` typed data, domain `Matching` (settlement `chainId` **1** / **11155111**). Cancels use EIP-191 login, not EIP-712.
+- **Derive** option and perp orders, collateral moves, and withdraws — `Action` typed data, domain `Matching` (settlement `chainId` **1** / **11155111**). Cancels are a group approval. The node signs the login headers at POST.
 - **Permit2** `PermitSingle` — signed allowance, then an optional on-chain `permit` call at Execute
 - **Custom typed data** you build in Compose or via agent/script
 
@@ -288,7 +288,7 @@ After threshold **Accept** and MPC signing on **Execute**, the originator **deli
 |---------------|-------------------|
 | **`none`** | Export or copy the signature — no automatic POST or broadcast |
 | **`hyperliquid_exchange`** | POST the action plus `{r,s,v}` and `nonce` to Hyperliquid `/exchange` |
-| **`derive_exchange`** | POST the signed Derive `Action` (place / replace / transfer) to Derive `private/order` (and related private methods) |
+| **`derive_exchange`** | POST the signed Derive order, transfer, withdraw, or cancel. Login headers are signed at POST by the login session key |
 | **`permit2_submit`** | Broadcast `Permit2.permit(owner, permitSingle, signature)` on-chain |
 
 EIP-712 rounds omit transaction **txParams**, fee-bump controls, and gas overrides on trigger — MPC signs the digest(s) only. On-chain gas applies only when a delivery kind submits a transaction (for example Permit2).

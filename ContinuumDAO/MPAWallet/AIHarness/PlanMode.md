@@ -50,7 +50,7 @@ Any on-chain step still goes through the normal [MPC Accept/Reject loop](/Contin
 
 ### Hedging strategies
 
-Use **Hedging strategies** when you want to cut directional risk **without dumping core coins**. The agent interviews first (what to keep, what to cut, ratio, horizon, budget, venue, unwind), then writes the plan from **live MPA inventory** — spot, LP (Uniswap / Curve / Aerodrome / Pendle), lending, Morpho/Euler Earn, Pendle PT/YT, open perps, or Derive options.
+Use **Hedging strategies** when you want to cut directional risk **without dumping core coins**. The agent interviews first (what to keep, what to cut, ratio, horizon, budget, venue, unwind), then writes the plan from **live MPA inventory** — spot, LP (Uniswap / Curve / Aerodrome / Pendle), lending, Morpho/Euler Earn, Pendle PT/YT, open perps, or Derive options and perps.
 
 Typical overlays: isolated perp short, Derive put/collar when you need a defined max loss, a stable sleeve, a basis book, a hedged LP, or Pendle PT/YT. Morpho Earn and Euler curated Earn (including RWA / reinsurance vaults) are **diversification** and opt-in — default is crypto-lending only.
 

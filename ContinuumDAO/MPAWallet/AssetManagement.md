@@ -25,7 +25,7 @@ Protocol buttons are **asset-specific**: the wallet only shows integrations that
 - **Chainlink CCIP** — on a reviewed CCIP token, and on the gas-asset row. A gas send wraps native gas; the destination receives the wrapped token
 - **Stargate** — on a Stargate pool, native pool, or Hydra OFT, and on the gas row for a native pool. The wallet attaches the messaging quote plus 50%
 - **deBridge** — on a deBridge token, and on the gas row when native gas is listed. The destination receives the same symbol. The flat native fee is paid exactly
-- **Derive** — only on **fundable** rows: **ETH / USDC / WETH / WBTC** on Ethereum; **USDC / WETH / WBTC** on Optimism and Arbitrum; **USDC / WETH** on Base; **HYPE / WHYPE** on HyperEVM. The logo is **not** shown on other rows or on Derive L2 (**957**).
+- **Derive** — only on **fundable** rows: **ETH / USDC / WETH / WBTC** on Ethereum; **USDC / WETH / WBTC** on Optimism and Arbitrum; **USDC / WETH** on Base; **HYPE / WHYPE** on HyperEVM. The dialog trades crypto and RWA options and perps. The logo is **not** shown on other rows or on Derive L2 (**957**).
 - On **Base**, rows may also expose **Aerodrome** (spot swaps, LP, gauges, Coinbase B20 stocks) and **Trueo** (native ETH, USDC, TYD, TRUE, and YES/NO rows)
 - On **Hyperliquid** (chain **999** / testnet **998**), the native asset row exposes **Hyperliquid** perps and, beside it, **Hyperliquid Outcomes** (HIP-4 Yes/No markets)
 - Other ERC-20 rows may expose **Aave**, **Compound III**, **Euler**, **Morpho**, **Uniswap**, **Curve**, **Railgun** (shield into a private 0zk balance), and similar packs when that asset is supported in the protocol UI

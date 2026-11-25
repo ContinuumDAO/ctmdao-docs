@@ -63,7 +63,7 @@ The **`continuum`** server is the agent’s primary wallet interface. It is **no
 | Tool | Use |
 |------|-----|
 | **`create_compose_multi_sign_request`** | Custom contract calls and transfers from compose **`actions[]`** |
-| **`create_compose_eip712_multi_sign_request`** | One or more [EIP-712 typed-data signatures](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#eip-712-typed-data-signatures) — Hyperliquid `/exchange`, Derive options `Action`, Permit2, custom typed data; no unsigned tx calldata |
+| **`create_compose_eip712_multi_sign_request`** | One or more [EIP-712 typed-data signatures](/ContinuumDAO/MPAWallet/ComposeTransactionFlow.md#eip-712-typed-data-signatures) — Hyperliquid `/exchange`, Derive option and perp `Action`, Permit2, custom typed data; no unsigned tx calldata |
 | **`import_forge_dry_run_multi_sign_request`** | Import Foundry **`run-latest.json`** (same as Compose **Import from Foundry broadcast**) |
 | **`create_forge_multi_sign_request`** | Inline Foundry broadcast JSON |
 | **`create_joined_multi_sign_request`** | Merge compatible compose / Foundry batches on the same KeyGen and chain |

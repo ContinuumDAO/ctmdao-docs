@@ -15,7 +15,7 @@ PRIMARY ideas are tied to the analysis that produced them (trend structure, Fib 
 ### From a trade idea to a multi-sign request
 
 1. Choose a trade idea (**Build #N**, or ask the agent to build a specific idea).
-2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, or Uniswap — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)). **Derive options are not a trade-idea venue** — `build_trade` is perp/spot only. Charting Derive OHLCV can still run technical analysis, but the resulting entry / target / invalidation idea does not become a Derive call or put.
+2. Confirm sizing and execution venue when prompted (for example Hyperliquid, GMX, Arcus, Uniswap, or Derive perps — see [DeFi protocol support](/ContinuumDAO/MPAWallet/DeFiProtocolSupport.md)). **Derive options are not a trade-idea venue.** A Derive perp needs chain **1**, a `subaccountId`, and a coin such as `ETH-PERP` or `NVDA-PERP`.
 3. The agent builds a **multi-sign request** (management-signed by your node’s default Ed25519 signer) for your preferred KeyGen.
 4. Other nodes in the KeyGen **Accept** or **Reject** as usual on the **Join** tab (Purpose, Thoughts, time limits, **Execute**, and **History** — see [MPC Accept/Reject loop](/ContinuumDAO/MPAWallet/MPCAcceptRejectLoop.md)). Only after threshold agreement can the originator complete MPC signing and execution. In a typical **2/2** personal wallet, that “other node” is your human circuit breaker — the AI node cannot spend alone. Larger Groups need more Accepts per their KeyGen threshold.
 
@@ -61,7 +61,7 @@ Universal build fields under `universal:`:
 | `assumedLeverage` | Isolated leverage for perp liquidation estimates (default **10**). |
 | `autoSubmitMultisign` | Allow cron/automation to submit without operator review (default **false**). |
 
-Protocol blocks under `protocols:` (`hyperliquid`, `arcus`, `gmx`, `uniswap`) set default sizing, time-in-force, collateral, and Hyperliquid/Arcus bracket TP offsets (`targetOffsetPct`, `targetOffsetMode`, `tpslExecMode`). Optional `purposeSuffix` per analysis kind appends to multisign Purpose text.
+Protocol blocks under `protocols:` (`hyperliquid`, `arcus`, `gmx`, `uniswap`, `derive`) set default sizing, time-in-force, collateral, and bracket TP offsets (`targetOffsetPct`, `targetOffsetMode`, `tpslExecMode`). Derive perps use chain **1**, require `subaccountId`, and place take-profit and stop as separate orders. Purpose prefix `drv`. Optional `purposeSuffix` per analysis kind appends to multisign Purpose text.
 
 **`llmFallback:`** skips the fast path and loads **`trade-defaults`** — for example when `status` is **unclear**, when a clear break+retest alternate exists, or always for setup code **`kl-ret`**.
 
