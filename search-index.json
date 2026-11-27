@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-27T10:57:09.723Z",
+  "generatedAt": "2026-11-27T20:27:31.576Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1901,7 +1901,7 @@
           "id": "preferred-keygen",
           "title": "Preferred KeyGen",
           "level": 5,
-          "excerpt": "pi.preferredKeyGenAddress() returns the node's current preferred KeyGen Ethereum address when a tool or hook runs."
+          "excerpt": "pi.preferredKeyGenAddress() returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. await pi.keyGenEthereumAddress(keyGenId) returns { address, keyGenId } for another KeyGen this node belongs to. An empty id is the preferred KeyGen."
         },
         {
           "id": "telegram",
