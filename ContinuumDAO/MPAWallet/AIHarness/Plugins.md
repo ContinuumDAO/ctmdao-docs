@@ -156,7 +156,7 @@ The finding names and the checks on the download are in [For AI agents — plugi
 
 ### For AI agents — plugins
 
-`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding` / `create a plugin` / `adapt plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, tool names, adapting a Claude, Codex, or Pi package, the create-a-plugin plan, the publish procedure, index fields, and the install scan are in this section.
+`search_continuum_docs` (`MPA plugins` / `install plugin` / `publish plugin` / `plugin coding` / `create a plugin` / `adapt plugin`) then `get_continuum_doc` path `ContinuumDAO/MPAWallet/AIHarness/Plugins` section `for-ai-agents-plugins`. Package layout, entrypoint imports, Telegram and KeyGen sends, tool names, adapting a Claude, Codex, or Pi package, the create-a-plugin plan, the publish procedure, index fields, and the install scan are in this section.
 
 Load **`mpa-plugin-author`** first. These tools are added with that skill. Load **`mpa-plugin-review`** before install, update, or enable, and show its recommendation (each risk, and the **accept** or **reject** rule) before asking the operator whether to continue. A plugin’s own tools appear after its skill is loaded. `/<name>` or **`agent_load_skill`** does that.
 
@@ -267,6 +267,14 @@ Direct imports from the package root are `ethers`, `express`, `zod`, `graphql-re
 ##### Preferred KeyGen
 
 `pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs.
+
+##### Telegram
+
+`await pi.sendTelegram({ text, webhookName })` sends `text` with that Telegram webhook's bot to the operator chat. Omit `webhookName` to use the node's default bot. A string is enough for that default bot: `await pi.sendTelegram('hello')`. The call returns `sent`, `chatId`, and `chunks`.
+
+##### KeyGen message
+
+`await pi.sendKeyGenMessage({ title, body })` posts a message on the preferred KeyGen. The other nodes in that KeyGen receive it. A reply is `{ replyTo, body }` and has no title. `keyGenId` selects another KeyGen this node belongs to. The call returns `id`, `keyGenId`, and `createdAt`.
 
 ##### Chain configs, assets, and contacts
 
