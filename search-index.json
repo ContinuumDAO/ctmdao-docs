@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-25T15:26:19.653Z",
+  "generatedAt": "2026-11-27T10:57:09.723Z",
   "pages": [
     {
       "path": "ContinuumDAO/C3Caller/C3CallerDemo",
@@ -1738,6 +1738,8 @@
         "@openzeppelin/merkle-tree",
         "Sign request",
         "Preferred KeyGen",
+        "Telegram",
+        "KeyGen message",
         "Chain configs, assets, and contacts",
         "DeFi",
         "Market data",
@@ -1821,7 +1823,7 @@
           "id": "for-ai-agents-plugins",
           "title": "For AI agents — plugins",
           "level": 3,
-          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin / adapt plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, tool names, adapting a Claude, Codex, or P"
+          "excerpt": "search continuum docs ( MPA plugins / install plugin / publish plugin / plugin coding / create a plugin / adapt plugin ) then get continuum doc path ContinuumDAO/MPAWallet/AIHarness/Plugins section for ai agents plugins . Package layout, entrypoint imports, Telegram and KeyGen sends, tool names, ada"
         },
         {
           "id": "import-a-claude-codex-or-pi-package",
@@ -1900,6 +1902,18 @@
           "title": "Preferred KeyGen",
           "level": 5,
           "excerpt": "pi.preferredKeyGenAddress() returns the node's current preferred KeyGen Ethereum address when a tool or hook runs."
+        },
+        {
+          "id": "telegram",
+          "title": "Telegram",
+          "level": 5,
+          "excerpt": "await pi.sendTelegram({ text, webhookName }) sends text with that Telegram webhook's bot to the operator chat. Omit webhookName to use the node's default bot. A string is enough for that default bot: await pi.sendTelegram('hello') . The call returns sent , chatId , and chunks ."
+        },
+        {
+          "id": "keygen-message",
+          "title": "KeyGen message",
+          "level": 5,
+          "excerpt": "await pi.sendKeyGenMessage({ title, body }) posts a message on the preferred KeyGen. The other nodes in that KeyGen receive it. A reply is { replyTo, body } and has no title. keyGenId selects another KeyGen this node belongs to. The call returns id , keyGenId , and createdAt ."
         },
         {
           "id": "chain-configs-assets-and-contacts",
