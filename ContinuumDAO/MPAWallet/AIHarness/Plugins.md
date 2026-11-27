@@ -266,7 +266,7 @@ Direct imports from the package root are `ethers`, `express`, `zod`, `graphql-re
 
 ##### Preferred KeyGen
 
-`pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs.
+`pi.preferredKeyGenAddress()` returns the node's current preferred KeyGen Ethereum address when a tool or hook runs. `await pi.keyGenEthereumAddress(keyGenId)` returns `{ address, keyGenId }` for another KeyGen this node belongs to. An empty id is the preferred KeyGen.
 
 ##### Telegram
 
